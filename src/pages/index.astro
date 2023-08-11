@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/HeroTallVideo.astro';
+import Instructor from '../components/Instructor.astro';
+import Benefits from '../components/Benefits.astro';
+import Schedule from '../components/Schedule.astro';
+import Difference from '../components/Difference.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout meta={{ title: 'BJJ - Brazilian Jui Jitsu' }}>
+  <a href="#main" class="sr-only sr-only-focusable">Skip to content</a>
+  <main>
+    <!-- Heading & Hero -->
+    <Hero />
+    <!-- Instructor -->
+    <Instructor />
+    <!-- Benefits -->
+    <Benefits />
+    <!-- Schedule -->
+    <Schedule />
+    <!-- Difference -->
+    <Difference />
+    <!-- Contact -->
+    <Contact />
+    <!-- Footer -->
+    <Footer />
+  </main>
+</Layout>

@@ -1,0 +1,23 @@
+#hero {
+  mix-blend-mode: multiply;
+  filter: grayscale(30%);
+  opacity: 0.4;
+  width: auto;
+  max-width: initial;
+  max-height: 100dvh;
+}
+
+@media (min-width: 700px) {
+  #hero {
+    max-height: 200dvh !important;
+  }
+}
+@media (min-width: 1400px) {
+  #hero {
+    max-height: 300dvh !important;
+  }
+}
+
+.grid[data-grid-min-item='s'] {
+  --grid-min-item-size: 300px;
+}

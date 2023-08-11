@@ -1,0 +1,27 @@
+---
+import { Picture } from '@astrojs/image/components';
+import scheduleImg from '../assets/jiu-jitsu-schedule-2023-near-me.jpg';
+---
+
+<div class="region" style="--spot-color: var(--gray200);" id="schedule">
+  <div class="wrapper flow" style="--flow-space: var(--space-l);">
+    <div class="switcher">
+      <h2 class="uppercase">Our Schedule</h2>
+      <p>
+        Email us at frank@stallone.dev or call (908) 304-2855 for membership
+        information.
+      </p>
+    </div>
+    <Picture
+      src={scheduleImg}
+      widths={[520, 700, 2560]}
+      aspectRatio={2560 / 1878}
+      width={2560}
+      height={1878}
+      class="object-contain h-auto"
+      alt="SEO friendly alt text"
+      quality={80}
+      format="avif"
+    />
+  </div>
+</div>

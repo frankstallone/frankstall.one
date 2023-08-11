@@ -1,0 +1,14 @@
+.grid {
+  display: grid;
+  grid-gap: var(--gap, var(--space-s-m));
+  background-color: var(--spot-color, transparent);
+}
+
+@supports (width: min(400px, 100%)) {
+  .grid {
+    grid-template-columns: repeat(
+      var(--grid-placement, auto-fill),
+      minmax(var(--grid-min-item-size, min(400px, 100%)), 1fr)
+    );
+  }
+}

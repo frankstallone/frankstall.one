@@ -1,0 +1,41 @@
+---
+import { Picture } from '@astrojs/image/components';
+import instructorImg from '../assets/geo-specific-instructor.jpg';
+---
+
+<div
+  class="grid"
+  data-layout="50-50"
+  style="--gap: 0; --spot-color: var(--gray200);"
+  id="main"
+>
+  <div class="box flow prose" id="instructor">
+    <h2 class="uppercase">Our Head Instructor</h2>
+    <p>
+      Devhonte 'Bones' Johnson is a&nbsp;black belt under Unity Jiu Jitsu
+      Professor&nbsp;Murilo Santana. Regarded as one of the top American
+      grapplers of his generation, Devhonte has earned multiple World, Pan
+      American and European titles in the colored belt divisions as well as
+      black belt IBJJF Worlds No-Gi, Pan American No-Gi and European No-Gi
+      Championships.
+    </p>
+    <p>
+      Born in Paterson, New Jersey, Devhonte became increasingly interested in
+      sports as a child. Baseball and basketball became his passion through
+      sophomore year at Eastside High School when he decided to devote his time
+      solely to baseball. By chance, Devhonte discovered Jiu Jitsu during his
+      senior year, a martial art that would change his path and life.
+    </p>
+  </div>
+  <Picture
+    src={instructorImg}
+    widths={[520, 700, 2578]}
+    aspectRatio={2578 / 3867}
+    width={2578}
+    height={3867}
+    class="object-contain h-auto"
+    alt="SEO friendly alt text"
+    quality={80}
+    format="avif"
+  />
+</div>

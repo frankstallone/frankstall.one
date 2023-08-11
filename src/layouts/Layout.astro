@@ -1,0 +1,55 @@
+---
+import '../css/reset.css';
+import '../css/global.css';
+import '../css/barlow.css';
+import '../css/publicsans.css';
+import '../css/variables.css';
+import '../css/blocks/box.css';
+import '../css/blocks/card.css';
+import '../css/blocks/center.css';
+import '../css/blocks/grid.css';
+import '../css/blocks/prose.css';
+import '../css/blocks/cluster.css';
+import '../css/blocks/cover.css';
+import '../css/blocks/reel.css';
+import '../css/blocks/stack.css';
+import '../css/blocks/switcher.css';
+import '../css/utilities/content.css';
+import '../css/utilities/flow.css';
+import '../css/utilities/region.css';
+import '../css/utilities/wrapper.css';
+import '../css/utility.css';
+import '../css/exceptions.css';
+
+interface Props {
+  meta: {
+    title?: string;
+    description?: string;
+    canonicalURL?: URL | string;
+    image?: string;
+  };
+}
+
+const { meta } = Astro.props;
+
+const metaDescription = meta.description || 'BJJ - Brazilian Jiu Jitsu';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={metaDescription} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{meta.title}</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Schema.org -->
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

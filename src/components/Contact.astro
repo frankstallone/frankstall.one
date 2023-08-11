@@ -1,0 +1,50 @@
+---
+
+---
+
+<div class="region" style="--spot-color: var(--gray200);" id="contact">
+  <div class="wrapper flow prose" style="--flow-space: var(--space-l);">
+    <div class="switcher">
+      <div class="flow prose">
+        <h2 class="uppercase">Sign up today</h2>
+        <p>
+          Find out why everyone is saying Brazilian Jiu Jitsu is the #1 after
+          school activity in the United States.
+        </p>
+      </div>
+      <div class="flow prose">
+        <form
+          name="main"
+          netlify-honeypot="bot-field"
+          class="switcher"
+          method="POST"
+          data-netlify="true"
+          action="/"
+        >
+          <input type="hidden" name="subject" value="🦾 New Recruit" />
+          <p class="hidden">
+            <label for="bot-field">Do you like delicious treats?</label>
+            <input name="bot-field" id="bot-field" />
+          </p>
+          <span class="stack">
+            <label for="name">Kid(s) names</label>
+            <input id="name" type="text" required />
+          </span>
+          <span class="stack">
+            <label for="email">Email</label>
+            <input id="email" type="email" required />
+          </span>
+          <span class="stack">
+            <label for="tel">Phone number</label>
+            <input id="tel" type="tel" required />
+          </span>
+          <button
+            type="submit"
+            class="submit-button clip-right"
+            style="--spot-color: var(--gray1200);">Sign up today</button
+          >
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

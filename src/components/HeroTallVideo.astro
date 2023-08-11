@@ -1,0 +1,50 @@
+---
+import Header from './Header.astro';
+---
+
+<div class="cover" style="--cover-padding: 0;">
+  <Header />
+  <div class="switcher text-center">
+    <div class="box flex flex-col justify-center">
+      <h1 class="center step-5 uppercase">A Jiu Jitsu Family</h1>
+      <h2 class="center font-weight-base" style="margin-block-end: 1rem;">
+        The #1 after school activity
+      </h2>
+    </div>
+    <div
+      style="padding-bottom: 56.21521336%; min-height: 75lvh;"
+      class="text-center relative overflow-hidden"
+    >
+      <video
+        height="720"
+        width="1280"
+        preload="auto"
+        autoplay
+        controls
+        loop
+        muted
+        style="width: 100%; height: 100%;"
+        class="absolute inset-0"
+        playsinline
+      >
+        <source
+          src="/media/students-adults-kids-bjj-honors.mp4"
+          type="video/mp4"
+        />
+      </video>
+    </div>
+  </div>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="step-2"
+    style="margin-block-end: 1rem;"
+    viewBox="0 0 512 512"
+  >
+    <path
+      d="M278.6 470.6c-12.5 12.5-32.8 12.5-45.3 0l-192-192c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L256 402.7 425.4 233.4c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3l-192 192z"
+    ></path><path
+      style="opacity: 0.4;"
+      d="M278.6 278.6c-12.5 12.5-32.8 12.5-45.3 0l-192-192c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L256 210.7 425.4 41.4c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3l-192 192z"
+    ></path></svg
+  >
+</div>

@@ -1,0 +1,770 @@
+/* Utility classes */
+
+/* Main navigation buttons */
+.button a {
+  color: var(--gray1200);
+  font-size: var(--step-1);
+  display: inline-block;
+  text-decoration: none;
+}
+
+.button a:hover,
+.button a:focus,
+.button a:active {
+  color: var(--gray1100);
+  text-decoration: underline;
+  text-decoration-thickness: max(0.15em, 1px);
+}
+
+/* Clips */
+
+.clip-right {
+  clip-path: polygon(
+    var(--skew-s) 0%,
+    100% 0%,
+    calc(100% - var(--skew-s)) 100%,
+    0% 100%
+  );
+}
+
+/* Text */
+
+.color-loud-text {
+  color: var(--color-loud);
+}
+
+.emphasized-header {
+  clip-path: polygon(
+    var(--skew-s) 0%,
+    100% 0%,
+    calc(100% - var(--skew-s)) 100%,
+    0% 100%
+  );
+  background: var(--color-loud);
+  color: var(--color-light);
+  padding: var(--space-xs) var(--space-xl);
+}
+
+/* Width */
+
+.max-inline-size\:measure-lg {
+  max-inline-size: calc(var(--measure) * 1.25) !important;
+}
+
+.max-inline-size\:measure {
+  max-inline-size: var(--measure) !important;
+}
+
+.max-inline-size\:measure\/2 {
+  max-inline-size: calc(var(--measure) / 1.25) !important;
+}
+
+.max-inline-size\:paragraph {
+  max-inline-size: 50ch !important;
+}
+
+.max-inline-size-full {
+  max-inline-size: 100vw;
+}
+
+/* Buttons */
+
+.submit-button {
+  border: none;
+  background-color: var(--spot-color, var(--gray1200));
+  color: var(--gray100);
+  padding-inline: var(--space-m);
+  padding-block: var(--space-s);
+}
+
+/* Region */
+
+.region[data-padding='l'] {
+  --region-space-top: var(--space-l-2xl);
+  --region-space-bottom: var(--space-l-2xl);
+}
+
+/* Box */
+
+.box[data-padding='xl'] {
+  --padding: var(--space-xl);
+}
+
+.box[data-padding='2xl'] {
+  --padding: var(--space-2xl);
+}
+
+.box[data-padding='3xl'] {
+  --padding: var(--space-3xl);
+}
+
+/* Switcher */
+
+.switcher[data-gap='none'] {
+  --gap: 0;
+}
+
+.switcher[data-trenshold='xl'] {
+  --threshold: 50rem;
+}
+
+/* Wrapper */
+
+.wrapper[data-layout='md'] {
+  --measure: 100ch;
+}
+
+/* Reel */
+
+.reel[data-gap='m-l'] {
+  --grid-gap: var(--space-m-l);
+}
+
+/* Card */
+
+.card[data-layout='full'] {
+  --max-width: auto;
+}
+
+/* Grid */
+
+.grid[data-layout='50-50'] {
+  --grid-placement: auto-fit;
+}
+
+.grid[data-rows='masonry'] {
+  align-items: start;
+  grid-template-rows: masonry;
+}
+
+/* Flex */
+
+.flex {
+  display: flex;
+}
+
+flex-1 {
+  flex: 1 1 0%;
+}
+flex-auto {
+  flex: 1 1 auto;
+}
+flex-initial {
+  flex: 0 1 auto;
+}
+flex-none {
+  flex: none;
+}
+
+/* Flex Direction
+Utilities for controlling the direction of flex items. */
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-col-reverse {
+  flex-direction: column-reverse;
+}
+
+/* Justify Content
+Utilities for controlling how flex and grid items are positioned along a container's main axis. */
+
+.justify-normal {
+  justify-content: normal;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+.justify-stretch {
+  justify-content: stretch;
+}
+
+.justify-items-start {
+  justify-items: start;
+}
+
+.justify-items-end {
+  justify-items: end;
+}
+
+.justify-items-center {
+  justify-items: center;
+}
+
+.justify-items-stretch {
+  justify-items: stretch;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-baseline {
+  align-items: baseline;
+}
+
+.items-stretch {
+  align-items: stretch;
+}
+
+.self-auto {
+  align-self: auto;
+}
+
+.self-start {
+  align-self: flex-start;
+}
+
+.self-end {
+  align-self: flex-end;
+}
+
+.self-center {
+  align-self: center;
+}
+
+.self-stretch {
+  align-self: stretch;
+}
+
+.self-baseline {
+  align-self: baseline;
+}
+
+/* Justify Items
+Utilities for controlling how grid items are aligned along their inline axis. */
+
+.justify-items-start {
+  justify-items: start;
+}
+
+.justify-items-end {
+  justify-items: end;
+}
+
+.justify-items-center {
+  justify-items: center;
+}
+
+.justify-items-stretch {
+  justify-items: stretch;
+}
+
+/* Media */
+
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+/* Margin */
+
+.mx-auto {
+  margin-inline: auto;
+}
+.my-auto {
+  margin-block: auto;
+}
+
+/* Font */
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.font-weight-base {
+  font-weight: var(--font-weight-base);
+}
+
+.font-weight-emphasis {
+  font-weight: var(--font-emphasis-weight);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.step--2 {
+  font-size: var(--step--2);
+}
+.step--1 {
+  font-size: var(--step--1);
+}
+.step-0 {
+  font-size: var(--step-0);
+}
+.step-1 {
+  font-size: var(--step-1);
+}
+.step-2 {
+  font-size: var(--step-2);
+}
+.step-3 {
+  font-size: var(--step-3);
+}
+.step-4 {
+  font-size: var(--step-4);
+}
+.step-5 {
+  font-size: var(--step-5);
+}
+.step-6 {
+  font-size: var(--step-6);
+}
+.step-7 {
+  font-size: var(--step-7);
+}
+
+/* General */
+
+.inset-0 {
+  inset: 0px;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.top-pad {
+  padding-block-start: var(--gutter);
+}
+
+.block {
+  display: block;
+}
+
+.w-3\/4 {
+  width: 75%;
+}
+.h-3\/4 {
+  height: 75%;
+}
+
+.h-auto {
+  height: auto;
+}
+
+.currentColor {
+  fill: currentColor;
+}
+
+/*
+	Improved screen reader only CSS class
+	@author Gaël Poupard
+		@note Based on Yahoo!'s technique
+		@author Thierry Koblentz
+		@see https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-53456.html
+	* 1.
+		@note `clip` is deprecated but works everywhere
+		@see https://developer.mozilla.org/en-US/docs/Web/CSS/clip
+	* 2.
+		@note `clip-path` is the future-proof version, but not very well supported yet
+		@see https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path
+		@see http://caniuse.com/#search=clip-path
+		@author Yvain Liechti
+		@see https://twitter.com/ryuran78/status/778943389819604992
+	* 3.
+		@note preventing text to be condensed
+		author J. Renée Beach
+		@see https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+		@note Drupal 8 goes with word-wrap: normal instead
+		@see https://www.drupal.org/node/2045151
+		@see http://cgit.drupalcode.org/drupal/commit/?id=5b847ea
+	* 4.
+		@note !important is important
+		@note Obviously you wanna hide something
+		@author Harry Roberts
+		@see https://csswizardry.com/2016/05/the-importance-of-important/
+*/
+
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important; /* 2 */
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important; /* 3 */
+}
+
+/*
+	Use in conjunction with .sr-only to only display content when it's focused.
+	@note Useful for skip links 
+	@see http://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1
+	@note Based on a HTML5 Boilerplate technique, included in Bootstrap
+	@note Fixed a bug with position: static on iOS 10.0.2 + VoiceOver
+		@author Sylvain Pigeard
+		@see https://github.com/twbs/bootstrap/issues/20732
+*/
+.sr-only-focusable:focus,
+.sr-only-focusable:active {
+  clip: auto !important;
+  -webkit-clip-path: none !important;
+  clip-path: none !important;
+  height: auto !important;
+  margin: auto !important;
+  overflow: visible !important;
+  width: auto !important;
+  white-space: normal !important;
+}
+
+.slant {
+  fill: var(--spot-color, var(--color-light));
+  display: block;
+  height: 3.5em;
+  width: 100%;
+}
+
+/* Spot colors */
+
+.spot-color-primary {
+  --spot-color: var(--sea100);
+  --spot-color-text: var(--sea700);
+}
+
+.spot-color-primary h1,
+.spot-color-primary h2,
+.spot-color-primary h3 {
+  background-color: var(--sea700);
+  background-image: linear-gradient(0deg, var(--sea500), var(--sea700));
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.spot-color-primary-dark {
+  --spot-color: var(--sea900);
+  --spot-color-text: var(--sea100);
+}
+
+.spot-color-secondary {
+  --spot-color: var(--lime100);
+  --spot-color-text: var(--lime700);
+}
+
+.spot-color-secondary h1,
+.spot-color-secondary h2,
+.spot-color-secondary h3 {
+  background-color: var(--lime700);
+  background-image: linear-gradient(0deg, var(--lime500), var(--lime700));
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.spot-color-secondary-dark {
+  --spot-color: var(--lime1000);
+  --spot-color-text: var(--lime100);
+}
+
+.spot-color-tertiary-dark {
+  --spot-color: var(--bronze1000);
+  --spot-color-text: var(--bronze100);
+}
+
+.spot-color-tertiary-dark h1,
+.spot-color-tertiary-dark h2,
+.spot-color-tertiary-dark h3 {
+  background-color: var(--bronze100);
+  background-image: linear-gradient(0deg, var(--bronze300), var(--bronze100));
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.spot-color-tertiary {
+  --spot-color: var(--bronze100);
+  --spot-color-text: var(--bronze700);
+}
+
+.spot-color-tertiary h1,
+.spot-color-tertiary h2,
+.spot-color-tertiary h3 {
+  background-color: var(--bronze700);
+  background-image: linear-gradient(0deg, var(--bronze700), var(--bronze400));
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.spot-color-gray {
+  --spot-color: var(--gray500);
+  --spot-color-text: var(--gray1200);
+}
+
+.spot-color-gray h1,
+.spot-color-gray h2,
+.spot-color-gray h3 {
+  background-color: var(--gray1200);
+  background-image: linear-gradient(0deg, var(--gray1200), var(--gray1100));
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.spot-color-gray-dark {
+  --spot-color: var(--gray1200);
+  --spot-color-text: var(--gray800);
+}
+
+.spot-color-gray-dark h1,
+.spot-color-gray-dark h2,
+.spot-color-gray-dark h3 {
+  background-color: var(--gray900);
+  background-image: linear-gradient(0deg, var(--gray800), var(--gray100));
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+.section__inner {
+  background: var(--spot-color, var(--color-light));
+  color: var(--spot-color-text, var(--color-dark));
+}
+
+.section > .slant {
+  transform: translateY(-8px);
+}
+
+.section > .slant:first-child {
+  transform: rotate(180deg) translateY(-1px);
+}
+
+.page__buffer {
+  margin-block-start: 20vh;
+}
+
+.image__primary {
+  width: 100%;
+}
+
+.rounded {
+  border-radius: var(--border-radius);
+}
+
+.lines-overlay {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.lines-overlay::before {
+  position: absolute;
+  content: '';
+  inset: -120%;
+  z-index: -1;
+  width: 400%;
+  height: 400%;
+  opacity: 0.015;
+  background-blend-mode: screen;
+  background: url('/images/loumarc-signs-lines.svg') no-repeat;
+}
+
+.lines-overlay[data-opacity='dark']::before {
+  opacity: 0.5;
+}
+
+/* Object Fit
+Utilities for controlling how a replaced element's content should be resized. */
+
+.object-contain {
+  object-fit: contain;
+}
+
+.object-cover {
+  object-fit: cover;
+}
+
+.object-fill {
+  object-fit: fill;
+}
+
+.object-none {
+  object-fit: none;
+}
+
+.object-scale-down {
+  object-fit: scale-down;
+}
+
+/* Object Position
+Utilities for controlling how a replaced element's content should be positioned within its container. */
+
+.object-bottom {
+  object-position: bottom;
+}
+
+.object-center {
+  object-position: center;
+}
+
+.object-left {
+  object-position: left;
+}
+
+.object-left-bottom {
+  object-position: left bottom;
+}
+
+.object-left-top {
+  object-position: left top;
+}
+
+.object-right {
+  object-position: right;
+}
+
+.object-right-bottom {
+  object-position: right bottom;
+}
+
+.object-right-top {
+  object-position: right top;
+}
+
+.object-top {
+  object-position: top;
+}
+
+/* Position
+Utilities for controlling how an element is positioned in the DOM. */
+
+.static {
+  position: static;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.sticky {
+  position: sticky;
+}
+
+/* Overflow
+Utilities for controlling how an element handles content that is too large for the container. */
+
+.overflow-auto {
+  overflow: auto;
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+.overflow-clip {
+  overflow: clip;
+}
+.overflow-visible {
+  overflow: visible;
+}
+.overflow-scroll {
+  overflow: scroll;
+}
+.overflow-x-auto {
+  overflow-x: auto;
+}
+.overflow-y-auto {
+  overflow-y: auto;
+}
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+.overflow-y-hidden {
+  overflow-y: hidden;
+}
+.overflow-x-clip {
+  overflow-x: clip;
+}
+.overflow-y-clip {
+  overflow-y: clip;
+}
+.overflow-x-visible {
+  overflow-x: visible;
+}
+.overflow-y-visible {
+  overflow-y: visible;
+}
+.overflow-x-scroll {
+  overflow-x: scroll;
+}
+.overflow-y-scroll {
+  overflow-y: scroll;
+}
