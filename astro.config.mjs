@@ -3,13 +3,11 @@ import sitemap from '@astrojs/sitemap';
 import image from '@astrojs/image';
 import purgecss from 'astro-purgecss';
 
+import mdx from "@astrojs/mdx";
+
 // https://astro.build/config
 export default defineConfig({
-    integrations: [
-        sitemap(),
-        image({
-          serviceEntryPoint: '@astrojs/image/sharp',
-        }),
-        purgecss(),
-      ],
+  integrations: [sitemap(), image({
+    serviceEntryPoint: '@astrojs/image/sharp'
+  }), purgecss(), mdx()]
 });

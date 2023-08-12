@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@astrojs/image": "^0.17.2",
+    "@astrojs/mdx": "^0.19.7",
     "@astrojs/sitemap": "^2.0.1",
     "astro": "^2.10.4",
     "astro-purgecss": "^2.3.0",
