@@ -31,12 +31,18 @@ export interface Props {
 
 const { meta } = Astro.props;
 
-const title = meta.title || "The Internet's favorite Frank Stallone";
-const description =
-  meta.description || "The Internet's favorite Frank Stallone";
-const canonicalURL = meta.canonicalURL || 'https://frankstall.one';
-const ogImage =
-  meta.image || '/media/the-internets-favorite-frank-stallone-ogimage.png';
+const title = meta.title
+  ? meta.title
+  : "The Internet's favorite Frank Stallone";
+const description = meta.description
+  ? meta.description
+  : "The Internet's favorite Frank Stallone";
+const canonicalURL = meta.canonicalURL
+  ? meta.canonicalURL
+  : 'https://frankstall.one';
+const ogImage = meta.image
+  ? meta.image
+  : '/media/the-internets-favorite-frank-stallone-ogimage.png';
 ---
 
 <head>

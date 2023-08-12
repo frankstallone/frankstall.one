@@ -1,9 +1,34 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+
+const allPosts = await getCollection('blog');
 ---
 
 <Layout meta={{ title: "The Internet's favorite Frank Stallone" }}>
   <section class="region wrapper flow prose">
-    <h2 id="main">Nothing yet</h2>
+    {
+      allPosts.map((post) => (
+        <div class="box flow prose">
+          <h2>
+            <a href={`/${post.collection}/${post.slug}`}>{post.data.title}</a>
+          </h2>
+          <p>
+            <small>
+              {new Date(post.data.publishDate).toLocaleDateString(undefined, {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              })}
+            </small>
+          </p>
+          <p>{post.data.description}</p>
+          <p>
+            <a href={`/${post.collection}/${post.slug}`}>Read more &hellip;</a>
+          </p>
+        </div>
+      ))
+    }
   </section>
 </Layout>
