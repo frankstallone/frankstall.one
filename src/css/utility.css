@@ -2,8 +2,8 @@
 
 /* Main navigation buttons */
 .button a {
-  color: var(--gray1200);
-  font-size: var(--step-1);
+  color: var(--gray100);
+  font-size: var(--step-0);
   display: inline-block;
   text-decoration: none;
 }
@@ -11,7 +11,7 @@
 .button a:hover,
 .button a:focus,
 .button a:active {
-  color: var(--gray1100);
+  color: var(--gray400);
   text-decoration: underline;
   text-decoration-thickness: max(0.15em, 1px);
 }
@@ -476,137 +476,9 @@ Utilities for controlling how grid items are aligned along their inline axis. */
 
 /* Spot colors */
 
-.spot-color-primary {
-  --spot-color: var(--sea100);
-  --spot-color-text: var(--sea700);
-}
-
-.spot-color-primary h1,
-.spot-color-primary h2,
-.spot-color-primary h3 {
-  background-color: var(--sea700);
-  background-image: linear-gradient(0deg, var(--sea500), var(--sea700));
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-
-.spot-color-primary-dark {
-  --spot-color: var(--sea900);
-  --spot-color-text: var(--sea100);
-}
-
-.spot-color-secondary {
-  --spot-color: var(--lime100);
-  --spot-color-text: var(--lime700);
-}
-
-.spot-color-secondary h1,
-.spot-color-secondary h2,
-.spot-color-secondary h3 {
-  background-color: var(--lime700);
-  background-image: linear-gradient(0deg, var(--lime500), var(--lime700));
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-
-.spot-color-secondary-dark {
-  --spot-color: var(--lime1000);
-  --spot-color-text: var(--lime100);
-}
-
-.spot-color-tertiary-dark {
-  --spot-color: var(--bronze1000);
-  --spot-color-text: var(--bronze100);
-}
-
-.spot-color-tertiary-dark h1,
-.spot-color-tertiary-dark h2,
-.spot-color-tertiary-dark h3 {
-  background-color: var(--bronze100);
-  background-image: linear-gradient(0deg, var(--bronze300), var(--bronze100));
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-
-.spot-color-tertiary {
-  --spot-color: var(--bronze100);
-  --spot-color-text: var(--bronze700);
-}
-
-.spot-color-tertiary h1,
-.spot-color-tertiary h2,
-.spot-color-tertiary h3 {
-  background-color: var(--bronze700);
-  background-image: linear-gradient(0deg, var(--bronze700), var(--bronze400));
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-
-.spot-color-gray {
-  --spot-color: var(--gray500);
-  --spot-color-text: var(--gray1200);
-}
-
-.spot-color-gray h1,
-.spot-color-gray h2,
-.spot-color-gray h3 {
-  background-color: var(--gray1200);
-  background-image: linear-gradient(0deg, var(--gray1200), var(--gray1100));
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-
 .spot-color-gray-dark {
   --spot-color: var(--gray1200);
-  --spot-color-text: var(--gray800);
-}
-
-.spot-color-gray-dark h1,
-.spot-color-gray-dark h2,
-.spot-color-gray-dark h3 {
-  background-color: var(--gray900);
-  background-image: linear-gradient(0deg, var(--gray800), var(--gray100));
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-
-.section__inner {
-  background: var(--spot-color, var(--color-light));
-  color: var(--spot-color-text, var(--color-dark));
-}
-
-.section > .slant {
-  transform: translateY(-8px);
-}
-
-.section > .slant:first-child {
-  transform: rotate(180deg) translateY(-1px);
-}
-
-.page__buffer {
-  margin-block-start: 20vh;
-}
-
-.image__primary {
-  width: 100%;
+  --spot-color-text: var(--gray100);
 }
 
 .rounded {

@@ -1,0 +1,30 @@
+---
+import Header from './Header.astro';
+import frankstallone from '../assets/2023-Frank-Stallone-Web-Marketing-Expert.png';
+import { Picture } from '@astrojs/image/components';
+---
+
+<div class="cover spot-color-gray-dark" id="hero" style="--cover-padding: 0;">
+  <Header />
+  <div class="switcher" style="--spot-color: transparent;">
+    <div class="box flex flex-col justify-center">
+      <h1 class="step-5">Learn, grow, prosper</h1>
+      <h2 class="font-weight-base" style="margin-block-end: 1rem;">
+        My shared learning from agency, enterprise, and start ups. I share
+        actionable tips with a design and developer twist.
+      </h2>
+    </div>
+    <div class="text-center relative overflow-hidden">
+      <Picture
+        src={frankstallone}
+        widths={[500, 700, 1200]}
+        aspectRatio={4210 / 5456}
+        width={4210}
+        height={5456}
+        class="object-contain h-auto"
+        alt="The Internet's favorite Frank Stallone"
+        format="avif"
+      />
+    </div>
+  </div>
+</div>

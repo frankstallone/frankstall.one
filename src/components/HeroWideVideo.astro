@@ -1,32 +1,31 @@
 ---
 import Header from './Header.astro';
+import frankstallone from '../assets/2023-Frank-Stallone-Web-Marketing-Expert.png';
+import { Picture } from '@astrojs/image/components';
 ---
 
 <div class="cover" style="--cover-padding: 0;">
   <Header />
   <div class="box text-center">
-    <h1 class="center step-5 uppercase">A Jiu Jitsu Family</h1>
+    <h1 class="center step-5 uppercase">Learn, grow, prosper</h1>
     <h2 class="center font-weight-base" style="margin-block-end: 1rem;">
-      The #1 after school activity
+      Join others in learning about agency, enterprise, and start up actionable
+      tips with a design and developer twist.
     </h2>
   </div>
   <div
     style="padding-bottom: 56.21521336%;"
     class="text-center relative overflow-hidden"
   >
-    <video
-      height="606"
-      width="1078"
-      preload="auto"
-      autoplay
-      controls
-      loop
-      muted
-      style="width: 100%; height: 100%;"
-      class="absolute inset-0"
-      playsinline
-    >
-      <source src="/media/unity-kids-bjj-nyc.mp4" type="video/mp4" />
-    </video>
+    <Picture
+      src={frankstallone}
+      widths={[501]}
+      aspectRatio={4210 / 5456}
+      width={4210}
+      height={5456}
+      class="object-contain"
+      alt="The Internet's favorite Frank Stallone"
+      format="avif"
+    />
   </div>
 </div>
