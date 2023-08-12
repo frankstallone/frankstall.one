@@ -1,0 +1,13 @@
+---
+import Header from './Header.astro';
+const { title } = Astro.props;
+---
+
+<div class="spot-color-gray-dark" id="hero" style="--cover-padding: 0;">
+  <Header />
+  <div class="region switcher" style="--spot-color: transparent;">
+    <div class="box flex flex-col justify-center flow prose">
+      <h1 class="step-5">{title}</h1>
+    </div>
+  </div>
+</div>

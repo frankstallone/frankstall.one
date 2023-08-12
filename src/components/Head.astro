@@ -31,20 +31,34 @@ export interface Props {
 
 const { meta } = Astro.props;
 
-const metaDescription =
+const title = meta.title || "The Internet's favorite Frank Stallone";
+const description =
   meta.description || "The Internet's favorite Frank Stallone";
+const canonicalURL = meta.canonicalURL || 'https://frankstall.one';
+const ogImage =
+  meta.image || '/media/the-internets-favorite-frank-stallone-ogimage.png';
 ---
 
 <head>
+  <!-- Meta -->
   <meta charset="UTF-8" />
-  <meta name="description" content={metaDescription} />
+  <meta name="description" content={description} />
   <meta name="viewport" content="width=device-width" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="generator" content={Astro.generator} />
-  <title>{meta.title}</title>
+  <title>{title}</title>
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:image:alt" content={`Frank Stallone - ${description}`} />
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
   <!-- Local Fonts -->
   <link
     rel="preload"
