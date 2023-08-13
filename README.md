@@ -1,6 +1,6 @@
-# Minimal BJJ Starter Kit
+# Frank Stall.one
 
-Minimal Brazilian Jui Jitsu website starter kit built with [Astro](https://astro.build).
+The Internet's favorite Frank Stallone, rebuilt with [Astro](https://astro.build).
 
 ## 🚀 Project Structure
 
@@ -14,19 +14,12 @@ Inside of your Astro project, you'll see the following folders and files:
 ├── src/
 │   ├── assets/
 │   ├── components/
-│   │   ├── Benefits.astro
-│   │   ├── Contact.astro
-│   │   ├── Difference.astro
-│   │   ├── Footer.astro
-│   │   ├── Header.astro
-│   │   ├── Hero.astro
-│   │   ├── Instructor.astro
-│   │   └── Schedule.astro
+│   ├── content/
+│   │   └── blog/
 │   ├── css/
 │   │   ├── blocks/
-│   │   ├── utilities/
+│   │   └── utilities/
 │   ├── layouts/
-│   │   └── Layout.astro
 │   └── pages/
 │       └── index.astro
 ├── .gitignore
@@ -47,14 +40,9 @@ Any static image assets get put in the `src/assets/` directiory and should use t
 
 All other assets live directly in the `public/` directory. This is where you'll find your `favicon.svg` etc.
 
-We're using [Every Layout](https://every-layout.dev/rudiments/units/#utility-classes) to help with layout, [CubeCSS](https://cube.fyi/) for organization, and [TailwindCSS](https://tailwindcss.com/) utility classes (manually add what is needed).
+Using [Every Layout](https://every-layout.dev/rudiments/units/#utility-classes) to help with layout, [CubeCSS](https://cube.fyi/) for organization, and [TailwindCSS](https://tailwindcss.com/) utility classes (manually add what is needed).
 
 PurgeCSS is used to remove unused CSS classes from the final build.
-
-## ⚙️ Components
-
-- `<HeroTallVideo>` is for 9:16 videos
-- `<HeroWideVideo>` is for 16:9 videos
 
 ## 🧞 Commands
 
