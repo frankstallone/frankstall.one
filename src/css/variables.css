@@ -78,7 +78,7 @@
   --font-display: 'Future', 'sans-serif';
   --font-date: 'Future Mono', 'sans-serif';
   --gutter: var(--space-s-m);
-  --border-radius: var(--step-4);
+  --border-radius: var(--step-1);
   --transition-base: 250ms ease-in-out;
   --transition-movement: 200ms linear;
   --transition-fade: 200ms ease;

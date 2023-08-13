@@ -14,12 +14,12 @@ const allPosts = (await getCollection('blog')).sort(
       'For the last two decades, I have helped businesses of all sizes craft compelling user experiences that drove 100M+ in revenue.',
   }}
 >
-  <section class="region wrapper flow prose">
+  <section class="region wrapper flow prose" style="--measure: 75ch;">
     {
       allPosts.map((post) => (
-        <div class="box flow prose">
+        <div class="box flow prose" style="--spot-color: var(--gray200)">
           <h2>
-            <a href={`/${post.collection}/${post.slug}`}>{post.data.title}</a>
+            <a href={`/${post.collection}/${post.slug}/`}>{post.data.title}</a>
           </h2>
           <p>
             <small
