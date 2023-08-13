@@ -318,12 +318,33 @@ Utilities for controlling how grid items are aligned along their inline axis. */
   font-weight: var(--font-weight-base);
 }
 
+.font-weight-medium {
+  font-weight: var(--font-medium-weight);
+}
+
 .font-weight-emphasis {
   font-weight: var(--font-emphasis-weight);
 }
 
 .font-display {
   font-family: var(--font-display);
+}
+
+.font-date {
+  font-family: var(--font-date);
+}
+
+.tracking-l {
+  letter-spacing: var(--tracking-l);
+}
+.tracking-m {
+  letter-spacing: var(--tracking-m);
+}
+.tracking-base {
+  letter-spacing: var(--tracking);
+}
+.tracking-s {
+  letter-spacing: var(--tracking-s);
 }
 
 .step--2 {

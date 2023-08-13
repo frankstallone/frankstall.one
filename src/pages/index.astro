@@ -17,8 +17,8 @@ const allPosts = (await getCollection('blog')).sort(
           </h2>
           <p>
             <small
-              class="uppercase font-weight-emphasis"
-              style="color: var(--gray800)"
+              class="uppercase step--2 font-weight-medium font-date tracking-l"
+              style="color: var(--gray800);"
             >
               {new Date(post.data.publishDate).toLocaleDateString(undefined, {
                 weekday: 'long',

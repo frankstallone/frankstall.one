@@ -117,3 +117,36 @@
   font-display: swap;
   unicode-range: U+000-5FF; /* Download only latin glyphs */
 }
+/* MONO */
+@font-face {
+  font-family: 'Future Mono';
+  src: url('/fonts/future/the-future-mono-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+000-5FF; /* Download only latin glyphs */
+}
+@font-face {
+  font-family: 'Future Mono';
+  src: url('/fonts/future/the-future-mono-italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+000-5FF; /* Download only latin glyphs */
+}
+@font-face {
+  font-family: 'Future Mono';
+  src: url('/fonts/future/the-future-mono-medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+000-5FF; /* Download only latin glyphs */
+}
+@font-face {
+  font-family: 'Future Mono';
+  src: url('/fonts/future/the-future-mono-medium-italic.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+000-5FF; /* Download only latin glyphs */
+}

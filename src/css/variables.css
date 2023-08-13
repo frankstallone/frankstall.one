@@ -74,15 +74,19 @@
   --font-base: 'Public Sans', sans-serif;
   --font-base-weight: 300;
   --font-emphasis-weight: 500;
+  --font-medium-weight: 600;
   --font-display: 'Future', 'sans-serif';
+  --font-date: 'Future Mono', 'sans-serif';
   --gutter: var(--space-s-m);
   --border-radius: var(--step-4);
   --transition-base: 250ms ease-in-out;
   --transition-movement: 200ms linear;
   --transition-fade: 200ms ease;
   --transition-bounce: 500ms cubic-bezier(0.5, 0.05, 0.2, 1.5);
+  --tracking-l: 0.1ch;
+  --tracking-m: -0.075ch;
   --tracking: -0.05ch;
-  --tracking-s: -0.05ch;
+  --tracking-s: -0.025ch;
   --skew-s: 1.5rem;
   --skew-m: 2rem;
 
