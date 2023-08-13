@@ -14,7 +14,10 @@ const allPosts = await getCollection('blog');
             <a href={`/${post.collection}/${post.slug}`}>{post.data.title}</a>
           </h2>
           <p>
-            <small>
+            <small
+              class="uppercase font-weight-emphasis"
+              style="color: var(--gray800)"
+            >
               {new Date(post.data.publishDate).toLocaleDateString(undefined, {
                 weekday: 'long',
                 year: 'numeric',
