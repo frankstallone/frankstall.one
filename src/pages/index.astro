@@ -7,7 +7,13 @@ const allPosts = (await getCollection('blog')).sort(
 );
 ---
 
-<Layout meta={{ title: "The Internet's favorite Frank Stallone" }}>
+<Layout
+  meta={{
+    title: 'Frank Stallone | Sharing 25 years of working on the web',
+    description:
+      'For the last two decades, I have helped businesses of all sizes craft compelling user experiences that drove 100M+ in revenue.',
+  }}
+>
   <section class="region wrapper flow prose">
     {
       allPosts.map((post) => (
