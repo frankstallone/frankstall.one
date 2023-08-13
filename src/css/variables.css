@@ -67,7 +67,7 @@
   --measure: 70ch;
   --color-light: white;
   --color-dark: var(--gray1200);
-  --color-loud: #3453ff;
+  --color-loud: #664ef8;
   --ratio: 1.5;
   --line-height: var(--ratio);
   --line-height-small: calc(var(--ratio) * 0.7);

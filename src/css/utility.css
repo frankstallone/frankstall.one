@@ -33,6 +33,10 @@
   color: var(--color-loud);
 }
 
+.color-loud {
+  background-color: var(--color-loud);
+}
+
 .emphasized-header {
   clip-path: polygon(
     var(--skew-s) 0%,
