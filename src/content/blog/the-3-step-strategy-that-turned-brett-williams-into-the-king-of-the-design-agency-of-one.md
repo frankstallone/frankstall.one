@@ -1,7 +1,7 @@
 ---
 isDraft: false
 title: 'The 3-Step Strategy That Turned Brett Williams Into the King of the Design Agency of One'
-publishDate: 2022-06-06
+publishDate: 05-06-2023
 description: "What is it about Brett William's Designjoy agency that has brought him millions in reocurring revenue? Does the agency model of yesterday still apply today?"
 image: /media/newsletter/the-3-step-strategy-that-turned-brett-williams-into-the-king-of-the-design-agency-of-one.png
 ---

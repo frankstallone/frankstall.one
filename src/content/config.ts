@@ -8,7 +8,7 @@ const blogCollection = defineCollection({
     title: z.string(),
     description: z.string(),
     // In frontmatter, dates written without quotes around them are interpreted as Date objects
-    publishDate: z.date(),
+    publishDate: z.string(),
     image: z.string().optional(),
   }),
 });
