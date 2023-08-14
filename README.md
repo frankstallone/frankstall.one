@@ -2,6 +2,8 @@
 
 The Internet's favorite Frank Stallone, rebuilt with [Astro](https://astro.build).
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f0053d9c-b59c-4cd1-bcb9-555e8f2cb7c5/deploy-status)](https://app.netlify.com/sites/frankstallone/deploys)
+
 ## 🚀 Project Structure
 
 Inside of your Astro project, you'll see the following folders and files:
