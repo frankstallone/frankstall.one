@@ -6,9 +6,6 @@ import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
-  experimental: {
-    viewTransitions: true,
-  },
   site: 'https://frankstall.one',
   integrations: [
     image({

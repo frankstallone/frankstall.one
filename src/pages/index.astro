@@ -18,7 +18,7 @@ const allPosts = (await getCollection('blog')).sort(
     {
       allPosts.map((post) => (
         <div class="box flow prose" style="--spot-color: var(--gray200)">
-          <h2 transition:name="post-title">
+          <h2>
             <a href={`/${post.collection}/${post.slug}/`}>{post.data.title}</a>
           </h2>
           <p>
