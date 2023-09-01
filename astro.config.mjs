@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config';
-import image from '@astrojs/image';
 import purgecss from 'astro-purgecss';
 import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
@@ -8,9 +7,6 @@ import mdx from '@astrojs/mdx';
 export default defineConfig({
   site: 'https://frankstall.one',
   integrations: [
-    image({
-      serviceEntryPoint: '@astrojs/image/sharp',
-    }),
     purgecss(),
     mdx(),
     sitemap(),

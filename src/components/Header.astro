@@ -1,5 +1,5 @@
 ---
-import { Picture } from '@astrojs/image/components';
+import { Image } from 'astro:assets';
 import frankstallone from '../assets/frank-stallone-logo-2023-04-white@2x.png';
 ---
 
@@ -8,15 +8,11 @@ import frankstallone from '../assets/frank-stallone-logo-2023-04-white@2x.png';
   style="--spot-color: transparent;"
 >
   <a href="/">
-    <Picture
+    <Image
       src={frankstallone}
-      widths={[501]}
-      aspectRatio={140 / 13.406}
-      width={140}
-      height={13.406}
       class="object-contain"
       alt="The Internet's favorite Frank Stallone"
-      format="avif"
+      style="width: 140px;"
     />
   </a>
   <nav>
