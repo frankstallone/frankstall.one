@@ -90,6 +90,9 @@
 .button:active {
   text-decoration: none;
 }
+.button:focus {
+  outline: 2px solid var(--color-loud);
+}
 
 /* Region */
 
