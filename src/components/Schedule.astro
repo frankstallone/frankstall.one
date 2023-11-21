@@ -1,5 +1,5 @@
 ---
-import { Picture } from '@astrojs/image/components';
+import { Picture } from 'astro:assets';
 import scheduleImg from '../assets/jiu-jitsu-schedule-2023-near-me.jpg';
 ---
 
@@ -15,7 +15,6 @@ import scheduleImg from '../assets/jiu-jitsu-schedule-2023-near-me.jpg';
     <Picture
       src={scheduleImg}
       widths={[520, 700, 2560]}
-      aspectRatio={2560 / 1878}
       width={2560}
       height={1878}
       class="object-contain h-auto"
