@@ -1,5 +1,5 @@
 ---
-import { Picture } from '@astrojs/image/components';
+import { Picture } from 'astro:assets';
 import instructorImg from '../assets/geo-specific-instructor.jpg';
 ---
 
@@ -29,7 +29,6 @@ import instructorImg from '../assets/geo-specific-instructor.jpg';
   <Picture
     src={instructorImg}
     widths={[520, 700, 2578]}
-    aspectRatio={2578 / 3867}
     width={2578}
     height={3867}
     class="object-contain h-auto"

@@ -1,7 +1,7 @@
 ---
 import Header from './Header.astro';
 import frankstallone from '../assets/2023-Frank-Stallone-Web-Marketing-Expert.png';
-import { Picture } from '@astrojs/image/components';
+import { Picture } from 'astro:assets';
 ---
 
 <div class="cover spot-color-gray-dark" id="hero" style="--cover-padding: 0;">
@@ -18,7 +18,6 @@ import { Picture } from '@astrojs/image/components';
       <Picture
         src={frankstallone}
         widths={[500, 700, 1200]}
-        aspectRatio={4210 / 5456}
         width={4210}
         height={5456}
         class="object-contain h-auto"
