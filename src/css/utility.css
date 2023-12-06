@@ -523,28 +523,6 @@ Utilities for controlling how grid items are aligned along their inline axis. */
   border-radius: var(--border-radius);
 }
 
-.lines-overlay {
-  position: relative;
-  z-index: 0;
-  overflow: hidden;
-}
-
-.lines-overlay::before {
-  position: absolute;
-  content: '';
-  inset: -120%;
-  z-index: -1;
-  width: 400%;
-  height: 400%;
-  opacity: 0.015;
-  background-blend-mode: screen;
-  background: url('/images/loumarc-signs-lines.svg') no-repeat;
-}
-
-.lines-overlay[data-opacity='dark']::before {
-  opacity: 0.5;
-}
-
 /* Object Fit
 Utilities for controlling how a replaced element's content should be resized. */
 
