@@ -17,12 +17,13 @@ import { Picture } from 'astro:assets';
     <div class="text-center relative overflow-hidden">
       <Picture
         src={frankstallone}
-        widths={[500, 700, 1200]}
+        widths={[500, 700, 1200, 3000, 4000]}
         width={4210}
         height={5456}
         class="object-contain h-auto"
         alt="The Internet's favorite Frank Stallone"
         format="avif"
+        fetchpriority="high"
       />
     </div>
   </div>
