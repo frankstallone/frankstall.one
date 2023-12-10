@@ -2,9 +2,17 @@
 import Header from './Header.astro';
 import frankstallone from '../assets/2023-Frank-Stallone-Web-Marketing-Expert.png';
 import { Picture } from 'astro:assets';
+import { getImage } from 'astro:assets';
+import background from '../assets/frank-stallone-home-header-blank.png';
+
+const optimizedBackground = await getImage({ src: background });
 ---
 
-<div class="cover spot-color-gray-dark" id="hero" style="--cover-padding: 0;">
+<div
+  class="cover spot-color-gray-dark"
+  id="hero"
+  style={`--cover-padding: 0;  background-image: url(${optimizedBackground.src})`}
+>
   <Header />
   <div class="switcher" style="--spot-color: transparent;">
     <div class="box flex flex-col justify-center flow prose">
@@ -24,7 +32,15 @@ import { Picture } from 'astro:assets';
         alt="The Internet's favorite Frank Stallone"
         format="avif"
         fetchpriority="high"
+        loading="eager"
       />
     </div>
   </div>
 </div>
+
+<style>
+  #hero {
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+</style>
