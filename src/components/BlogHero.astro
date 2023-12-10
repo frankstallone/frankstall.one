@@ -1,9 +1,17 @@
 ---
 import Header from './Header.astro';
 const { title } = Astro.props;
+import { getImage } from 'astro:assets';
+import background from '../assets/frank-stallone-home-header-blank.png';
+
+const optimizedBackground = await getImage({ src: background });
 ---
 
-<div class="spot-color-gray-dark" id="hero" style="--cover-padding: 0;">
+<div
+  class="spot-color-gray-dark"
+  id="hero"
+  style=`--cover-padding: 0;  background-image: url(${optimizedBackground.src})`
+>
   <Header />
   <div class="region wrapper" style="--spot-color: transparent;">
     <div class="box flex flex-col justify-center flow prose">
