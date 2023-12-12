@@ -1,6 +1,6 @@
 ---
 isDraft: false
-title: 'Transforming Communication: The Power of Presuming Positive Intent'
+title: 'Transforming Communication: The power of presuming positive intent'
 publishDate: 07-15-2023
 description: 'Today I am going to talk about one principal has stood out to me as being a cornerstone for leaders I have looked up to, has gotten me to diffuse tense situations and forge stronger relationships. '
 image: /media/newsletter/transforming-communication-the-power-of-presuming-positive-intent.png
