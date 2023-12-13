@@ -17,14 +17,14 @@ const allPosts = (await getCollection('blog')).sort(
   <section class="region wrapper flow prose" style="--measure: 75ch;" id="main">
     {
       allPosts.map((post) => (
-        <div class="box flow prose" style="--spot-color: var(--gray200)">
+        <div class="box flow prose" style="--spot-color: var(--gray-2)">
           <h2>
             <a href={`/${post.collection}/${post.slug}/`}>{post.data.title}</a>
           </h2>
           <p>
             <small
               class="uppercase step--2 font-weight-medium font-date tracking-l"
-              style="color: var(--gray900);"
+              style="color: var(--gray-9);"
             >
               {new Date(post.data.publishDate).toLocaleDateString(undefined, {
                 weekday: 'long',

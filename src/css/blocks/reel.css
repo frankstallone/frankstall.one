@@ -3,7 +3,7 @@
   block-size: auto;
   overflow-x: auto;
   overflow-y: hidden;
-  scrollbar-color: var(--gray400) var(--gray1000);
+  scrollbar-color: var(--gray-4) var(--gray-10);
   gap: var(--space-s-m);
 }
 
@@ -12,7 +12,7 @@
 }
 
 .reel::-webkit-scrollbar-track {
-  background-color: var(--gray1200);
+  background-color: var(--gray-12);
 }
 
 .reel::-webkit-scrollbar-thumb {

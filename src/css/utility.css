@@ -2,7 +2,7 @@
 
 /* Main navigation buttons */
 .header-link a {
-  color: var(--gray100);
+  color: var(--gray-1);
   font-size: var(--step-0);
   display: inline-block;
   text-decoration: none;
@@ -11,7 +11,7 @@
 .header-link a:hover,
 .header-link a:focus,
 .header-link a:active {
-  color: var(--gray400);
+  color: var(--gray-4);
   text-decoration: underline;
   text-decoration-thickness: max(0.15em, 1px);
 }
@@ -79,8 +79,8 @@
   display: block;
   text-decoration: none;
   border: none;
-  background-color: var(--spot-color, var(--gray1200));
-  color: var(--gray100);
+  background-color: var(--spot-color, var(--gray-12));
+  color: var(--gray-1);
   padding-inline: var(--space-m);
   padding-block: var(--space-s);
   text-align: center;
@@ -515,8 +515,8 @@ Utilities for controlling how grid items are aligned along their inline axis. */
 /* Spot colors */
 
 .spot-color-gray-dark {
-  --spot-color: var(--gray1200);
-  --spot-color-text: var(--gray100);
+  --spot-color: var(--gray-12);
+  --spot-color-text: var(--gray-1);
 }
 
 .rounded {
