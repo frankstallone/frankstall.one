@@ -8,11 +8,19 @@
     opacity: 1;
   }
 }
+@keyframes fade-to {
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
     article[data-article] img {
-      animation: fade-in linear forwards;
-      animation-timeline: view();
+      scale: 0.75;
+      opacity: 0.5;
+      animation: fade-to linear forwards;
+      animation-timeline: scroll(view);
       animation-range: entry;
     }
   }
