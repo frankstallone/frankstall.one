@@ -9,8 +9,7 @@
   .post-card {
     animation: fade-in linear forwards;
     animation-timeline: view();
-    animation-range-start: entry;
-    animation-range-end: 30vh;
+    animation-range: entry;
   }
 }
 
