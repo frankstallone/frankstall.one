@@ -17,7 +17,7 @@ image: /media/newsletter/unlock-the-potential-of-after-action-reviews.png
 <li>Silence or ignore uncomfortable opinions</li>
 </ul>
 <h2>Increase productivity by more than 150%</h2>
-<div class="flow"><img src="/media/newsletter/unlock-the-potential-of-after-action-reviews.png"></div>
+<img src="/media/newsletter/unlock-the-potential-of-after-action-reviews.png">
 <p>Open conversations where we surfaced every perspective and harvested all insights was the formula for the best product teams I’ve ever worked on. Everyone felt a deeper connection. ARRs ask four simple questions to recreate a narrative of an event.</p>
 <ol>
 <li>What did we expect to happen?</li>

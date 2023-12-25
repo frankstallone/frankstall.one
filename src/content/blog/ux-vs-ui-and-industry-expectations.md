@@ -12,9 +12,7 @@ image: /media/newsletter/ux-vs-ui-and-industry-expectations.png
   designer. These are two common design jobs you’ll find, each with distinctive
   skills sets, and some overlap. Let’s take a deeper look.
 </p>
-<div class="flow">
-  <img src="/media/newsletter/design-vs-user-experience-comparison.jpg" />
-</div>
+<img src="/media/newsletter/design-vs-user-experience-comparison.jpg" />
 <p>
   UX designers focus more on solutions to user problems. In order to do this
   effectively, deep and thorough knowledge of what the user’s needs are is

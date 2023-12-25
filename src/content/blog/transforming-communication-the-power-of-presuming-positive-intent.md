@@ -10,7 +10,7 @@ image: /media/newsletter/transforming-communication-the-power-of-presuming-posit
 <p>Presuming positive intent means attributing a positive, rather than negative, motive behind other people's words or actions. It means giving them the benefit of the doubt before jumping to conclusions. It is about fostering an environment where trust and cooperation thrive over suspicion and discord.</p>
 <p>The impact of presuming negative intent in any communication can be detrimental. It breeds distrust, creates stress, hampers collaboration, and often leads to a toxic work or family environment. On the other hand, by presuming positive intent, we open doors to greater understanding, empathy, and cooperation. Not only does it lead to healthy professional relationships, but it also impacts personal interactions positively, leading to more fulfilling relationships.</p>
 <p>So why do most of us often fall into the trap of presuming negative intent? The answer lies in our cognitive biases and defensive communication habits. We tend to interpret situations based on our past experiences or preconceived notions, which may not always be accurate. Additionally, in a bid to protect ourselves from potential harm, we might adopt a defensive stance, presuming negative intent in others' actions or words.</p>
-<div class="flow"><img src="/media/newsletter/indra-nooyi-quote.png"></div>
+div class="flow"><img src="/media/newsletter/indra-nooyi-quote.png">
 <h2>Presuming positive intent will get you further in life.</h2>
 <p>Adopting a mindset of presuming positive intent is not an overnight process. It requires conscious effort and practice. Here are some practical ways to make this shift:</p>
 <h3>Self-awareness</h3>

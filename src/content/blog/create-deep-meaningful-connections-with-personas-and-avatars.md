@@ -23,9 +23,7 @@ Start with two or three personas. Then we’ll rank those personas. Ranking pers
 
 If 20% of your business made up the best clients to deal with, wouldn’t you want to attract more of them and slowly grow that figure to 100%? Creating an avatar for those groups of individuals gives aligns you with them. You can create a hyper focused brand personality that crafts it’s message, product, and services towards those individuals in a way that speaks directly to them — what they want to hear, at the right time in their lives, fostering trust and can build lasting relationships.
 
-<div class="flow">
-  <img src="/media/newsletter/jeff-bezos-quote.png" />
-</div>
+<img src="/media/newsletter/jeff-bezos-quote.png" />
 
 Avatars goes beyond statistical data and categorization of individuals. With avatars, you want to get and understanding of their life circumstances. Where are they in their journey when your product or service is right for them? What are the challenges they may have finding or knowing if your product is a good fit? What do they fear about their current situation that your solution alleviates? How can you get them closer to achieving their ultimate goals in life? When doing this in workshops, we go through a host of categories to dive deeper into who this person is.
 

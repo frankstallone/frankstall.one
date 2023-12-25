@@ -64,9 +64,7 @@ image: /media/newsletter/a-beginners-guide-to-digital-accessibility.png
   Another example is having color contrasts for text and backgrounds that meets AA
   or AAA contrast ratios for low vision users.
 </p>
-<div class="flow">
   <img src="/media/newsletter/colour-contrast-checker-screenshot.png" />
-</div>
 <h2>2 Operable</h2>
 <p>
   <strong>User interface components and navigation must be operable</strong>. I
@@ -86,9 +84,7 @@ image: /media/newsletter/a-beginners-guide-to-digital-accessibility.png
   what the icons mean visually. For low or no vision users, the buttons are simply
   inaccessible.
 </p>
-<div class="flow">
   <img src="/media/newsletter/inaccessible-icon-buttons.png" />
-</div>
 <h2>4 Robust</h2>
 <p>
   <strong>
