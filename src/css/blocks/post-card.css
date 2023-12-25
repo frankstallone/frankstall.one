@@ -5,11 +5,13 @@
   background-color: var(--spot-color, transparent);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .post-card {
-    animation: fade-in linear forwards;
-    animation-timeline: view();
-    animation-range: entry;
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .post-card {
+      animation: fade-in linear forwards;
+      animation-timeline: view();
+      animation-range: entry;
+    }
   }
 }
 
