@@ -12,8 +12,8 @@
       opacity: 0.15;
       animation: fade-in linear forwards;
       animation-timeline: view();
-      animation-range-start: entry 20vh;
-      animation-range-end: entry 30vh;
+      animation-range-start: entry 20%;
+      animation-range-end: cover 30%;
     }
   }
 }
