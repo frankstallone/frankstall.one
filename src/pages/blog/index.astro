@@ -15,7 +15,7 @@ const allPosts = (await getCollection('blog')).sort(
     canonicalURL: `https://frankstall.one/blog/`,
   }}
 >
-  <section class="region wrapper flow prose" id="main">
+  <section class="box flow prose" id="main">
     <div class="grid">
       {
         allPosts.map((post) => (
