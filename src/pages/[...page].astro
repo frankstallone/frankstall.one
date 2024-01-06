@@ -17,7 +17,7 @@ export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
   const allPosts = (await getCollection('blog')).sort(
     (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
   );
-  return paginate(allPosts, { pageSize: 3 });
+  return paginate(allPosts, { pageSize: 2 });
 };
 // All paginated data is passed on the "page" prop
 const { page } = Astro.props;
@@ -160,8 +160,8 @@ const { page } = Astro.props;
       </article>
     </div>
     <div class="region flow prose">
-      <h2>Recent posts</h2>
-      <div class="grid">
+      <div class="grid grid-recent">
+        <h2 class="text-center uppercase recent-posts-header">Recent posts</h2>
         {
           page.data.map((post) => (
             <div
@@ -201,13 +201,28 @@ const { page } = Astro.props;
       </div>
       <aside class="switcher uppercase">
         <div class="box spot-color-gray">
-          <h3 class="mx-auto">Page {page.currentPage} of {page.total}</h3>
+          <h3>Page {page.currentPage} of {page.total}</h3>
         </div>
-        <p class="box font-weight-medium spot-color-gray text-right">
+        <p
+          class="box font-weight-medium spot-color-gray text-right"
+          style="max-inline-size: initial; --threshold: 60rem"
+        >
           <span class="mx-auto"
-            >{page.url.prev ? <a href={page.url.prev}>Previous</a> : null}
-             &mdash;
-            {page.url.next ? <a href={page.url.next}>Next</a> : null}
+            >{
+              page.url.prev ? (
+                <span>
+                  <a href={page.url.prev}>Previous page</a> &mdash;{' '}
+                </span>
+              ) : null
+            }
+            {
+              page.url.next ? (
+                <span>
+                  <a href={page.url.next}>Next page</a> &mdash;{' '}
+                </span>
+              ) : null
+            }
+            <a href="/blog/">All posts</a>
           </span>
         </p>
       </aside>

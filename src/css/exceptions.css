@@ -4,6 +4,26 @@
   background-size: cover;
 }
 
+/* Recent posts on homepage */
+
+.recent-posts-header {
+  background-color: var(--gray-2);
+  color: var(--gray-12);
+  padding: 1em 0.5em;
+  max-inline-size: initial;
+}
+
+@media (min-width: 50em) {
+  .grid-recent {
+    --grid-min-item-size: min(500px, 40%);
+  }
+  .recent-posts-header {
+    writing-mode: vertical-lr;
+    grid-column-start: 3;
+    grid-row-start: 1;
+  }
+}
+
 /* Media queries
 @media (min-width: 50em) {
 }
