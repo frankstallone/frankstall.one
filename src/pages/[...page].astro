@@ -200,10 +200,10 @@ const { page } = Astro.props;
         }
       </div>
       <aside class="switcher uppercase">
-        <div class="box spot-color-gray-dark">
+        <div class="box spot-color-gray">
           <h3 class="mx-auto">Page {page.currentPage} of {page.total}</h3>
         </div>
-        <p class="box font-weight-medium spot-color-gray-dark text-right">
+        <p class="box font-weight-medium spot-color-gray text-right">
           <span class="mx-auto"
             >{page.url.prev ? <a href={page.url.prev}>Previous</a> : null}
              &mdash;
