@@ -331,6 +331,14 @@ Utilities for controlling how grid items are aligned along their inline axis. */
   text-align: center;
 }
 
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
 .font-weight-base {
   font-weight: var(--font-weight-base);
 }
@@ -514,13 +522,32 @@ Utilities for controlling how grid items are aligned along their inline axis. */
 
 /* Spot colors */
 
+.spot-color-gray {
+  --spot-color: var(--gray-2);
+  --spot-color-text: var(--gray-12);
+}
+
 .spot-color-gray-dark {
   --spot-color: var(--gray-12);
   --spot-color-text: var(--gray-1);
 }
 
+.spot-color-violet {
+  --spot-color: var(--violet-1);
+  --spot-color-text: var(--violet-12);
+}
+
+.spot-color-violet-dark {
+  --spot-color: var(--violet-12);
+  --spot-color-text: var(--violet-3);
+}
+
 .rounded {
   border-radius: var(--border-radius);
+}
+
+.rounded-full {
+  border-radius: 9999px;
 }
 
 /* Object Fit

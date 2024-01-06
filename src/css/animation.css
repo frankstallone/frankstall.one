@@ -36,7 +36,8 @@
 
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
-    img {
+    img,
+    .animate-in {
       scale: 0.95;
       opacity: 0.15;
       animation: fade-in linear forwards;

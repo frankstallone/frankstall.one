@@ -1,7 +1,13 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
 import type { GetStaticPaths, Page } from 'astro';
+import { Picture } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
+
+import rollSquared01 from '../assets/squared/roll-squared-01@2x.png';
+import rollSquared02 from '../assets/squared/roll-squared-02@2x.png';
+import rollSquared03 from '../assets/squared/roll-squared-03@2x.png';
+import rollSquared04 from '../assets/squared/roll-squared-04@2x.png';
 
 type Props = {
   page: Page<CollectionEntry<'blog'>>;
@@ -25,51 +31,186 @@ const { page } = Astro.props;
   }}
 >
   <section class="region wrapper flow prose" id="main">
-    <h2>Recent posts</h2>
-    <div class="grid">
-      {
-        page.data.map((post) => (
-          <div class="flow prose post-card" style="--spot-color: var(--gray-2)">
-            <h3>
-              <a href={`/${post.collection}/${post.slug}/`}>
-                {post.data.title}
-              </a>
-            </h3>
-            <p>
-              <small
-                class="uppercase step--2 font-weight-medium font-date tracking-l"
-                style="color: var(--gray-9);"
-              >
-                {new Date(post.data.publishDate).toLocaleDateString(undefined, {
-                  weekday: 'long',
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                })}
-              </small>
-            </p>
-            <p>{post.data.description}</p>
-            <p>
-              <a href={`/${post.collection}/${post.slug}/`}>
-                Read more &hellip;
-              </a>
-            </p>
-          </div>
-        ))
-      }
+    <div class="flow prose">
+      <div
+        class="grid relative"
+        style="--grid-min-item-size: 600px; grid-template-columns: 1fr 4em"
+      >
+        <h2
+          class="text-center uppercase"
+          style="writing-mode: vertical-lr; background-color: var(--gray-2); color: var(--gray-12); padding: 1em 0.5em; grid-column-start: 2; grid-row-start: 1;"
+        >
+          Portfolio
+        </h2>
+        <div
+          class="box flow prose spot-color-gray"
+          style="grid-column-start: 1;"
+        >
+          <hgroup>
+            <h3 class="uppercase">Roll</h3>
+            <p class="font-weight-medium step-1">UX, UI, Design systems</p>
+          </hgroup>
+          <p>
+            Created a new way to run payroll, and manage small business owner's <abbr
+              title="Human Capital Management">HCM</abbr
+            > needs on the go, with a mobile first approach. From concept to
+            customer.
+          </p>
+        </div>
+      </div>
+      <article class="grid-portfolio">
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(211 246 254); grid-column-start: 4; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(170 224 251); grid-column-start: 5; grid-row-start: 3; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(134 194 241); grid-column-start: 5; grid-row-start: 4; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(93 162 235); grid-column-start: 7; grid-row-start: 5; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(66 131 226); grid-column-start: 7; grid-row-start: 6; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(46 102 216); grid-column-start: 4; grid-row-start: 6; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(18 74 207); grid-column-start: 3; grid-row-start: 6; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(5 51 181); grid-column-start: 2; grid-row-start: 6; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(5 39 133); grid-column-start: 1; grid-row-start: 6; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <Picture
+          src={rollSquared01}
+          widths={[500, 700, 1400]}
+          class="object-cover h-auto"
+          pictureAttributes={{
+            class: 'grid-item-01',
+          }}
+          alt="Screenshot of UX design for Roll"
+          quality={80}
+          format="avif"
+        />
+        <Picture
+          src={rollSquared02}
+          widths={[500, 700]}
+          class="object-cover h-auto"
+          alt="Screenshot of UX design for Roll"
+          pictureAttributes={{
+            class: 'grid-item-02',
+          }}
+          quality={80}
+          format="avif"
+        />
+        <Picture
+          src={rollSquared03}
+          widths={[500, 700]}
+          class="object-cover h-auto"
+          alt="Screenshot of UX design for Roll"
+          pictureAttributes={{
+            class: 'grid-item-03',
+          }}
+          quality={80}
+          format="avif"
+        />
+        <Picture
+          src={rollSquared04}
+          widths={[500, 700]}
+          class="object-cover h-auto"
+          alt="Screenshot of UX design for Roll"
+          pictureAttributes={{
+            class: 'grid-item-04',
+          }}
+          quality={80}
+          format="avif"
+        />
+      </article>
     </div>
-    <aside class="flex justify-between uppercase">
-      <h3>Page {page.currentPage} of {page.total}</h3>
-      <p class="font-weight-medium">
+    <div class="region flow prose">
+      <h2>Recent posts</h2>
+      <div class="grid">
         {
-          page.url.prev ? (
-            <span>
-              <a href={page.url.prev}>⏮ Previous</a> &mdash;{' '}
-            </span>
-          ) : null
+          page.data.map((post) => (
+            <div
+              class="flow prose post-card"
+              style="--spot-color: var(--gray-2)"
+            >
+              <h3>
+                <a href={`/${post.collection}/${post.slug}/`}>
+                  {post.data.title}
+                </a>
+              </h3>
+              <p>
+                <small
+                  class="uppercase step--2 font-weight-medium font-date tracking-l"
+                  style="color: var(--gray-9);"
+                >
+                  {new Date(post.data.publishDate).toLocaleDateString(
+                    undefined,
+                    {
+                      weekday: 'long',
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    },
+                  )}
+                </small>
+              </p>
+              <p>{post.data.description}</p>
+              <p>
+                <a href={`/${post.collection}/${post.slug}/`}>
+                  Read more &hellip;
+                </a>
+              </p>
+            </div>
+          ))
         }
-        {page.url.next ? <a href={page.url.next}>Next ⏭</a> : null}
-      </p>
-    </aside>
+      </div>
+      <aside class="switcher uppercase">
+        <div class="box spot-color-gray-dark">
+          <h3 class="mx-auto">Page {page.currentPage} of {page.total}</h3>
+        </div>
+        <p class="box font-weight-medium spot-color-gray-dark text-right">
+          <span class="mx-auto"
+            >{page.url.prev ? <a href={page.url.prev}>⏮ Previous</a> : null}
+             &mdash;
+            {page.url.next ? <a href={page.url.next}>Next ⏭</a> : null}
+          </span>
+        </p>
+      </aside>
+    </div>
   </section>
 </Layout>
