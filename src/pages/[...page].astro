@@ -3,6 +3,7 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import type { GetStaticPaths, Page } from 'astro';
 import { Picture } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
+import type { Props as HeadProps } from '../components/Head.astro';
 
 import rollSquared01 from '../assets/squared/roll-squared-01@2x.png';
 import rollSquared02 from '../assets/squared/roll-squared-02@2x.png';
@@ -11,7 +12,7 @@ import rollSquared04 from '../assets/squared/roll-squared-04@2x.png';
 
 type Props = {
   page: Page<CollectionEntry<'blog'>>;
-};
+} & HeadProps;
 
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
   const allPosts = (await getCollection('blog')).sort(
@@ -32,6 +33,74 @@ const { page } = Astro.props;
 >
   <section class="region wrapper flow prose" id="main">
     <div class="flow prose">
+      <div class="grid grid-recent">
+        <h2 class="text-center uppercase recent-posts-header">Recent posts</h2>
+        {
+          page.data.map((post) => (
+            <div
+              class="flow prose post-card"
+              style="--spot-color: var(--gray-2)"
+            >
+              <h3>
+                <a href={`/${post.collection}/${post.slug}/`}>
+                  {post.data.title}
+                </a>
+              </h3>
+              <p>
+                <small
+                  class="uppercase step--2 font-weight-medium font-date tracking-l"
+                  style="color: var(--gray-9);"
+                >
+                  {new Date(post.data.publishDate).toLocaleDateString(
+                    undefined,
+                    {
+                      weekday: 'long',
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    },
+                  )}
+                </small>
+              </p>
+              <p>{post.data.description}</p>
+              <p>
+                <a href={`/${post.collection}/${post.slug}/`}>
+                  Read more &hellip;
+                </a>
+              </p>
+            </div>
+          ))
+        }
+      </div>
+      <aside class="switcher uppercase">
+        <div class="box spot-color-gray">
+          <h3>Page {page.currentPage} of {page.total}</h3>
+        </div>
+        <p
+          class="box font-weight-medium spot-color-gray text-right"
+          style="max-inline-size: initial; --threshold: 60rem"
+        >
+          <span class="mx-auto"
+            >{
+              page.url.prev ? (
+                <span>
+                  <a href={page.url.prev}>Previous page</a> &mdash;{' '}
+                </span>
+              ) : null
+            }
+            {
+              page.url.next ? (
+                <span>
+                  <a href={page.url.next}>Next page</a> &mdash;{' '}
+                </span>
+              ) : null
+            }
+            <a href="/blog/">All posts</a>
+          </span>
+        </p>
+      </aside>
+    </div>
+    <div class="region flow prose">
       <div
         class="grid relative"
         style="--grid-min-item-size: 600px; grid-template-columns: 1fr 4em"
@@ -122,7 +191,7 @@ const { page } = Astro.props;
           pictureAttributes={{
             class: 'grid-item-01',
           }}
-          alt="Screenshot of UX design for Roll"
+          alt="Mock up of Apple iPhones with Roll by ADP app views"
           quality={80}
           format="avif"
         />
@@ -130,7 +199,7 @@ const { page } = Astro.props;
           src={rollSquared02}
           widths={[500, 700]}
           class="object-cover h-auto"
-          alt="Screenshot of UX design for Roll"
+          alt="Screenshot of VSCode showing the design tokens repository for Roll by ADP"
           pictureAttributes={{
             class: 'grid-item-02',
           }}
@@ -141,7 +210,7 @@ const { page } = Astro.props;
           src={rollSquared03}
           widths={[500, 700]}
           class="object-cover h-auto"
-          alt="Screenshot of UX design for Roll"
+          alt="Screenshot of the payroll run conversation UI showcasing the components design and created for our clients"
           pictureAttributes={{
             class: 'grid-item-03',
           }}
@@ -152,7 +221,7 @@ const { page } = Astro.props;
           src={rollSquared04}
           widths={[500, 700]}
           class="object-cover h-auto"
-          alt="Screenshot of UX design for Roll"
+          alt="Screenshots of the mobile app that would eventually be used circa 2018"
           pictureAttributes={{
             class: 'grid-item-04',
           }}
@@ -160,71 +229,16 @@ const { page } = Astro.props;
           format="avif"
         />
       </article>
-    </div>
-    <div class="region flow prose">
-      <div class="grid grid-recent">
-        <h2 class="text-center uppercase recent-posts-header">Recent posts</h2>
-        {
-          page.data.map((post) => (
-            <div
-              class="flow prose post-card"
-              style="--spot-color: var(--gray-2)"
-            >
-              <h3>
-                <a href={`/${post.collection}/${post.slug}/`}>
-                  {post.data.title}
-                </a>
-              </h3>
-              <p>
-                <small
-                  class="uppercase step--2 font-weight-medium font-date tracking-l"
-                  style="color: var(--gray-9);"
-                >
-                  {new Date(post.data.publishDate).toLocaleDateString(
-                    undefined,
-                    {
-                      weekday: 'long',
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    },
-                  )}
-                </small>
-              </p>
-              <p>{post.data.description}</p>
-              <p>
-                <a href={`/${post.collection}/${post.slug}/`}>
-                  Read more &hellip;
-                </a>
-              </p>
-            </div>
-          ))
-        }
-      </div>
       <aside class="switcher uppercase">
         <div class="box spot-color-gray">
-          <h3>Page {page.currentPage} of {page.total}</h3>
+          <h3>1 of 5</h3>
         </div>
         <p
           class="box font-weight-medium spot-color-gray text-right"
           style="max-inline-size: initial; --threshold: 60rem"
         >
-          <span class="mx-auto"
-            >{
-              page.url.prev ? (
-                <span>
-                  <a href={page.url.prev}>Previous page</a> &mdash;{' '}
-                </span>
-              ) : null
-            }
-            {
-              page.url.next ? (
-                <span>
-                  <a href={page.url.next}>Next page</a> &mdash;{' '}
-                </span>
-              ) : null
-            }
-            <a href="/blog/">All posts</a>
+          <span class="mx-auto">
+            <a href="/portfolio/">See portfolio</a>
           </span>
         </p>
       </aside>

@@ -3,8 +3,16 @@ import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
 import Head from '../components/Head.astro';
 import BlogHero from '../components/BlogHero.astro';
+import type { Props as HeadProps } from '../components/Head.astro';
 
-const { meta } = Astro.props;
+type Props = {
+  subtitle: string;
+} & HeadProps;
+
+const { meta, subtitle } = Astro.props;
+const pageTitle = meta.title
+  ? meta.title
+  : 'The Internets favorite Frank Stallone';
 ---
 
 <!doctype html>
@@ -14,7 +22,7 @@ const { meta } = Astro.props;
     <a href="#main" class="sr-only sr-only-focusable">Skip to content</a>
     <main>
       <!-- Heading & Hero -->
-      <BlogHero title={meta.title} />
+      <BlogHero title={pageTitle} subtitle={subtitle} />
       <slot />
       <!-- Contact -->
       <Contact />

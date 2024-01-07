@@ -1,0 +1,480 @@
+---
+import BlogLayout from '../../layouts/BlogLayout.astro';
+import { Picture } from 'astro:assets';
+
+import rollSquared01 from '../../assets/squared/roll-squared-01@2x.png';
+import rollSquared02 from '../../assets/squared/roll-squared-02@2x.png';
+import rollSquared03 from '../../assets/squared/roll-squared-03@2x.png';
+import rollSquared04 from '../../assets/squared/roll-squared-04@2x.png';
+
+import btcSquared01 from '../../assets/squared/btc-squared-01@2x.png';
+import btcSquared02 from '../../assets/squared/btc-squared-02@2x.png';
+import btcSquared03 from '../../assets/squared/btc-squared-03@2x.png';
+import btcSquared04 from '../../assets/squared/btc-squared-04@2x.png';
+
+import njcSquared01 from '../../assets/squared/njc-squared-01@2x.png';
+import njcSquared02 from '../../assets/squared/njc-squared-02@2x.png';
+import njcSquared03 from '../../assets/squared/njc-squared-03@2x.png';
+import njcSquared04 from '../../assets/squared/njc-squared-04@2x.png';
+
+import bracketsSquared01 from '../../assets/squared/brackets-squared-01@2x.png';
+import bracketsSquared02 from '../../assets/squared/brackets-squared-02@2x.png';
+import bracketsSquared03 from '../../assets/squared/brackets-squared-03@2x.png';
+import bracketsSquared04 from '../../assets/squared/brackets-squared-04@2x.png';
+
+import savaniSquared01 from '../../assets/squared/savani-squared-01@2x.png';
+import savaniSquared02 from '../../assets/squared/savani-squared-02@2x.png';
+import savaniSquared03 from '../../assets/squared/savani-squared-03@2x.png';
+import savaniSquared04 from '../../assets/squared/savani-squared-04@2x.png';
+---
+
+<BlogLayout
+  subtitle="A few clever creations from my archives"
+  meta={{
+    title: 'Portfolio of Frank Stallone',
+    description: 'The design and development portfolio of Frank Stallone',
+    canonicalURL: `https://frankstall.one/portfolio/`,
+  }}
+>
+  <section class="region wrapper flow prose" id="main">
+    <div class="flow prose">
+      <div
+        class="grid relative"
+        style="--grid-min-item-size: 600px; grid-template-columns: 1fr 4em"
+      >
+        <h2
+          class="text-center uppercase"
+          style="writing-mode: vertical-lr; background-color: var(--gray-2); color: var(--gray-12); padding: 1em 0.5em; grid-column-start: 2; grid-row-start: 1;"
+        >
+          Portfolio
+        </h2>
+        <div
+          class="box flow prose spot-color-gray"
+          style="grid-column-start: 1;"
+        >
+          <hgroup>
+            <h3 class="uppercase">Roll</h3>
+            <p class="font-weight-medium step-1">
+              UX, UI, Product design, Design systems
+            </p>
+          </hgroup>
+          <p>
+            Created a new way to run payroll, and manage small business owner's <abbr
+              title="Human Capital Management">HCM</abbr
+            > needs on the go, with a mobile first approach. From concept to
+            customer.
+          </p>
+        </div>
+      </div>
+      <article class="grid-portfolio">
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(211 246 254); grid-column-start: 4; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(170 224 251); grid-column-start: 5; grid-row-start: 3; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(134 194 241); grid-column-start: 5; grid-row-start: 4; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(93 162 235); grid-column-start: 7; grid-row-start: 5; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(66 131 226); grid-column-start: 7; grid-row-start: 6; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(46 102 216); grid-column-start: 4; grid-row-start: 6; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(18 74 207); grid-column-start: 3; grid-row-start: 6; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(5 51 181); grid-column-start: 2; grid-row-start: 6; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(5 39 133); grid-column-start: 1; grid-row-start: 6; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <Picture
+          src={rollSquared01}
+          widths={[500, 700, 1400]}
+          class="object-cover h-auto"
+          pictureAttributes={{
+            class: 'grid-item-01',
+          }}
+          alt="Mock up of Apple iPhones with Roll by ADP app views"
+          quality={80}
+          format="avif"
+        />
+        <Picture
+          src={rollSquared02}
+          widths={[500, 700]}
+          class="object-cover h-auto"
+          alt="Screenshot of VSCode showing the design tokens repository for Roll by ADP"
+          pictureAttributes={{
+            class: 'grid-item-02',
+          }}
+          quality={80}
+          format="avif"
+        />
+        <Picture
+          src={rollSquared03}
+          widths={[500, 700]}
+          class="object-cover h-auto"
+          alt="Screenshot of the payroll run conversation UI showcasing the components design and created for our clients"
+          pictureAttributes={{
+            class: 'grid-item-03',
+          }}
+          quality={80}
+          format="avif"
+        />
+        <Picture
+          src={rollSquared04}
+          widths={[500, 700]}
+          class="object-cover h-auto"
+          alt="Screenshots of the mobile app that would eventually be used circa 2018"
+          pictureAttributes={{
+            class: 'grid-item-04',
+          }}
+          quality={80}
+          format="avif"
+        />
+      </article>
+    </div>
+    <div class="flow prose region">
+      <div
+        class="grid relative"
+        style="--grid-min-item-size: 600px; grid-template-columns: 1fr 4em"
+      >
+        <h2
+          class="text-center uppercase"
+          style="writing-mode: vertical-lr; background-color: var(--gray-2); color: var(--gray-12); padding: 1em 0.5em; grid-column-start: 2; grid-row-start: 1;"
+        >
+          Portfolio
+        </h2>
+        <div
+          class="box flow prose spot-color-gray"
+          style="grid-column-start: 1;"
+        >
+          <hgroup>
+            <h3 class="uppercase">Builders Trust Capital</h3>
+            <p class="font-weight-medium step-1">
+              Brand transformation, logo, name
+            </p>
+          </hgroup>
+          <p>
+            Created a sophisticated brand that appealed to their entrepreneur
+            clientele, and resonated with their core values of trust, stability,
+            and transparency.
+          </p>
+        </div>
+      </div>
+      <article class="grid-portfolio">
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(255 248 213); grid-column-start: 4; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(251 218 115); grid-column-start: 5; grid-row-start: 3; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(232 184 10); grid-column-start: 5; grid-row-start: 4; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(196 152 27); grid-column-start: 7; grid-row-start: 5; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(171 120 30); grid-column-start: 7; grid-row-start: 6; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(143 94 26); grid-column-start: 4; grid-row-start: 6; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(122 70 21); grid-column-start: 3; grid-row-start: 6; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(104 46 12); grid-column-start: 2; grid-row-start: 6; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(78 26 5); grid-column-start: 1; grid-row-start: 6; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <Picture
+          src={btcSquared01}
+          widths={[500, 700, 1400]}
+          class="object-cover h-auto"
+          pictureAttributes={{
+            class: 'grid-item-01',
+          }}
+          alt="Photo of initial sketches of the chosen logo for Builders Trust Capital showing the intentions for the three pilars"
+          quality={80}
+          format="avif"
+        />
+        <Picture
+          src={btcSquared02}
+          widths={[500, 700]}
+          class="object-cover h-auto"
+          alt="Screenshot of the home page design for Builders Trust Capital"
+          pictureAttributes={{
+            class: 'grid-item-02',
+          }}
+          quality={80}
+          format="avif"
+        />
+        <Picture
+          src={btcSquared03}
+          widths={[500, 700]}
+          class="object-cover h-auto"
+          alt="Screenshot of the presentation for the new Builders Trust Capital logo in context on a sign and business cards"
+          pictureAttributes={{
+            class: 'grid-item-03',
+          }}
+          quality={80}
+          format="avif"
+        />
+        <Picture
+          src={btcSquared04}
+          widths={[500, 700]}
+          class="object-cover h-auto"
+          alt="Logo presentation of the Builders Trust Capital mark and logo type"
+          pictureAttributes={{
+            class: 'grid-item-04',
+          }}
+          quality={80}
+          format="avif"
+        />
+      </article>
+    </div>
+    <div class="flow prose region">
+      <div
+        class="grid relative"
+        style="--grid-min-item-size: 600px; grid-template-columns: 1fr 4em"
+      >
+        <h2
+          class="text-center uppercase"
+          style="writing-mode: vertical-lr; background-color: var(--gray-2); color: var(--gray-12); padding: 1em 0.5em; grid-column-start: 2; grid-row-start: 1;"
+        >
+          Portfolio
+        </h2>
+        <div
+          class="box flow prose spot-color-gray"
+          style="grid-column-start: 1;"
+        >
+          <hgroup>
+            <h3 class="uppercase">NJ Stone Supply &amp; Tree Service</h3>
+            <p class="font-weight-medium step-1">Logo</p>
+          </hgroup>
+          <p>
+            Designed a logo mark and logo type that speaks equally to Noah's
+            audience as it does Noah's work.
+          </p>
+        </div>
+      </div>
+      <article class="grid" style="--grid-min-item-size: 250px">
+        <Picture
+          src={njcSquared01}
+          widths={[500, 700, 1400]}
+          class="object-cover h-auto"
+          alt="The logo mark for Noah James Curtis Stone Supply & Tree Service"
+          quality={80}
+          format="avif"
+        />
+        <Picture
+          src={njcSquared02}
+          widths={[500, 700]}
+          class="object-cover h-auto"
+          alt="The typeface and colors chosen for the branding of Noah James Curtis Stone Supply & Tree Service"
+          quality={80}
+          format="avif"
+        />
+        <Picture
+          src={njcSquared03}
+          widths={[500, 700]}
+          class="object-cover h-auto"
+          alt="Screenshot of the grid used for one of the Noah James Curtis Stone Supply logos with type"
+          quality={80}
+          format="avif"
+        />
+        <Picture
+          src={njcSquared04}
+          widths={[500, 700]}
+          class="object-cover h-auto"
+          alt="One of the variations of the NJC Stone Supply & Tree Service with logo mark and type logo"
+          quality={80}
+          format="avif"
+        />
+      </article>
+    </div>
+    <div class="flow prose region">
+      <div
+        class="grid relative"
+        style="--grid-min-item-size: 600px; grid-template-columns: 1fr 4em"
+      >
+        <h2
+          class="text-center uppercase"
+          style="writing-mode: vertical-lr; background-color: var(--gray-2); color: var(--gray-12); padding: 1em 0.5em; grid-column-start: 2; grid-row-start: 1;"
+        >
+          Portfolio
+        </h2>
+        <div
+          class="box flow prose spot-color-gray"
+          style="grid-column-start: 1;"
+        >
+          <hgroup>
+            <h3 class="uppercase">Brackets podcast</h3>
+            <p class="font-weight-medium step-1">Co-host, Logo, Branding</p>
+          </hgroup>
+          <p>
+            Co-created a technology podcast that aired for 5 years and served as
+            the pulse of tech within ADP.
+          </p>
+        </div>
+      </div>
+      <article class="grid" style="--grid-min-item-size: 250px">
+        <Picture
+          src={bracketsSquared01}
+          widths={[500, 700, 1400]}
+          class="object-cover h-auto"
+          alt="The original logo mark and type logo for ADP's Developer Community Brackets Podcast"
+          quality={80}
+          format="avif"
+        />
+        <Picture
+          src={bracketsSquared02}
+          widths={[500, 700]}
+          class="object-cover h-auto"
+          alt="The original logo mark for ADP's Developer Community Brackets Podcast"
+          quality={80}
+          format="avif"
+        />
+        <Picture
+          src={bracketsSquared03}
+          widths={[500, 700]}
+          class="object-cover h-auto"
+          alt="Play on the ADP's Developer Community Brackets Podcast logo"
+          quality={80}
+          format="avif"
+        />
+        <Picture
+          src={bracketsSquared04}
+          widths={[500, 700]}
+          class="object-cover h-auto"
+          alt="Another spin of the design of the ADP's Developer Community Brackets Podcast logo"
+          quality={80}
+          format="avif"
+        />
+      </article>
+    </div>
+    <div class="flow prose region">
+      <div
+        class="grid relative"
+        style="--grid-min-item-size: 600px; grid-template-columns: 1fr 4em"
+      >
+        <h2
+          class="text-center uppercase"
+          style="writing-mode: vertical-lr; background-color: var(--gray-2); color: var(--gray-12); padding: 1em 0.5em; grid-column-start: 2; grid-row-start: 1;"
+        >
+          Portfolio
+        </h2>
+        <div
+          class="box flow prose spot-color-gray"
+          style="grid-column-start: 1;"
+        >
+          <hgroup>
+            <h3 class="uppercase">Savani</h3>
+            <p class="font-weight-medium step-1">Logo, Branding</p>
+          </hgroup>
+          <p>
+            Brought a niche Volkswagen parts company closer to it's audience
+            with new branding.
+          </p>
+        </div>
+      </div>
+      <article class="grid" style="--grid-min-item-size: 250px">
+        <Picture
+          src={savaniSquared01}
+          widths={[500, 700, 1400]}
+          class="object-cover h-auto"
+          alt="The original logo mark for Savani Auto Parts"
+          quality={80}
+          format="avif"
+        />
+        <Picture
+          src={savaniSquared02}
+          widths={[500, 700]}
+          class="object-cover h-auto"
+          alt="The type logo for Savani Auto Parts"
+          quality={80}
+          format="avif"
+        />
+        <Picture
+          src={savaniSquared03}
+          widths={[500, 700]}
+          class="object-cover h-auto"
+          alt="The logo mark and type logo for Savani Auto Parts"
+          quality={80}
+          format="avif"
+        />
+        <Picture
+          src={savaniSquared04}
+          widths={[500, 700]}
+          class="object-cover h-auto"
+          alt="A t-shirt with the Savani Auto Parts logo mark and type logo"
+          quality={80}
+          format="avif"
+        />
+      </article>
+    </div>
+  </section>
+</BlogLayout>
