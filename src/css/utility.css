@@ -317,8 +317,13 @@ Utilities for controlling how grid items are aligned along their inline axis. */
 .mx-auto {
   margin-inline: auto;
 }
+
 .my-auto {
   margin-block: auto;
+}
+
+.m-auto {
+  margin: auto;
 }
 
 /* Font */

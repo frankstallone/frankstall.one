@@ -1,0 +1,146 @@
+---
+import InnerLayout from '../../layouts/InnerLayout.astro';
+import { Picture } from 'astro:assets';
+
+import research from '../../assets/content-compass/research-for-small-business-lead-generation.png';
+import organize from '../../assets/content-compass/content-templates-and-dashboard.png';
+// import more from '../../assets/content-compass/getting-started-small-business-lead-generation.png';
+// import keyphrase from '../../assets/content-compass/keyphrases-for-small-business-lead-generation.png';
+import schedule from '../../assets/content-compass/small-business-content-calendar.png';
+import create from '../../assets/content-compass/write-compelling-content-for-small-business-lead-generation.png';
+import compass from '../../assets/content-compass/small-business-lead-generation-dashboard.png';
+---
+
+<InnerLayout
+  subtitle="Centralized workspace for small business owners to research, create, organize and schedule content for lead generation. "
+  meta={{
+    title: 'Lead generation for small businesses',
+    description: 'The design and development portfolio of Frank Stallone',
+    canonicalURL: `https://frankstall.one/portfolio/`,
+  }}
+>
+  <div class="switcher spot-color-gray">
+    <div class="box flow prose m-auto">
+      <hgroup>
+        <h3 class="uppercase">Content compass</h3>
+        <p class="font-weight-medium step-1">
+          Research, create, organize, schedule, and reuse all in a single
+          dashboard.
+        </p>
+      </hgroup>
+      <p>
+        <strong>
+          Are you a small business owner that does all your own content
+          creation? Do you have in house or freelance creators that all use
+          different tools? Do you have a hard time keeping track of what content
+          you have?
+        </strong>
+      </p>
+      <p>
+        The Content compass is a framework for small business owners to
+        research, create organize, and schedule content for lead generation.
+        Finally, a simple central place where you, and your team can collaborate
+        on content creation.
+      </p>
+      <p>
+        <a
+          href="https://buy.stripe.com/cN2bLT3tm5cT2HK288"
+          class="button"
+          style="--spot-color: var(--color-loud);"
+          >Get the Content compass now!</a
+        >
+      </p>
+    </div>
+    <Picture
+      src={compass}
+      widths={[500, 700, 1400]}
+      class="object-cover h-auto"
+      alt="Screenshot of the Content compass Notion template for small business lead generation"
+      quality={80}
+      format="avif"
+    />
+  </div>
+  <section class="wrapper flow" id="main">
+    <div class="region">
+      <div class="box flow prose spot-color-gray">
+        <h2>Research</h2>
+        <p>
+          Find examples of webpages that talk about your topic well. Find the
+          keyphrases they're using. Collect links to articles, blog posts,
+          social media, and quotes about the topic for inspiration.
+        </p>
+      </div>
+      <Picture
+        src={research}
+        widths={[500, 700, 1400]}
+        class="object-cover h-auto"
+        alt="Screnshot of the Notion template for small business lead generation research"
+        quality={80}
+        format="avif"
+      />
+    </div>
+    <div class="region">
+      <div class="box flow prose spot-color-gray">
+        <h2>Create</h2>
+        <p>
+          Write your long and short form content in a single place. Ensure your
+          voice and tone are properly heard. Allow collaborators to comment, and
+          recommend changes.
+        </p>
+      </div>
+      <Picture
+        src={create}
+        widths={[500, 700, 1400]}
+        class="object-cover h-auto"
+        alt="Screenshot of the Content compass Notion template content creation for small business lead generation"
+        quality={80}
+        format="avif"
+      />
+    </div>
+    <div class="region">
+      <div class="box flow prose spot-color-gray">
+        <h2>Organize</h2>
+        <p>
+          A centralized workspace for all your long and short form content.
+          Connect short form to the long form to easily track how everything is
+          connected.
+        </p>
+      </div>
+      <Picture
+        src={organize}
+        widths={[500, 700, 1400]}
+        class="object-cover h-auto"
+        alt="Screenshot of the Content compass Notion template content orgnization for small business lead generation"
+        quality={80}
+        format="avif"
+      />
+    </div>
+    <div class="region">
+      <div class="box flow prose spot-color-gray">
+        <h2>Schedule</h2>
+        <p>
+          A single calendar for all content. Review the upcoming week or month.
+          Go back in time to easily find and repurpose prior work.
+        </p>
+      </div>
+      <Picture
+        src={schedule}
+        widths={[500, 700, 1400]}
+        class="object-cover h-auto"
+        alt="Screenshot of the Content compass Notion template content scheduling for small business lead generation"
+        quality={80}
+        format="avif"
+      />
+    </div>
+    <div class="region">
+      <div class="mx-auto">
+        <a
+          href="https://buy.stripe.com/cN2bLT3tm5cT2HK288"
+          class="button"
+          style="--spot-color: var(--color-loud);"
+          >Get the Content compass now!</a
+        >
+      </div>
+    </div>
+  </section>
+</InnerLayout>

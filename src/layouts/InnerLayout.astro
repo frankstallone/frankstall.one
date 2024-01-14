@@ -6,7 +6,7 @@ import BlogHero from '../components/BlogHero.astro';
 import type { Props as HeadProps } from '../components/Head.astro';
 
 type Props = {
-  subtitle: string;
+  subtitle?: string;
 } & HeadProps;
 
 const { meta, subtitle } = Astro.props;

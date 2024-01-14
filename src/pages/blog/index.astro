@@ -1,13 +1,13 @@
 ---
 import { getCollection } from 'astro:content';
-import BlogLayout from '../../layouts/BlogLayout.astro';
+import InnerLayout from '../../layouts/InnerLayout.astro';
 
 const allPosts = (await getCollection('blog')).sort(
   (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
 );
 ---
 
-<BlogLayout
+<InnerLayout
   meta={{
     title: 'Blog posts by Frank Stallone',
     description:
@@ -49,4 +49,4 @@ const allPosts = (await getCollection('blog')).sort(
       }
     </div>
   </section>
-</BlogLayout>
+</InnerLayout>
