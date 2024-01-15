@@ -5,18 +5,18 @@ import { Picture } from 'astro:assets';
 import research from '../../assets/content-compass/research-for-small-business-lead-generation.png';
 import organize from '../../assets/content-compass/content-templates-and-dashboard.png';
 // import more from '../../assets/content-compass/getting-started-small-business-lead-generation.png';
-// import keyphrase from '../../assets/content-compass/keyphrases-for-small-business-lead-generation.png';
+import keyphrase from '../../assets/content-compass/keyphrases-for-small-business-lead-generation.png';
 import schedule from '../../assets/content-compass/small-business-content-calendar.png';
 import create from '../../assets/content-compass/write-compelling-content-for-small-business-lead-generation.png';
 import compass from '../../assets/content-compass/small-business-lead-generation-dashboard.png';
 ---
 
 <InnerLayout
-  subtitle="Centralized workspace for small business owners to research, create, organize and schedule content for lead generation. "
+  subtitle="Centralized workspace for small business owners to research, create, organize and schedule content for lead generation."
   meta={{
     title: 'Lead generation for small businesses',
     description: 'The design and development portfolio of Frank Stallone',
-    canonicalURL: `https://frankstall.one/portfolio/`,
+    canonicalURL: `https://frankstall.one/products/lead-generation-for-small-business`,
   }}
 >
   <div class="switcher spot-color-gray">
@@ -24,23 +24,21 @@ import compass from '../../assets/content-compass/small-business-lead-generation
       <hgroup class="flow prose">
         <h2 class="uppercase">Content compass</h2>
         <h3>
-          Research, create, organize, schedule, and reuse all in a single
-          dashboard.
+          Research, create, organize and schedule content all in a single
+          dashboard to get more leads for your small business.
         </h3>
       </hgroup>
       <p>
         <strong>
-          Are you a small business owner that does all your own content
-          creation? Do you have in house or freelance creators that all use
-          different tools? Do you have a hard time keeping track of what content
-          you have?
+          Are you a small business owner that creates content online? Do you
+          have in house or freelance creators that all use different tools? Does
+          you or your team have a hard time keeping track of your content?
         </strong>
       </p>
       <p>
         The Content compass is a framework and Notion template for small
-        business owners to research, create organize, and schedule content for
-        lead generation. Finally, a simple central place where you, and your
-        team can collaborate on content creation.
+        business owners to generate more leads. A simple central place where
+        you, and your team can collaborate on content creation.
       </p>
       <p>
         <a
@@ -64,11 +62,19 @@ import compass from '../../assets/content-compass/small-business-lead-generation
       <div class="box flow prose spot-color-gray">
         <h2>Research</h2>
         <p>
-          Find examples of webpages that talk about your topic well. Find the
-          keyphrases they're using. Collect links to articles, blog posts,
-          social media, and quotes about the topic for inspiration.
+          Find examples of on topic webpages. List the keyphrases they're using.
+          Collect links to articles, blog posts, social media, and quotes about
+          the topic for inspiration.
         </p>
       </div>
+      <Picture
+        src={keyphrase}
+        widths={[500, 700, 1400]}
+        class="object-cover h-auto"
+        alt="Screnshot of the Notion template for small business lead generation keyphrase research"
+        quality={80}
+        format="avif"
+      />
       <Picture
         src={research}
         widths={[500, 700, 1400]}
