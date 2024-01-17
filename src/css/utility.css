@@ -100,6 +100,10 @@
 /* FAQ Button */
 
 .faq-button {
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: space-between;
+  align-items: center;
   font-family: var(--font-display);
   font-weight: var(--font-emphasis-weight);
   font-size: var(--step-1);
