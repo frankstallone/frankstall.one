@@ -1,0 +1,58 @@
+---
+type Props = {
+  idx: number;
+  question: string;
+  answer: string;
+};
+
+const { idx, question, answer } = Astro.props;
+---
+
+<div
+  x-data={idx === 0
+    ? '{ activeAccordion: true }'
+    : '{ activeAccordion: false }'}
+  class="box spot-color-gray flex flex-col"
+>
+  <button
+    @click="activeAccordion = !activeAccordion"
+    :aria-expanded="activeAccordion"
+    aria-controls="accordion-panel-1"
+    id="accordion-header-1"
+    class="faq-button"
+  >
+    {question}
+    <svg
+      x-show="!activeAccordion"
+      focusable="false"
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      ><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="currentColor"
+      ></path><path d="M0 0h24v24H0z" fill="none"></path></svg
+    ><svg
+      x-show="activeAccordion"
+      focusable="false"
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      ><path d="M19 13H5v-2h14v2z" fill="currentColor"></path><path
+        d="M0 0h24v24H0z"
+        fill="none"></path></svg
+    >
+  </button>
+  <section
+    :hidden="!activeAccordion"
+    id="accordion-panel-1"
+    aria-labelledby="accordion-header-1"
+  >
+    <div class="accordion-body">
+      {answer}
+    </div>
+  </section>
+</div>
+
+<script>
+  import Alpine from 'alpinejs';
+
+  window.Alpine = Alpine;
+  Alpine.start();
+</script>

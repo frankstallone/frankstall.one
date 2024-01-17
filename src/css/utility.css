@@ -97,6 +97,26 @@
   outline: 2px solid var(--color-loud);
 }
 
+/* FAQ Button */
+
+.faq-button {
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-display);
+  font-weight: var(--font-emphasis-weight);
+  font-size: var(--step-1);
+  border: none;
+  border-width: 0;
+  background: none;
+  padding: 0;
+}
+
+.accordion-body {
+  margin-block-start: var(--space-s);
+}
+
 /* Region */
 
 .region[data-padding='l'] {

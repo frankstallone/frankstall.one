@@ -1,6 +1,7 @@
 ---
 import ProductLayout from '../../layouts/ProductLayout.astro';
 import { Picture } from 'astro:assets';
+import FAQ from '../../components/FAQ.astro';
 
 import research from '../../assets/content-compass/research-for-small-business-lead-generation.png';
 import organize from '../../assets/content-compass/content-templates-and-dashboard.png';
@@ -9,6 +10,28 @@ import keyphrase from '../../assets/content-compass/keyphrases-for-small-busines
 import schedule from '../../assets/content-compass/small-business-content-calendar.png';
 import create from '../../assets/content-compass/write-compelling-content-for-small-business-lead-generation.png';
 import compass from '../../assets/content-compass/small-business-lead-generation-dashboard.png';
+
+const faqQuestions = [
+  {
+    question: 'Do I need to pay for Notion?',
+    answer:
+      'No! Notion has a free tier you can use this with. They have premium offerings but their free tier is generous.',
+  },
+  {
+    question: 'What is long form content?',
+    answer:
+      'Long form content is content like a blog article, newsletter or landing page. The long form content template is designed to help you research, write, and schedule.',
+  },
+  {
+    question: 'What is short form content?',
+    answer:
+      'Short form content is content like a LinkedIn, Instagram, Facebook, X (formally known as Twitter), Mastadon, or Threads post.',
+  },
+  {
+    question: 'Refunds?',
+    answer: 'Due to the unqiue nature of this product, there are no refunds.',
+  },
+];
 ---
 
 <ProductLayout
@@ -143,10 +166,9 @@ import compass from '../../assets/content-compass/small-business-lead-generation
     </div>
     <div class="region">
       <div class="box flow prose spot-color-gray">
-        <h2>
+        <h2 class="text-center mx-auto mb-m-l">
           Get more leads by focusing with proven methods laid out in a simple
-          dashboard, to make you more streamlined and successful at acquiring
-          leads.
+          dashboard.
         </h2>
         <a
           href="https://buy.stripe.com/cN2bLT3tm5cT2HK288"
@@ -154,6 +176,16 @@ import compass from '../../assets/content-compass/small-business-lead-generation
           style="--spot-color: var(--color-loud);"
           >Buy the Content compass template for $5.00</a
         >
+      </div>
+    </div>
+    <div class="region">
+      <div class="center flow" style="--measure: 70ch">
+        <h2>FAQ</h2>
+        {
+          faqQuestions.map((faq, idx) => (
+            <FAQ idx={idx} question={faq.question} answer={faq.answer} />
+          ))
+        }
       </div>
     </div>
   </section>
