@@ -4,88 +4,44 @@
 
 <div class="region" style="--spot-color: var(--gray-2);">
   <div class="wrapper flow prose" style="--flow-space: var(--space-l);">
-    <div class="switcher">
-      <div class="flow prose" id="book-call">
-        <h2>Book an advisory call</h2>
-        <p>
-          Whether your a business owner or creative, let me help you remove
-          obstacles. I have a variety of experience and expertise at your
-          disposal.
+    <div class="flow prose" id="contact">
+      <h2>Reach out</h2>
+      <p>Have a question about a product? Feel free to drop me a line below!</p>
+      <form
+        name="main"
+        netlify-honeypot="bot-field"
+        class="switcher"
+        method="POST"
+        data-netlify="true"
+        action="/"
+      >
+        <input type="hidden" name="subject" value="Form: frankstall.one" />
+        <p class="hidden">
+          <label for="bot-field">Do you like delicious treats?</label>
+          <input name="bot-field" id="bot-field" />
         </p>
-        <h3>Booking options</h3>
-        <ul role="list" class="grid">
-          <li style="--spot-color: var(--color-loud);">
-            <a
-              href="https://tidycal.com/frankstallone/15-minute-meeting"
-              class="button">Advisory Call — 15 min.</a
-            >
-          </li>
-          <li style="--spot-color: var(--color-loud);">
-            <a
-              href="https://tidycal.com/frankstallone/30-minute-meeting"
-              class="button">Advisory Call — 30 min.</a
-            >
-          </li>
-          <li style="--spot-color: var(--color-loud);">
-            <a
-              href="https://tidycal.com/frankstallone/60-minute-meeting"
-              class="button">Advisory Call — 60 min.</a
-            >
-          </li>
-        </ul>
-        <p>These are some of the ways I can help you:</p>
-        <ul>
-          <li>Systematizing processes</li>
-          <li>Web Accessibility</li>
-          <li>Design systems</li>
-          <li>Front end development</li>
-          <li>UX Design</li>
-          <li>Visual design</li>
-          <li>UX Engineering</li>
-          <li>Hardware recommendations</li>
-          <li>Software recommendations</li>
-          <li>Career guidance</li>
-        </ul>
-      </div>
-      <div class="flow prose" id="contact">
-        <h2>Reach out</h2>
-        <p>Have a question or comment? Feel free to drop me a line below!</p>
-        <form
-          name="main"
-          netlify-honeypot="bot-field"
-          class="switcher"
-          method="POST"
-          data-netlify="true"
-          action="/"
+        <span class="stack">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" required />
+        </span>
+        <span class="stack">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required />
+        </span>
+        <span class="stack">
+          <label for="tel">Phone number</label>
+          <input id="tel" name="tel" type="tel" />
+        </span>
+        <span class="stack">
+          <label for="message">Message</label>
+          <textarea name="message" id="message" rows="6" required></textarea>
+        </span>
+        <button
+          type="submit"
+          class="button"
+          style="--spot-color: var(--color-loud);">Submit</button
         >
-          <input type="hidden" name="subject" value="Form: frankstall.one" />
-          <p class="hidden">
-            <label for="bot-field">Do you like delicious treats?</label>
-            <input name="bot-field" id="bot-field" />
-          </p>
-          <span class="stack">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" required />
-          </span>
-          <span class="stack">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" required />
-          </span>
-          <span class="stack">
-            <label for="tel">Phone number</label>
-            <input id="tel" name="tel" type="tel" />
-          </span>
-          <span class="stack">
-            <label for="message">Message</label>
-            <textarea name="message" id="message" rows="6" required></textarea>
-          </span>
-          <button
-            type="submit"
-            class="button"
-            style="--spot-color: var(--color-loud);">Submit</button
-          >
-        </form>
-      </div>
+      </form>
     </div>
   </div>
 </div>

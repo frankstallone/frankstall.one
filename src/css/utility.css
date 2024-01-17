@@ -76,6 +76,9 @@
 /* Buttons */
 
 .button {
+  font-family: var(--font-display);
+  font-weight: var(--font-emphasis-weight);
+  font-size: var(--step-1);
   display: block;
   text-decoration: none;
   border: none;
