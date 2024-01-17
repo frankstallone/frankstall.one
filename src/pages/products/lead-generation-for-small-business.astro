@@ -156,5 +156,84 @@ import compass from '../../assets/content-compass/small-business-lead-generation
         >
       </div>
     </div>
+    <div class="region">
+      <div class="center flow" style="--measure: 70ch">
+        <h2>FAQ</h2>
+        <div x-data="{ activeAccordion: true }" class="box spot-color-gray">
+          <button
+            @click="activeAccordion = !activeAccordion"
+            :aria-expanded="activeAccordion"
+            aria-controls="accordion-panel-1"
+            id="accordion-header-1"
+            class="faq-button"
+          >
+            Do I need to pay for Notion?
+          </button>
+          <section
+            :hidden="!activeAccordion"
+            id="accordion-panel-1"
+            aria-labelledby="accordion-header-1"
+          >
+            <div class="accordion-body">
+              No! Notion has a free tier you can use this with. They have
+              premium offerings but their free tier is generous.
+            </div>
+          </section>
+        </div>
+        <div x-data="{ activeAccordion: false }" class="box spot-color-gray">
+          <button
+            @click="activeAccordion = !activeAccordion"
+            :aria-expanded="activeAccordion"
+            aria-controls="accordion-panel-2"
+            id="accordion-header-2"
+            class="faq-button"
+          >
+            What is long form content?
+          </button>
+          <section
+            :hidden="!activeAccordion"
+            id="accordion-panel-2"
+            aria-labelledby="accordion-header-2"
+          >
+            <div class="accordion-body">
+              Long form content is content like a blog article, newsletter or
+              landing page.
+            </div>
+          </section>
+        </div>
+        <div x-data="{ activeAccordion: false }" class="box spot-color-gray">
+          <button
+            @click="activeAccordion = !activeAccordion"
+            :aria-expanded="activeAccordion"
+            aria-controls="accordion-panel-3"
+            id="accordion-header-3"
+            class="faq-button"
+          >
+            What is short form content?
+          </button>
+          <section
+            :hidden="!activeAccordion"
+            id="accordion-panel-3"
+            aria-labelledby="accordion-header-3"
+          >
+            <div class="accordion-body">
+              Short form content is content like a LinkedIn, Instagram,
+              Facebook, X (formally known as Twitter), Mastadon, or Threads
+              post.
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
   </section>
 </ProductLayout>
+
+<script>
+  import Alpine from 'alpinejs';
+
+  // Optional: Extend Alpine.js
+  // Alpine.directive('foo', ...)
+
+  window.Alpine = Alpine;
+  Alpine.start();
+</script>
