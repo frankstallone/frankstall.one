@@ -23,6 +23,7 @@ import '../css/utilities/region.css';
 import '../css/utilities/wrapper.css';
 import '../css/utility.css';
 import '../css/exceptions.css';
+import { ViewTransitions } from 'astro:transitions';
 
 export type Props = {
   meta: {
@@ -50,6 +51,7 @@ const ogImage = meta.image
 ---
 
 <head>
+  <ViewTransitions />
   <!-- Meta -->
   <meta charset="UTF-8" />
   <meta name="description" content={description} />

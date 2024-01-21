@@ -42,7 +42,10 @@ const { page } = Astro.props;
               style="--spot-color: var(--gray-2)"
             >
               <h3>
-                <a href={`/${post.collection}/${post.slug}/`}>
+                <a
+                  href={`/${post.collection}/${post.slug}/`}
+                  transition:name={'blog' + post.data.title}
+                >
                   {post.data.title}
                 </a>
               </h3>
