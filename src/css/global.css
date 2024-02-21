@@ -65,7 +65,7 @@ blockquote:not([class]) {
   margin-inline-start: var(--space-m);
 }
 
-/* Markdown blockquuote:not([class])s aren't ideal, so we're presuming the person quoted is the last p */
+/* Markdown blockquote:not([class])s aren't ideal, so we're presuming the person quoted is the last p */
 blockquote:not([class]) p:last-of-type {
   font-family: var(--font-base);
   font-size: var(--step-1);
@@ -97,6 +97,12 @@ a:not([class]) {
   /* Relatively sized thickness and offset */
   text-decoration-thickness: max(0.08em, 1px);
   text-underline-offset: 0.15em;
+}
+
+p,
+li,
+blockquote:not([class]) {
+  max-inline-size: 50ch;
 }
 
 /* Scroll padding allowance below focused elements 
