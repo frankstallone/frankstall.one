@@ -17,8 +17,8 @@ const { idx, question, answer } = Astro.props;
   <button
     @click="activeAccordion = !activeAccordion"
     :aria-expanded="activeAccordion"
-    aria-controls="accordion-panel-1"
-    id="accordion-header-1"
+    aria-controls={`accordion-panel-${idx}`}
+    id={`accordion-header-${idx}`}
     class="faq-button"
   >
     {question}
@@ -41,8 +41,8 @@ const { idx, question, answer } = Astro.props;
   </button>
   <section
     :hidden="!activeAccordion"
-    id="accordion-panel-1"
-    aria-labelledby="accordion-header-1"
+    id={`accordion-panel-${idx}`}
+    aria-labelledby={`accordion-header-${idx}`}
   >
     <div class="accordion-body">
       {answer}
