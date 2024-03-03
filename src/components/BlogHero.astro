@@ -17,14 +17,12 @@ const description = subtitle
 
 <div
   id="hero"
-  style=`--cover-padding: 0;  background-image: url(${optimizedBackground.src})`
+  style=`background-image: url(${optimizedBackground.src})`
   aria-label="Hero section"
 >
   <Header />
   <div class="region wrapper">
-    <div
-      class="box flex flex-col justify-center flow prose bg-transparent text-gray-100"
-    >
+    <div class="flex flex-col justify-center flow prose text-gray-100">
       <h1 transition:name={'blog' + title}>{title}</h1>
       <h2 class="font-regular">{description}</h2>
     </div>
