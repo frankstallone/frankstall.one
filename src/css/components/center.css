@@ -1,3 +1,8 @@
+/* 
+CENTER
+More info: https://every-layout.dev/layouts/center/#the-generator
+*/
+
 .center {
   --measure: 85rem;
   box-sizing: content-box;

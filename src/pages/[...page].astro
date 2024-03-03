@@ -50,10 +50,7 @@ const { page } = Astro.props;
                 </a>
               </h3>
               <p>
-                <small
-                  class="uppercase step--2 font-weight-medium font-date tracking-l"
-                  style="color: var(--gray-9);"
-                >
+                <small class="uppercase text-step-000 font-medium font-mono tracking-wide text-gray-900">
                   {new Date(post.data.publishDate).toLocaleDateString(
                     undefined,
                     {
@@ -114,21 +111,17 @@ const { page } = Astro.props;
         >
           Portfolio
         </h2>
-        <div
-          class="box flow prose spot-color-gray"
-          style="grid-column-start: 1;"
-        >
+        <div class="box flow prose flow-space-xs" style="grid-column-start: 1;">
           <hgroup>
-            <h3 class="uppercase">Roll</h3>
-            <p class="font-weight-medium step-1">
+            <h3 class="uppercase mt-zero">Roll</h3>
+            <p class="font-medium text-step-1 mt-zero">
               UX, UI, Product design, Design systems
             </p>
           </hgroup>
           <p>
             Created a new way to run payroll, and manage small business owner's <abbr
               title="Human Capital Management">HCM</abbr
-            > needs on the go, with a mobile first approach. From concept to
-            customer.
+            > needs on the go, with a mobile first approach. From concept to customer.
           </p>
         </div>
       </div>

@@ -1,4 +1,8 @@
-/* breakout content elements to wrapper based on full bleed image solution by josh cumeau. https://www.joshwcomeau.com/css/full-bleed/ */
+/* 
+CONTENT
+
+Breakout content elements to wrapper based on full bleed image solution by josh cumeau. https://www.joshwcomeau.com/css/full-bleed/
+*/
 
 .content {
   display: grid;
