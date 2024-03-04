@@ -220,39 +220,26 @@ svg {
     background-size: cover;
   }
 
-  /* Recent posts on homepage */
+  /* Homepage section headers */
 
-  .recent-posts-header {
-    background-color: var(--gray-2);
-    color: var(--gray-12);
-    padding: 1em 0.5em;
-    max-inline-size: initial;
+  .section-header {
+    @apply bg-gray-400 text-gray-1400 px-s py-xs m-zero;
   }
 
-  @media (min-width: 50em) {
+  .grid-recent {
+    --grid-min-item-size: 75%;
+  }
+
+  @media screen(md) {
     .grid-recent {
       --grid-min-item-size: min(500px, 40%);
     }
-    .recent-posts-header {
+    .section-header {
       writing-mode: vertical-lr;
       grid-column-start: 3;
       grid-row-start: 1;
     }
   }
-
-  /* Media queries
-  @media (min-width: 50em) {
-  }
-  
-  @media (min-width: 80em) {
-  }
-  
-  @media (min-width: 90em) {
-  }
-  
-  @media (min-width: 120em) {
-  }
-  */
 }
 
 /* Thank you to Radix

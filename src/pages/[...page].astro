@@ -20,6 +20,17 @@ export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
   );
   return paginate(allPosts, { pageSize: 2 });
 };
+
+function truncateDescription(description: string) {
+  const words = description.split(' ');
+  if (words.length <= 24) {
+    return description;
+  } else {
+    const truncatedWords = words.slice(0, 24);
+    return truncatedWords.join(' ') + '...';
+  }
+}
+
 // All paginated data is passed on the "page" prop
 const { page } = Astro.props;
 ---
@@ -31,17 +42,14 @@ const { page } = Astro.props;
       'For the last two decades, I have helped businesses of all sizes craft compelling user experiences that drove 100M+ in revenue.',
   }}
 >
-  <section class="region wrapper flow prose" id="main">
-    <div class="flow prose">
-      <div class="grid grid-recent">
-        <h2 class="text-center uppercase recent-posts-header">Recent posts</h2>
+  <section class="region flow md:pt-zero md:-mt-xs lg:-mt-4xl" id="main">
+    <div class="flow wrapper mb-2xl-3xl">
+      <div class="grid grid-recent mb-m" id="recent-posts">
+        <h2 class="text-center uppercase section-header">Recent posts</h2>
         {
           page.data.map((post) => (
-            <div
-              class="flow prose post-card"
-              style="--spot-color: var(--gray-2)"
-            >
-              <h3>
+            <div class="box flow prose bg-gray-400">
+              <h3 class="mt-zero">
                 <a
                   href={`/${post.collection}/${post.slug}/`}
                   transition:name={'blog' + post.data.title}
@@ -49,7 +57,7 @@ const { page } = Astro.props;
                   {post.data.title}
                 </a>
               </h3>
-              <p>
+              <p class="mt-3xs">
                 <small class="uppercase text-step-000 font-medium font-mono tracking-wide text-gray-900">
                   {new Date(post.data.publishDate).toLocaleDateString(
                     undefined,
@@ -62,7 +70,7 @@ const { page } = Astro.props;
                   )}
                 </small>
               </p>
-              <p>{post.data.description}</p>
+              <p>{truncateDescription(post.data.description)}</p>
               <p>
                 <a href={`/${post.collection}/${post.slug}/`}>
                   Read more &hellip;
@@ -72,46 +80,33 @@ const { page } = Astro.props;
           ))
         }
       </div>
-      <aside class="switcher uppercase">
-        <div class="box spot-color-gray">
-          <h3>Page {page.currentPage} of {page.total}</h3>
-        </div>
-        <p
-          class="box font-weight-medium spot-color-gray text-right"
-          style="max-inline-size: initial; --threshold: 60rem"
-        >
-          <span class="mx-auto"
-            >{
-              page.url.prev ? (
-                <span>
-                  <a href={page.url.prev}>Previous page</a> &mdash;{' '}
-                </span>
-              ) : null
-            }
-            {
-              page.url.next ? (
-                <span>
-                  <a href={page.url.next}>Next page</a> &mdash;{' '}
-                </span>
-              ) : null
-            }
-            <a href="/blog/">All posts</a>
-          </span>
-        </p>
+      <aside
+        class="uppercase font-mono font-medium text-step-000 text-gray-900 text-right"
+      >
+        <span>
+          Page {page.currentPage} of {page.total} &mdash;
+          {
+            page.url.prev ? (
+              <span>
+                <a href={`${page.url.prev}#recent-posts`}>Previous page</a>{' '}
+                &mdash;{' '}
+              </span>
+            ) : null
+          }
+          {
+            page.url.next ? (
+              <span>
+                <a href={`${page.url.next}#recent-posts`}>Next page</a> &mdash;{' '}
+              </span>
+            ) : null
+          }
+          <a href="/blog/">All posts</a>
+        </span>
       </aside>
     </div>
-    <div class="region flow prose">
-      <div
-        class="grid relative"
-        style="--grid-min-item-size: 600px; grid-template-columns: 1fr 4em"
-      >
-        <h2
-          class="text-center uppercase"
-          style="writing-mode: vertical-lr; background-color: var(--gray-2); color: var(--gray-12); padding: 1em 0.5em; grid-column-start: 2; grid-row-start: 1;"
-        >
-          Portfolio
-        </h2>
-        <div class="box flow prose flow-space-xs" style="grid-column-start: 1;">
+    <div class="region flow bg-gray-1400">
+      <div class="wrapper">
+        <div class="box flow flow-space-xs w-fit">
           <hgroup>
             <h3 class="uppercase mt-zero">Roll</h3>
             <p class="font-medium text-step-1 mt-zero">
@@ -125,119 +120,113 @@ const { page } = Astro.props;
           </p>
         </div>
       </div>
-      <article class="grid-portfolio">
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(211 246 254); grid-column-start: 4; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(170 224 251); grid-column-start: 5; grid-row-start: 3; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(134 194 241); grid-column-start: 5; grid-row-start: 4; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(93 162 235); grid-column-start: 7; grid-row-start: 5; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(66 131 226); grid-column-start: 7; grid-row-start: 6; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(46 102 216); grid-column-start: 4; grid-row-start: 6; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(18 74 207); grid-column-start: 3; grid-row-start: 6; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(5 51 181); grid-column-start: 2; grid-row-start: 6; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(5 39 133); grid-column-start: 1; grid-row-start: 6; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <Picture
-          src={rollSquared01}
-          widths={[500, 700, 1400]}
-          class="object-cover h-auto"
-          pictureAttributes={{
-            class: 'grid-item-01',
-          }}
-          alt="Mock up of Apple iPhones with Roll by ADP app views"
-          quality={80}
-          format="avif"
-        />
-        <Picture
-          src={rollSquared02}
-          widths={[500, 700]}
-          class="object-cover h-auto"
-          alt="Screenshot of VSCode showing the design tokens repository for Roll by ADP"
-          pictureAttributes={{
-            class: 'grid-item-02',
-          }}
-          quality={80}
-          format="avif"
-        />
-        <Picture
-          src={rollSquared03}
-          widths={[500, 700]}
-          class="object-cover h-auto"
-          alt="Screenshot of the payroll run conversation UI showcasing the components design and created for our clients"
-          pictureAttributes={{
-            class: 'grid-item-03',
-          }}
-          quality={80}
-          format="avif"
-        />
-        <Picture
-          src={rollSquared04}
-          widths={[500, 700]}
-          class="object-cover h-auto"
-          alt="Screenshots of the mobile app that would eventually be used circa 2018"
-          pictureAttributes={{
-            class: 'grid-item-04',
-          }}
-          quality={80}
-          format="avif"
-        />
-      </article>
-      <aside class="switcher uppercase">
-        <div class="box spot-color-gray">
-          <h3>1 of 5</h3>
-        </div>
-        <p
-          class="box font-weight-medium spot-color-gray text-right"
-          style="max-inline-size: initial; --threshold: 60rem"
-        >
-          <span class="mx-auto">
-            <a href="/portfolio/">See portfolio</a>
-          </span>
-        </p>
-      </aside>
     </div>
+    <article class="region wrapper grid-portfolio">
+      <div
+        aria-hidden="true"
+        style="background-color: rgb(211 246 254); grid-column-start: 4; aspect-ratio: 1 / 1;"
+        class="rounded-full animate-in"
+      >
+      </div>
+      <div
+        aria-hidden="true"
+        style="background-color: rgb(170 224 251); grid-column-start: 5; grid-row-start: 3; aspect-ratio: 1 / 1;"
+        class="rounded-full animate-in"
+      >
+      </div>
+      <div
+        aria-hidden="true"
+        style="background-color: rgb(134 194 241); grid-column-start: 5; grid-row-start: 4; aspect-ratio: 1 / 1;"
+        class="rounded-full animate-in"
+      >
+      </div>
+      <div
+        aria-hidden="true"
+        style="background-color: rgb(93 162 235); grid-column-start: 7; grid-row-start: 5; aspect-ratio: 1 / 1;"
+        class="rounded-full animate-in"
+      >
+      </div>
+      <div
+        aria-hidden="true"
+        style="background-color: rgb(66 131 226); grid-column-start: 7; grid-row-start: 6; aspect-ratio: 1 / 1;"
+        class="rounded-full animate-in"
+      >
+      </div>
+      <div
+        aria-hidden="true"
+        style="background-color: rgb(46 102 216); grid-column-start: 4; grid-row-start: 6; aspect-ratio: 1 / 1;"
+        class="rounded-full animate-in"
+      >
+      </div>
+      <div
+        aria-hidden="true"
+        style="background-color: rgb(18 74 207); grid-column-start: 3; grid-row-start: 6; aspect-ratio: 1 / 1;"
+        class="rounded-full animate-in"
+      >
+      </div>
+      <div
+        aria-hidden="true"
+        style="background-color: rgb(5 51 181); grid-column-start: 2; grid-row-start: 6; aspect-ratio: 1 / 1;"
+        class="rounded-full animate-in"
+      >
+      </div>
+      <div
+        aria-hidden="true"
+        style="background-color: rgb(5 39 133); grid-column-start: 1; grid-row-start: 6; aspect-ratio: 1 / 1;"
+        class="rounded-full animate-in"
+      >
+      </div>
+      <Picture
+        src={rollSquared01}
+        widths={[500, 700, 1400]}
+        class="object-cover h-auto"
+        pictureAttributes={{
+          class: 'grid-item-01',
+        }}
+        alt="Mock up of Apple iPhones with Roll by ADP app views"
+        quality={80}
+        format="avif"
+      />
+      <Picture
+        src={rollSquared02}
+        widths={[500, 700]}
+        class="object-cover h-auto"
+        alt="Screenshot of VSCode showing the design tokens repository for Roll by ADP"
+        pictureAttributes={{
+          class: 'grid-item-02',
+        }}
+        quality={80}
+        format="avif"
+      />
+      <Picture
+        src={rollSquared03}
+        widths={[500, 700]}
+        class="object-cover h-auto"
+        alt="Screenshot of the payroll run conversation UI showcasing the components design and created for our clients"
+        pictureAttributes={{
+          class: 'grid-item-03',
+        }}
+        quality={80}
+        format="avif"
+      />
+      <Picture
+        src={rollSquared04}
+        widths={[500, 700]}
+        class="object-cover h-auto"
+        alt="Screenshots of the mobile app that would eventually be used circa 2018"
+        pictureAttributes={{
+          class: 'grid-item-04',
+        }}
+        quality={80}
+        format="avif"
+      />
+    </article>
+    <aside
+      class="wrapper uppercase font-mono font-medium text-step-000 text-gray-900 text-right"
+    >
+      <span class="mx-auto">
+        1 of 5 <a href="/portfolio/">See full portfolio</a>
+      </span>
+    </aside>
   </section>
 </Layout>
