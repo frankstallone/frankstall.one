@@ -22,7 +22,7 @@ const allPosts = (await getCollection('blog')).sort(
     <div class="grid" style="--grid-min-item-size: min(400px, 60%);">
       {
         allPosts.map((post) => (
-          <div class="flow prose post-card bg-gray-200">
+          <div class="flow prose post-card bg-white ">
             <h3 class="mt-zero">
               <a
                 href={`/${post.collection}/${post.slug}/`}
@@ -31,7 +31,7 @@ const allPosts = (await getCollection('blog')).sort(
                 {post.data.title}
               </a>
             </h3>
-            <p>
+            <p class="mt-2xs ">
               <small class="uppercase text-step-00 font-medium font-mono tracking-wide text-gray-900">
                 {new Date(post.data.publishDate).toLocaleDateString(undefined, {
                   weekday: 'long',
@@ -42,7 +42,7 @@ const allPosts = (await getCollection('blog')).sort(
               </small>
             </p>
             <p>{post.data.description}</p>
-            <p>
+            <p class="pb-l border-solid border-b-2 border-x-0 border-t-0 border-gray-700">
               <a href={`/${post.collection}/${post.slug}/`}>
                 Read more &hellip;
               </a>

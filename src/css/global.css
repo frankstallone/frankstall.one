@@ -16,7 +16,9 @@ Reference source: https://github.com/Set-Creative-Studio/cube-boilerplate/blob/m
 @import-glob 'utilities/*.css'; 
 */
 
+@import 'blocks/button.css' layer(components);
 @import 'blocks/card.css' layer(components);
+@import 'blocks/faq-button.css' layer(components);
 @import 'blocks/grid-portfolio.css' layer(components);
 @import 'blocks/post-card.css' layer(components);
 @import 'blocks/prose.css' layer(components);

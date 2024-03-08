@@ -12,7 +12,7 @@ const { idx, question, answer } = Astro.props;
   x-data={idx === 0
     ? '{ activeAccordion: true }'
     : '{ activeAccordion: false }'}
-  class="box spot-color-gray flex flex-col"
+  class="box flex flex-col bg-gray-200"
 >
   <button
     @click="activeAccordion = !activeAccordion"

@@ -12,10 +12,11 @@ body {
 
 a {
   color: currentcolor;
+  text-decoration: none;
 }
 
 a:hover {
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 /* Baseline for default links */
@@ -130,32 +131,6 @@ svg {
     text-decoration-thickness: max(0.15em, 1px);
   }
 
-  /* Buttons */
-
-  .button {
-    @apply font-display uppercase font-medium text-step-1 bg-indigo-vivid-700 text-indigo-100 cursor-pointer hover:bg-indigo-vivid-800 focus:outline focus:outline-offset-2 focus:outline-2 focus:outline-indigo-vivid-700 border-none px-m py-s text-center;
-  }
-  .button:hover,
-  .button:focus,
-  .button:active {
-    text-decoration: none;
-  }
-
-  /* FAQ Button */
-  .faq-button {
-    display: flex;
-    flex: 1 0 auto;
-    justify-content: space-between;
-    align-items: center;
-    font-family: var(--font-display);
-    font-weight: var(--font-emphasis-weight);
-    font-size: var(--step-1);
-    border: none;
-    border-width: 0;
-    background: none;
-    padding: 0;
-  }
-
   /* Accordion */
   .accordion-body {
     margin-block-start: var(--space-s);
@@ -223,7 +198,7 @@ svg {
   /* Homepage section headers */
 
   .section-header {
-    @apply bg-gray-400 text-gray-1400 px-s py-xs m-zero;
+    @apply bg-white text-gray-1400 px-s py-xs m-zero;
   }
 
   .grid-recent {

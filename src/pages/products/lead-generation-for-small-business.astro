@@ -42,8 +42,8 @@ const faqQuestions = [
     canonicalURL: `https://frankstall.one/products/lead-generation-for-small-business`,
   }}
 >
-  <div class="switcher spot-color-gray" style="--threshold: 50em;">
-    <div class="box flow prose m-auto">
+  <div class="switcher bg-gray-200">
+    <div class="box flow prose m-auto bg-transparent">
       <hgroup class="flow prose">
         <h2 class="uppercase">Content compass</h2>
         <h3>A framework to get more leads for your small business.</h3>
@@ -52,7 +52,7 @@ const faqQuestions = [
         <iframe
           src="https://www.loom.com/embed/4e859ce972114ed0b986cc6d995ec2a8?sid=eeb1189d-6f21-4c69-8df8-76d32c239a5b?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true"
           allowfullscreen
-          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
         ></iframe>
       </div>
       <h4>
@@ -67,8 +67,7 @@ const faqQuestions = [
       <p>
         <a
           href="https://buy.stripe.com/cN2bLT3tm5cT2HK288"
-          class="button"
-          style="--spot-color: var(--color-loud);">Buy now for $5.00</a
+          class="button text-indigo-100 block">Buy now for $5.00</a
         >
       </p>
     </div>
@@ -82,10 +81,12 @@ const faqQuestions = [
     />
   </div>
   <section class="wrapper flow" id="main">
-    <div class="region">
-      <div class="box flow prose spot-color-gray">
-        <h2>Research</h2>
-        <p>
+    <div class="region flow flow-space-l">
+      <div
+        class="flow w-fit prose border-solid border-b-2 border-x-0 border-t-0 border-gray-700"
+      >
+        <h2 class="mt-zero">Research</h2>
+        <p class="pb-l">
           Find high ranking examples reference websites. List the keyphrases you
           want to rank for. Collect links to supporting articles, blog posts,
           social media, and quotes for inspiration.
@@ -108,10 +109,12 @@ const faqQuestions = [
         format="avif"
       />
     </div>
-    <div class="region">
-      <div class="box flow prose spot-color-gray">
-        <h2>Create</h2>
-        <p>
+    <div class="region flow flow-space-l">
+      <div
+        class="flow w-fit prose border-solid border-b-2 border-x-0 border-t-0 border-gray-700"
+      >
+        <h2 class="mt-zero">Create</h2>
+        <p class="pb-l">
           Write your long and short form content in a single space. Ensure your
           voice and tone are properly heard. Allow collaborators to comment, and
           recommend changes.
@@ -126,10 +129,12 @@ const faqQuestions = [
         format="avif"
       />
     </div>
-    <div class="region">
-      <div class="box flow prose spot-color-gray">
-        <h2>Organize</h2>
-        <p>
+    <div class="region flow flow-space-l">
+      <div
+        class="flow w-fit prose border-solid border-b-2 border-x-0 border-t-0 border-gray-700"
+      >
+        <h2 class="mt-zero">Organize</h2>
+        <p class="pb-l">
           Bring order to all your content. Connect short content to the long
           content it’s related to for quick access when you need it most.
         </p>
@@ -143,10 +148,12 @@ const faqQuestions = [
         format="avif"
       />
     </div>
-    <div class="region">
-      <div class="box flow prose spot-color-gray">
-        <h2>Schedule</h2>
-        <p>
+    <div class="region flow flow-space-l">
+      <div
+        class="flow w-fit prose border-solid border-b-2 border-x-0 border-t-0 border-gray-700"
+      >
+        <h2 class="mt-zero">Schedule</h2>
+        <p class="pb-l">
           Finally you can relax knowing you're ahead of the game seeing all your
           content on your calendar. Rearrange with ease. Go back in time to
           easily find and repurpose prior work.
@@ -161,23 +168,26 @@ const faqQuestions = [
         format="avif"
       />
     </div>
-    <div class="region">
-      <div class="box flow prose spot-color-gray">
+  </section>
+  <section class="wrapper bg-gray-200">
+    <div class="region flow flow-space-l">
+      <div class="box flow bg-transparent">
         <h2 class="text-center mx-auto mb-m-l">
           Get more leads by focusing with proven methods laid out in a simple
           dashboard.
         </h2>
         <a
           href="https://buy.stripe.com/cN2bLT3tm5cT2HK288"
-          class="button"
-          style="--spot-color: var(--color-loud);"
+          class="button text-indigo-100 block"
           >Buy the Content compass template for $5.00</a
         >
       </div>
     </div>
-    <div class="region">
-      <div class="center flow" style="--measure: 70ch">
-        <h2>FAQ</h2>
+  </section>
+  <section class="wrapper">
+    <div class="region flow flow-space-l">
+      <div class="center flow flow-space-s">
+        <h2 class="mt-zero">FAQ</h2>
         {
           faqQuestions.map((faq, idx) => (
             <FAQ idx={idx} question={faq.question} answer={faq.answer} />

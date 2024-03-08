@@ -43,12 +43,15 @@ const { page } = Astro.props;
   }}
 >
   <section class="region flow md:pt-zero md:-mt-xs lg:-mt-4xl" id="main">
-    <div class="flow wrapper mb-2xl-3xl">
-      <div class="grid grid-recent mb-m" id="recent-posts">
-        <h2 class="text-center uppercase section-header">Recent posts</h2>
+    <div class="flow wrapper">
+      <div
+        class="grid grid-recent mb-m gutter-zero md:gutter-m"
+        id="recent-posts"
+      >
+        <h2 class="md:text-center uppercase section-header">Recent posts</h2>
         {
           page.data.map((post) => (
-            <div class="box flow prose bg-gray-400">
+            <div class="box flow prose">
               <h3 class="mt-zero">
                 <a
                   href={`/${post.collection}/${post.slug}/`}
@@ -57,7 +60,7 @@ const { page } = Astro.props;
                   {post.data.title}
                 </a>
               </h3>
-              <p class="mt-3xs">
+              <p class="mt-2xs">
                 <small class="uppercase text-step-000 font-medium font-mono tracking-wide text-gray-900">
                   {new Date(post.data.publishDate).toLocaleDateString(
                     undefined,
@@ -71,7 +74,7 @@ const { page } = Astro.props;
                 </small>
               </p>
               <p>{truncateDescription(post.data.description)}</p>
-              <p>
+              <p class="pb-l border-solid border-b-2 border-x-0 border-t-0 border-gray-700">
                 <a href={`/${post.collection}/${post.slug}/`}>
                   Read more &hellip;
                 </a>
@@ -80,6 +83,7 @@ const { page } = Astro.props;
           ))
         }
       </div>
+
       <aside
         class="uppercase font-mono font-medium text-step-000 text-gray-900 text-right"
       >
@@ -104,129 +108,131 @@ const { page } = Astro.props;
         </span>
       </aside>
     </div>
-    <div class="region flow bg-gray-1400">
-      <div class="wrapper">
-        <div class="box flow flow-space-xs w-fit">
-          <hgroup>
-            <h3 class="uppercase mt-zero">Roll</h3>
-            <p class="font-medium text-step-1 mt-zero">
-              UX, UI, Product design, Design systems
-            </p>
-          </hgroup>
-          <p>
-            Created a new way to run payroll, and manage small business owner's <abbr
-              title="Human Capital Management">HCM</abbr
-            > needs on the go, with a mobile first approach. From concept to customer.
-          </p>
-        </div>
-      </div>
-    </div>
-    <article class="region wrapper grid-portfolio">
-      <div
-        aria-hidden="true"
-        style="background-color: rgb(211 246 254); grid-column-start: 4; aspect-ratio: 1 / 1;"
-        class="rounded-full animate-in"
-      >
-      </div>
-      <div
-        aria-hidden="true"
-        style="background-color: rgb(170 224 251); grid-column-start: 5; grid-row-start: 3; aspect-ratio: 1 / 1;"
-        class="rounded-full animate-in"
-      >
-      </div>
-      <div
-        aria-hidden="true"
-        style="background-color: rgb(134 194 241); grid-column-start: 5; grid-row-start: 4; aspect-ratio: 1 / 1;"
-        class="rounded-full animate-in"
-      >
-      </div>
-      <div
-        aria-hidden="true"
-        style="background-color: rgb(93 162 235); grid-column-start: 7; grid-row-start: 5; aspect-ratio: 1 / 1;"
-        class="rounded-full animate-in"
-      >
-      </div>
-      <div
-        aria-hidden="true"
-        style="background-color: rgb(66 131 226); grid-column-start: 7; grid-row-start: 6; aspect-ratio: 1 / 1;"
-        class="rounded-full animate-in"
-      >
-      </div>
-      <div
-        aria-hidden="true"
-        style="background-color: rgb(46 102 216); grid-column-start: 4; grid-row-start: 6; aspect-ratio: 1 / 1;"
-        class="rounded-full animate-in"
-      >
-      </div>
-      <div
-        aria-hidden="true"
-        style="background-color: rgb(18 74 207); grid-column-start: 3; grid-row-start: 6; aspect-ratio: 1 / 1;"
-        class="rounded-full animate-in"
-      >
-      </div>
-      <div
-        aria-hidden="true"
-        style="background-color: rgb(5 51 181); grid-column-start: 2; grid-row-start: 6; aspect-ratio: 1 / 1;"
-        class="rounded-full animate-in"
-      >
-      </div>
-      <div
-        aria-hidden="true"
-        style="background-color: rgb(5 39 133); grid-column-start: 1; grid-row-start: 6; aspect-ratio: 1 / 1;"
-        class="rounded-full animate-in"
-      >
-      </div>
-      <Picture
-        src={rollSquared01}
-        widths={[500, 700, 1400]}
-        class="object-cover h-auto"
-        pictureAttributes={{
-          class: 'grid-item-01',
-        }}
-        alt="Mock up of Apple iPhones with Roll by ADP app views"
-        quality={80}
-        format="avif"
-      />
-      <Picture
-        src={rollSquared02}
-        widths={[500, 700]}
-        class="object-cover h-auto"
-        alt="Screenshot of VSCode showing the design tokens repository for Roll by ADP"
-        pictureAttributes={{
-          class: 'grid-item-02',
-        }}
-        quality={80}
-        format="avif"
-      />
-      <Picture
-        src={rollSquared03}
-        widths={[500, 700]}
-        class="object-cover h-auto"
-        alt="Screenshot of the payroll run conversation UI showcasing the components design and created for our clients"
-        pictureAttributes={{
-          class: 'grid-item-03',
-        }}
-        quality={80}
-        format="avif"
-      />
-      <Picture
-        src={rollSquared04}
-        widths={[500, 700]}
-        class="object-cover h-auto"
-        alt="Screenshots of the mobile app that would eventually be used circa 2018"
-        pictureAttributes={{
-          class: 'grid-item-04',
-        }}
-        quality={80}
-        format="avif"
-      />
-    </article>
-    <aside
-      class="wrapper uppercase font-mono font-medium text-step-000 text-gray-900 text-right"
-    >
-      <span class="mx-auto">
-        1 of 5 <a href="/portfolio/">See full portfolio</a>
-      </span>
-    </aside>
   </section>
+  <div class="region flow bg-gray-100">
+    <div class="wrapper flow flow-space-xl">
+      <div
+        class="box flow flow-space-xs w-fit border-solid border-b-2 border-x-0 border-t-0 border-gray-700"
+      >
+        <hgroup>
+          <h3 class="uppercase mt-zero">Roll</h3>
+          <p class="font-medium text-step-1 mt-zero">
+            UX, UI, Product design, Design systems
+          </p>
+        </hgroup>
+        <p>
+          Created a new way to run payroll, and manage small business owner's <abbr
+            title="Human Capital Management">HCM</abbr
+          > needs on the go, with a mobile first approach. From concept to customer.
+        </p>
+      </div>
+      <article class="grid-portfolio">
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(211 246 254); grid-column-start: 4; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(170 224 251); grid-column-start: 5; grid-row-start: 3; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(134 194 241); grid-column-start: 5; grid-row-start: 4; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(93 162 235); grid-column-start: 7; grid-row-start: 5; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(66 131 226); grid-column-start: 7; grid-row-start: 6; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(46 102 216); grid-column-start: 4; grid-row-start: 6; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(18 74 207); grid-column-start: 3; grid-row-start: 6; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(5 51 181); grid-column-start: 2; grid-row-start: 6; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(5 39 133); grid-column-start: 1; grid-row-start: 6; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <Picture
+          src={rollSquared01}
+          widths={[500, 700, 1400]}
+          class="object-cover h-auto"
+          pictureAttributes={{
+            class: 'grid-item-01',
+          }}
+          alt="Mock up of Apple iPhones with Roll by ADP app views"
+          quality={80}
+          format="avif"
+        />
+        <Picture
+          src={rollSquared02}
+          widths={[500, 700]}
+          class="object-cover h-auto"
+          alt="Screenshot of VSCode showing the design tokens repository for Roll by ADP"
+          pictureAttributes={{
+            class: 'grid-item-02',
+          }}
+          quality={80}
+          format="avif"
+        />
+        <Picture
+          src={rollSquared03}
+          widths={[500, 700]}
+          class="object-cover h-auto"
+          alt="Screenshot of the payroll run conversation UI showcasing the components design and created for our clients"
+          pictureAttributes={{
+            class: 'grid-item-03',
+          }}
+          quality={80}
+          format="avif"
+        />
+        <Picture
+          src={rollSquared04}
+          widths={[500, 700]}
+          class="object-cover h-auto"
+          alt="Screenshots of the mobile app that would eventually be used circa 2018"
+          pictureAttributes={{
+            class: 'grid-item-04',
+          }}
+          quality={80}
+          format="avif"
+        />
+      </article>
+      <aside
+        class="uppercase font-mono font-medium text-step-000 text-gray-1100 text-right"
+      >
+        <span class="mx-auto">
+          1 of 5 <a href="/portfolio/">See full portfolio</a>
+        </span>
+      </aside>
+    </div>
+  </div>
 </Layout>
