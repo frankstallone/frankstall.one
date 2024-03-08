@@ -15,12 +15,15 @@ const allPosts = (await getCollection('blog')).sort(
     canonicalURL: `https://frankstall.one/blog/`,
   }}
 >
-  <section class="box flow prose" id="main">
-    <div class="grid">
+  <section
+    class="box flow md:pt-zero md:-mt-xs lg:-mt-xl bg-transparent"
+    id="main"
+  >
+    <div class="grid" style="--grid-min-item-size: min(400px, 60%);">
       {
         allPosts.map((post) => (
-          <div class="flow prose post-card" style="--spot-color: var(--gray-2)">
-            <h3>
+          <div class="flow prose post-card bg-gray-200">
+            <h3 class="mt-zero">
               <a
                 href={`/${post.collection}/${post.slug}/`}
                 transition:name={'blog' + post.data.title}
