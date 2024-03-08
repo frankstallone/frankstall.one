@@ -15,12 +15,15 @@ const allPosts = (await getCollection('blog')).sort(
     canonicalURL: `https://frankstall.one/blog/`,
   }}
 >
-  <section class="box flow prose" id="main">
-    <div class="grid">
+  <section
+    class="box flow md:pt-zero md:-mt-xs lg:-mt-xl bg-transparent"
+    id="main"
+  >
+    <div class="grid" style="--grid-min-item-size: min(400px, 60%);">
       {
         allPosts.map((post) => (
-          <div class="flow prose post-card" style="--spot-color: var(--gray-2)">
-            <h3>
+          <div class="flow prose post-card bg-white ">
+            <h3 class="mt-zero">
               <a
                 href={`/${post.collection}/${post.slug}/`}
                 transition:name={'blog' + post.data.title}
@@ -28,11 +31,8 @@ const allPosts = (await getCollection('blog')).sort(
                 {post.data.title}
               </a>
             </h3>
-            <p>
-              <small
-                class="uppercase step--2 font-weight-medium font-date tracking-l"
-                style="color: var(--gray-9);"
-              >
+            <p class="mt-2xs ">
+              <small class="uppercase text-step-00 font-medium font-mono tracking-wide text-gray-900">
                 {new Date(post.data.publishDate).toLocaleDateString(undefined, {
                   weekday: 'long',
                   year: 'numeric',
@@ -42,7 +42,7 @@ const allPosts = (await getCollection('blog')).sort(
               </small>
             </p>
             <p>{post.data.description}</p>
-            <p>
+            <p class="pb-l border-solid border-b-2 border-x-0 border-t-0 border-gray-700">
               <a href={`/${post.collection}/${post.slug}/`}>
                 Read more &hellip;
               </a>

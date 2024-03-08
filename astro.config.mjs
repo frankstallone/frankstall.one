@@ -1,14 +1,15 @@
 import { defineConfig } from 'astro/config';
-import purgecss from 'astro-purgecss';
 import sitemap from '@astrojs/sitemap';
-
+import tailwind from '@astrojs/tailwind';
 import partytown from '@astrojs/partytown';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://frankstall.one',
   integrations: [
-    purgecss(),
+    tailwind({
+      applyBaseStyles: false,
+    }),
     sitemap(),
     partytown({
       config: {

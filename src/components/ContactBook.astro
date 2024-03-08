@@ -2,8 +2,8 @@
 
 ---
 
-<div class="region" style="--spot-color: var(--gray-2);">
-  <div class="wrapper flow prose" style="--flow-space: var(--space-l);">
+<div class="region bg-gray-200">
+  <div class="wrapper flow prose">
     <div class="switcher">
       <div class="flow prose" id="book-call">
         <h2>Want to work together?</h2>
@@ -50,29 +50,51 @@
           <input type="hidden" name="subject" value="Form: frankstall.one" />
           <p class="hidden">
             <label for="bot-field">Do you like delicious treats?</label>
-            <input name="bot-field" id="bot-field" />
+            <input
+              name="bot-field"
+              id="bot-field"
+              class="border-gray-700 border-1 border-solid"
+            />
           </p>
           <span class="stack">
             <label for="name">Name</label>
-            <input id="name" name="name" type="text" required />
+            <input
+              id="name"
+              name="name"
+              type="text"
+              required
+              class="border-gray-700 border-1 border-solid"
+            />
           </span>
           <span class="stack">
             <label for="email">Email</label>
-            <input id="email" name="email" type="email" required />
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              class="border-gray-700 border-1 border-solid"
+            />
           </span>
           <span class="stack">
             <label for="tel">Phone number</label>
-            <input id="tel" name="tel" type="tel" />
+            <input
+              id="tel"
+              name="tel"
+              type="tel"
+              class="border-gray-700 border-1 border-solid"
+            />
           </span>
           <span class="stack">
             <label for="message">Message</label>
-            <textarea name="message" id="message" rows="6" required></textarea>
+            <textarea
+              name="message"
+              id="message"
+              rows="6"
+              required
+              class="border-gray-700 border-1 border-solid"></textarea>
           </span>
-          <button
-            type="submit"
-            class="button"
-            style="--spot-color: var(--color-loud);">Submit</button
-          >
+          <button type="submit" class="button">Submit</button>
         </form>
       </div>
     </div>

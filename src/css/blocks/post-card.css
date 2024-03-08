@@ -1,8 +1,5 @@
 .post-card {
-  padding: var(--padding, var(--space-l));
-  border: var(--border-thin) solid;
-  color: var(--spot-color-text, var(--color-dark));
-  background-color: var(--spot-color, transparent);
+  @apply p-l;
 }
 
 @supports (animation-timeline: view()) {
@@ -16,8 +13,4 @@
       animation-range-end: cover 30%;
     }
   }
-}
-
-.post-card * {
-  color: inherit;
 }
