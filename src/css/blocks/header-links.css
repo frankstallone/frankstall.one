@@ -1,0 +1,11 @@
+/* Main navigation buttons */
+.header-link a {
+  @apply text-gray-200 no-underline inline-block;
+}
+
+.header-link a:hover,
+.header-link a:focus,
+.header-link a:active {
+  @apply text-gray-400 underline;
+  text-decoration-thickness: max(0.15em, 1px);
+}

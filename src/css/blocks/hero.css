@@ -1,0 +1,5 @@
+#hero {
+  background-color: var(--gray-12);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
