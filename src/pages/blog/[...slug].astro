@@ -1,6 +1,24 @@
 ---
 import { getCollection } from 'astro:content';
 import InnerLayout from '../../layouts/InnerLayout.astro';
+import { db, sql, Like, eq } from 'astro:db';
+// import type { APIRoute } from 'astro';
+
+export const prerender = false;
+
+if (Astro.request.method === 'POST') {
+  const { slug } = Astro.params;
+  const userAgent = Astro.request.headers.get('user-agent');
+  const id = await digest(userAgent + Astro.clientAddress + slug);
+  await db.insert(Like).values({ id, slug }).onConflictDoNothing();
+}
+
+/** Get a SHA-256 hash for a string. */
+async function digest(message: string) {
+  const msgUint8 = new TextEncoder().encode(message); // encode as (utf-8) Uint8Array
+  const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8); // hash the message
+  return Buffer.from(hashBuffer).toString('base64');
+}
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog');
@@ -11,6 +29,14 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
+
+const [{ count }] = await db
+  .select({ count: sql<number>`count(*)` })
+  .from(Like)
+  .where(eq(Like.slug, entry.slug));
+
+console.log(count);
+
 const { Content } = await entry.render();
 ---
 
@@ -30,4 +56,10 @@ const { Content } = await entry.render();
   >
     <Content />
   </article>
+  <aside class="region wrapper flow prose">
+    <form method="POST">
+      <button type="submit">Like</button>
+    </form>
+    <p>Likes: {count}</p>
+  </aside>
 </InnerLayout>
