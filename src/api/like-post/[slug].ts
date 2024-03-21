@@ -9,7 +9,11 @@ export const POST: APIRoute = async ({ params, request, clientAddress }) => {
   // hash the UA, IP address, and liked post slug to create a unique ID
   const id = await digest(userAgent + clientAddress + slug);
   // insert the like and ignore it if it was already set
-  await db.insert(Like).values({ id, slug }).onConflictDoNothing();
+  if (id && slug) {
+    await db.insert(Like).values({ id, slug }).onConflictDoNothing();
+  }
+  // return a response
+  return new Response('Success', { status: 200 });
 };
 
 /** Get a SHA-256 hash for a string. */
