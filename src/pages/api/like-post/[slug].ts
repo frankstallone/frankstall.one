@@ -2,6 +2,13 @@ import type { APIRoute } from 'astro';
 import { db, Like } from 'astro:db';
 export const prerender = false;
 
+/**
+ * Handles a POST request to like a post.
+ * @param params - The parameters from the request URL.
+ * @param request - The incoming request object.
+ * @param clientAddress - The IP address of the client making the request.
+ * @returns A response indicating the success of the like operation.
+ */
 export const POST: APIRoute = async ({ params, request, clientAddress }) => {
   // get slug of liked item assuming a request like `/api/like-post/[slug].ts`
   const { slug } = params;
@@ -13,10 +20,21 @@ export const POST: APIRoute = async ({ params, request, clientAddress }) => {
     await db.insert(Like).values({ id, slug }).onConflictDoNothing();
   }
   // return a response
-  return new Response('Success', { status: 200 });
+  return new Response(
+    JSON.stringify({
+      message: 'This was a POST!',
+    }),
+    {
+      status: 200,
+    },
+  );
 };
 
-/** Get a SHA-256 hash for a string. */
+/**
+ * Hashes the given message using SHA-256 algorithm.
+ * @param message - The message to be hashed.
+ * @returns A base64 encoded string representing the hashed message.
+ */
 async function digest(message: string) {
   const msgUint8 = new TextEncoder().encode(message); // encode as (utf-8) Uint8Array
   const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8); // hash the message

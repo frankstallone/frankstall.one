@@ -64,8 +64,8 @@ const { Content } = await entry.render();
     });
 
     if (response.ok) {
-      const { count } = await response.json();
-      console.log(count);
+      const { message } = await response.json();
+      console.log(message);
     }
   });
 </script>
