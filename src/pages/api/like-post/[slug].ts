@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { db, Like } from 'astro:db';
+import { eq, db, Like } from 'astro:db';
 export const prerender = false;
 
 /**
@@ -17,12 +17,28 @@ export const POST: APIRoute = async ({ params, request, clientAddress }) => {
   const id = await digest(userAgent + clientAddress + slug);
   // insert the like and ignore it if it was already set
   if (id && slug) {
+    // check if the like already exists in the database
+    const existingLike = await db.select().from(Like).where(eq(Like.id, id));
+    console.log(existingLike);
+    // if the like exists, remove it from the database
+    if (existingLike.length > 0) {
+      await db.delete(Like).where(eq(Like.id, id));
+      return new Response(
+        JSON.stringify({
+          message: 'Successfully removed like!',
+        }),
+        {
+          status: 200,
+        },
+      );
+    }
+    // insert the like and ignore it if it was already set
     await db.insert(Like).values({ id, slug }).onConflictDoNothing();
   }
   // return a response
   return new Response(
     JSON.stringify({
-      message: 'This was a POST!',
+      message: 'Successfully liked!',
     }),
     {
       status: 200,

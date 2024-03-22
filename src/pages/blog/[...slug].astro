@@ -55,17 +55,20 @@ const { Content } = await entry.render();
   // If button is clicked, send a POST request to the server
   likeButton?.addEventListener('click', async (e) => {
     e.preventDefault();
-    const response = await fetch(`/api/like-post/${slug}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ slug: '{{ slug }}' }),
-    });
-
-    if (response.ok) {
-      const { message } = await response.json();
-      console.log(message);
+    try {
+      const response = await fetch(`/api/like-post/${slug}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ slug: '{{ slug }}' }),
+      });
+      if (response.ok) {
+        const { message } = await response.json();
+        console.log(message);
+      }
+    } catch (error) {
+      console.error(error);
     }
   });
 </script>
