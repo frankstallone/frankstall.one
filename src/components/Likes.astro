@@ -31,7 +31,7 @@ const { count, slug } = Astro.props;
       const likeButton = this.querySelector('button');
       const countSpan = this.querySelector('span');
 
-      if (count !== 0) {
+      if (countSpan && count !== 0) {
         countSpan.textContent = count.toString();
       }
 
@@ -48,7 +48,9 @@ const { count, slug } = Astro.props;
           });
           if (response.ok) {
             const { message, count } = await response.json();
-            countSpan.textContent = count;
+            if (countSpan) {
+              countSpan.textContent = count;
+            }
             this.checkIfLiked();
           }
         } catch (error) {
@@ -75,15 +77,15 @@ const { count, slug } = Astro.props;
           const { liked } = await response.json();
           console.log(liked);
           if (liked) {
-            likeComponent.classList.add('bg-indigo-vivid-600');
-            likeComponent.classList.remove('bg-gray-600');
-            likeButton.classList.remove('text-indigo-1000');
-            likeButton.classList.add('text-indigo-100');
+            likeComponent?.classList.add('bg-indigo-vivid-600');
+            likeComponent?.classList.remove('bg-gray-600');
+            likeButton?.classList.remove('text-indigo-1000');
+            likeButton?.classList.add('text-indigo-100');
           } else {
-            likeComponent.classList.remove('bg-indigo-vivid-600');
-            likeComponent.classList.add('bg-gray-600');
-            likeButton.classList.remove('text-indigo-100');
-            likeButton.classList.add('text-indigo-1000');
+            likeComponent?.classList.remove('bg-indigo-vivid-600');
+            likeComponent?.classList.add('bg-gray-600');
+            likeButton?.classList.remove('text-indigo-100');
+            likeButton?.classList.add('text-indigo-1000');
           }
         }
       } catch (error) {
