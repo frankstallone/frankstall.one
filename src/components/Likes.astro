@@ -75,7 +75,6 @@ const { count, slug } = Astro.props;
         });
         if (response.ok) {
           const { liked } = await response.json();
-          console.log(liked);
           if (liked) {
             likeComponent?.classList.add('bg-indigo-vivid-600');
             likeComponent?.classList.remove('bg-gray-600');
