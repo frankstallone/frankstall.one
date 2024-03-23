@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import InnerLayout from '../../layouts/InnerLayout.astro';
+import Likes from '../../components/Likes.astro';
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog');
@@ -37,13 +38,13 @@ const { Content } = await entry.render();
     id="main"
   >
     <Content />
-  </article>
-  <aside class="region wrapper flow prose">
-    <button id="like-button" aria-label="Like this post" data-slug={entry.slug}
-      >Like</button
+    <div
+      class="inline-flex flow flow-space-2xs flex-col justify-center items-center"
     >
-    <p>Likes: {count}</p>
-  </aside>
+      <p class="font-display font-bold">Ya dig?</p>
+      <Likes count={count} slug={entry.slug} />
+    </div>
+  </article>
 </InnerLayout>
 
 <script>
@@ -64,8 +65,8 @@ const { Content } = await entry.render();
         body: JSON.stringify({ slug: '{{ slug }}' }),
       });
       if (response.ok) {
-        const { message } = await response.json();
-        console.log(message);
+        const { message, count } = await response.json();
+        console.log(message, count);
       }
     } catch (error) {
       console.error(error);
