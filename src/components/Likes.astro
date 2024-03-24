@@ -47,7 +47,7 @@ const { count, slug } = Astro.props;
 
     connectedCallback() {
       // Set the initial count
-      if (this.countSpan && this.count !== 0) {
+      if (this.count !== 0) {
         this.countSpan.textContent = this.count.toString();
       }
       // Update the liked state
@@ -55,6 +55,10 @@ const { count, slug } = Astro.props;
       // Initial update to the component UI
       this.updateUI();
       // Add event listener to the button
+      this.addLikeButtonEventListener();
+    }
+
+    addLikeButtonEventListener() {
       this.likeButton.addEventListener('click', async (e) => {
         e.preventDefault();
         // Toggle the liked state
@@ -83,6 +87,8 @@ const { count, slug } = Astro.props;
           }
         } catch (error) {
           this.count = Number(this.count) - 1;
+          this.updateLikedState();
+          this.updateUI();
           console.error(error);
         }
       });
