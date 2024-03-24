@@ -31,14 +31,14 @@ const { count, slug } = Astro.props;
   class Likes extends HTMLElement {
     count: string | number;
     slug: string | undefined;
-    likeButton: HTMLButtonElement | null;
-    countSpan: HTMLSpanElement | null;
+    likeButton: HTMLButtonElement;
+    countSpan: HTMLSpanElement;
     constructor() {
       super();
       this.count = this.dataset.initial ?? 0;
       this.slug = this.dataset.slug;
-      this.likeButton = this.querySelector('button');
-      this.countSpan = this.querySelector('span');
+      this.likeButton = this.querySelector('button') as HTMLButtonElement;
+      this.countSpan = this.querySelector('span') as HTMLSpanElement;
     }
 
     connectedCallback() {
@@ -49,7 +49,7 @@ const { count, slug } = Astro.props;
       // Initial update to the component UI
       this.updateComponent();
       // Add event listener to the button
-      this.likeButton?.addEventListener('click', async (e) => {
+      this.likeButton.addEventListener('click', async (e) => {
         e.preventDefault();
         // Send a POST request to the server
         try {
@@ -87,20 +87,20 @@ const { count, slug } = Astro.props;
         if (response.ok) {
           const { liked } = await response.json();
           if (liked) {
-            likeComponent?.classList.add('bg-indigo-vivid-600');
-            likeComponent?.classList.remove('bg-gray-600');
-            this.likeButton?.classList.remove('text-indigo-1000');
-            this.likeButton?.classList.add('text-indigo-100');
-            this.likeButton?.setAttribute(
+            likeComponent.classList.add('bg-indigo-vivid-600');
+            likeComponent.classList.remove('bg-gray-600');
+            this.likeButton.classList.remove('text-indigo-1000');
+            this.likeButton.classList.add('text-indigo-100');
+            this.likeButton.setAttribute(
               'aria-label',
               `Thank you! Click to unlike this post. This post has been liked ${this.count} times.`
             );
           } else {
-            likeComponent?.classList.remove('bg-indigo-vivid-600');
-            likeComponent?.classList.add('bg-gray-600');
-            this.likeButton?.classList.remove('text-indigo-100');
-            this.likeButton?.classList.add('text-indigo-1000');
-            this.likeButton?.setAttribute(
+            likeComponent.classList.remove('bg-indigo-vivid-600');
+            likeComponent.classList.add('bg-gray-600');
+            this.likeButton.classList.remove('text-indigo-100');
+            this.likeButton.classList.add('text-indigo-1000');
+            this.likeButton.setAttribute(
               'aria-label',
               `Click to like this post. This post has been liked ${this.count} times.`
             );
