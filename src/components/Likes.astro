@@ -28,6 +28,10 @@ const { count, slug } = Astro.props;
 
 <script>
   class Likes extends HTMLElement {
+    count: string | number;
+    slug: string | undefined;
+    likeButton: HTMLButtonElement | null;
+    countSpan: HTMLSpanElement | null;
     constructor() {
       super();
       this.count = this.dataset.initial ?? 0;
@@ -57,7 +61,7 @@ const { count, slug } = Astro.props;
           });
           // If the request is successful, update the count & check if the post is liked
           if (response.ok) {
-            const { message, count } = await response.json();
+            const { count } = await response.json();
             this.count = count;
             if (this.countSpan) {
               this.countSpan.textContent = count;
@@ -72,7 +76,6 @@ const { count, slug } = Astro.props;
 
     updateComponent = async () => {
       const likeComponent = this;
-      const likeButton = this.querySelector('button');
       try {
         const response = await fetch(`/api/like-post/${this.slug}`, {
           method: 'GET',
