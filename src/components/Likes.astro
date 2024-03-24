@@ -61,15 +61,19 @@ const { count, slug } = Astro.props;
     addLikeButtonEventListener() {
       this.likeButton.addEventListener('click', async (e) => {
         e.preventDefault();
+        // Initial count before the event handler
+        const initialCount = Number(this.count);
         // Toggle the liked state
         this.liked = !this.liked;
         // console.log(`liked after event handler click: ${this.liked}`);
         if (!!this.liked) {
           this.count = Number(this.count) + 1;
           this.countSpan.textContent = this.count.toString();
+          this.updateUI();
         } else {
           this.count = Number(this.count) - 1;
           this.countSpan.textContent = this.count.toString();
+          this.updateUI();
         }
         // Send a POST request to the server
         try {
@@ -86,7 +90,8 @@ const { count, slug } = Astro.props;
             this.updateUI();
           }
         } catch (error) {
-          this.count = Number(this.count) - 1;
+          // If the request fails, revert the count and the liked state
+          this.count = initialCount - 1;
           this.updateLikedState();
           this.updateUI();
           console.error(error);
