@@ -1,6 +1,6 @@
 # example netlify.toml
 [build]
-  command = "astro build"
+  command = "astro check && astro build --remote"
   functions = "netlify/functions"
   publish = "dist"
 
