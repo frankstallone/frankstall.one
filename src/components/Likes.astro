@@ -8,7 +8,6 @@ const { count, slug } = Astro.props;
   class="inline-flex align-center justify-center rounded-3xl bg-gray-600 text-step-00 text-gray-100"
 >
   <button
-    aria-live="polite"
     aria-label="Click to like this post"
     class="bg-transparent border-none flex justify-center align-center px-xs py-2xs"
   >
@@ -21,7 +20,9 @@ const { count, slug } = Astro.props;
       <path
         d="M240 67.7V32h96V67.7c0 38.1-9 75.1-25.8 108.3H464h48v96H496v80H472v72H448v56H400 280 265.5l-12.1-8.1-72-48L160 409.7V384 320 224 200.9l18-14.4 7.9-6.4c34.2-27.3 54-68.7 54-112.4zM128 192V480H0V192H128z"
       ></path></svg
-    ><span class="ml-3xs" aria-label="The amount of likes">0</span></button
+    ><span class="ml-3xs"
+      ><div class="sr-only">This post's current likes:</div>0</span
+    ></button
   >
 </post-likes>
 
@@ -29,32 +30,39 @@ const { count, slug } = Astro.props;
   class Likes extends HTMLElement {
     constructor() {
       super();
-      let count = this.dataset.initial ?? 0;
-      const slug = this.dataset.slug;
-      const likeButton = this.querySelector('button');
-      const countSpan = this.querySelector('span');
+      this.count = this.dataset.initial ?? 0;
+      this.slug = this.dataset.slug;
+      this.likeButton = this.querySelector('button');
+      this.countSpan = this.querySelector('span');
+    }
 
-      if (countSpan && count !== 0) {
-        countSpan.textContent = count.toString();
+    connectedCallback() {
+      // Set the initial count
+      if (this.countSpan && this.count !== 0) {
+        this.countSpan.textContent = this.count.toString();
       }
-
-      // If button is clicked, send a POST request to the server
-      likeButton?.addEventListener('click', async (e) => {
+      // Initial update to the component UI
+      this.updateComponent();
+      // Add event listener to the button
+      this.likeButton?.addEventListener('click', async (e) => {
         e.preventDefault();
+        // Send a POST request to the server
         try {
-          const response = await fetch(`/api/like-post/${slug}`, {
+          const response = await fetch(`/api/like-post/${this.slug}`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({ slug: '{{ slug }}' }),
           });
+          // If the request is successful, update the count & check if the post is liked
           if (response.ok) {
             const { message, count } = await response.json();
-            if (countSpan) {
-              countSpan.textContent = count;
+            this.count = count;
+            if (this.countSpan) {
+              this.countSpan.textContent = count;
             }
-            this.checkIfLiked();
+            this.updateComponent();
           }
         } catch (error) {
           console.error(error);
@@ -62,15 +70,11 @@ const { count, slug } = Astro.props;
       });
     }
 
-    connectedCallback() {
-      this.checkIfLiked();
-    }
-
-    checkIfLiked = async () => {
+    updateComponent = async () => {
       const likeComponent = this;
       const likeButton = this.querySelector('button');
       try {
-        const response = await fetch(`/api/like-post/${this.dataset.slug}`, {
+        const response = await fetch(`/api/like-post/${this.slug}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -81,18 +85,21 @@ const { count, slug } = Astro.props;
           if (liked) {
             likeComponent?.classList.add('bg-indigo-vivid-600');
             likeComponent?.classList.remove('bg-gray-600');
-            likeButton?.classList.remove('text-indigo-1000');
-            likeButton?.classList.add('text-indigo-100');
-            likeButton?.setAttribute(
+            this.likeButton?.classList.remove('text-indigo-1000');
+            this.likeButton?.classList.add('text-indigo-100');
+            this.likeButton?.setAttribute(
               'aria-label',
-              'Post liked. Thank you! Click to unlike this post'
+              `Thank you! Click to unlike this post. This post has been liked ${this.count} times.`
             );
           } else {
             likeComponent?.classList.remove('bg-indigo-vivid-600');
             likeComponent?.classList.add('bg-gray-600');
-            likeButton?.classList.remove('text-indigo-100');
-            likeButton?.classList.add('text-indigo-1000');
-            likeButton?.setAttribute('aria-label', 'Click to like this post');
+            this.likeButton?.classList.remove('text-indigo-100');
+            this.likeButton?.classList.add('text-indigo-1000');
+            this.likeButton?.setAttribute(
+              'aria-label',
+              `Click to like this post. This post has been liked ${this.count} times.`
+            );
           }
         }
       } catch (error) {
