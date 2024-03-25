@@ -69,12 +69,12 @@ const { count, slug } = Astro.props;
         if (!!this.liked) {
           this.count = Number(this.count) + 1;
           this.countSpan.textContent = this.count.toString();
-          this.updateUI();
         } else {
           this.count = Number(this.count) - 1;
           this.countSpan.textContent = this.count.toString();
-          this.updateUI();
         }
+        // Update the UI
+        this.updateUI();
         // Send a POST request to the server
         try {
           const response = await fetch(`/api/like-post/${this.slug}`, {
