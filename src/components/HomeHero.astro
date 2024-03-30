@@ -9,7 +9,7 @@ const optimizedBackground = await getImage({ src: background });
 
 <div
   id="hero"
-  style={`--cover-padding: 0;  background-image: url(${optimizedBackground.src})`}
+  style={`--cover-padding: 0; background: center / cover no-repeat var(--color-gray-1400) url(${optimizedBackground.src}); `}
   aria-label="Hero section"
 >
   <Header />
