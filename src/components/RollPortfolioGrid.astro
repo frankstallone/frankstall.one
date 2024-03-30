@@ -1,0 +1,112 @@
+---
+import { Picture } from 'astro:assets';
+import rollSquared01 from '../assets/squared/roll-squared-01@2x.png';
+import rollSquared02 from '../assets/squared/roll-squared-02@2x.png';
+import rollSquared03 from '../assets/squared/roll-squared-03@2x.png';
+import rollSquared04 from '../assets/squared/roll-squared-04@2x.png';
+---
+
+<article class="grid-portfolio">
+  <div
+    aria-hidden="true"
+    style="background-color: rgb(211 246 254); grid-column-start: 4; aspect-ratio: 1 / 1;"
+    class="rounded-full animate-in"
+  >
+  </div>
+  <div
+    aria-hidden="true"
+    style="background-color: rgb(170 224 251); grid-column-start: 5; grid-row-start: 3; aspect-ratio: 1 / 1;"
+    class="rounded-full animate-in"
+  >
+  </div>
+  <div
+    aria-hidden="true"
+    style="background-color: rgb(134 194 241); grid-column-start: 5; grid-row-start: 4; aspect-ratio: 1 / 1;"
+    class="rounded-full animate-in"
+  >
+  </div>
+  <div
+    aria-hidden="true"
+    style="background-color: rgb(93 162 235); grid-column-start: 7; grid-row-start: 5; aspect-ratio: 1 / 1;"
+    class="rounded-full animate-in"
+  >
+  </div>
+  <div
+    aria-hidden="true"
+    style="background-color: rgb(66 131 226); grid-column-start: 7; grid-row-start: 6; aspect-ratio: 1 / 1;"
+    class="rounded-full animate-in"
+  >
+  </div>
+  <div
+    aria-hidden="true"
+    style="background-color: rgb(46 102 216); grid-column-start: 4; grid-row-start: 6; aspect-ratio: 1 / 1;"
+    class="rounded-full animate-in"
+  >
+  </div>
+  <div
+    aria-hidden="true"
+    style="background-color: rgb(18 74 207); grid-column-start: 3; grid-row-start: 6; aspect-ratio: 1 / 1;"
+    class="rounded-full animate-in"
+  >
+  </div>
+  <div
+    aria-hidden="true"
+    style="background-color: rgb(5 51 181); grid-column-start: 2; grid-row-start: 6; aspect-ratio: 1 / 1;"
+    class="rounded-full animate-in"
+  >
+  </div>
+  <div
+    aria-hidden="true"
+    style="background-color: rgb(5 39 133); grid-column-start: 1; grid-row-start: 6; aspect-ratio: 1 / 1;"
+    class="rounded-full animate-in"
+  >
+  </div>
+  <Picture
+    src={rollSquared01}
+    widths={[500, 700, 1400]}
+    sizes={`(max-width: 360px) 500px, (max-width: 720px) 700px, (max-width: 1600px) 1400px,  ${rollSquared01.width}px`}
+    class="object-cover h-auto"
+    pictureAttributes={{
+      class: 'grid-item-01',
+    }}
+    alt="Mock up of Apple iPhones with Roll by ADP app views"
+    quality={80}
+    format="avif"
+  />
+  <Picture
+    src={rollSquared02}
+    widths={[500, 700]}
+    sizes={`(max-width: 360px) 500px, (max-width: 720px) 700px, ${rollSquared02.width}px`}
+    class="object-cover h-auto"
+    alt="Screenshot of VSCode showing the design tokens repository for Roll by ADP"
+    pictureAttributes={{
+      class: 'grid-item-02',
+    }}
+    quality={80}
+    format="avif"
+  />
+  <Picture
+    src={rollSquared03}
+    widths={[500, 700]}
+    sizes={`(max-width: 360px) 500px, (max-width: 720px) 700px, ${rollSquared03.width}px`}
+    class="object-cover h-auto"
+    alt="Screenshot of the payroll run conversation UI showcasing the components design and created for our clients"
+    pictureAttributes={{
+      class: 'grid-item-03',
+    }}
+    quality={80}
+    format="avif"
+  />
+  <Picture
+    src={rollSquared04}
+    widths={[500, 700]}
+    sizes={`(max-width: 360px) 500px, (max-width: 720px) 700px, ${rollSquared04.width}px`}
+    class="object-cover h-auto"
+    alt="Screenshots of the mobile app that would eventually be used circa 2018"
+    pictureAttributes={{
+      class: 'grid-item-04',
+    }}
+    quality={80}
+    format="avif"
+  />
+</article>

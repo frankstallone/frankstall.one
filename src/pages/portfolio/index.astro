@@ -2,11 +2,6 @@
 import InnerLayout from '../../layouts/InnerLayout.astro';
 import { Picture } from 'astro:assets';
 
-import rollSquared01 from '../../assets/squared/roll-squared-01@2x.png';
-import rollSquared02 from '../../assets/squared/roll-squared-02@2x.png';
-import rollSquared03 from '../../assets/squared/roll-squared-03@2x.png';
-import rollSquared04 from '../../assets/squared/roll-squared-04@2x.png';
-
 import btcSquared01 from '../../assets/squared/btc-squared-01@2x.png';
 import btcSquared02 from '../../assets/squared/btc-squared-02@2x.png';
 import btcSquared03 from '../../assets/squared/btc-squared-03@2x.png';
@@ -26,6 +21,8 @@ import savaniSquared01 from '../../assets/squared/savani-squared-01@2x.png';
 import savaniSquared02 from '../../assets/squared/savani-squared-02@2x.png';
 import savaniSquared03 from '../../assets/squared/savani-squared-03@2x.png';
 import savaniSquared04 from '../../assets/squared/savani-squared-04@2x.png';
+import RollPortfolioGrid from '../../components/RollPortfolioGrid.astro';
+import BTCPortfolioGrid from '../../components/BTCPortfolioGrid.astro';
 ---
 
 <InnerLayout
@@ -56,113 +53,16 @@ import savaniSquared04 from '../../assets/squared/savani-squared-04@2x.png';
         </p>
       </div>
 
-      <article class="grid-portfolio">
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(211 246 254); grid-column-start: 4; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(170 224 251); grid-column-start: 5; grid-row-start: 3; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(134 194 241); grid-column-start: 5; grid-row-start: 4; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(93 162 235); grid-column-start: 7; grid-row-start: 5; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(66 131 226); grid-column-start: 7; grid-row-start: 6; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(46 102 216); grid-column-start: 4; grid-row-start: 6; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(18 74 207); grid-column-start: 3; grid-row-start: 6; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(5 51 181); grid-column-start: 2; grid-row-start: 6; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(5 39 133); grid-column-start: 1; grid-row-start: 6; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <Picture
-          src={rollSquared01}
-          widths={[500, 700, 1400]}
-          class="object-cover h-auto"
-          pictureAttributes={{
-            class: 'grid-item-01',
-          }}
-          alt="Mock up of Apple iPhones with Roll by ADP app views"
-          quality={80}
-          format="avif"
-        />
-        <Picture
-          src={rollSquared02}
-          widths={[500, 700]}
-          class="object-cover h-auto"
-          alt="Screenshot of VSCode showing the design tokens repository for Roll by ADP"
-          pictureAttributes={{
-            class: 'grid-item-02',
-          }}
-          quality={80}
-          format="avif"
-        />
-        <Picture
-          src={rollSquared03}
-          widths={[500, 700]}
-          class="object-cover h-auto"
-          alt="Screenshot of the payroll run conversation UI showcasing the components design and created for our clients"
-          pictureAttributes={{
-            class: 'grid-item-03',
-          }}
-          quality={80}
-          format="avif"
-        />
-        <Picture
-          src={rollSquared04}
-          widths={[500, 700]}
-          class="object-cover h-auto"
-          alt="Screenshots of the mobile app that would eventually be used circa 2018"
-          pictureAttributes={{
-            class: 'grid-item-04',
-          }}
-          quality={80}
-          format="avif"
-        />
-      </article>
+      <RollPortfolioGrid />
     </div>
     <div class="flow flow-space-l region">
       <div
         class="box flow flow-space-xs w-fit border-solid border-b-2 border-x-0 border-t-0 border-gray-700"
       >
         <hgroup>
-          <h3 class="uppercase mt-zero">Builders Trust Capital</h3>
+          <h3 class="uppercase mt-zero">
+            <a href="/portfolio/btc/">Builders Trust Capital</a>
+          </h3>
           <p class="font-medium text-step-1 mt-zero">
             Brand transformation, logo, name
           </p>
@@ -173,106 +73,7 @@ import savaniSquared04 from '../../assets/squared/savani-squared-04@2x.png';
           and transparency.
         </p>
       </div>
-      <article class="grid-portfolio">
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(255 248 213); grid-column-start: 4; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(251 218 115); grid-column-start: 5; grid-row-start: 3; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(232 184 10); grid-column-start: 5; grid-row-start: 4; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(196 152 27); grid-column-start: 7; grid-row-start: 5; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(171 120 30); grid-column-start: 7; grid-row-start: 6; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(143 94 26); grid-column-start: 4; grid-row-start: 6; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(122 70 21); grid-column-start: 3; grid-row-start: 6; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(104 46 12); grid-column-start: 2; grid-row-start: 6; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(78 26 5); grid-column-start: 1; grid-row-start: 6; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <Picture
-          src={btcSquared01}
-          widths={[500, 700, 1400]}
-          class="object-cover h-auto"
-          pictureAttributes={{
-            class: 'grid-item-01',
-          }}
-          alt="Photo of initial sketches of the chosen logo for Builders Trust Capital showing the intentions for the three pilars"
-          quality={80}
-          format="avif"
-        />
-        <Picture
-          src={btcSquared02}
-          widths={[500, 700]}
-          class="object-cover h-auto"
-          alt="Screenshot of the home page design for Builders Trust Capital"
-          pictureAttributes={{
-            class: 'grid-item-02',
-          }}
-          quality={80}
-          format="avif"
-        />
-        <Picture
-          src={btcSquared03}
-          widths={[500, 700]}
-          class="object-cover h-auto"
-          alt="Screenshot of the presentation for the new Builders Trust Capital logo in context on a sign and business cards"
-          pictureAttributes={{
-            class: 'grid-item-03',
-          }}
-          quality={80}
-          format="avif"
-        />
-        <Picture
-          src={btcSquared04}
-          widths={[500, 700]}
-          class="object-cover h-auto"
-          alt="Logo presentation of the Builders Trust Capital mark and logo type"
-          pictureAttributes={{
-            class: 'grid-item-04',
-          }}
-          quality={80}
-          format="avif"
-        />
-      </article>
+      <BTCPortfolioGrid />
     </div>
     <div class="flow flow-space-l region">
       <div

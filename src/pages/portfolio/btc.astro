@@ -1,0 +1,199 @@
+---
+import InnerLayout from '../../layouts/InnerLayout.astro';
+import { Picture } from 'astro:assets';
+
+import realEstateTeam from '../../assets/btc/hard-money-lender-builders-trust-capital.jpg';
+import logoGuide from '../../assets/btc/builders-trust-capital-design-system-logo-page@2x.png';
+import colorGuide from '../../assets/btc/builders-trust-capital-design-system-color-page@2x.png';
+import typographyGuide from '../../assets/btc/builders-trust-capital-design-system-typography-page@2x.png';
+import BTCPortfolioGrid from '../../components/BTCPortfolioGrid.astro';
+---
+
+<InnerLayout
+  subtitle="Transforming Ashmore Partners into Builders Trust Capital, I realigned the brand with its foundational values of trust, stability, and transparency, better connecting them with their entrepreneurial clientele."
+  meta={{
+    title: 'Builders Trust Capital',
+    description:
+      'Case study of Builders Trust Capital from the portfolio of Frank Stallone',
+    canonicalURL: `https://frankstall.one/portfolio/btc/`,
+  }}
+>
+  <section class="flow" id="main">
+    <div class="region">
+      <div class="wrapper grid" data-layout="twelfths">
+        <div
+          class="row-start-1 row-span-5 col-span-12 md:col-span-7 md:row-start-2 md:col-start-1 lg:col-span-6 lg:col-start-1 box flow flow-space-xs border-solid border-b-2 border-x-0 border-t-0 bg-orange-100 border-orange-700 z-10"
+        >
+          <h2 class="mt-zero">Who they are</h2>
+          <p>
+            Builders Trust Capital, originally Ashmore Partners, is a hard money
+            lender focused on empowering entrepreneurs with financial solutions
+            that are built on trust, stability, and transparency.
+          </p>
+        </div>
+        <Picture
+          src={realEstateTeam}
+          widths={[300, 800, 2000, realEstateTeam.width]}
+          sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${realEstateTeam.width}px`}
+          pictureAttributes={{
+            class:
+              'object-contain h-full w-full row-span-6 md:row-start-1 md:row-span-8 col-span-12 md:col-span-8 md:col-start-6',
+          }}
+          class={'object-contain h-full w-full row-span-6 md:row-start-1 md:row-span-8 col-span-12 md:col-span-8 md:col-start-6'}
+          alt="Small business owner smiling on a call with a customer"
+          formats={['avif', 'webp']}
+          loading="lazy"
+        />
+      </div>
+    </div>
+    <div class="wrapper grid" data-layout="twelfths">
+      <div
+        class="row-start-3 row-span-4 col-start-1 col-span-12 md:row-span-4 md:col-span-8 md:row-start-4 md:col-start-4 box flow flow-space-xs w-fit border-solid border-b-2 border-x-0 border-t-0 bg-orange-100 border-orange-700 z-10"
+      >
+        <h2 class="mt-zero">What I did for them</h2>
+        <p>
+          I spearheaded a comprehensive rebranding initiative, renaming the
+          company, creating a new logo and branding style guide, and developing
+          a custom website and marketing materials. This transformation was
+          aimed at better communicating their values to both entrepreneurs and
+          investors, aligning with their mission to facilitate growth and trust.
+        </p>
+      </div>
+      <Picture
+        src={logoGuide}
+        widths={[300, 800, 2000, logoGuide.width]}
+        sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${logoGuide.width}px`}
+        pictureAttributes={{
+          class:
+            'object-contain h-full w-full row-start-1 row-span-5 col-start-1 col-span-12 md:row-start-1 md:row-span-10 md:col-span-8 md:col-start-3',
+        }}
+        class={'object-contain h-full w-full row-start-1 row-span-5 col-start-1 col-span-12 md:row-start-1 md:row-span-10 md:col-span-8 md:col-start-3'}
+        alt="Small business owner smiling on a call with a customer"
+        formats={['avif', 'webp']}
+        loading="lazy"
+      />
+    </div>
+    <div class="region wrapper">
+      <BTCPortfolioGrid />
+    </div>
+    <div class="region bg-orange-1000">
+      <div class="wrapper grid" data-layout="twelfths">
+        <div
+          class="row-start-1 col-start-1 row-span-12 col-span-12 md:row-start-1 md:row-span-1 md:col-start-1 md:col-span-6 box flow flow-space-xs border-solid border-b-2 border-x-0 border-t-0 bg-orange-100 border-orange-700"
+        >
+          <h2 class="mt-zero">The challenge</h2>
+          <p>
+            The challenge was to refresh the Ashmore Partners brand to one that
+            deeply resonated with their target audience of entrepreneurs and
+            investors, giving them an identity that showcased their values and
+            stood out in the competitive financial space. My goal was to
+            transform their existing brand into one that clearly conveyed their
+            commitment to their client's success, across all physical and
+            digital touch-points.
+          </p>
+        </div>
+        <div
+          class="row-start-13 col-start-1 row-span-12 col-span-12 md:row-start-1 md:row-span-2 md:col-start-7 md:col-span-7 box flow flow-space-xs w-fit border-solid border-b-2 border-x-0 border-t-0 bg-orange-100 border-orange-700"
+        >
+          <h2 class="mt-zero">My approach</h2>
+          <p>
+            I began with deep dives into the company's ethos through group
+            discovery sessions with the Ashmore Partners team. Knowing the aim
+            was to realign their brand to connect with entrepreneurs and
+            investors, it became clear that we'd need to choose a new name that
+            better-embodied trust, stability, and transparency. Through detailed
+            industry research and collaborative brainstorming, "Builders Trust
+            Capital" was born - a name that perfectly mirrored its foundational
+            principles.
+          </p>
+          <p>
+            From there, we mapped out a plan to develop a fresh logo, a
+            comprehensive style guide, and plans for all the physical and
+            digital collateral we'd need to bring this new identity to life.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="region wrapper flow prose">
+      <h2 class="mx-auto text-center">The solution</h2>
+      <div class="flex flex-col flow md:grid" data-layout="twelfths">
+        <div
+          class="md:row-start-1 md:row-span-3 md:col-start-1 md:col-span-6 box flow flow-space-xs w-fit z-10 bg-orange-100 border-orange-700 border-solid border-b-2 border-x-0 border-t-0"
+        >
+          <p class="mt-zero">
+            In creating the new Builders Trust Capital identity, the solution
+            needed to cover a lot of different touch-points. I started by
+            collaborating closely with the team on developing a timeless logo
+            that symbolized the renewed brand identity. This process was about
+            creating a symbol that would stand the test of time across both
+            digital and print mediums.
+          </p>
+        </div>
+        <Picture
+          src={colorGuide}
+          widths={[300, 800, colorGuide.width]}
+          sizes={`(max-width: 300px) 300px, (max-width: 700px) 700px, ${colorGuide.width}px`}
+          pictureAttributes={{
+            class:
+              'object-contain h-full w-full md:row-start-2 md:row-span-10 md:col-span-7 md:col-start-7',
+          }}
+          class={'object-contain h-full w-full md:row-start-2 md:row-span-10 md:col-span-7 md:col-start-7'}
+          alt="Small business owner smiling on a call with a customer"
+          formats={['avif', 'webp']}
+          loading="lazy"
+        />
+        <div
+          class="md:row-start-5 md:row-span-5 md:col-start-1 md:col-span-6 box flow flow-space-xs w-fit z-10 bg-orange-100 border-orange-700 border-solid border-b-2 border-x-0 border-t-0"
+        >
+          <p class="mt-zero">
+            In tandem, our copywriter began crafting a voice that captured the
+            essence of Builders Trust Capital, interviewing clients and
+            associates to ensure our messaging was authentic and engaging. This
+            foundational work then led into the development of a full style
+            guide that detailed our color schemes, typography, and layout
+            principles—blending modern vibrancy with the traditional solidity
+            expected in the financial sector.
+          </p>
+        </div>
+        <div
+          class="md:row-start-11 md:row-span-6 md:col-start-1 md:col-span-6 box flow flow-space-xs w-fit z-10 bg-orange-100 border-orange-700 border-solid border-b-2 border-x-0 border-t-0"
+        >
+          <p class="mt-zero">
+            The digital transformation was next, grounded by a sharp,
+            user-friendly website that was not only accessible but responsive
+            across all devices. From wireframing in the browser to integrating
+            live content for real-time feedback, I meticulously crafted each
+            page to reflect the sophistication and clarity of the new brand.
+            This ensured the site looked exceptional and gave a clean and
+            elegant user experience for entrepreneurs and investors.
+          </p>
+        </div>
+        <Picture
+          src={typographyGuide}
+          widths={[300, 800, typographyGuide.width]}
+          sizes={`(max-width: 300px) 300px, (max-width: 700px) 700px, ${typographyGuide.width}px`}
+          pictureAttributes={{
+            class:
+              'object-contain h-full w-full md:row-start-12 md:row-span-10 md:col-span-7 md:col-start-7',
+          }}
+          class={'object-contain h-full w-full md:row-start-12 md:row-span-10 md:col-span-7 md:col-start-7'}
+          alt="Small business owner smiling on a call with a customer"
+          formats={['avif', 'webp']}
+          loading="lazy"
+        />
+        <div
+          class="md:row-start-19 md:row-span-4 md:col-start-1 md:col-span-6 box flow flow-space-xs w-fit z-10 bg-orange-100 border-orange-700 border-solid border-b-2 border-x-0 border-t-0"
+        >
+          <h3 class="mt-zero">The results</h3>
+          <p>
+            Through this significant re-branding project, Builders Trust Capital
+            successfully repositioned itself in the market, establishing a brand
+            that stands out for its elegance, clarity and solidity. This
+            transformation has opened doors to new partnerships, and
+            significantly broadened the company's market reach.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</InnerLayout>

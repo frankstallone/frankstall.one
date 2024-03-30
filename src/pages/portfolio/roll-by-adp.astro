@@ -2,15 +2,12 @@
 import InnerLayout from '../../layouts/InnerLayout.astro';
 import { Picture } from 'astro:assets';
 
-import rollSquared01 from '../../assets/squared/roll-squared-01@2x.png';
-import rollSquared02 from '../../assets/squared/roll-squared-02@2x.png';
-import rollSquared03 from '../../assets/squared/roll-squared-03@2x.png';
-import rollSquared04 from '../../assets/squared/roll-squared-04@2x.png';
 import businessOwner from '../../assets/roll-by-adp/business-owner-smiling-on-call-roll-by-adp.jpg';
 import largeSketch from '../../assets/roll-by-adp/accordion-scan-sketch-whiteboarding-modified.jpg';
 import accordionSketch from '../../assets/roll-by-adp/accordionlist-scan-sketch-modified.jpg';
 import finalMock from '../../assets/roll-by-adp/payroll-run-hi-fidelity@2x.png';
 import rollVideo from '../../assets/roll-by-adp/payroll-run-video.mp4';
+import RollPortfolioGrid from '../../components/RollPortfolioGrid.astro';
 ---
 
 <InnerLayout
@@ -94,111 +91,12 @@ import rollVideo from '../../assets/roll-by-adp/payroll-run-video.mp4';
       />
     </div>
     <div class="region wrapper">
-      <article class="grid-portfolio">
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(211 246 254); grid-column-start: 4; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(170 224 251); grid-column-start: 5; grid-row-start: 3; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(134 194 241); grid-column-start: 5; grid-row-start: 4; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(93 162 235); grid-column-start: 7; grid-row-start: 5; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(66 131 226); grid-column-start: 7; grid-row-start: 6; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(46 102 216); grid-column-start: 4; grid-row-start: 6; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(18 74 207); grid-column-start: 3; grid-row-start: 6; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(5 51 181); grid-column-start: 2; grid-row-start: 6; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <div
-          aria-hidden="true"
-          style="background-color: rgb(5 39 133); grid-column-start: 1; grid-row-start: 6; aspect-ratio: 1 / 1;"
-          class="rounded-full animate-in"
-        >
-        </div>
-        <Picture
-          src={rollSquared01}
-          widths={[500, 700, 1400]}
-          class="object-cover h-auto"
-          pictureAttributes={{
-            class: 'grid-item-01',
-          }}
-          alt="Mock up of Apple iPhones with Roll by ADP app views"
-          quality={80}
-          format="avif"
-        />
-        <Picture
-          src={rollSquared02}
-          widths={[500, 700]}
-          class="object-cover h-auto"
-          alt="Screenshot of VSCode showing the design tokens repository for Roll by ADP"
-          pictureAttributes={{
-            class: 'grid-item-02',
-          }}
-          quality={80}
-          format="avif"
-        />
-        <Picture
-          src={rollSquared03}
-          widths={[500, 700]}
-          class="object-cover h-auto"
-          alt="Screenshot of the payroll run conversation UI showcasing the components design and created for our clients"
-          pictureAttributes={{
-            class: 'grid-item-03',
-          }}
-          quality={80}
-          format="avif"
-        />
-        <Picture
-          src={rollSquared04}
-          widths={[500, 700]}
-          class="object-cover h-auto"
-          alt="Screenshots of the mobile app that would eventually be used circa 2018"
-          pictureAttributes={{
-            class: 'grid-item-04',
-          }}
-          quality={80}
-          format="avif"
-        />
-      </article>
+      <RollPortfolioGrid />
     </div>
     <div class="region bg-blue-1000">
       <div class="wrapper grid" data-layout="twelfths">
         <div
-          class="row-start-1 col-start-1 row-span-12 col-span-12 md:row-start-1 md:row-span-2 md:col-start-1 md:col-span-6 box flow flow-space-xs border-solid border-b-2 border-x-0 border-t-0 border-blue-700"
+          class="row-start-1 col-start-1 row-span-12 col-span-12 md:row-start-1 md:row-span-2 md:col-start-1 md:col-span-6 box flow flow-space-xs border-solid border-b-2 border-x-0 border-t-0 bg-blue-100 border-blue-700"
         >
           <h2 class="mt-zero">The challenge</h2>
           <p>
@@ -214,7 +112,7 @@ import rollVideo from '../../assets/roll-by-adp/payroll-run-video.mp4';
           </p>
         </div>
         <div
-          class="row-start-13 col-start-1 row-span-12 col-span-12 md:row-start-1 md:row-span-2 md:col-start-7 md:col-span-7 box flow flow-space-xs w-fit border-solid border-b-2 border-x-0 border-t-0 border-blue-700"
+          class="row-start-13 col-start-1 row-span-12 col-span-12 md:row-start-1 md:row-span-2 md:col-start-7 md:col-span-7 box flow flow-space-xs w-fit border-solid border-b-2 border-x-0 border-t-0 bg-blue-100 border-blue-700"
         >
           <h2 class="mt-zero">My approach</h2>
           <p>
@@ -236,7 +134,7 @@ import rollVideo from '../../assets/roll-by-adp/payroll-run-video.mp4';
       <h2 class="mx-auto text-center">Our solution</h2>
       <div class="flex flex-col flow md:grid" data-layout="twelfths">
         <div
-          class="md:row-start-1 md:row-span-4 md:col-start-1 md:col-span-6 box flow flow-space-xs w-fit z-10 bg-gray-300 border-solid border-b-2 border-x-0 border-t-0 border-gray-700"
+          class="md:row-start-1 md:row-span-4 md:col-start-1 md:col-span-6 box flow flow-space-xs w-fit z-10 bg-blue-100 border-blue-700 border-solid border-b-2 border-x-0 border-t-0"
         >
           <p class="mt-zero">
             Identifying the accordion design as being key to an elegant solution
@@ -263,7 +161,7 @@ import rollVideo from '../../assets/roll-by-adp/payroll-run-video.mp4';
           loading="lazy"
         />
         <div
-          class="md:row-start-5 md:row-span-6 md:col-start-1 md:col-span-6 box flow flow-space-xs w-fit z-10 bg-gray-300 border-solid border-b-2 border-x-0 border-t-0 border-gray-700"
+          class="md:row-start-5 md:row-span-6 md:col-start-1 md:col-span-6 box flow flow-space-xs w-fit z-10 bg-blue-100 border-blue-700 border-solid border-b-2 border-x-0 border-t-0"
         >
           <p class="mt-zero">
             Through rigorous pressure testing and iterative refinement we
@@ -277,7 +175,7 @@ import rollVideo from '../../assets/roll-by-adp/payroll-run-video.mp4';
           </p>
         </div>
         <div
-          class="md:row-start-11 md:row-span-6 md:col-start-1 md:col-span-6 box flow flow-space-xs w-fit z-10 bg-gray-300 border-solid border-b-2 border-x-0 border-t-0 border-gray-700"
+          class="md:row-start-11 md:row-span-6 md:col-start-1 md:col-span-6 box flow flow-space-xs w-fit z-10 bg-blue-100 border-blue-700 border-solid border-b-2 border-x-0 border-t-0"
         >
           <p class="mt-zero">
             Moving into the build phase, I developed a suite of React components
@@ -292,9 +190,10 @@ import rollVideo from '../../assets/roll-by-adp/payroll-run-video.mp4';
           </p>
         </div>
         <div
-          class="md:row-start-19 md:row-span-4 md:col-start-1 md:col-span-6 box flow flow-space-xs w-fit z-10 bg-gray-300 border-solid border-b-2 border-x-0 border-t-0 border-gray-700"
+          class="md:row-start-19 md:row-span-4 md:col-start-1 md:col-span-6 box flow flow-space-xs w-fit z-10 bg-blue-100 border-blue-700 border-solid border-b-2 border-x-0 border-t-0"
         >
-          <p class="mt-zero">
+          <h3 class="mt-zero">The results</h3>
+          <p>
             Through the innovative solution I implemented in the Roll by ADP
             project, the platform made a huge jump in usability and efficiency.
             By simplifying a complex payroll process into an intuitive, easy
