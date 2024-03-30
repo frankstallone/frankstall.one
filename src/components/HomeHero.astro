@@ -26,12 +26,11 @@ const optimizedBackground = await getImage({ src: background });
     <div class="text-center relative overflow-hidden flex items-end">
       <Picture
         src={frankstallone}
-        widths={[500, 700, 1200, 3000, 4000]}
-        width={4210}
-        height={5456}
+        widths={[300, 800, 2000, frankstallone.width]}
+        sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${frankstallone.width}px`}
         class="object-contain h-auto"
         alt="The Internet's favorite Frank Stallone"
-        format="avif"
+        formats={['avif', 'webp']}
         fetchpriority="high"
         loading="eager"
       />

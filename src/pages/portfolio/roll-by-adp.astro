@@ -1,0 +1,323 @@
+---
+import InnerLayout from '../../layouts/InnerLayout.astro';
+import { Picture } from 'astro:assets';
+
+import rollSquared01 from '../../assets/squared/roll-squared-01@2x.png';
+import rollSquared02 from '../../assets/squared/roll-squared-02@2x.png';
+import rollSquared03 from '../../assets/squared/roll-squared-03@2x.png';
+import rollSquared04 from '../../assets/squared/roll-squared-04@2x.png';
+import businessOwner from '../../assets/roll-by-adp/business-owner-smiling-on-call-roll-by-adp.jpg';
+import largeSketch from '../../assets/roll-by-adp/accordion-scan-sketch-whiteboarding-modified.jpg';
+import accordionSketch from '../../assets/roll-by-adp/accordionlist-scan-sketch-modified.jpg';
+import finalMock from '../../assets/roll-by-adp/payroll-run-hi-fidelity@2x.png';
+import rollVideo from '../../assets/roll-by-adp/payroll-run-video.mp4';
+---
+
+<InnerLayout
+  subtitle="Revamping Roll by ADP, I transformed complex HR processes into an intuitive mobile experience, focusing on simplifying payroll management for small business owners."
+  meta={{
+    title: 'Roll by ADP',
+    description:
+      'Case study of Roll by ADP from the portfolio of Frank Stallone',
+    canonicalURL: `https://frankstall.one/portfolio/roll-by-adp/`,
+  }}
+>
+  <section class="flow" id="main">
+    <div class="region">
+      <div class="wrapper grid" data-layout="twelfths">
+        <div
+          class="row-start-1 row-span-5 col-span-12 md:col-span-7 md:col-start-1 lg:col-span-6 lg:col-start-1 box flow flow-space-xs border-solid border-b-2 border-x-0 border-t-0 bg-blue-100 border-blue-700 z-10"
+        >
+          <h2 class="mt-zero">Who they are</h2>
+          <p>
+            Roll by ADP is a self-service app designed to simplify payroll and
+            human capital management for small business owners, integrating
+            advanced technologies like AI and ML to streamline processes on both
+            mobile and desktop platforms.
+          </p>
+        </div>
+        <Picture
+          src={businessOwner}
+          widths={[300, 800, 2000, businessOwner.width]}
+          sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${businessOwner.width}px`}
+          pictureAttributes={{
+            class:
+              'object-contain h-full w-full row-span-6 md:row-start-2 md:row-span-6 col-span-12 md:col-span-8 md:col-start-6',
+          }}
+          class={'object-contain h-full w-full row-span-6 md:row-start-2 md:row-span-6 col-span-12 md:col-span-8 md:col-start-6'}
+          alt="Small business owner smiling on a call with a customer"
+          formats={['avif', 'webp']}
+          loading="lazy"
+        />
+      </div>
+    </div>
+    <div class="wrapper grid" data-layout="twelfths">
+      <div
+        class="row-start-3 row-span-4 col-start-1 col-span-12 md:row-span-4 md:col-span-8 md:row-start-2 md:col-start-4 box flow flow-space-xs w-fit border-solid border-b-2 border-x-0 border-t-0 bg-blue-100 border-blue-700 z-10"
+      >
+        <h2 class="mt-zero">What I did for them</h2>
+        <p>
+          I leveraged a blend of business insights and the specific needs of
+          small business owners to innovate payroll and HCM handling, adopting a
+          mobile-first strategy that spanned from initial concept through to the
+          development of a comprehensive component library. Combining
+          user-centric design with mobile technology, I helped the Roll team
+          simplify payroll tasks to the point of being as easy as sending a
+          text.
+        </p>
+      </div>
+      <Picture
+        src={largeSketch}
+        widths={[300, 800, 2000, largeSketch.width]}
+        sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${largeSketch.width}px`}
+        pictureAttributes={{
+          class:
+            'object-contain h-full w-full row-start-1 row-span-5 col-start-1 col-span-12 md:row-start-1 md:row-span-10 md:col-span-8 md:col-start-1',
+        }}
+        class={'object-contain h-full w-full row-start-1 row-span-5 col-start-1 col-span-12 md:row-start-1 md:row-span-10 md:col-span-8 md:col-start-1'}
+        alt="Small business owner smiling on a call with a customer"
+        formats={['avif', 'webp']}
+        loading="lazy"
+      />
+      <Picture
+        src={finalMock}
+        widths={[300, 800, finalMock.width]}
+        sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, ${finalMock.width}px`}
+        pictureAttributes={{
+          class:
+            'object-contain h-full w-full row-start-7 col-start-1 col-span-12 md:row-start-6 md:row-span-6 md:col-span-6 md:col-start-6',
+        }}
+        class={'object-contain h-full w-full row-start-7 col-start-1 col-span-12 md:row-start-6 md:row-span-6 md:col-span-6 md:col-start-6'}
+        alt="Small business owner smiling on a call with a customer"
+        formats={['avif', 'webp']}
+        loading="lazy"
+      />
+    </div>
+    <div class="region wrapper">
+      <article class="grid-portfolio">
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(211 246 254); grid-column-start: 4; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(170 224 251); grid-column-start: 5; grid-row-start: 3; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(134 194 241); grid-column-start: 5; grid-row-start: 4; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(93 162 235); grid-column-start: 7; grid-row-start: 5; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(66 131 226); grid-column-start: 7; grid-row-start: 6; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(46 102 216); grid-column-start: 4; grid-row-start: 6; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(18 74 207); grid-column-start: 3; grid-row-start: 6; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(5 51 181); grid-column-start: 2; grid-row-start: 6; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <div
+          aria-hidden="true"
+          style="background-color: rgb(5 39 133); grid-column-start: 1; grid-row-start: 6; aspect-ratio: 1 / 1;"
+          class="rounded-full animate-in"
+        >
+        </div>
+        <Picture
+          src={rollSquared01}
+          widths={[500, 700, 1400]}
+          class="object-cover h-auto"
+          pictureAttributes={{
+            class: 'grid-item-01',
+          }}
+          alt="Mock up of Apple iPhones with Roll by ADP app views"
+          quality={80}
+          format="avif"
+        />
+        <Picture
+          src={rollSquared02}
+          widths={[500, 700]}
+          class="object-cover h-auto"
+          alt="Screenshot of VSCode showing the design tokens repository for Roll by ADP"
+          pictureAttributes={{
+            class: 'grid-item-02',
+          }}
+          quality={80}
+          format="avif"
+        />
+        <Picture
+          src={rollSquared03}
+          widths={[500, 700]}
+          class="object-cover h-auto"
+          alt="Screenshot of the payroll run conversation UI showcasing the components design and created for our clients"
+          pictureAttributes={{
+            class: 'grid-item-03',
+          }}
+          quality={80}
+          format="avif"
+        />
+        <Picture
+          src={rollSquared04}
+          widths={[500, 700]}
+          class="object-cover h-auto"
+          alt="Screenshots of the mobile app that would eventually be used circa 2018"
+          pictureAttributes={{
+            class: 'grid-item-04',
+          }}
+          quality={80}
+          format="avif"
+        />
+      </article>
+    </div>
+    <div class="region bg-blue-vivid-100">
+      <div class="wrapper grid" data-layout="twelfths">
+        <div
+          class="row-start-1 col-start-1 row-span-12 col-span-12 md:row-start-1 md:row-span-2 md:col-start-1 md:col-span-6 box flow flow-space-xs border-solid border-b-2 border-x-0 border-t-0 border-blue-700"
+        >
+          <h2 class="mt-zero">The challenge</h2>
+          <p>
+            The complexity of traditional payroll systems was the first hurdle.
+            My goal was to simplify these complexities, making payroll
+            management as straightforward as checking your phone. This involved
+            addressing a wide range of employee attributes such as payment
+            methods, mid-cycle raises, work hours, and more, all varying by
+            company, location, and organizational structure. The real challenge
+            was boiling these complexities down into a streamlined, mobile-first
+            solution, making it seamlessly fit into the daily lives of small
+            business owners.
+          </p>
+        </div>
+        <div
+          class="row-start-13 col-start-1 row-span-12 col-span-12 md:row-start-1 md:row-span-2 md:col-start-7 md:col-span-7 box flow flow-space-xs w-fit border-solid border-b-2 border-x-0 border-t-0 border-blue-700"
+        >
+          <h2 class="mt-zero">My approach</h2>
+          <p>
+            I started us off with a collaborative workshop, bringing together a
+            team with deep payroll and HCM knowledge to tackle the project's
+            challenges. Through a process of discovery we narrowed in on an MVP
+            that would simplify the overwhelming array of employee attributes.
+            This process included prioritizing a specific payroll flow—managing
+            employee hours—for initial development, aiming to reduce cognitive
+            load and simplify the user experience for managers. This strategic
+            narrowing down of scope was crucial in crafting a streamlined,
+            intuitive solution that could be quickly shipped and then replicated
+            in other areas.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="region wrapper flow prose">
+      <h2 class="mx-auto text-center">Our solution</h2>
+      <div class="flex flex-col flow md:grid" data-layout="twelfths">
+        <div
+          class="md:row-start-1 md:row-span-4 md:col-start-1 md:col-span-6 box flow flow-space-xs w-fit z-10 bg-gray-300"
+        >
+          <p class="mt-zero">
+            Identifying the accordion design as being key to an elegant solution
+            here, I visualized - live, on a whiteboard, with the team - a way to
+            simplify the payroll process while maintaining accessibility. This
+            design choice effectively decluttered the interface, making
+            intricate employee attributes easily manageable and navigable,
+            significantly reducing effort for users. Key attributes were
+            highlighted to lessen cognitive load, creating an experience that
+            managers could quickly understand and use.
+          </p>
+        </div>
+        <Picture
+          src={accordionSketch}
+          widths={[300, 800, accordionSketch.width]}
+          sizes={`(max-width: 300px) 300px, (max-width: 700px) 700px, ${accordionSketch.width}px`}
+          pictureAttributes={{
+            class:
+              'object-contain h-full w-full row-start-8 row-span-6 col-span-12 md:row-start-3 md:row-span-7 md:col-span-7 md:col-start-6',
+          }}
+          class={'object-contain h-full w-full row-start-8 row-span-6 col-span-12 md:row-start-3 md:row-span-7 md:col-span-7 md:col-start-6'}
+          alt="Small business owner smiling on a call with a customer"
+          formats={['avif', 'webp']}
+          loading="lazy"
+        />
+        <div
+          class="md:row-start-5 md:row-span-6 md:col-start-1 md:col-span-6 box flow flow-space-xs w-fit z-10 bg-gray-300"
+        >
+          <p class="mt-zero">
+            Through rigorous pressure testing and iterative refinement we
+            further honed the design, ensuring it could handle a variety of
+            payroll scenarios with grace. Collaborating closely with backend
+            developers, we discussed data structures and the flexibility of our
+            designs, focusing on the usability of flexbox for responsive
+            layouts. This collaborative process also covered edge cases and the
+            design's adaptability to different languages and data types, all
+            while prioritizing readability and accessibility.
+          </p>
+        </div>
+        <div
+          class="md:row-start-11 md:row-span-6 md:col-start-1 md:col-span-6 box flow flow-space-xs w-fit z-10 bg-gray-300"
+        >
+          <p class="mt-zero">
+            Moving into the build phase, I developed a suite of React components
+            within Roll by ADP's component library. Utilizing Storybook allowed
+            for a dynamic visualization and testing environment, crucial for
+            adjusting our components to fit practical real-world needs, refining
+            their functionality, and ensuring the API could support the complex
+            requirements of the payroll system. It also allowed me to
+            collaborate with the Product Owners, the VP of ADP Innovation Labs,
+            the backend engineers, and anyone else on the team who needed to be
+            involved at any stage of the process.
+          </p>
+        </div>
+        <div
+          class="md:row-start-19 md:row-span-4 md:col-start-1 md:col-span-6 box flow flow-space-xs w-fit z-10 bg-gray-300"
+        >
+          <p class="mt-zero">
+            Through the innovative solution I implemented in the Roll by ADP
+            project, the platform made a huge jump in usability and efficiency.
+            By simplifying a complex payroll process into an intuitive, easy
+            experience, I helped make payroll management as straightforward as
+            sending a text. This strategic overhaul has led to improved
+            operational efficiency for managers using the platform, and has
+            helped Roll by ADP set a new standard for user-centric design in
+            financial applications.
+          </p>
+        </div>
+        <video
+          controls
+          autoplay
+          loop
+          muted
+          class="w-full h-full md:row-start-10 md:row-span-10 md:col-start-7 md:col-span-6"
+        >
+          <source src={rollVideo} type="video/mp4" />
+          Sorry, your browser doesn't support embedded videos. <a
+            href={rollVideo}>Here is a link to the video</a
+          > intead.
+        </video>
+      </div>
+    </div>
+  </section>
+</InnerLayout>

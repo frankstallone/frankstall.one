@@ -1,19 +1,19 @@
 /** @type {import('tailwindcss').Config} */
-const plugin = require("tailwindcss/plugin");
-const postcss = require("postcss");
-const postcssJs = require("postcss-js");
+const plugin = require('tailwindcss/plugin');
+const postcss = require('postcss');
+const postcssJs = require('postcss-js');
 
-const clampGenerator = require("./src/css-utils/clamp-generator.js");
-const tokensToTailwind = require("./src/css-utils/tokens-to-tailwind.js");
+const clampGenerator = require('./src/css-utils/clamp-generator.js');
+const tokensToTailwind = require('./src/css-utils/tokens-to-tailwind.js');
 
 // Raw design tokens
-const colorTokens = require("./src/design-tokens/colors.json");
-const fontTokens = require("./src/design-tokens/fonts.json");
-const spacingTokens = require("./src/design-tokens/spacing.json");
-const textSizeTokens = require("./src/design-tokens/text-sizes.json");
-const textLeadingTokens = require("./src/design-tokens/text-leading.json");
-const textWeightTokens = require("./src/design-tokens/text-weights.json");
-const viewportTokens = require("./src/design-tokens/viewports.json");
+const colorTokens = require('./src/design-tokens/colors.json');
+const fontTokens = require('./src/design-tokens/fonts.json');
+const spacingTokens = require('./src/design-tokens/spacing.json');
+const textSizeTokens = require('./src/design-tokens/text-sizes.json');
+const textLeadingTokens = require('./src/design-tokens/text-leading.json');
+const textWeightTokens = require('./src/design-tokens/text-weights.json');
+const viewportTokens = require('./src/design-tokens/viewports.json');
 
 // Process design tokens
 const colors = tokensToTailwind(colorTokens.items);
@@ -24,7 +24,7 @@ const lineHeight = tokensToTailwind(textLeadingTokens.items);
 const spacing = tokensToTailwind(clampGenerator(spacingTokens.items));
 
 export default {
-  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   // Add color classes to safe list so they are always generated
   safelist: [],
   theme: {
@@ -39,31 +39,31 @@ export default {
     lineHeight,
     fontFamily,
     fontWeight,
-    backgroundColor: ({ theme }) => theme("colors"),
-    textColor: ({ theme }) => theme("colors"),
+    backgroundColor: ({ theme }) => theme('colors'),
+    textColor: ({ theme }) => theme('colors'),
     margin: ({ theme }) => ({
-      auto: "auto",
-      ...theme("spacing"),
+      auto: 'auto',
+      ...theme('spacing'),
     }),
-    padding: ({ theme }) => theme("spacing"),
+    padding: ({ theme }) => theme('spacing'),
   },
   variantOrder: [
-    "first",
-    "last",
-    "odd",
-    "even",
-    "visited",
-    "checked",
-    "empty",
-    "read-only",
-    "group-hover",
-    "group-focus",
-    "focus-within",
-    "hover",
-    "focus",
-    "focus-visible",
-    "active",
-    "disabled",
+    'first',
+    'last',
+    'odd',
+    'even',
+    'visited',
+    'checked',
+    'empty',
+    'read-only',
+    'group-hover',
+    'group-focus',
+    'focus-within',
+    'hover',
+    'focus',
+    'focus-visible',
+    'active',
+    'disabled',
   ],
 
   // Disables Tailwind's reset and usage of rgb/opacity
@@ -75,7 +75,7 @@ export default {
   },
 
   // Prevents Tailwind's core components
-  blocklist: ["container"],
+  // blocklist: ["container"],
 
   // Prevents Tailwind from generating that wall of empty custom properties
   experimental: {
@@ -85,17 +85,17 @@ export default {
   plugins: [
     // Generates custom property values from tailwind config
     plugin(function ({ addComponents, config }) {
-      let result = "";
+      let result = '';
 
       const currentConfig = config();
 
       const groups = [
-        { key: "colors", prefix: "color" },
-        { key: "spacing", prefix: "space" },
-        { key: "fontSize", prefix: "size" },
-        { key: "lineHeight", prefix: "leading" },
-        { key: "fontFamily", prefix: "font" },
-        { key: "fontWeight", prefix: "font" },
+        { key: 'colors', prefix: 'color' },
+        { key: 'spacing', prefix: 'space' },
+        { key: 'fontSize', prefix: 'size' },
+        { key: 'lineHeight', prefix: 'leading' },
+        { key: 'fontFamily', prefix: 'font' },
+        { key: 'fontWeight', prefix: 'font' },
       ];
 
       groups.forEach(({ key, prefix }) => {
@@ -111,7 +111,7 @@ export default {
       });
 
       addComponents({
-        ":root": postcssJs.objectify(postcss.parse(result)),
+        ':root': postcssJs.objectify(postcss.parse(result)),
       });
     }),
 
@@ -119,9 +119,9 @@ export default {
     plugin(function ({ addUtilities, config }) {
       const currentConfig = config();
       const customUtilities = [
-        { key: "spacing", prefix: "flow-space", property: "--flow-space" },
-        { key: "spacing", prefix: "region-space", property: "--region-space" },
-        { key: "spacing", prefix: "gutter", property: "--gutter" },
+        { key: 'spacing', prefix: 'flow-space', property: '--flow-space' },
+        { key: 'spacing', prefix: 'region-space', property: '--region-space' },
+        { key: 'spacing', prefix: 'gutter', property: '--gutter' },
       ];
 
       customUtilities.forEach(({ key, prefix, property }) => {
