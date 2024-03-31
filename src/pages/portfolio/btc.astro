@@ -6,6 +6,7 @@ import realEstateTeam from '../../assets/btc/hard-money-lender-builders-trust-ca
 import logoGuide from '../../assets/btc/builders-trust-capital-design-system-logo-page@2x.png';
 import colorGuide from '../../assets/btc/builders-trust-capital-design-system-color-page@2x.png';
 import typographyGuide from '../../assets/btc/builders-trust-capital-design-system-typography-page@2x.png';
+import BTCLogo from '../../assets/btc/BTC@2x.png';
 import BTCPortfolioGrid from '../../components/BTCPortfolioGrid.astro';
 ---
 
@@ -189,6 +190,21 @@ import BTCPortfolioGrid from '../../components/BTCPortfolioGrid.astro';
             significantly broadened the company's market reach.
           </p>
         </div>
+      </div>
+      <div class="flex justify-center items-center">
+        <Picture
+          src={BTCLogo}
+          widths={[300, 800, 2000, BTCLogo.width]}
+          sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${BTCLogo.width}px`}
+          pictureAttributes={{
+            class:
+              'object-contain h-full w-full row-start-1 md:row-start-1 md:row-span-10 md:col-span-8 md:col-start-3',
+          }}
+          class={'object-contain h-full w-full row-start-1 md:row-start-1 md:row-span-10 md:col-span-8 md:col-start-3'}
+          alt="New logo for Builders Trust Logo that reflects their brand substance, and their ideal customers"
+          formats={['avif', 'webp']}
+          loading="lazy"
+        />
       </div>
     </div>
   </section>
