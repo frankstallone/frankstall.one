@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import InnerLayout from '../../layouts/InnerLayout.astro';
 
 const allPosts = (await getCollection('blog')).sort(
-  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
 );
 ---
 
@@ -22,7 +22,7 @@ const allPosts = (await getCollection('blog')).sort(
     <div class="grid" style="--grid-min-item-size: min(400px, 60%);">
       {
         allPosts.map((post) => (
-          <div class="flow prose post-card bg-white ">
+          <div class="flow prose post-card text-gray-1200 bg-gray-400 border-solid border-b-2 border-x-0 border-t-0 border-gray-700">
             <h3 class="mt-zero">
               <a
                 href={`/${post.collection}/${post.slug}/`}
@@ -42,7 +42,7 @@ const allPosts = (await getCollection('blog')).sort(
               </small>
             </p>
             <p>{post.data.description}</p>
-            <p class="pb-l border-solid border-b-2 border-x-0 border-t-0 border-gray-700">
+            <p class="pb-l">
               <a href={`/${post.collection}/${post.slug}/`}>
                 Read more &hellip;
               </a>

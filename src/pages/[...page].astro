@@ -49,10 +49,14 @@ const { page } = Astro.props;
         class="grid grid-recent mb-m gutter-zero md:gutter-m"
         id="recent-posts"
       >
-        <h2 class="md:text-center uppercase section-header">Recent posts</h2>
+        <h2
+          class="md:text-center uppercase section-header text-gray-1200 bg-gray-400"
+        >
+          Recent posts
+        </h2>
         {
           page.data.map((post) => (
-            <div class="box flow prose">
+            <div class="box flow prose border-solid border-b-2 border-x-0 border-t-0 border-gray-700 text-gray-1200 bg-gray-400">
               <h3 class="mt-zero">
                 <a
                   href={`/${post.collection}/${post.slug}/`}
@@ -75,7 +79,7 @@ const { page } = Astro.props;
                 </small>
               </p>
               <p>{truncateDescription(post.data.description)}</p>
-              <p class="pb-l border-solid border-b-2 border-x-0 border-t-0 border-gray-700">
+              <p class="pb-l">
                 <a href={`/${post.collection}/${post.slug}/`}>
                   Read more &hellip;
                 </a>
