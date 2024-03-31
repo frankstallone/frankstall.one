@@ -64,7 +64,7 @@ image: /media/newsletter/a-beginners-guide-to-digital-accessibility.png
   Another example is having color contrasts for text and backgrounds that meets AA
   or AAA contrast ratios for low vision users.
 </p>
-  <img src="/media/newsletter/colour-contrast-checker-screenshot.png" />
+  <img src="/media/newsletter/colour-contrast-checker-screenshot.png" alt="Screenshot of a color contrast checker web app: https://colourcontrast.cc/" />
 <h2>2 Operable</h2>
 <p>
   <strong>User interface components and navigation must be operable</strong>. I
@@ -84,7 +84,7 @@ image: /media/newsletter/a-beginners-guide-to-digital-accessibility.png
   what the icons mean visually. For low or no vision users, the buttons are simply
   inaccessible.
 </p>
-  <img src="/media/newsletter/inaccessible-icon-buttons.png" />
+  <img src="/media/newsletter/inaccessible-icon-buttons.png" alt="Screenshot of inaccessible buttons on a web app. They are buttons, with icons, and no textual affordances for screen readers" />
 <h2>4 Robust</h2>
 <p>
   <strong>
