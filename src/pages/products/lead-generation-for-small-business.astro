@@ -5,7 +5,6 @@ import FAQ from '../../components/FAQ.astro';
 
 import research from '../../assets/content-compass/research-for-small-business-lead-generation.png';
 import organize from '../../assets/content-compass/content-templates-and-dashboard.png';
-// import more from '../../assets/content-compass/getting-started-small-business-lead-generation.png';
 import keyphrase from '../../assets/content-compass/keyphrases-for-small-business-lead-generation.png';
 import schedule from '../../assets/content-compass/small-business-content-calendar.png';
 import create from '../../assets/content-compass/write-compelling-content-for-small-business-lead-generation.png';
@@ -13,41 +12,82 @@ import compass from '../../assets/content-compass/small-business-lead-generation
 
 const faqQuestions = [
   {
-    question: 'Do I need to pay for Notion?',
+    question: 'Do I need a paid subscription to Notion to use Content Compass?',
     answer:
-      'No! Notion has a free tier you can use this with. They have premium offerings but their free tier is generous.',
+      "Nope! Content Compass works beautifully with Notion's free plan, which is quite generous. While Notion does offer premium plans with all sorts of bells and whistles, the free tier provides all the functionality you need to fully utilize Content Compass.",
   },
   {
-    question: 'What is long form content?',
+    question: 'How easy is it to start using Content Compass?',
     answer:
-      'Long form content is content like a blog article, newsletter or landing page. The long form content template is designed to help you research, write, and schedule.',
+      "Getting started is simple. If you're already using Notion, integrating Content Compass into your workflow will be easy. And if you're new to Notion, we provide a quick start guide to help you get the most out of both tools right away.",
   },
   {
-    question: 'What is short form content?',
+    question: 'Will Content Compass work for my industry?',
     answer:
-      'Short form content is content like a LinkedIn, Instagram, Facebook, X (formally known as Twitter), Mastadon, or Threads post.',
+      "Absolutely. Content Compass is adaptable and can be customized for any industry that relies on content for engagement and growth. It's designed to streamline your content strategy, regardless of your field.",
   },
   {
-    question: 'Refunds?',
-    answer: 'Due to the unqiue nature of this product, there are no refunds.',
+    question:
+      'What sets Content Compass apart from other content management tools?',
+    answer:
+      'Content Compass offers a holistic solution by integrating research, creation, organization, and scheduling into one space. This unified approach saves time and keeps your content strategy cohesive, setting it apart from tools that ask you to bounce around all over the place at different stages of the content process.',
+  },
+  {
+    question: 'Can Content Compass accommodate team collaboration?',
+    answer:
+      "Yes, it's built for collaboration. Whether you're working solo or with a team, Content Compass facilitates smooth and efficient collaboration, allowing for real-time feedback and edits within the same workspace.",
+  },
+  {
+    question:
+      'Is there a limit to how much content I can manage with Content Compass?',
+    answer:
+      "No limits here. Content Compass is scalable, designed to handle everything from a light and breezy content schedule to a robust, daily publishing strategy. It grows as you do, ensuring you're always organized.",
+  },
+  {
+    question: "What if I'm new to content marketing?",
+    answer:
+      'Then Content Compass is your perfect starting point. It simplifies the entire content marketing process, from initial research and planning to creation, organization, and scheduling. With easy-to-follow structures and the ability to keep all your content efforts in one place, it completely demystifies content marketing.',
+  },
+  {
+    question:
+      'How does Content Compass adapt as my business or content strategy evolves?',
+    answer:
+      'Content Compass is as dynamic as your business needs it to be. Easily add new categories, tweak your calendar, or refine collaboration workflows as your strategy expands and shifts.',
+  },
+  {
+    question:
+      'What if I need help or have questions about using Content Compass?',
+    answer:
+      "Just reach out! We use Content Compass religiously ourselves, so we're always here at the end of an email if you need a hand.",
+  },
+  {
+    question: "Are refunds available if I'm not satisfied?",
+    answer:
+      "Due to the digital nature of Content Compass and its immediate delivery and use, we're unable to offer refunds. We 100% believe in the value it provides, and are here to support you in getting the most out of it.",
   },
 ];
 ---
 
 <ProductLayout
-  subtitle="A centralized workspace for small businesses to research, create, organize and schedule content for lead generation."
+  subtitle="Research, create, organize and schedule all your content in one place."
   meta={{
-    title: 'Lead generation for small businesses',
-    description: 'The design and development portfolio of Frank Stallone',
+    title: 'Effortless content management for small businesses and creators',
+    description:
+      'Research, create, organize and schedule all your content in one place.',
     canonicalURL: `https://frankstall.one/products/lead-generation-for-small-business`,
   }}
 >
   <div class="switcher bg-gray-200">
     <div class="box flow prose m-auto bg-transparent">
-      <hgroup class="flow prose">
-        <h2 class="uppercase">Content compass</h2>
-        <h3>A framework to get more leads for your small business.</h3>
-      </hgroup>
+      <p class="font-display font-medium text-step-1">
+        Running a business and managing content shouldn't be an <em
+          >impossible</em
+        >
+        juggling act. The Content Compass is a Notion template designed to make content
+        research, creation, organization, and scheduling straightforward and effective.
+        It's built for small business teams, freelancers and solopreneurs who want
+        to create better content, faster.
+      </p>
       <div style="position: relative; padding-bottom: 56.25%; height: 0;">
         <iframe
           src="https://www.loom.com/embed/4e859ce972114ed0b986cc6d995ec2a8?sid=eeb1189d-6f21-4c69-8df8-76d32c239a5b?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true"
@@ -55,21 +95,6 @@ const faqQuestions = [
           style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
         ></iframe>
       </div>
-      <h4>
-        Are you a small business owner that creates content online? Do you have
-        in house or freelance creators that all use different tools? Does you or
-        your team have a hard time keeping track of your content?
-      </h4>
-      <p>
-        The Content compass is a framework and Notion template for small
-        businesses to gain more customers.
-      </p>
-      <p>
-        <a
-          href="https://buy.stripe.com/cN2bLT3tm5cT2HK288"
-          class="button text-indigo-100 block">Buy now for $5.00</a
-        >
-      </p>
     </div>
     <Picture
       src={compass}
@@ -82,14 +107,17 @@ const faqQuestions = [
   </div>
   <section class="wrapper flow" id="main">
     <div class="region flow flow-space-l">
+      <h2 class="mx-auto text-center">Why Content Compass?</h2>
       <div
-        class="flow w-fit prose border-solid border-b-2 border-x-0 border-t-0 border-gray-700"
+        class="flow box w-fit prose border-solid border-b-2 border-x-0 border-t-0 border-gray-700 text-gray-1200 bg-gray-400"
       >
-        <h2 class="mt-zero">Research</h2>
-        <p class="pb-l">
-          Find high ranking examples reference websites. List the keyphrases you
-          want to rank for. Collect links to supporting articles, blog posts,
-          social media, and quotes for inspiration.
+        <h3 class="mt-zero">Research and plan with ease</h3>
+        <p>
+          Content Compass gives you a dedicated space to consolidate market
+          research, competitive insights, key phrases for SEO, and creative
+          inspiration, right where you plan and produce your content. This
+          clever integration means you can easily reference your foundational
+          research as you develop every piece of content.
         </p>
       </div>
       <Picture
@@ -111,13 +139,14 @@ const faqQuestions = [
     </div>
     <div class="region flow flow-space-l">
       <div
-        class="flow w-fit prose border-solid border-b-2 border-x-0 border-t-0 border-gray-700"
+        class="flow box w-fit prose border-solid border-b-2 border-x-0 border-t-0 border-gray-700 text-gray-1200 bg-gray-400"
       >
-        <h2 class="mt-zero">Create</h2>
-        <p class="pb-l">
-          Write your long and short form content in a single space. Ensure your
-          voice and tone are properly heard. Allow collaborators to comment, and
-          recommend changes.
+        <h3 class="mt-zero">Create content that resonates</h3>
+        <p>
+          Draft, edit, and finalize both long and short-form content within a
+          single, unified space. From long-form articles to quick social media
+          posts, Content Compass streamlines the whole process, helping you
+          produce content that is clear, engaging, and always resonant.
         </p>
       </div>
       <Picture
@@ -131,12 +160,16 @@ const faqQuestions = [
     </div>
     <div class="region flow flow-space-l">
       <div
-        class="flow w-fit prose border-solid border-b-2 border-x-0 border-t-0 border-gray-700"
+        class="flow box w-fit prose border-solid border-b-2 border-x-0 border-t-0 border-gray-700 text-gray-1200 bg-gray-400"
       >
-        <h2 class="mt-zero">Organize</h2>
-        <p class="pb-l">
-          Bring order to all your content. Connect short content to the long
-          content it’s related to for quick access when you need it most.
+        <h3 class="mt-zero">Organize effortlessly</h3>
+        <p>
+          Say goodbye to scattered documents and disjointed workflows. Content
+          Compass brings harmony to your content strategy, enabling you to link
+          short and long-form pieces, categorize your work, and keep everything
+          in the same place. This smart organization reduces the time from
+          concept to publication, allowing you to focus less on managing and
+          more on creating.
         </p>
       </div>
       <Picture
@@ -150,13 +183,59 @@ const faqQuestions = [
     </div>
     <div class="region flow flow-space-l">
       <div
-        class="flow w-fit prose border-solid border-b-2 border-x-0 border-t-0 border-gray-700"
+        class="flow box w-fit prose border-solid border-b-2 border-x-0 border-t-0 border-gray-700 text-gray-1200 bg-gray-400"
       >
-        <h2 class="mt-zero">Schedule</h2>
-        <p class="pb-l">
-          Finally you can relax knowing you're ahead of the game seeing all your
-          content on your calendar. Rearrange with ease. Go back in time to
-          easily find and repurpose prior work.
+        <h3 class="mt-zero">Schedule with precision</h3>
+        <p>
+          View your entire content calendar at a glance. Schedule, rearrange,
+          plan ahead, and easily go back in time to find past work that's ripe
+          for repurposing. The flexibility to adapt to new trends or audience
+          needs will keep your content strategy dynamic and relevant. What you
+          publish will always be on time, on brand.
+        </p>
+      </div>
+      <Picture
+        src={schedule}
+        widths={[500, 700, 1400]}
+        class="object-cover h-auto"
+        alt="Screenshot of the Content compass Notion template content scheduling for small business lead generation"
+        quality={80}
+        format="avif"
+      />
+    </div>
+    <div class="region flow flow-space-l">
+      <div
+        class="flow box w-fit prose border-solid border-b-2 border-x-0 border-t-0 border-gray-700 text-gray-1200 bg-gray-400"
+      >
+        <h3 class="mt-zero">Collaborate seamlessly</h3>
+        <p>
+          Whether you're on your own or part of a team, Content Compass
+          facilitates easy collaboration whenever you need it. Share feedback,
+          suggestions, and edits in real time, right from the same space where
+          you're creating and organizing your content. Collaboration, without
+          the chaos.
+        </p>
+      </div>
+      <Picture
+        src={schedule}
+        widths={[500, 700, 1400]}
+        class="object-cover h-auto"
+        alt="Screenshot of the Content compass Notion template content scheduling for small business lead generation"
+        quality={80}
+        format="avif"
+      />
+    </div>
+    <div class="region flow flow-space-l">
+      <div
+        class="flow box w-fit prose border-solid border-b-2 border-x-0 border-t-0 border-gray-700 text-gray-1200 bg-gray-400"
+      >
+        <h3 class="mt-zero">Adapt and grow</h3>
+        <p>
+          Content Compass is designed to flex and adapt, not just to where you
+          are now but where you're headed. As your content strategy and team
+          evolve, so too can your workspace. Add new research categories, adjust
+          your content calendar, or refine your collaboration processes with
+          ease.
         </p>
       </div>
       <Picture
@@ -169,22 +248,24 @@ const faqQuestions = [
       />
     </div>
   </section>
-  <section class="wrapper bg-gray-200">
-    <div class="region flow flow-space-l">
-      <div class="box flow bg-transparent">
-        <h2 class="text-center mx-auto mb-m-l">
-          Get more leads by focusing with proven methods laid out in a simple
-          dashboard.
-        </h2>
-        <a
-          href="https://buy.stripe.com/cN2bLT3tm5cT2HK288"
-          class="button text-indigo-100 block"
-          >Buy the Content compass template for $5.00</a
-        >
+  <div class="bg-gray-200">
+    <section class="wrapper">
+      <div class="region flow flow-space-l">
+        <div class="box flow bg-transparent">
+          <h2 class="text-center mx-auto mb-m-l">
+            Let's streamline your content process by helping you manage your
+            research, creation, organization, and scheduling all in one place.
+          </h2>
+          <a
+            href="https://buy.stripe.com/fZe8zH8NG5cTdmo8wx"
+            class="button text-indigo-100 block"
+            >Buy the Content compass template for $20.00</a
+          >
+        </div>
       </div>
-    </div>
-  </section>
-  <section class="wrapper">
+    </section>
+  </div>
+  <section class="center" style="--measure: 70ch;">
     <div class="region flow flow-space-l">
       <div class="center flow flow-space-s">
         <h2 class="mt-zero">FAQ</h2>
