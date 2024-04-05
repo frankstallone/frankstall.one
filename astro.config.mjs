@@ -10,7 +10,9 @@ export const prerender = false;
 // https://astro.build/config
 export default defineConfig({
   output: 'hybrid',
-  adapter: netlify(),
+  adapter: netlify({
+    imageCDN: false,
+  }),
   site: 'https://frankstall.one',
   integrations: [
     tailwind({
