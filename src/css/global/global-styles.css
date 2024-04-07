@@ -33,7 +33,7 @@ blockquote:not([class]) {
 }
 
 blockquote {
-  @apply border-solid border-l-4 border-y-0 border-r-0 border-indigo-vivid-800 pl-s text-step-2;
+  @apply border-solid border-l-4 border-y-0 border-r-0 border-indigo-vivid-800 pl-s text-step-1;
 }
 
 /* Base typesetting */
@@ -120,6 +120,24 @@ svg {
 
 [role='list'] {
   padding: 0;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.75em;
+  background-color: var(--color-gray-400);
+  padding: 0.1em 0.3em;
+  border-radius: 0.2em;
+}
+
+pre {
+  padding: var(--space-s);
+  border-radius: var(--space-xs);
+  width: max-content;
+}
+
+pre code {
+  background-color: inherit;
 }
 
 @layer components {

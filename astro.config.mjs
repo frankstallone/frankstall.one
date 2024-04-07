@@ -26,4 +26,13 @@ export default defineConfig({
     }),
     db(),
   ],
+  markdown: {
+    shikiConfig: {
+      // Choose from Shiki's built-in themes (or add your own)
+      // https://shiki.style/themes
+      theme: 'dracula',
+      // Enable word wrap to prevent horizontal scrolling
+      wrap: true,
+    },
+  },
 });

@@ -3,7 +3,7 @@ isDraft: false
 title: 'Create deep meaningful connections with personas and avatars'
 publishDate: 12-09-2023
 description: 'Today I am going to talk about what personas and avatars are, why they can help focus your product, services or program goals, and how they can bring you more of the customers you love. '
-image: /media/newsletter/create-deep-meaningful-connections-with-personas-and-avatars.png
+image: /media/newsletter/faster-websites-with-the-picture-element.png
 ---
 
 Today I am going to talk about what personas and avatars are, why they can help focus your product, services or program goals, and how they can bring you more of the customers you love. Whether you are a new company or one that has been in business for 30 years, defining personas, creating avatars, and focusing your brand on acquiring more of those same individuals is the kind of focus you should be doing.
