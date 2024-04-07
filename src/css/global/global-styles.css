@@ -133,7 +133,7 @@ code {
 pre {
   padding: var(--space-s);
   border-radius: var(--space-xs);
-  width: max-content;
+  max-width: min(100%, 50ch);
 }
 
 pre code {
