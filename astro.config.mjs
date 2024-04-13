@@ -6,6 +6,7 @@ import netlify from '@astrojs/netlify';
 import db from '@astrojs/db';
 import expressiveCode from 'astro-expressive-code';
 import astroExpressiveCode from 'astro-expressive-code';
+import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers';
 
 export const prerender = false;
 
@@ -30,6 +31,10 @@ export default defineConfig({
     expressiveCode(),
     astroExpressiveCode({
       themes: ['dracula-soft'],
+      styleOverrides: {
+        uiFontFamily: 'var(--font-mono)',
+      },
+      plugins: [pluginLineNumbers()],
     }),
   ],
 });

@@ -18,6 +18,7 @@
     "@astrojs/partytown": "^2.0.4",
     "@astrojs/sitemap": "^3.1.2",
     "@astrojs/tailwind": "^5.1.0",
+    "@expressive-code/plugin-line-numbers": "^0.34.1",
     "astro": "^4.5.18",
     "astro-expressive-code": "^0.34.1",
     "slugify": "^1.6.6",
