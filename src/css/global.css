@@ -18,6 +18,7 @@ Reference source: https://github.com/Set-Creative-Studio/cube-boilerplate/blob/m
 
 @import 'blocks/button.css' layer(components);
 @import 'blocks/card.css' layer(components);
+@import 'blocks/expressivecode.css' layer(components);
 @import 'blocks/faq-button.css' layer(components);
 @import 'blocks/footer.css';
 @import 'blocks/grid-portfolio.css' layer(components);

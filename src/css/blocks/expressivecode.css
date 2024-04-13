@@ -1,0 +1,3 @@
+.expressive-code pre > code {
+  --ec-uiFontFml: var(--font-mono);
+}

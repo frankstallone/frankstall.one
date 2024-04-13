@@ -4,6 +4,8 @@ import tailwind from '@astrojs/tailwind';
 import partytown from '@astrojs/partytown';
 import netlify from '@astrojs/netlify';
 import db from '@astrojs/db';
+import expressiveCode from 'astro-expressive-code';
+import astroExpressiveCode from 'astro-expressive-code';
 
 export const prerender = false;
 
@@ -25,14 +27,9 @@ export default defineConfig({
       },
     }),
     db(),
+    expressiveCode(),
+    astroExpressiveCode({
+      themes: ['dracula-soft'],
+    }),
   ],
-  markdown: {
-    shikiConfig: {
-      // Choose from Shiki's built-in themes (or add your own)
-      // https://shiki.style/themes
-      theme: 'dracula',
-      // Enable word wrap to prevent horizontal scrolling
-      wrap: false,
-    },
-  },
 });
