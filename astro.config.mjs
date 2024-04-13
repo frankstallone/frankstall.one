@@ -32,7 +32,7 @@ export default defineConfig({
       // https://shiki.style/themes
       theme: 'dracula',
       // Enable word wrap to prevent horizontal scrolling
-      wrap: true,
+      wrap: false,
     },
   },
 });
