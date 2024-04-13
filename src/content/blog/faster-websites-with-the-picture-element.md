@@ -79,7 +79,7 @@ You may have noticed the `<img>` tag has a `src`, and `srcset`. Older browsers t
 
 For traditional files, software like [ImageOptim](https://imageoptim.com/) can help you perform lossless or lossy image compression. Lossless is a data compression method with no loss of information. Lossy is a data compression approach that can greatly decrease the file size with a varying degree of loosing information.
 
-Using a program like ImageOptim is a manual process. There are other services out there like [Cloudflare Images](https://developers.cloudflare.com/images/) that provides an API to transform and optimize your images. What I love about Astro, a wonderful web framework, is that [it has a Picture component](https://docs.astro.build/en/guides/images/#picture-) that lifts a lot of the work of creating a single `<picture>` element.
+Using a program like ImageOptim is a manual process. There are other services out there like [Cloudinary](https://cloudinary.com/documentation/responsive_images#dynamic_image_transformation%E2%80%8B%E2%80%8B) that provides an API to transform and optimize your images. What I love about Astro, a wonderful web framework, is that [it has a Picture component](https://docs.astro.build/en/guides/images/#picture-) that lifts a lot of the work of creating a single `<picture>` element.
 
 ### Summary
 
