@@ -192,21 +192,21 @@ import BTCPortfolioGrid from '../../components/BTCPortfolioGrid.astro';
           </p>
         </div>
       </div>
-      <div class="flex justify-center items-center">
-        <Picture
-          src={BTCLogo}
-          widths={[300, 800, 2000, BTCLogo.width]}
-          sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${BTCLogo.width}px`}
-          pictureAttributes={{
-            class:
-              'object-contain h-full w-full row-start-1 md:row-start-1 md:row-span-10 md:col-span-8 md:col-start-3',
-          }}
-          class={'object-contain h-full w-full row-start-1 md:row-start-1 md:row-span-10 md:col-span-8 md:col-start-3'}
-          alt="New logo for Builders Trust Logo that reflects their brand substance, and their ideal customers"
-          formats={['avif', 'webp']}
-          loading="lazy"
-        />
-      </div>
+    </div>
+    <div class="flex justify-center items-center">
+      <Picture
+        src={BTCLogo}
+        widths={[300, 800, 2000, BTCLogo.width]}
+        sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${BTCLogo.width}px`}
+        pictureAttributes={{
+          class:
+            'object-contain h-full w-full row-start-1 md:row-start-1 md:row-span-10 md:col-span-8 md:col-start-3',
+        }}
+        class={'object-contain h-full w-full row-start-1 md:row-start-1 md:row-span-10 md:col-span-8 md:col-start-3'}
+        alt="New logo for Builders Trust Logo that reflects their brand substance, and their ideal customers"
+        formats={['avif', 'webp']}
+        loading="lazy"
+      />
     </div>
   </section>
 </InnerLayout>
