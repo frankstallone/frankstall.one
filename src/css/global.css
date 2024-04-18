@@ -20,7 +20,6 @@ Reference source: https://github.com/Set-Creative-Studio/cube-boilerplate/blob/m
 @import 'blocks/card.css' layer(components);
 @import 'blocks/faq-button.css' layer(components);
 @import 'blocks/footer.css';
-@import 'blocks/grid-portfolio.css' layer(components);
 @import 'blocks/header-links.css';
 @import 'blocks/hero.css';
 @import 'blocks/post-card.css' layer(components);

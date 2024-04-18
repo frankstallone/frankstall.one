@@ -41,6 +41,12 @@ to change how empty grid tracks are handled */
   grid-template-columns: repeat(12, 1fr);
 }
 
+/* Seven column grid layout */
+.grid[data-layout='sevenths'] {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
 /* Special layout for larger devices. Used on home page intro */
 .grid[data-layout='lg:10/2'] {
   grid-template-columns: 100%;
