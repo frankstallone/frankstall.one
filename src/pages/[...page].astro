@@ -1,14 +1,9 @@
 ---
 import { getCollection, type CollectionEntry } from 'astro:content';
 import type { GetStaticPaths, Page } from 'astro';
-import { Picture } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import type { Props as HeadProps } from '../components/Head.astro';
 
-import rollSquared01 from '../assets/squared/roll-squared-01@2x.png';
-import rollSquared02 from '../assets/squared/roll-squared-02@2x.png';
-import rollSquared03 from '../assets/squared/roll-squared-03@2x.png';
-import rollSquared04 from '../assets/squared/roll-squared-04@2x.png';
 import RollPortfolioGrid from '../components/RollPortfolioGrid.astro';
 
 type Props = {
