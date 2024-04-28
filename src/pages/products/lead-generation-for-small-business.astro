@@ -88,13 +88,23 @@ const faqQuestions = [
         It's built for small business teams, freelancers and solopreneurs who want
         to create better content, faster.
       </p>
-      <div style="position: relative; padding-bottom: 56.25%; height: 0;">
-        <iframe
-          src="https://www.loom.com/embed/4e859ce972114ed0b986cc6d995ec2a8?sid=eeb1189d-6f21-4c69-8df8-76d32c239a5b?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true"
-          allowfullscreen
-          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
-        ></iframe>
-      </div>
+      <video autoplay loop muted playsinline class="min-w-zero max-w-full">
+        <source
+          src="/media/cc/content-compass-research-02.mp4"
+          type="video/mp4"
+        />
+        <Picture
+          src={keyphrase}
+          widths={[500, 700, 1400]}
+          class="object-cover h-auto"
+          alt="Screnshot of the Notion template for small business lead generation keyphrase research"
+          quality={80}
+          format="avif"
+        />
+        Download the
+        <a href="/media/cc/content-compass-research-02.mp4">MP4</a>
+        video.
+      </video>
     </div>
     <Picture
       src={compass}
@@ -120,117 +130,89 @@ const faqQuestions = [
           research as you develop every piece of content.
         </p>
       </div>
-      <div class="switcher">
-        <video
-          autoplay
-          loop
-          muted
-          playsinline
-          class="min-w-zero max-w-full box w-fit prose border-solid border-b-2 border-x-0 border-t-0 border-gray-700 text-gray-1200 bg-gray-400"
-        >
-          <source
-            src="/media/cc/content-compass-research-02.mp4"
-            type="video/mp4"
-          />
-          <Picture
-            src={keyphrase}
-            widths={[500, 700, 1400]}
-            class="object-cover h-auto"
-            alt="Screnshot of the Notion template for small business lead generation keyphrase research"
-            quality={80}
-            format="avif"
-          />
-          Download the
-          <a href="/media/cc/content-compass-research-02.mp4">MP4</a>
-          video.
-        </video>
-        <video
-          autoplay
-          loop
-          muted
-          playsinline
-          class="min-w-zero max-w-full box w-fit prose border-solid border-b-2 border-x-0 border-t-0 border-gray-700 text-gray-1200 bg-gray-400"
-        >
-          <source
-            src="/media/cc/content-compass-research-03.mp4"
-            type="video/mp4"
-          />
-          <Picture
-            src={research}
-            widths={[500, 700, 1400]}
-            class="object-cover h-auto"
-            alt="Screnshot of the Notion template for small business lead generation research"
-            quality={80}
-            format="avif"
-          />
-          Download the
-          <a href="/media/cc/content-compass-research-03.mp4">MP4</a>
-          video.
-        </video>
-      </div>
+      <video
+        autoplay
+        loop
+        muted
+        playsinline
+        class="min-w-zero max-w-full box w-fit prose text-gray-200 bg-indigo-vivid-800"
+      >
+        <source
+          src="/media/cc/content-compass-research-03.mp4"
+          type="video/mp4"
+        />
+        <Picture
+          src={research}
+          widths={[500, 700, 1400]}
+          class="object-cover h-auto"
+          alt="Screnshot of the Notion template for small business lead generation research"
+          quality={80}
+          format="avif"
+        />
+        Download the
+        <a href="/media/cc/content-compass-research-03.mp4">MP4</a>
+        video.
+      </video>
     </div>
     <div class="region flow flow-space-l">
-      <div class="switcher">
-        <div
-          class="flow box w-fit prose border-solid border-b-2 border-x-0 border-t-0 border-gray-700 text-gray-1200 bg-gray-400"
-        >
-          <h3 class="mt-zero">Create content that resonates</h3>
-          <p>
-            Draft, edit, and finalize both long and short-form content within a
-            single, unified space. From long-form articles to quick social media
-            posts, Content Compass streamlines the whole process, helping you
-            produce content that is clear, engaging, and always resonant.
-          </p>
-        </div>
+      <div
+        class="flow box w-fit prose border-solid border-b-2 border-x-0 border-t-0 border-gray-700 text-gray-1200 bg-gray-400"
+      >
+        <h3 class="mt-zero">Create content that resonates</h3>
+        <p>
+          Draft, edit, and finalize both long and short-form content within a
+          single, unified space. From long-form articles to quick social media
+          posts, Content Compass streamlines the whole process, helping you
+          produce content that is clear, engaging, and always resonant.
+        </p>
       </div>
+      <video
+        autoplay
+        loop
+        muted
+        playsinline
+        class="min-w-zero max-w-full box w-fit prose text-gray-200 bg-indigo-vivid-800"
+      >
+        <source
+          src="/media/cc/content-compass-organize-02.mp4"
+          type="video/mp4"
+        />
+        <Picture
+          src={create}
+          widths={[500, 700, 1400]}
+          class="object-cover h-auto"
+          alt="Screenshot of the Content compass Notion template content creation for small business lead generation"
+          quality={80}
+          format="avif"
+        />
+        Download the
+        <a href="/media/cc/content-compass-organize-02.mp4">MP4</a>
+        video.
+      </video>
+    </div>
+    <div class="region flow flow-space-l">
+      <div
+        class="flow box w-fit prose border-solid border-b-2 border-x-0 border-t-0 border-gray-700 text-gray-1200 bg-gray-400"
+      >
+        <h3 class="mt-zero">Organize effortlessly</h3>
+        <p>
+          Say goodbye to scattered documents and disjointed workflows. Content
+          Compass brings harmony to your content strategy, enabling you to link
+          short and long-form pieces, categorize your work, and keep everything
+          in the same place. This smart organization reduces the time from
+          concept to publication, allowing you to focus less on managing and
+          more on creating.
+        </p>
+      </div>
+
       <Picture
-        src={create}
+        src={organize}
         widths={[500, 700, 1400]}
         class="object-cover h-auto"
-        alt="Screenshot of the Content compass Notion template content creation for small business lead generation"
+        alt="Screenshot of the Content compass Notion template content orgnization for small business lead generation"
         quality={80}
         format="avif"
       />
-    </div>
-    <div class="region flow flow-space-l">
-      <div class="switcher">
-        <div
-          class="flow box w-fit prose border-solid border-b-2 border-x-0 border-t-0 border-gray-700 text-gray-1200 bg-gray-400"
-        >
-          <h3 class="mt-zero">Organize effortlessly</h3>
-          <p>
-            Say goodbye to scattered documents and disjointed workflows. Content
-            Compass brings harmony to your content strategy, enabling you to
-            link short and long-form pieces, categorize your work, and keep
-            everything in the same place. This smart organization reduces the
-            time from concept to publication, allowing you to focus less on
-            managing and more on creating.
-          </p>
-        </div>
-        <video
-          autoplay
-          loop
-          muted
-          playsinline
-          class="min-w-zero max-w-full box w-fit prose border-solid border-b-2 border-x-0 border-t-0 border-gray-700 text-gray-1200 bg-gray-400"
-        >
-          <source
-            src="/media/cc/content-compass-organize-02.mp4"
-            type="video/mp4"
-          />
-          <Picture
-            src={organize}
-            widths={[500, 700, 1400]}
-            class="object-cover h-auto"
-            alt="Screenshot of the Content compass Notion template content orgnization for small business lead generation"
-            quality={80}
-            format="avif"
-          />
-          Download the
-          <a href="/media/cc/content-compass-organize-02.mp4">MP4</a>
-          video.
-        </video>
-      </div>
     </div>
     <div class="region flow flow-space-l">
       <div
@@ -284,6 +266,13 @@ const faqQuestions = [
   <div class="bg-gray-200">
     <section class="wrapper">
       <div class="region flow flow-space-l">
+        <div style="position: relative; padding-bottom: 56.25%; height: 0;">
+          <iframe
+            src="https://www.loom.com/embed/4e859ce972114ed0b986cc6d995ec2a8?sid=eeb1189d-6f21-4c69-8df8-76d32c239a5b?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true"
+            allowfullscreen
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+          ></iframe>
+        </div>
         <div class="box flow bg-transparent">
           <h2 class="text-center mx-auto mb-m-l">
             Let's streamline your content process by helping you manage your
@@ -292,7 +281,7 @@ const faqQuestions = [
           <a
             href="https://buy.stripe.com/fZe8zH8NG5cTdmo8wx"
             class="button text-indigo-100 block"
-            >Buy the Content compass template for $20.00</a
+            >Buy the Content compass for $20.00</a
           >
         </div>
       </div>
@@ -300,7 +289,7 @@ const faqQuestions = [
   </div>
   <section class="center" style="--measure: 70ch;">
     <div class="region flow flow-space-l">
-      <div class="center flow flow-space-s">
+      <div class="wrapper flow flow-space-s">
         <h2 class="mt-zero">FAQ</h2>
         {
           faqQuestions.map((faq, idx) => (
