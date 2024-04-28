@@ -287,16 +287,14 @@ const faqQuestions = [
       </div>
     </section>
   </div>
-  <section class="center" style="--measure: 70ch;">
-    <div class="region flow flow-space-l">
-      <div class="wrapper flow flow-space-s">
-        <h2 class="mt-zero">FAQ</h2>
-        {
-          faqQuestions.map((faq, idx) => (
-            <FAQ idx={idx} question={faq.question} answer={faq.answer} />
-          ))
-        }
-      </div>
+  <section class="region">
+    <div class="wrapper flow flow-space-s" style="--wrapper-max-width: 65ch;">
+      <h2 class="mt-zero">FAQ</h2>
+      {
+        faqQuestions.map((faq, idx) => (
+          <FAQ idx={idx} question={faq.question} answer={faq.answer} />
+        ))
+      }
     </div>
   </section>
 </ProductLayout>
