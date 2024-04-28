@@ -18,6 +18,7 @@ import savaniSquared03 from '../../assets/squared/savani-squared-03@2x.png';
 import savaniSquared04 from '../../assets/squared/savani-squared-04@2x.png';
 import RollPortfolioGrid from '../../components/RollPortfolioGrid.astro';
 import BTCPortfolioGrid from '../../components/BTCPortfolioGrid.astro';
+import RollBanner from '../../components/RollBanner.astro';
 ---
 
 <InnerLayout
@@ -30,24 +31,7 @@ import BTCPortfolioGrid from '../../components/BTCPortfolioGrid.astro';
 >
   <section class="region wrapper flow" id="main">
     <div class="flow flow-space-l">
-      <div
-        class="box flow flow-space-xs w-fit border border-b-2 border-x-0 border-t-0 text-blue-vivid-800 bg-blue-200 border-blue-700"
-      >
-        <hgroup>
-          <h3 class="uppercase mt-zero">
-            <a href="/portfolio/roll-by-adp/">Roll</a>
-          </h3>
-          <p class="font-medium text-step-1 mt-zero">
-            UX, UI, Product design, Design systems
-          </p>
-        </hgroup>
-        <p>
-          Revamping Roll by ADP, I transformed complex HR processes into an
-          intuitive mobile experience, focusing on simplifying payroll
-          management for small business owners.
-        </p>
-      </div>
-
+      <RollBanner />
       <RollPortfolioGrid />
     </div>
     <div class="flow flow-space-l region">

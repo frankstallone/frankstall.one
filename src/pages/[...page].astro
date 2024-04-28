@@ -5,6 +5,7 @@ import Layout from '../layouts/Layout.astro';
 import type { Props as HeadProps } from '../components/Head.astro';
 
 import RollPortfolioGrid from '../components/RollPortfolioGrid.astro';
+import RollBanner from '../components/RollBanner.astro';
 
 type Props = {
   page: Page<CollectionEntry<'blog'>>;
@@ -111,23 +112,7 @@ const { page } = Astro.props;
   </section>
   <div class="region flow bg-gray-100">
     <div class="wrapper flow flow-space-xl">
-      <div
-        class="box flow flow-space-xs border-solid border-b-2 border-x-0 border-t-0 text-blue-vivid-800 bg-blue-300 border-blue-700"
-      >
-        <hgroup>
-          <h3 class="uppercase mt-zero">
-            <a href="/portfolio/roll-by-adp/">Roll</a>
-          </h3>
-          <p class="font-medium text-step-1 mt-zero">
-            UX, UI, Product design, Design systems
-          </p>
-        </hgroup>
-        <p>
-          Revamping Roll by ADP, I transformed complex HR processes into an
-          intuitive mobile experience, focusing on simplifying payroll
-          management for small business owners.
-        </p>
-      </div>
+      <RollBanner />
       <RollPortfolioGrid />
       <aside
         class="uppercase font-mono font-medium text-step-000 text-gray-1100 text-right"
