@@ -8,6 +8,7 @@ import accordionSketch from '../../assets/roll-by-adp/accordionlist-scan-sketch-
 import finalMock from '../../assets/roll-by-adp/payroll-run-hi-fidelity@2x.png';
 import rollVideo from '../../assets/roll-by-adp/payroll-run-video.mp4';
 import RollPortfolioGrid from '../../components/RollPortfolioGrid.astro';
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <InnerLayout
@@ -16,7 +17,7 @@ import RollPortfolioGrid from '../../components/RollPortfolioGrid.astro';
     title: 'Roll by ADP',
     description:
       'Case study of Roll by ADP from the portfolio of Frank Stallone',
-    canonicalURL: `https://frankstall.one/portfolio/roll-by-adp/`,
+    canonicalURL: canonicalURL.href,
     image: `/media/portfolio/roll-og-image.png`,
   }}
 >

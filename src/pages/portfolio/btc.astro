@@ -8,6 +8,7 @@ import colorGuide from '../../assets/btc/builders-trust-capital-design-system-co
 import typographyGuide from '../../assets/btc/builders-trust-capital-design-system-typography-page@2x.png';
 import BTCLogo from '../../assets/btc/BTC@2x.png';
 import BTCPortfolioGrid from '../../components/BTCPortfolioGrid.astro';
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <InnerLayout
@@ -16,7 +17,7 @@ import BTCPortfolioGrid from '../../components/BTCPortfolioGrid.astro';
     title: 'Builders Trust Capital',
     description:
       'Case study of Builders Trust Capital from the portfolio of Frank Stallone',
-    canonicalURL: `https://frankstall.one/portfolio/btc/`,
+    canonicalURL: canonicalURL.href,
     image: `/media/portfolio/btc-og-image.png`,
   }}
 >

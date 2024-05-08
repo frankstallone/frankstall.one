@@ -21,6 +21,8 @@ const [{ count }] = await db
   .where(eq(Like.slug, entry.slug));
 
 const { Content } = await entry.render();
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <InnerLayout
@@ -28,7 +30,7 @@ const { Content } = await entry.render();
     title: entry.data.title,
     description: entry.data.description,
     image: entry.data.image,
-    canonicalURL: `https://frankstall.one/blog/${entry.slug}/`,
+    canonicalURL: canonicalURL.href,
   }}
 >
   <article
@@ -66,7 +68,7 @@ const { Content } = await entry.render();
       });
       if (response.ok) {
         const { message, count } = await response.json();
-        console.log(message, count);
+        // console.log(message, count);
       }
     } catch (error) {
       console.error(error);

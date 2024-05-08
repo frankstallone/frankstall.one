@@ -66,6 +66,7 @@ const faqQuestions = [
       "Due to the digital nature of Content Compass and its immediate delivery and use, we're unable to offer refunds. We 100% believe in the value it provides, and are here to support you in getting the most out of it.",
   },
 ];
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <ProductLayout
@@ -74,7 +75,7 @@ const faqQuestions = [
     title: 'Effortless content management for small businesses and creators',
     description:
       'Research, create, organize and schedule all your content in one place.',
-    canonicalURL: `https://frankstall.one/products/lead-generation-for-small-business`,
+    canonicalURL: canonicalURL.href,
   }}
 >
   <div class="switcher bg-gray-200">

@@ -6,7 +6,7 @@ export type Props = {
   meta: {
     title?: string;
     description?: string;
-    canonicalURL?: URL | string;
+    canonicalURL?: string;
     image?: string;
   };
 };
@@ -19,9 +19,7 @@ const title = meta.title
 const description = meta.description
   ? meta.description
   : "The Internet's favorite Frank Stallone";
-const canonicalURL = meta.canonicalURL
-  ? meta.canonicalURL
-  : 'https://frankstall.one';
+const canonicalURL = meta.canonicalURL ? meta.canonicalURL : Astro.site;
 const ogImage = meta.image
   ? meta.image
   : '/media/the-internets-favorite-frank-stallone-ogimage.png';

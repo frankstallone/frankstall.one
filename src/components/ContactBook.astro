@@ -1,5 +1,5 @@
 ---
-
+const pathname = Astro.url.pathname;
 ---
 
 <div class="region bg-gray-200">
@@ -42,7 +42,11 @@
         data-netlify="true"
         action="/"
       >
-        <input type="hidden" name="subject" value="Form: frankstall.one" />
+        <input
+          type="hidden"
+          name="subject"
+          value={`🤖 Form submission: frankstall.one${pathname}`}
+        />
         <p class="hidden">
           <label for="bot-field">Do you like delicious treats?</label>
           <input

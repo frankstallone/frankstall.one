@@ -5,6 +5,7 @@ import InnerLayout from '../../layouts/InnerLayout.astro';
 const allPosts = (await getCollection('blog')).sort(
   (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
 );
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <InnerLayout
@@ -12,7 +13,7 @@ const allPosts = (await getCollection('blog')).sort(
     title: 'Blog posts by Frank Stallone',
     description:
       'The writing of Frank Stallone, a UX Enginineer living in the Northeast',
-    canonicalURL: `https://frankstall.one/blog/`,
+    canonicalURL: canonicalURL.href,
   }}
 >
   <section

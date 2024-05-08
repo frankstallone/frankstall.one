@@ -19,6 +19,7 @@ import savaniSquared04 from '../../assets/squared/savani-squared-04@2x.png';
 import RollPortfolioGrid from '../../components/RollPortfolioGrid.astro';
 import BTCPortfolioGrid from '../../components/BTCPortfolioGrid.astro';
 import RollBanner from '../../components/RollBanner.astro';
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <InnerLayout
@@ -26,7 +27,7 @@ import RollBanner from '../../components/RollBanner.astro';
   meta={{
     title: 'Portfolio of Frank Stallone',
     description: 'The design and development portfolio of Frank Stallone',
-    canonicalURL: `https://frankstall.one/portfolio/`,
+    canonicalURL: canonicalURL.href,
   }}
 >
   <section class="region wrapper flow" id="main">

@@ -1,5 +1,6 @@
 ---
 import InnerLayout from '../layouts/InnerLayout.astro';
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <InnerLayout
@@ -7,6 +8,7 @@ import InnerLayout from '../layouts/InnerLayout.astro';
     title: "Accessibility Statement for Frank Stallone's personal website",
     description:
       'For the last two decades, I have helped businesses of all sizes craft compelling user experiences that drove 100M+ in revenue.',
+    canonicalURL: canonicalURL.href,
   }}
 >
   <section class="region flow wrapper" id="main">
