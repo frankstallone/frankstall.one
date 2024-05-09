@@ -19,6 +19,7 @@ import savaniSquared04 from '../../assets/squared/savani-squared-04@2x.png';
 import RollPortfolioGrid from '../../components/RollPortfolioGrid.astro';
 import BTCPortfolioGrid from '../../components/BTCPortfolioGrid.astro';
 import RollBanner from '../../components/RollBanner.astro';
+import LoumarcGrid from '../../components/LoumarcGrid.astro';
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -37,6 +38,27 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     </div>
     <div class="flow flow-space-l region">
       <div
+        class="animate-in box flow flow-space-xs w-fit border border-b-2 border-x-0 border-t-0 text-magenta-vivid-800 bg-magenta-200 border-magenta-700"
+      >
+        <hgroup>
+          <h3 class="uppercase mt-zero">
+            <a href="/portfolio/loumarc-signs/">Loumarc Signs</a>
+          </h3>
+          <p class="font-medium text-step-1 mt-zero">
+            Brand transformation, logo, website
+          </p>
+        </hgroup>
+        <p>
+          After 30 years of business, Loumarc Signs needed a brand refresh to
+          focus on the newer generation of customer sign buyers. I created a new
+          logo, website, and brand guidelines to help them connect, and provide
+          better service for their audience.
+        </p>
+      </div>
+      <LoumarcGrid />
+    </div>
+    <div class="flow flow-space-l region">
+      <div
         class="animate-in box flow flow-space-xs w-fit border border-b-2 border-x-0 border-t-0 text-orange-vivid-800 bg-orange-200 border-orange-700"
       >
         <hgroup>
@@ -44,7 +66,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
             <a href="/portfolio/btc/">Builders Trust Capital</a>
           </h3>
           <p class="font-medium text-step-1 mt-zero">
-            Brand transformation, logo, name
+            Brand transformation, logo, name, website
           </p>
         </hgroup>
         <p>
