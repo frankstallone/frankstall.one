@@ -1,0 +1,246 @@
+---
+import InnerLayout from '../../layouts/InnerLayout.astro';
+import { Picture } from 'astro:assets';
+
+import amazonSign from '../../assets/loumarc/amazon-building-custom-sign.jpg';
+import styleguide from '../../assets/loumarc/loumac-brand-styleguide-screenshot.png';
+import LoumarcGrid from '../../components/LoumarcGrid.astro';
+import archetype from '../../assets/loumarc/archetype-squared.png';
+import brandPersona from '../../assets/loumarc/brand-guide-brand-persona.png';
+import brandContext from '../../assets/loumarc/logo-option-in-context.jpg';
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<InnerLayout
+  subtitle="Brand transformation for an iconic New Jersey sign company"
+  meta={{
+    title: 'Loumarc Signs',
+    description:
+      'Case study of Loumarc Signs from the portfolio of Frank Stallone',
+    canonicalURL: canonicalURL.href,
+    image: `/media/portfolio/roll-og-image.png`,
+  }}
+>
+  <section class="flow" id="main">
+    <div class="region">
+      <div class="wrapper grid" data-layout="twelfths">
+        <div
+          class="row-start-1 row-span-5 col-span-12 md:col-span-7 md:col-start-1 lg:col-span-6 lg:col-start-1 box flow flow-space-xs border-solid border-b-2 border-x-0 border-t-0 text-blue-vivid-800 bg-blue-100 border-blue-700 z-10"
+        >
+          <h2 class="mt-zero">Who they are</h2>
+          <p>
+            Loumarc Signs is a custom sign company that's been in business for
+            over 30 years. Loumarc Signs believe their customers are all
+            professionals on a journey toward success, and their job is to
+            provide the lift in visibility and perception that will help them
+            get there.
+          </p>
+        </div>
+        <Picture
+          src={amazonSign}
+          widths={[300, 800, 2000, amazonSign.width]}
+          sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${amazonSign.width}px`}
+          pictureAttributes={{
+            class:
+              'object-contain h-full w-full row-span-6 md:row-start-2 md:row-span-6 col-span-12 md:col-span-8 md:col-start-6',
+          }}
+          class={'object-contain h-full w-full row-span-6 md:row-start-2 md:row-span-6 col-span-12 md:col-span-8 md:col-start-6'}
+          alt="High quality custom sign for Amazon distribution center"
+          formats={['avif', 'webp']}
+          loading="lazy"
+        />
+      </div>
+    </div>
+    <div class="wrapper flex flex-col flow md:grid" data-layout="twelfths">
+      <div
+        class="md:row-start-8 md:row-span-4 md:col-span-8 md:col-start-4 box flow flow-space-xs w-fit border-solid border-b-2 border-x-0 border-t-0 text-blue-vivid-800 bg-blue-100 border-blue-700 z-10"
+      >
+        <h2 class="mt-zero">What I did for them</h2>
+        <p>
+          I led them through a series of workshops to completely revamp their
+          brand, helping them to a new level of clarity in who they are and who
+          they serve. This included a new logo, brand guide, business cards,
+          custom website design, deep keyphrase content analysis, and other
+          marketing materials.
+        </p>
+      </div>
+      <Picture
+        src={styleguide}
+        widths={[300, 800, 2000, styleguide.width]}
+        sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${styleguide.width}px`}
+        pictureAttributes={{
+          class:
+            'object-contain h-full w-full row-start-1 md:row-start-1 md:row-span-10 md:col-start-1 md:col-span-12',
+        }}
+        class={'object-contain h-full w-full row-start-1 md:row-start-1 md:row-span-10 md:col-start-1 md:col-span-12'}
+        alt="Styleguide for Loumarc Signs brand"
+        formats={['avif', 'webp']}
+        loading="lazy"
+      />
+    </div>
+    <div class="region wrapper">
+      <LoumarcGrid />
+    </div>
+    <div class="region bg-blue-1000">
+      <div class="wrapper grid" data-layout="twelfths">
+        <div
+          class="row-start-1 col-start-1 row-span-12 col-span-12 md:row-start-1 md:row-span-2 md:col-start-1 md:col-span-6 box flow flow-space-xs border-solid border-b-2 border-x-0 border-t-0 text-blue-vivid-800 bg-blue-100 border-blue-700"
+        >
+          <h2 class="mt-zero">The challenge</h2>
+          <p>
+            The challenge was to take the foundation of who Loumarc Signs were,
+            and evolve them into what they wanted to become. They had been in
+            business for a long time, and over the years their client's needs
+            had changed. They knew they needed to understand that better, and be
+            explicit about who their ideal audience had become. Only then could
+            they dedicate the kind of attention to that set of customers in a
+            way that no other sign company could. Loumarc Signs had history here
+            - they had innovated with a guarantee in an industry that simply
+            didn't offer them. Others had followed, and the challenge now was to
+            take Loumarc back to the front of the industry pack in a way that
+            resonated deeply with their customers across all physical and
+            digital touchpoints.
+          </p>
+        </div>
+        <div
+          class="row-start-13 col-start-1 row-span-12 col-span-12 md:row-start-1 md:row-span-2 md:col-start-7 md:col-span-7 box flow flow-space-xs w-fit border-solid border-b-2 border-x-0 border-t-0 text-blue-vivid-800 bg-blue-100 border-blue-700"
+        >
+          <h2 class="mt-zero">My approach</h2>
+          <p>
+            I started with in-person discovery workshops with five key
+            stakeholders, all who specialized in different areas of the
+            business. We took a deep look at who Loumarc Signs was - both as a
+            company, and as a group of people. We then expanded out to their
+            ideal customers, abstracting their personality to better understand
+            their challenges, frustrations, fears, and desires. With that
+            mapping work complete, we were then able to actualize a brand
+            position and persona that would resonate with those customers.
+          </p>
+          <p>
+            With all that in hand, I then moved into the tactical deliverables.
+            I designed and produced an iconic logo mark and wordmark, complete
+            brand guide, and a road map for integrating that branding into
+            physical and digital collateral.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="region wrapper flow prose">
+      <div class="flex flex-col flow md:grid" data-layout="twelfths">
+        <div
+          class="md:row-start-1 md:row-span-12 md:col-start-1 md:col-span-6 box flow flow-space-xs w-fit z-10 text-blue-vivid-800 bg-blue-100 border-blue-700 border-solid border-b-2 border-x-0 border-t-0"
+        >
+          <h2 class="mt-zero">Our solution</h2>
+          <p>
+            Loumarc Sign's new identity needed to cover a lot of touchpoints.
+            But before it could, I had to develop a logo that was appropriate in
+            both form and concept: distinctive and memorable, while being simple
+            and uncomplicated. After collaborating with a team, I presented - in
+            person, to their stakeholders - four logos that effectively brought
+            together the Loumarc Signs brand and their customers.
+          </p>
+          <p>
+            At the same time, we also ran an extensive keyphrase analysis
+            project to build a foundation for their content marketing. This
+            uncovered a treasure trove of intentional, intent-inspired content
+            aligned to the Loumarc team's industry knowledge that could be
+            written about for a long time. This was delivered through our
+            'content machine', a clean and simple content management framework
+            where the Loumarc team could research, create, organize, and
+            schedule their content marketing all in one place. If you don't live
+            and breathe it, content marketing can be a confusing and complicated
+            area, and a hard grind without much impact. We distilled it down to
+            a simple recipe, with all the right ingredients, to ensure their
+            content marketing success without them needing to think about
+            anything beyond their existing industry insight.
+          </p>
+          <p>
+            Getting back to the brand side, we wrapped up the discovery
+            workshops with everything we needed to create a brand guide the
+            company could use to harmonize their internal and external
+            communication. As part of that process, I also interviewed various
+            clients to ensure the voice and tone we were settling on was
+            authentic and engaging.
+          </p>
+          <p>
+            We then created a brand story framework that placed their customers
+            front and center as the heroes. These story blocks and micro stories
+            became a clear guide for any of Loumarc's messaging, effectively
+            connecting them to their customers.
+          </p>
+          <p>
+            I followed all that core brand work with design assets, color
+            palettes, typography, spacing and sizing, all designed specifically
+            from the company vibe we had settled on.
+          </p>
+          <p>
+            With the chosen logo in hand, I then designed distinctive business
+            cards that brought the premium feeling of the new brand to life. An
+            asset the entire team could be proud to hand out.
+          </p>
+          <p>
+            From there, I naturally moved into a complete digital
+            transformation, with a ground-up redesign of their website and a
+            refresh of their other online properties.
+          </p>
+        </div>
+        <Picture
+          src={brandPersona}
+          widths={[300, 800, brandPersona.width]}
+          sizes={`(max-width: 300px) 300px, (max-width: 700px) 700px, ${brandPersona.width}px`}
+          pictureAttributes={{
+            class:
+              'object-contain w-full h-full md:row-start-1 md:row-span-6 md:col-start-7 md:col-span-6',
+          }}
+          class={'object-contain w-full h-full md:row-start-1 md:row-span-6 md:col-start-7 md:col-span-6'}
+          alt="Brand persona from Loumarc Signs Brand Guide"
+          formats={['avif', 'webp']}
+          loading="lazy"
+        />
+        <Picture
+          src={archetype}
+          widths={[300, 800, archetype.width]}
+          sizes={`(max-width: 300px) 300px, (max-width: 700px) 700px, ${archetype.width}px`}
+          pictureAttributes={{
+            class:
+              'object-contain w-full h-full md:row-start-7 md:row-span-6 md:col-start-7 md:col-span-6',
+          }}
+          class={'object-contain w-full h-full md:row-start-7 md:row-span-6 md:col-start-7 md:col-span-6'}
+          alt="Brand persona from Loumarc Signs Brand Guide"
+          formats={['avif', 'webp']}
+          loading="lazy"
+        />
+        <div
+          class="md:row-start-13 md:row-span-4 md:col-start-3 md:col-span-7 box flow flow-space-xs w-fit z-10 text-blue-vivid-800 bg-blue-100 border-blue-700 border-solid border-b-2 border-x-0 border-t-0"
+        >
+          <h3>The results</h3>
+          <p>
+            The Loumarc Signs brand was shifted from their mom-and-pop shop
+            roots to a brand that spoke to - and reflected - their more high-end
+            clients. We repositioned them from their former print shop-based
+            company to a truly premium custom sign company that was clearly
+            focused on their customer's success. And, able to help them achieve
+            the visibility their customers needed on that journey.
+          </p>
+          <p>
+            This transformation has allowed them to uphold a minimum level of
+            engagement with clients, giving them more time to bring more value
+            to their most gracious customers.
+          </p>
+        </div>
+      </div>
+      <Picture
+        src={brandContext}
+        widths={[300, 800, 2000, brandContext.width]}
+        sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${brandContext.width}px`}
+        pictureAttributes={{
+          class: 'object-contain h-full w-full',
+        }}
+        class={'object-contain h-full w-full'}
+        alt="Logo in context for client presentation"
+        formats={['avif', 'webp']}
+        loading="lazy"
+      />
+    </div>
+  </section>
+</InnerLayout>

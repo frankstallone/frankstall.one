@@ -1,0 +1,111 @@
+---
+import { Picture } from 'astro:assets';
+import loumarcSquared01 from '../assets/loumarc/google-my-busniess-logo.png';
+import loumarcSquared02 from '../assets/loumarc/website-squared.png';
+import loumarcSquared03 from '../assets/loumarc/business-card-squared.png';
+import loumarcSquared04 from '../assets/loumarc/shirt-squared.png';
+---
+
+<article
+  class="flex flex-col md:grid"
+  style="--gutter: var(--space-xs);"
+  data-layout="sevenths"
+>
+  <div
+    aria-hidden="true"
+    class="animate-in rounded-full hidden md:block aspect-square md:row-start-1 md:col-start-4 bg-[#ffe3e6]"
+  >
+  </div>
+  <div
+    aria-hidden="true"
+    class="animate-in rounded-full hidden md:block aspect-square md:row-start-3 md:row-span-1 md:col-start-5 md:col-span-1 bg-[#fdbfc8]"
+  >
+  </div>
+  <div
+    aria-hidden="true"
+    class="animate-in rounded-full hidden md:block aspect-square md:row-start-4 md:row-span-1 md:col-start-5 md:col-span-1 bg-[#fa98a9]"
+  >
+  </div>
+  <div
+    aria-hidden="true"
+    class="animate-in rounded-full hidden md:block aspect-square md:row-start-5 md:row-span-1 md:col-start-7 md:col-span-1 bg-[#f46e8a]"
+  >
+  </div>
+  <div
+    aria-hidden="true"
+    class="animate-in rounded-full hidden md:block aspect-square md:row-start-6 md:row-span-1 md:col-start-7 md:col-span-1 bg-[#ea3d69]"
+  >
+  </div>
+  <div
+    aria-hidden="true"
+    class="animate-in rounded-full hidden md:block aspect-square md:row-start-6 md:row-span-1 md:col-start-4 md:col-span-1 bg-[#c91d50]"
+  >
+  </div>
+  <div
+    aria-hidden="true"
+    class="animate-in rounded-full hidden md:block aspect-square md:row-start-6 md:row-span-1 md:col-start-3 md:col-span-1 bg-[#9b1b46]"
+  >
+  </div>
+  <div
+    aria-hidden="true"
+    class="animate-in rounded-full hidden md:block aspect-square md:row-start-6 md:row-span-1 md:col-start-2 md:col-span-1 bg-[#750f2e]"
+  >
+  </div>
+  <div
+    aria-hidden="true"
+    class="animate-in rounded-full hidden md:block aspect-square md:row-start-6 md:row-span-1 md:col-start-1 md:col-span-1 bg-[#50061a]"
+  >
+  </div>
+  <Picture
+    src={loumarcSquared01}
+    widths={[500, 700, 1400]}
+    sizes={`(max-width: 360px) 500px, (max-width: 720px) 700px, (max-width: 1600px) 1400px,  ${loumarcSquared01.width}px`}
+    class="object-cover h-auto md:row-start-2 md:row-span-4 md:col-start-1 md:col-span-4"
+    pictureAttributes={{
+      class:
+        'object-cover h-auto md:row-start-2 md:row-span-4 md:col-start-1 md:col-span-4',
+    }}
+    alt="Loumarc Signs Logo mock up without the taglin"
+    quality={80}
+    formats={['avif', 'webp']}
+  />
+  <Picture
+    src={loumarcSquared02}
+    widths={[500, 700]}
+    sizes={`(max-width: 360px) 500px, (max-width: 720px) 700px, ${loumarcSquared02.width}px`}
+    alt="Screenshot of the Loumarc Signs website home page"
+    class="object-cover h-auto md:row-start-3 md:row-span-2 md:col-start-6 md:col-span-2"
+    pictureAttributes={{
+      class:
+        'object-cover h-auto md:row-start-3 md:row-span-2 md:col-start-6 md:col-span-2',
+    }}
+    quality={80}
+    formats={['avif', 'webp']}
+  />
+  <Picture
+    src={loumarcSquared03}
+    widths={[500, 700]}
+    sizes={`(max-width: 360px) 500px, (max-width: 720px) 700px, ${loumarcSquared03.width}px`}
+    alt="Mock up of the Loumarc Signs business cards"
+    class="object-cover h-auto md:row-start-5 md:row-span-2 md:col-start-5 md:col-span-2"
+    pictureAttributes={{
+      class:
+        'object-cover h-auto md:row-start-5 md:row-span-2 md:col-start-5 md:col-span-2',
+    }}
+    quality={80}
+    formats={['avif', 'webp']}
+  />
+  <Picture
+    src={loumarcSquared04}
+    widths={[500, 700]}
+    sizes={`(max-width: 360px) 500px, (max-width: 720px) 700px, ${loumarcSquared04.width}px`}
+    alt="Mockup of the logo on the front of a shirt"
+    class="object-cover h-auto md:row-start-1 md:row-span-2 md:col-start-5 md:col-span-2"
+    pictureAttributes={{
+      class:
+        'object-cover h-auto md:row-start-1 md:row-span-2 md:col-start-5 md:col-span-2',
+    }}
+    quality={80}
+    formats={['avif', 'webp']}
+  />
+</article>
