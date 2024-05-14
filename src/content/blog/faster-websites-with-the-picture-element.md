@@ -86,3 +86,9 @@ Using a program like ImageOptim is a manual process. There are other services ou
 That was a lot! Let’s recap by summarizing that there are methods for a web app or marketing pages to implement highly optimized images that will load extremely fast on modern browsers for our users in different contexts. They include fallbacks for older browsers to ensure those users are not left behind. We dived into a code example and I left some MDN docs for those who want to read more about it. Now you’re a little bit more knowledgeable about the world of image optimization on the web!
 
 Is this topic interesting? Would you like to learn more about anything in particular related to this? Drop me a line here or on social media and let me know.
+
+### Update
+
+<p class="text-step-000 mt-2xs">May 14, 2024</p>
+
+[Mario Hernandez](https://mariohernandez.io/) reached out to me to discuss the `<picture>` element in grander detail. He has a fantastic article, [Art direction using the picture HTML element](https://mariohernandez.io/blog/art-direction-using-the-picture-html-element/) that I highly recommend. Personally I believe the `<picture>` element can be used for more than art direction, but what do you think? Thanks for reaching out Mario!
