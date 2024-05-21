@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /hormozi-workshop
 
 Sitemap: https://frankstall.one/sitemap-index.xml
