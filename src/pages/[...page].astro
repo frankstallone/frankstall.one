@@ -2,10 +2,10 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 import type { GetStaticPaths, Page } from 'astro';
 import Layout from '../layouts/Layout.astro';
-import type { Props as HeadProps } from '../components/Head.astro';
+import type { Props as HeadProps } from '@components/Head.astro';
 
-import RollPortfolioGrid from '../components/RollPortfolioGrid.astro';
-import RollBanner from '../components/RollBanner.astro';
+import RollPortfolioGrid from '@components/RollPortfolioGrid.astro';
+import RollBanner from '@components/RollBanner.astro';
 
 type Props = {
   page: Page<CollectionEntry<'blog'>>;

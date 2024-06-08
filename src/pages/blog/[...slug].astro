@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import InnerLayout from '../../layouts/InnerLayout.astro';
-import Likes from '../../components/Likes.astro';
+import Likes from '@components/Likes.astro';
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog');
