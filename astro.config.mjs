@@ -35,4 +35,7 @@ export default defineConfig({
       plugins: [pluginLineNumbers()],
     }),
   ],
+  experimental: {
+    contentCollectionCache: true,
+  },
 });
