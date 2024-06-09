@@ -1,0 +1,11 @@
+---
+isDraft: false
+title: 'Goodbye Google Play All Access, Spotify is here to stay!'
+publishDate: 01-09-2014
+description: 'A continuation of a previous post on music streaming services, although I have given Google Play All Access enough time to try and compete with Spotify'
+---
+
+<p>A <a title="MOG vs. Spotify" href="/mog-vs-spotify/">continuation of a previous post</a> on music streaming services, although I have given Google Play All Access enough time to try and compete with Spotify, today sadly I have to say it's not worth the move.</p>
+<p>Don't get me wrong, Google Play All Access is a great service <a href="https://play.google.com/about/music/" target="_blank" aria-label="Opens in a new tab">and sports many great features</a>. It took <a href="https://9to5mac.com/2013/11/15/google-play-music-finally-hits-ios-with-a-free-month-of-all-access-and-programmable-radio-in-21-countries/" target="_blank" aria-label="Opens in a new tab">almost a year</a> for the iOS app to come out, and I sort of was waiting for that to really see if it could replace Spotify. I picked up All Access when it was $7.99, and in an effort to save a whole $24 a year I hoped it would replace Spotify as my main music player. Sadly though the savings never turned me into an avid user.</p>
+<p>Spotify just feels better. The overall user experience is more refined, and the user interface is just easier to use. I like supporting the underdog, even though Spotify is big, they are not Google big, and I really <a href="https://blog.crisp.se/2013/01/13/henrikkniberg/how-spotify-builds-products" target="_blank" aria-label="Opens in a new tab">appreciate their ideals (so does Metallica for that matter)</a>. I use Spotify on my iPhone 5, my iPad 3, and all of my computers. Google All Access was available for all the same platforms. I had a huge library of playlists on Spotify, and I was able to transfer those to Google All Access to see if I could replace Spotify (although it wasn't easy).</p>
+<p>Spotify Premium is still well worth the $9.99 a month. Their selection is top notch, their audio quality is fantastic, and if they can fix a few small bugs with playback on their iPad app it will be close enough to perfect.</p>
