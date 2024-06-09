@@ -26,6 +26,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <InnerLayout
+  subtitle={entry.data.subtitle}
   meta={{
     title: entry.data.title,
     description: entry.data.description,

@@ -7,6 +7,7 @@ const blogCollection = defineCollection({
     isDraft: z.boolean(),
     title: z.string(),
     description: z.string(),
+    subtitle: z.string().optional(),
     // In frontmatter, dates written without quotes around them are interpreted as Date objects
     publishDate: z
       .string()
