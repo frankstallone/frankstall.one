@@ -1,24 +1,24 @@
 ---
-import { getCollection } from 'astro:content';
+// import { getCollection } from 'astro:content';
 import InnerLayout from '../../layouts/InnerLayout.astro';
 // import Likes from '@components/Likes.astro';
 
-export async function getStaticPaths() {
-  const blogEntries = await getCollection('blog');
-  return blogEntries.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { entry },
-  }));
-}
+// export async function getStaticPaths() {
+//   const blogEntries = await getCollection('blog');
+//   return blogEntries.map((entry) => ({
+//     params: { slug: entry.slug },
+//     props: { entry },
+//   }));
+// }
 
 const { entry } = Astro.props;
 
-import { db, sql, Like, eq } from 'astro:db';
+// import { db, sql, Like, eq } from 'astro:db';
 
-const [{ count }] = await db
-  .select({ count: sql<number>`count(*)` })
-  .from(Like)
-  .where(eq(Like.slug, entry.slug));
+// const [{ count }] = await db
+//   .select({ count: sql<number>`count(*)` })
+//   .from(Like)
+//   .where(eq(Like.slug, entry.slug));
 
 const { Content } = await entry.render();
 
