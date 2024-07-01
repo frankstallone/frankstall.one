@@ -1,15 +1,15 @@
 ---
-// import { getCollection } from 'astro:content';
+import { getCollection } from 'astro:content';
 import InnerLayout from '../../layouts/InnerLayout.astro';
 // import Likes from '@components/Likes.astro';
 
-// export async function getStaticPaths() {
-//   const blogEntries = await getCollection('blog');
-//   return blogEntries.map((entry) => ({
-//     params: { slug: entry.slug },
-//     props: { entry },
-//   }));
-// }
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog');
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
 
 const { entry } = Astro.props;
 
@@ -52,27 +52,27 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 <script>
   // Grab button
-  const likeButton = document.getElementById('like-button');
+  // const likeButton = document.getElementById('like-button');
   // Grab the slug from the button's data attribute
-  const slug = likeButton?.getAttribute('data-slug');
+  // const slug = likeButton?.getAttribute('data-slug');
 
   // If button is clicked, send a POST request to the server
-  likeButton?.addEventListener('click', async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch(`/api/like-post/${slug}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ slug: '{{ slug }}' }),
-      });
-      if (response.ok) {
-        const { message, count } = await response.json();
-        // console.log(message, count);
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  });
+  // likeButton?.addEventListener('click', async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await fetch(`/api/like-post/${slug}`, {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify({ slug: '{{ slug }}' }),
+  //     });
+  //     if (response.ok) {
+  //       const { message, count } = await response.json();
+  //       // console.log(message, count);
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // });
 </script>
