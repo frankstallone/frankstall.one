@@ -7,11 +7,11 @@ import db from '@astrojs/db';
 import astroExpressiveCode from 'astro-expressive-code';
 import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers';
 
-export const prerender = false;
+// export const prerender = false;
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'hybrid',
+  // output: 'hybrid',
   adapter: netlify({
     imageCDN: false,
   }),
