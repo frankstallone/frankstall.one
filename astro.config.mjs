@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import partytown from '@astrojs/partytown';
-import netlify from '@astrojs/netlify';
+// import netlify from '@astrojs/netlify';
 import db from '@astrojs/db';
 import astroExpressiveCode from 'astro-expressive-code';
 import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers';
@@ -12,9 +12,9 @@ import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers';
 // https://astro.build/config
 export default defineConfig({
   // output: 'hybrid',
-  adapter: netlify({
-    imageCDN: false,
-  }),
+  // adapter: netlify({
+  //   imageCDN: false,
+  // }),
   site: 'https://frankstall.one',
   integrations: [
     tailwind({
