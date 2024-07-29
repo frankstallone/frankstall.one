@@ -24,3 +24,6 @@ image: /media/newsletter/tenets-for-prosperity-part-1.png
 <p>I believe in perfectionism but do not see it as necessary for success. It is worthy to be the goal to strive for perfection from the inception of a product, service, or goal. It cannot be achieved all the time, but I should work my hardest to make something great. When I work on a project I’ll pause throughout and ask, “Is there an opportunity to make something better?” Friction to get to perfection comes from three facets. Time, resources, and money. For an organization, they’re better off overcoming that friction. Committing to move from mediocre, or good, to great can make all the difference.</p>
 <p>Fostering curiosity for myself, and others around me feels vital to success. I have a desire to learn, try and experience new things. The root of innovation is curiosity. Throughout my career I have mentored individuals at all sorts of parts of their journey. I’ve learned to cultivate curiosity in them — where they are. It takes energy and time, but it’s also what I look for when hiring.</p>
 <p>That’s it for this week! Next week we’ll cover the other four. What do you think of these tenets?</p>
+<h2>Update</h2>
+<p class="text-step-000 mt-2xs">Aug 5, 2023</p>
+<p>Part 2 is <a href="/blog/tenets-for-prosperity-part-2/">now available here</a>.</p>
