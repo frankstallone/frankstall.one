@@ -66,10 +66,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         },
         body: JSON.stringify({ slug: '{{ slug }}' }),
       });
-      if (response.ok) {
-        const { message, count } = await response.json();
-        // console.log(message, count);
-      }
+      // if (response.ok) {
+      //   const { message, count } = await response.json();
+      // console.log(message, count);
+      // }
     } catch (error) {
       console.error(error);
     }
