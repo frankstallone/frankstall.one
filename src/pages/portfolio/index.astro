@@ -20,6 +20,9 @@ import RollPortfolioGrid from '@components/RollPortfolioGrid.astro';
 import BTCPortfolioGrid from '@components/BTCPortfolioGrid.astro';
 import RollBanner from '@components/RollBanner.astro';
 import LoumarcGrid from '@components/LoumarcGrid.astro';
+
+import ADSBanner from '@components/ADSBanner.astro';
+import finalMockup from '@assets//klaviyo/ascent-design-system-high-fidelity-mock-up.png';
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -32,6 +35,24 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   }}
 >
   <section class="region wrapper flow" id="main">
+    <div class="flex flex-col gap-l md:grid" data-layout="twelfths">
+      <Picture
+        src={finalMockup}
+        widths={[300, 800, 2000, finalMockup.width]}
+        sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${finalMockup.width}px`}
+        pictureAttributes={{
+          class:
+            'object-contain h-full w-full md:row-start-1 md:row-span-8 md:col-start-1 md:col-span-12',
+        }}
+        class={'object-contain h-full w-full md:row-start-1 md:row-span-8 md:col-start-1 md:col-span-12'}
+        alt="Ascent Design System high fidelity mock up - main landing page"
+        formats={['avif', 'webp']}
+        loading="lazy"
+      />
+      <div class="md:row-start-2 md:row-span-8 md:col-start-2 md:col-span-6">
+        <ADSBanner />
+      </div>
+    </div>
     <div class="flow flow-space-l">
       <RollBanner />
       <RollPortfolioGrid />

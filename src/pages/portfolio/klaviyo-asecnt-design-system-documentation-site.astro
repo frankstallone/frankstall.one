@@ -1,0 +1,554 @@
+---
+import InnerLayout from '../../layouts/InnerLayout.astro';
+import { Picture } from 'astro:assets';
+
+import klaviyoAPI from '@assets//klaviyo/klaviyo-api-reference.webp';
+import finalMockup from '@assets//klaviyo/ascent-design-system-high-fidelity-mock-up.png';
+import finalMockupComponent from '@assets//klaviyo/ascent-design-system-high-fidelity-mock-up-phone-input.png';
+import ascentSitemap from '@assets//klaviyo/ascent-design-system-sitemap.png';
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<InnerLayout
+  subtitle="Creating a design system documentation site for Klaviyo, a marketing automation platform, collaboration exploration."
+  meta={{
+    title: 'Klaiyo: Ascent Design System Documentation Site',
+    description:
+      'Case study of the Ascent Design System documentation site for Klaviyo, from the portfolio of Frank Stallone',
+    canonicalURL: canonicalURL.href,
+    image: `/media/portfolio/roll-og-image.png`,
+  }}
+>
+  <section class="flow" id="main">
+    <div class="region">
+      <div class="wrapper">
+        <Picture
+          src={finalMockup}
+          widths={[300, 800, 2000, finalMockup.width]}
+          sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${finalMockup.width}px`}
+          pictureAttributes={{
+            class:
+              'object-contain h-full w-full row-start-1 row-span-5 col-start-1 col-span-12 md:row-start-1 md:row-span-10 md:col-span-8 md:col-start-1',
+          }}
+          class={'object-contain h-full w-full row-start-1 row-span-5 col-start-1 col-span-12 md:row-start-1 md:row-span-10 md:col-span-8 md:col-start-1'}
+          alt="Ascent Design System high fidelity mock up - main landing page"
+          formats={['avif', 'webp']}
+          loading="lazy"
+        />
+      </div>
+    </div>
+    <div class="region">
+      <div class="wrapper grid" data-layout="twelfths">
+        <div
+          class="row-start-1 row-span-5 col-span-12 md:col-span-7 md:col-start-1 lg:col-span-6 lg:col-start-1 box flow flow-space-xs border-solid border-b-2 border-x-0 border-t-0 text-gold-vivid-800 bg-gold-100 border-gold-700 z-10"
+        >
+          <h2 class="mt-zero">Product Spec</h2>
+          <p>
+            This is a mock up Product Specification written as an example of the
+            RFC process I used at Klaviyo to collaborate cross-team, aligning on
+            goals, and shape the design system documentation site work.
+          </p>
+          <p>
+            This document would be owned and written primarily by me, but with
+            stakeholders ability to add/comment throughout. I would engage with
+            those stakeholders on a weekly basis to ensure alignment, discuss
+            ideas, and refine desired outcomes within the time frame we want.
+          </p>
+        </div>
+        <Picture
+          src={klaviyoAPI}
+          widths={[300, 800, 2000, klaviyoAPI.width]}
+          sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${klaviyoAPI.width}px`}
+          pictureAttributes={{
+            class:
+              'object-contain h-full w-full row-span-6 md:row-start-1 md:row-span-6 col-span-12 md:col-span-8 md:col-start-6',
+          }}
+          class={'object-contain h-full w-full row-span-6 md:row-start-1 md:row-span-6 col-span-12 md:col-span-8 md:col-start-6'}
+          alt="Small business owner smiling on a call with a customer"
+          formats={['avif', 'webp']}
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+    <div class="region wrapper">
+      <div class="box flow flow-space-xs w-fit text-gray-1200 mx-auto">
+        <h2 class="mt-zero">Executive Summary</h2>
+        <p>
+          The Ascent Design System project aims to create a comprehensive,
+          public documentation site for Klaviyo's design system, replacing the
+          current Confluence-based solution with a dynamic,
+          static-site-generated platform using a headless CMS. This new system
+          will significantly improve content organization, component visibility,
+          and overall user experience while showcasing Klaviyo's design maturity
+          to potential talent and investors. Key features include enhanced
+          search functionality, live code demonstrations, strict access control,
+          SEO optimization, integrated analytics, and seamless integration with
+          existing tools. The project will be implemented in three phases over
+          six months, culminating in a full-featured release that aims to
+          improve internal user satisfaction, increase design system usage in
+          product design R&D, and enhance engagement with the broader design
+          system community.
+        </p>
+        <h2>The Problem Statement / User Stories</h2>
+        <p>
+          <em
+            >Describe in depth the problem. How was it discovered and proposed
+            solution. User stories are good to have here.</em
+          >
+        </p>
+        <p>
+          The goal of a public custom design system documentation site is
+          multifaceted, addressing both internal and external needs. Internally,
+          we aim to streamline features, enhancements, and communication between
+          product, design, and development teams. Externally, we want to
+          showcase our mature design discipline, serving as a touchpoint for
+          investors and prospective talent.
+        </p>
+        <p>
+          A comprehensive design system aids in consistency, collaboration,
+          productivity, scalability, and quality across the entire Klaviyo
+          product space. The current system includes Figma library UI kits, a
+          React component library, design tokens with style-dictionary, voice
+          and tone guidelines, and documentation in Confluence. However, without
+          clear, accessible, and well-organized documentation to answer what,
+          why, and how, a design system is incomplete.
+        </p>
+        <p>
+          Confluence, our current stopgap solution, is not organizing content
+          effectively, has findability issues, and lacks features crucial for
+          serving our diverse audience of product owners, designers, content
+          designers, data scientists, leadership, and developers. We need a
+          solution that addresses the following key problems:
+        </p>
+        <ol>
+          <li>
+            Improved Content Organization and Findability: We require better
+            fuzzy logic search, easier-to-use navigation (main and on-page), and
+            a structure that makes it simple for users to locate the information
+            they need quickly.
+          </li>
+          <li>
+            Enhanced Component Visibility and Access: We need to provide clear
+            visibility of available UI components and their APIs, with live code
+            demonstrations and better code API visibility.
+          </li>
+          <li>
+            Authentication and Access Control: The system must support different
+            levels of authentication for CRUD operations, ensuring that only
+            authorized users can make changes while maintaining appropriate
+            access for various user roles.
+          </li>
+          <li>
+            SEO and Discoverability: To showcase our design maturity and attract
+            talent, we need to ensure our design system documentation is
+            discoverable on the web through proper SEO optimization.
+          </li>
+          <li>
+            Analytics and Feedback Mechanisms: We require integrated analytics
+            and a robust feedback system to continuously improve our
+            documentation based on user behavior and direct input.
+          </li>
+          <li>
+            Integration with Existing Tools: The new system should integrate
+            seamlessly with our existing tools and workflows, including Figma,
+            GitHub, Slack, and Jira, to support efficient collaboration and
+            issue tracking.<a href="#dagger-01">†</a>
+          </li>
+          <li>
+            Scalability and Continuous Improvement: We need a flexible system
+            that can grow with our needs, supporting the continuous addition and
+            refinement of content and features.
+          </li>
+          <li>
+            Branding and User Experience: The documentation site should reflect
+            Klaviyo's brand and demonstrate our commitment to excellent user
+            experience, serving as a testament to our design and development
+            expertise.
+          </li>
+        </ol>
+        <p>
+          By addressing these issues, we aim to create a documentation site that
+          not only serves our internal teams more effectively but also positions
+          Klaviyo as a leader in design and development practices within the
+          marketing tech sector.
+        </p>
+        <h3>User Stories</h3>
+        <ul>
+          <li>
+            As a Product Designer, I want to see what UI components are
+            available for me to solve my feature or enhancement problem
+          </li>
+          <li>
+            As a Software Engineer, I want to see what API's are available for
+            the component I am implementing
+          </li>
+          <li>
+            As a Product Designer on the market, I want to see that Klaviyo
+            cares about design
+          </li>
+          <li>
+            As a Product Designer, or other authorized user, I want to be able
+            to preview, and update the documentation site with ease
+          </li>
+          <li>
+            As the owner of the documentation site, I want strict access on who
+            can and cannot access, or do CRUD actions on the headless CMS
+          </li>
+          <li>
+            As a distinguished brand in the marketing tech sector, Klaviyo wants
+            to show design maturity gaining confidence in the product with our
+            continuous efforts to improve UX/UI/CX
+          </li>
+          <li>
+            As a talented individual on the market, I want to see that Klaviyo
+            takes design and development seriously when doing my research on
+            whether or not to join the company
+          </li>
+        </ul>
+        <h2>Goals and Non-Goals</h2>
+
+        <p>
+          <em
+            >Bulleted list of explicitly what we are, and aren't doing. Used to
+            avoid scope creep.</em
+          >
+        </p>
+        <h3>Goals</h3>
+        <ul>
+          <li>
+            Create a dynamic SSG site with a headless CMS
+            <ul>
+              <li>
+                Static site for the documentation site that builds on publish
+                webhook from headless CMS.
+              </li>
+              <li>
+                Headless CMS with different levels of authentication for CRUD
+                operations
+              </li>
+            </ul>
+          </li>
+          <li>
+            Include all existing UI kit components, migrating documentation and
+            structure in Google Docs to the documentation site
+          </li>
+          <li>
+            Feedback form for users to provide meaningful feedback on any page
+          </li>
+          <li>
+            Deep linking to Figma library, GitHub, and Storybook for direct
+            access to components
+            <ul>
+              <li>
+                These links will only work for authenticated Figma, Storybook or
+                GitHub users
+              </li>
+            </ul>
+          </li>
+          <li>
+            Ensure proper basic SEO meta and Schema.org tags for findability on
+            the web <a href="#dagger-02">††</a>
+            <ul>
+              <li>Set up Google Analytics</li>
+              <li>Set up Google Search Console</li>
+            </ul>
+          </li>
+          <li>Setting up a Slack and Jira for support, requests, etc.</li>
+        </ul>
+        <h3>Non-goals</h3>
+        <ul>
+          <li>
+            Due do the component library living in the monorepo, and not public
+            <ul>
+              <li>
+                Our initial ship will not include code examples - to be scoped
+                in a feature post launch
+              </li>
+              <li>
+                Our initial ship will not include links to a public component
+                library
+              </li>
+            </ul>
+          </li>
+          <li>
+            Due to the Figma libraries not being public
+            <ul>
+              <li>
+                Our initial ship will not include Figma embed UI components
+              </li>
+            </ul>
+          </li>
+          <li>
+            Not integrating into our monorepo due to the lift required by the
+            backend engineering team
+          </li>
+          <li>Implementing a full commenting system per page</li>
+          <li>
+            Build out every section outlined in the sitemap prior to launch
+            <ul>
+              <li>
+                Once we have 80% of the content, as per decided by the design
+                system team, we'll launch and continue to add post launch
+              </li>
+            </ul>
+          </li>
+          <li>Not doing blog integration</li>
+        </ul>
+        <h2>Key Metrics</h2>
+        <p>
+          <em
+            >What does success and failure look like? What can you track to
+            gauge how things went?</em
+          >
+        </p>
+        <ul>
+          <li>
+            Internal consumers of the documentation site can find what they are
+            looking for with greater ease
+
+            <ul>
+              <li>
+                Quarterly surveys we're already doing gain 10% increase in
+                happiness with the documentation site over the next three
+                quarters
+              </li>
+              <li>
+                An increase in aspects of the design system being referenced
+                when doing team R&D
+              </li>
+            </ul>
+          </li>
+          <li>
+            We have a live presence on Google that we can advertise when hiring
+            designers, and developers
+          </li>
+          <li>Create engagement with the design system communities</li>
+        </ul>
+        <h2>Rollback Criteria</h2>
+
+        <p>
+          <em
+            >Think about when we stop doing this. Is it a trap door decision?</em
+          >
+        </p>
+
+        <ul>
+          <li>
+            This is not a trap door decision
+
+            <ul>
+              <li>
+                In other words, we can go back to using Google Docs and
+                Confluence if this should fail
+              </li>
+            </ul>
+          </li>
+          <li>
+            Technical difficulties with regards to the technology stack should
+            be evaluate for graceful fallbacks
+
+            <ul>
+              <li>
+                For instance if there is an issue with the headless CMS, we use
+                Markdown files in Astro itself which we can later migrate
+              </li>
+            </ul>
+          </li>
+          <li>
+            If we're running into major set backs and it looks to be by out Beta
+            time the GA release will miss it's target, we'll implement an
+            intermediary solution like Knapsack, to move off Confluence and
+            Google Docs
+          </li>
+        </ul>
+
+        <h2>Timelines</h2>
+
+        <p>
+          <em
+            >When do you expect to have an alpha, beta, or general release? If
+            it's a larger project, what milestones or checkpoints will we be
+            tracking?</em
+          >
+        </p>
+        <h3>1 Month (Alpha)</h3>
+
+        <ul>
+          <li>A repeatable local build environment</li>
+          <li>Git repository on the enterprise GitHub account</li>
+          <li>Live website on host Astro site with minimal theming</li>
+          <li>50% functionality in place</li>
+        </ul>
+
+        <h3>3 Months (Beta)</h3>
+
+        <ul>
+          <li>
+            Headless CMS in place and content structured for
+
+            <ul>
+              <li>Overview page layouts</li>
+              <li>Component page layouts</li>
+            </ul>
+          </li>
+          <li>CI/CD in place with the headless CMS</li>
+          <li>Theme has incrementally gotten closer to our branding</li>
+          <li>
+            Training and onboarding for authenticated users to fill out content
+            in their designated areas
+          </li>
+          <li>75% functionality in place</li>
+        </ul>
+
+        <h3>6 Months (GA Release)</h3>
+
+        <ul>
+          <li>All teams are ramped on on content production</li>
+          <li>We're refining the layout and design, but it's on brand</li>
+          <li>Adding nice-to-have features</li>
+          <li>
+            Set up a support channel on Slack for bugs/requests
+            <ul>
+              <li>Set up a area in Jira for tracking bugs/requests</li>
+              <li>Linking Jira to Slack channel for notifications</li>
+            </ul>
+          </li>
+          <li>100% functionality in place</li>
+        </ul>
+        <h2>Designs / Mocks</h2>
+        <p>
+          <em
+            >Visuals to help aid in getting the message across. Low fidelity is
+            fine here.</em
+          >
+        </p>
+        <h3>Sitemap</h3>
+        <Picture
+          src={ascentSitemap}
+          widths={[300, 800, 2000, ascentSitemap.width]}
+          sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${ascentSitemap.width}px`}
+          pictureAttributes={{
+            class:
+              'object-contain h-full w-full row-start-1 row-span-5 col-start-1 col-span-12 md:row-start-1 md:row-span-10 md:col-span-8 md:col-start-1',
+          }}
+          class={'object-contain h-full w-full row-start-1 row-span-5 col-start-1 col-span-12 md:row-start-1 md:row-span-10 md:col-span-8 md:col-start-1'}
+          alt="Ascent Design System FigJam sitemap"
+          formats={['avif', 'webp']}
+          loading="lazy"
+        />
+        <h2>Technical Concerns / Outstanding Questions</h2>
+
+        <p>
+          <em
+            >Big open questions, or questions that cannot be answered until you
+            start getting into the weeds.</em
+          >
+        </p>
+        <ul>
+          <li>
+            Headless CMS to use <br />
+            <em
+              >The following are recommended due to research and prior
+              experience</em
+            >
+          </li>
+          <ul>
+            <li><a href="https://www.sanity.io/" target="_blank">Sanity</a></li>
+            <li><a href="https://directus.io/" target="_blank">Directus</a></li>
+            <li>
+              <a href="https://keystatic.com/" target="_blank">Keystatic</a>
+            </li>
+          </ul>
+          <li>
+            Deployment server (host) <br />
+            <em
+              >The following are recommended due to the speed in which we can
+              get CI/CD up and running</em
+            >
+            <ul>
+              <li>
+                <a href="https://www.netlify.com/" target="_blankx">Netlify</a>
+              </li>
+              <li><a href="https://vercel.com/" target="_blank">Vercel</a></li>
+            </ul>
+          </li>
+          <li>
+            <span id="dagger-01">†</span> For the initial GA release, we won't everything
+            publicly available. There will be some extra steps for internal team
+            members to access certain aspects. More seamless integration will come
+            after GA release or we simply will not launch on time.
+          </li>
+          <li>
+            <span id="dagger-02">††</span> Do we want to set up Hotjar for behavior
+            tracking?
+          </li>
+          <li>
+            Leaning towards <a href="https://astro.build" target="_blank"
+              >Astro</a
+            >, or specifically <a
+              href="https://starlight.astro.build/"
+              target="_blank"
+            >
+              Astro Starlight
+            </a> with a headless CMS for a team to easily update content
+          </li>
+          <li>
+            The engineering team, generally, wants to move the app itself to
+            Next.js
+
+            <ul>
+              <li>
+                Do we want to consider that for the documentation site front-end
+                since our company is full of React developers?
+              </li>
+            </ul>
+          </li>
+          <li>
+            Do we want to eventually pull this into the app monorepo?
+            <ul>
+              <li>
+                our component library ever going to be abstracted for public
+                consumption like our peers <a
+                  href="https://polaris.shopify.com/"
+                  target="_blank"
+                >
+                  Shopify with Polaris
+                </a>?
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <h3>Future</h3>
+        <ul>
+          <li>
+            We'll want to make this a hybrid SSG/SSR site for dynamic features,
+            like quick feedback thumbs
+          </li>
+          <li>
+            We'd like to build out blogging functionality to so we can have a
+            platform to distribute content
+          </li>
+          <li>Component library access for live code examples in the site</li>
+        </ul>
+      </div>
+    </div>
+    <div class="region">
+      <div class="wrapper">
+        <Picture
+          src={finalMockupComponent}
+          widths={[300, 800, 2000, finalMockupComponent.width]}
+          sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${finalMockupComponent.width}px`}
+          pictureAttributes={{
+            class:
+              'object-contain h-full w-full row-start-1 row-span-5 col-start-1 col-span-12 md:row-start-1 md:row-span-10 md:col-span-8 md:col-start-1',
+          }}
+          class={'object-contain h-full w-full row-start-1 row-span-5 col-start-1 col-span-12 md:row-start-1 md:row-span-10 md:col-span-8 md:col-start-1'}
+          alt="Ascent Design System high fidelity mock up - main landing page"
+          formats={['avif', 'webp']}
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+</InnerLayout>
