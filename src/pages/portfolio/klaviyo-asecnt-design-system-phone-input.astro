@@ -6,6 +6,8 @@ import phoneInput from '@assets/klaviyo/klaviyo-asecnt-design-system-phone-input
 import research from '@assets/klaviyo/klaviyo-asecnt-design-system-phone-input-research.png';
 import ideation from '@assets/klaviyo/klaviyo-asecnt-design-system-phone-input-ideation.png';
 import doc from '@assets/klaviyo/klaviyo-asecnt-design-system-phone-input-doc.png';
+import field from '@assets/klaviyo/klaviyo-asecnt-design-system-field.png';
+import component from '@assets/klaviyo/klaviyo-asecnt-design-system-phone-input-component.png';
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -236,6 +238,18 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           with existing internal components that are already solving that
           problem.
         </p>
+        <Picture
+          src={field}
+          widths={[300, 800, 2000, field.width]}
+          sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${field.width}px`}
+          pictureAttributes={{
+            class: 'object-contain h-auto w-auto',
+          }}
+          class={'object-contain h-auto w-auto'}
+          alt="Phone input component in a Field component showing variants"
+          formats={['avif', 'webp']}
+          loading="lazy"
+        />
         <p>
           Coming back to the documentation for the component, this is where I
           add:
@@ -271,15 +285,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         </p>
       </div>
       <Picture
-        src={doc}
-        widths={[300, 800, 2000, doc.width]}
-        sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${doc.width}px`}
+        src={component}
+        widths={[300, 800, 2000, component.width]}
+        sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${component.width}px`}
         pictureAttributes={{
           class:
-            'object-contain h-full w-full md:row-start-1 md:row-span-6 md:col-span-12 md:col-start-2',
+            'object-contain h-full w-full md:row-start-1 md:row-span-5 md:col-span-7 md:col-start-7',
         }}
-        class={'object-contain h-full w-full md:row-start-1 md:row-span-6 md:col-span-12 md:col-start-2'}
-        alt="Iterations of the phone number input"
+        class={'object-contain h-full w-full md:row-start-1 md:row-span-5 md:col-span-7 md:col-start-7'}
+        alt="Phone input component with other composit components"
         formats={['avif', 'webp']}
         loading="lazy"
       />
