@@ -1,0 +1,288 @@
+---
+import InnerLayout from '../../layouts/InnerLayout.astro';
+import { Picture } from 'astro:assets';
+
+import phoneInput from '@assets/klaviyo/klaviyo-asecnt-design-system-phone-input-banner.png';
+import research from '@assets/klaviyo/klaviyo-asecnt-design-system-phone-input-research.png';
+import ideation from '@assets/klaviyo/klaviyo-asecnt-design-system-phone-input-ideation.png';
+import doc from '@assets/klaviyo/klaviyo-asecnt-design-system-phone-input-doc.png';
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<InnerLayout
+  subtitle="Creating 'just' another phone number input for Klaviyo's Ascent Design System subscribers."
+  meta={{
+    title: 'Klaviyo Ascent Design System: Phone input',
+    description:
+      'Case study of the Ascent Design System Phone number input for Klaviyo, from the portfolio of Frank Stallone',
+    canonicalURL: canonicalURL.href,
+    image: `/media/portfolio/kl-og-image.png`,
+  }}
+>
+  <section class="flow" id="main">
+    <div class="region">
+      <div class="wrapper grid" data-layout="twelfths">
+        <div
+          class="row-start-1 row-span-5 col-span-12 md:col-span-7 md:col-start-1 lg:col-span-6 lg:col-start-1 box flow flow-space-xs border-solid border-b-2 border-x-0 border-t-0 text-gold-vivid-800 bg-gold-100 border-gold-700 z-10"
+        >
+          <h2 class="mt-zero">The Challenge</h2>
+          <p>
+            What could be more simple than creating a Phone Number component?
+            Constructing a simple yet powerful component that was ready for the
+            future of the Klaviyo app, and work well for the marketing team.
+          </p>
+          <p>
+            The challenge here was to consider all of the possible ways to
+            layout an input, in the context of others, that gave the user
+            affordances to choose their country, and handling validation for
+            such a renown complex component.
+          </p>
+          <p>
+            Through discussions with the stakeholders I was able to acquire some
+            insight into previously used solutions by the marketing team, where
+            they wanted to go, and pulled that all into my research document.
+            There were a few stand out features that came became primary
+            priorities:
+          </p>
+          <ul>
+            <li>
+              Representing different countries, with a default based on the
+              app's locale
+            </li>
+            <li>
+              Phone number formatting of the input mask and placeholder based on
+              the country
+            </li>
+            <li>Consistent look and feel with the rest of the Klaviyo app</li>
+          </ul>
+          <p>
+            Getting these primary considerations together, and in alignment with
+            stakeholders, meant the product and marketing teams would be able to
+            use this single component for their use cases.
+          </p>
+        </div>
+        <Picture
+          src={phoneInput}
+          widths={[300, 800, 2000, phoneInput.width]}
+          sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${phoneInput.width}px`}
+          pictureAttributes={{
+            class:
+              'object-contain h-full w-full row-span-6 md:row-start-1 md:row-span-6 col-span-12 md:col-span-8 md:col-start-6',
+          }}
+          class={'object-contain h-full w-full row-span-6 md:row-start-1 md:row-span-6 col-span-12 md:col-span-8 md:col-start-6'}
+          alt="Small business owner smiling on a call with a customer"
+          formats={['avif', 'webp']}
+          loading="lazy"
+        />
+      </div>
+    </div>
+    <div class="wrapper flex flex-col md:grid" data-layout="twelfths">
+      <div
+        class="md:row-start-2 md:row-span-4 md:col-start-2 md:col-span-8 box flow flow-space-xs w-fit border-solid border-b-2 border-x-0 border-t-0 text-gold-vivid-800 bg-gold-100 border-gold-700 z-10"
+      >
+        <h2 class="mt-zero">Discovery and Collaboration</h2>
+        <p>
+          This particular journey begins with an extensive list of prioritized
+          components and the organizations larger initiative to enter the
+          international space. We had an existing component that was similar,
+          the Number Input, however the variations for this input were growing
+          on it's own without putting in logic for phone numbers.
+        </p>
+        <p>
+          In talking to a few different team leaders I created a list of
+          stakeholders who had a vested interest in the results. These
+          stakeholders included Directors of Product Design, and Engineering
+          Managers on both the app team, and marketing team. I also consulted
+          with other Lead Product Designers who had related expertise. I
+          scheduled interviews with these individuals to inform them on my
+          process, gather any requirements or requests to create user stories,
+          and let them know how I would be communicating progress through Jira.
+        </p>
+        <p>
+          While waiting for those meetings, I starting a FigJam pulling in
+          existing references from our Number Input and commenting on
+          similarities and differences. I then performed cursory research into
+          what other design systems were doing for a Phone Number input, also
+          searching a few design system communities. I laughed &mdash; I had
+          personal experience designing and developing the Roll by ADP Phone
+          Number React input, and saw the same complex logic discussions and
+          trade offs in older online community threads. Specifically, I remember
+          dealing with the definitive phone number formatting and parsing
+          library, developed by Google. It's JavaScript port is 8MB which
+          drastically affects web app performance.
+        </p>
+      </div>
+      <Picture
+        src={research}
+        widths={[300, 800, 2000, research.width]}
+        sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${research.width}px`}
+        pictureAttributes={{
+          class:
+            'object-contain h-full w-full md:row-start-1 md:row-span-6 md:col-span-12 md:col-start-1',
+        }}
+        class={'object-contain h-full w-full md:row-start-1 md:row-span-6 md:col-span-12 md:col-start-1'}
+        alt="Small business owner smiling on a call with a customer"
+        formats={['avif', 'webp']}
+        loading="lazy"
+      />
+    </div>
+  </section>
+  <div class="region">
+    <div class="wrapper flex flex-col md:grid" data-layout="twelfths">
+      <div
+        class="md:row-start-1 md:row-span-8 md:col-start-6 md:col-span-6 box flow flow-space-xs border-solid border-b-2 border-x-0 border-t-0 text-gold-vivid-800 bg-gold-100 border-gold-700 z-10"
+      >
+        <h2 class="mt-zero">Ideation and Design</h2>
+        <p>
+          Taking a step back to look at all of the data and information
+          collected from stakeholders, existing component methodology, and
+          research guidelines and UX from other design systems I'm armed with
+          everything I need to make decisions about how this component will look
+          and feel. This is where the whiteboard or sketchpad comes in handy.
+          I'll take themes that start to develop and sketch them out.
+        </p>
+        <p>
+          At the same time, I am writing a template we created for the design
+          system team to organize our documentation of the component. This
+          includes:
+        </p>
+        <ul>
+          <li>
+            Best practices
+            <ul>
+              <li>What to use</li>
+              <li>When not to use</li>
+            </ul>
+          </li>
+          <li>Related components</li>
+          <li>Internal components (that will be used in this component)</li>
+          <li>Rules</li>
+          <li>
+            Behaviors
+            <ul>
+              <li>
+                States: Describing each state the component can be in, and the
+                expectations
+              </li>
+              <li>
+                Interactions: Describing the mouse, keyboard, and screen reader
+                expectations
+              </li>
+            </ul>
+          </li>
+          <li>
+            Content
+            <ul>
+              <li>
+                Working with the Content design team to align with best
+                practices, and set expectations
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <p>
+          During our regular stand ups with the team, we critique everyones
+          work. This is where I bring up to the team my progress, and discuss
+          best practice decisions. After those critiques, I will update the
+          stakeholders to ensure they are on board, with the right level of
+          detail. For instance, a Product Owners may only need a written
+          bulleted list of what's been done, and whether we're on track. Product
+          Designers and Engineers who are subscribers to the design system, and
+          have a vested interest in the component may get that same list with
+          visuals, or links directly to Figma for them to provide feedback.
+        </p>
+        <p>
+          Let's take a moment to talk about critiques. I have successfully used
+          a few techniques throughout my career that were embedded since design
+          school around critiques. No matter what your title is, I always keep
+          the conversation related to the ideas and decisions that brought us to
+          those ideas. Doing this keeps us on track with the objectives shaped
+          from the start, and dissolves any potential emotional consequences.
+          It's never about who is doing the work, it's about the work and
+          whether that meets the needs of our users and the business.
+        </p>
+      </div>
+      <Picture
+        src={ideation}
+        widths={[300, 800, 2000, ideation.width]}
+        sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${ideation.width}px`}
+        pictureAttributes={{
+          class:
+            'object-contain h-full w-full md:row-start-2 md:row-span-4 md:col-span-10 md:col-start-1',
+        }}
+        class={'object-contain h-full w-full md:row-start-2 md:row-span-4 md:col-span-10 md:col-start-1'}
+        alt="Iterations of the phone number input"
+        formats={['avif', 'webp']}
+        loading="lazy"
+      />
+    </div>
+  </div>
+  <div class="region">
+    <div class="wrapper flex flex-col md:grid" data-layout="twelfths">
+      <div
+        class="md:row-start-1 md:row-span-4 md:col-start-1 md:col-span-6 box flow flow-space-xs border-solid border-b-2 border-x-0 border-t-0 text-gold-vivid-800 bg-gold-100 border-gold-700 z-10"
+      >
+        <h2 class="mt-zero">Refinement &amp; Results</h2>
+        <p>
+          Since Figma is the tool of choice these days, it's worth noting that I
+          will start designing without aligning Figma Styles or Variants for
+          speed, and to explore any newer innovation a component may need.
+          During the refinement stages, I start to align closer to existing
+          component design principals that have been set by the team. In this
+          particular case, the Phone input is similar to the Text input, a form
+          component. That means sitting it in a Field component to see how it
+          works with other inputs, labels, descriptions, and error messages.
+          I'll also start applying any relevant Styles and replacing any parts
+          with existing internal components that are already solving that
+          problem.
+        </p>
+        <p>
+          Coming back to the documentation for the component, this is where I
+          add:
+        </p>
+        <ul>
+          <li>
+            Visual representations of what to do, and what not to do for the
+            Rules
+          </li>
+          <li>
+            Variants: Relevant states and how they look compared to base, and
+            any relevant data
+          </li>
+          <li>
+            Anatomy: One of the visuals we use on the documentation site, and in
+            the Figma component itself is a section with redlines to clearly
+            articulate naming. This helps for describing and talking about the
+            decisions made about each of these parts that make the whole
+          </li>
+        </ul>
+        <p>
+          Finally we clean up the Figma file ensuring actual components are in
+          the right page, and that there is a documentation page with examples
+          of all the relevant states and considerations.
+        </p>
+        <p>
+          The results are a well thought out component with all the design,
+          development, content, and accessibility considerations that make our
+          teams more efficient and effective at their job. We'll ensure we've
+          updated the Figma library changelog accordingly, and broadcast to all
+          stakeholders via email newsletters, Slack groups, DM's and relevant
+          calls.
+        </p>
+      </div>
+      <Picture
+        src={doc}
+        widths={[300, 800, 2000, doc.width]}
+        sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${doc.width}px`}
+        pictureAttributes={{
+          class:
+            'object-contain h-full w-full md:row-start-1 md:row-span-6 md:col-span-12 md:col-start-2',
+        }}
+        class={'object-contain h-full w-full md:row-start-1 md:row-span-6 md:col-span-12 md:col-start-2'}
+        alt="Iterations of the phone number input"
+        formats={['avif', 'webp']}
+        loading="lazy"
+      />
+    </div>
+  </div>
+</InnerLayout>
