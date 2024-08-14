@@ -38,19 +38,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   }}
 >
   <section class="region wrapper flow" id="main">
-    <div
-      class="flow flex flex-col flow-space-l region md:grid"
-      data-layout="twelfths"
-    >
+    <div class="flow flow-space-l region pt-zero" data-layout="twelfths">
+      <ADSPhoneBanner />
       <Picture
         src={phoneInput}
         widths={[300, 800, 2000, phoneInput.width]}
         sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${phoneInput.width}px`}
         pictureAttributes={{
-          class:
-            'object-contain h-full w-full md:row-start-1 md:row-span-8 md:col-start-1 md:col-span-12 hidden md:block',
+          class: 'object-contain h-full w-full md:block',
         }}
-        class={'object-contain h-full w-full md:row-start-1 md:row-span-8 md:col-start-1 md:col-span-12 hidden md:block'}
+        class={'object-contain h-full w-full md:block'}
         alt="Phone input component in Figma, multiple variants with redlines"
         formats={['avif', 'webp']}
         loading="lazy"
@@ -60,38 +57,28 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         widths={[300, 800, 2000, phoneInputSingle.width]}
         sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${phoneInputSingle.width}px`}
         pictureAttributes={{
-          class:
-            'object-contain h-full w-full md:row-start-1 md:row-span-8 md:col-start-1 md:col-span-12 md:hidden',
+          class: 'object-contain h-full w-full md:hidden',
         }}
-        class={'object-contain h-full w-full md:row-start-1 md:row-span-8 md:col-start-1 md:col-span-12 md:hidden'}
+        class={'object-contain h-full w-full md:hidden'}
         alt="Phone input component in Figma, single variant with redlines"
         formats={['avif', 'webp']}
         loading="lazy"
       />
-      <div class="md:row-start-4 md:row-span-8 md:col-start-6 md:col-span-6">
-        <ADSPhoneBanner />
-      </div>
     </div>
-    <div
-      class="flow flex flex-col flow-space-l region md:grid"
-      data-layout="twelfths"
-    >
+    <div class="flow flow-space-l region" data-layout="twelfths">
+      <ADSBanner />
       <Picture
         src={finalMockup}
         widths={[300, 800, 2000, finalMockup.width]}
         sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${finalMockup.width}px`}
         pictureAttributes={{
-          class:
-            'object-contain h-full w-full md:row-start-1 md:row-span-8 md:col-start-1 md:col-span-12',
+          class: 'object-contain h-full w-full',
         }}
-        class={'object-contain h-full w-full md:row-start-1 md:row-span-8 md:col-start-1 md:col-span-12'}
+        class={'object-contain h-full w-full'}
         alt="Ascent Design System high fidelity mock up - main landing page"
         formats={['avif', 'webp']}
         loading="lazy"
       />
-      <div class="md:row-start-2 md:row-span-8 md:col-start-2 md:col-span-6">
-        <ADSBanner />
-      </div>
     </div>
     <div class="flow flow-space-l region">
       <RollBanner />
