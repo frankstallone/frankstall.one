@@ -5,7 +5,6 @@ More info: https://every-layout.dev/layouts/box/#the-generator
 
 .box {
   @apply text-gray-1400 bg-white;
-  /* TODO: is --space-l better? */
   padding: var(--space-s-m);
 }
 

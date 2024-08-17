@@ -4,8 +4,10 @@ import type { GetStaticPaths, Page } from 'astro';
 import Layout from '../layouts/Layout.astro';
 import type { Props as HeadProps } from '@components/Head.astro';
 
-import RollPortfolioGrid from '@components/RollPortfolioGrid.astro';
-import RollBanner from '@components/RollBanner.astro';
+import phoneInput from '@assets/klaviyo/klaviyo-asecnt-design-system-phone-input-banner.png';
+import phoneInputSingle from '@assets/klaviyo/klaviyo-asecnt-design-system-phone-input-single.png';
+import ADSPhoneBanner from '@components/ADSPhoneBanner.astro';
+import { Picture } from 'astro:assets';
 
 type Props = {
   page: Page<CollectionEntry<'blog'>>;
@@ -112,8 +114,31 @@ const { page } = Astro.props;
   </section>
   <div class="region flow bg-gray-100">
     <div class="wrapper flow flow-space-xl">
-      <RollBanner />
-      <RollPortfolioGrid />
+      <ADSPhoneBanner />
+      <Picture
+        src={phoneInput}
+        widths={[300, 800, 2000, phoneInput.width]}
+        sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${phoneInput.width}px`}
+        pictureAttributes={{
+          class: 'object-contain h-full w-full md:block',
+        }}
+        class={'object-contain h-full w-full md:block'}
+        alt="Phone input component in Figma, multiple variants with redlines"
+        formats={['avif', 'webp']}
+        loading="lazy"
+      />
+      <Picture
+        src={phoneInputSingle}
+        widths={[300, 800, 2000, phoneInputSingle.width]}
+        sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${phoneInputSingle.width}px`}
+        pictureAttributes={{
+          class: 'object-contain h-full w-full md:hidden',
+        }}
+        class={'object-contain h-full w-full md:hidden'}
+        alt="Phone input component in Figma, single variant with redlines"
+        formats={['avif', 'webp']}
+        loading="lazy"
+      />
       <aside
         class="uppercase font-mono font-medium text-step-000 text-gray-1100 text-right"
       >
