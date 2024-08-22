@@ -59,18 +59,22 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     </div>
     <div class="flow flow-space-l region" data-layout="twelfths">
       <ADSBanner />
-      <Picture
-        src={finalMockup}
-        widths={[300, 800, 2000, finalMockup.width]}
-        sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${finalMockup.width}px`}
-        pictureAttributes={{
-          class: 'object-contain h-full w-full',
-        }}
-        class={'object-contain h-full w-full'}
-        alt="Ascent Design System high fidelity mock up - main landing page"
-        formats={['avif', 'webp']}
-        loading="lazy"
-      />
+      <video
+        autoplay
+        loop
+        muted
+        playsinline
+        class="min-w-zero max-w-full md:row-start-3 md:row-span-2 md:col-span-8 md:col-start-1"
+      >
+        <source
+          src="/media/klaviyo/ascent-design-system-scroll-by-cover-web.webm"
+          type="video/webm"
+        />
+        <source
+          src="/media/klaviyo/ascent-design-system-scroll-by-cover-web.mp4"
+          type="video/mp4"
+        />
+      </video>
     </div>
     <div class="flow flow-space-l region">
       <RollBanner />
