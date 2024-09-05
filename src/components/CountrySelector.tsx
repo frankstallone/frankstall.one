@@ -7,13 +7,13 @@ import { UnitedStates } from '../flags/unitedstates';
 import { Chevron } from '../svg/chevron';
 
 const options = [
-  { value: 'UR', label: 'Ukraine', icon: Ukraine },
+  { value: 'UA', label: 'Ukraine', icon: Ukraine },
   {
-    value: 'UA',
+    value: 'UE',
     label: 'United Arab Emirates',
     icon: UnitedArabEmirates,
   },
-  { value: 'UK', label: 'United Kingdom', icon: UnitedKingdom },
+  { value: 'GB', label: 'United Kingdom', icon: UnitedKingdom },
   { value: 'US', label: 'United States', icon: UnitedStates },
 ];
 
@@ -51,7 +51,6 @@ export default function CountrySelector() {
   return (
     <Select
       unstyled
-      defaultMenuIsOpen
       defaultValue={country}
       options={options}
       onChange={handleSetCountry}

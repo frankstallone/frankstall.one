@@ -317,7 +317,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       </div>
     </div>
     <div class="region wrapper">
-      <PhoneInput client:idle />
+      <div class="box mx-auto w-fit flow prose">
+        <h2>React component</h2>
+        <div>
+          <PhoneInput client:idle />
+        </div>
+      </div>
     </div>
   </section>
 </InnerLayout>

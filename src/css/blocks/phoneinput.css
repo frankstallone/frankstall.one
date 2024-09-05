@@ -57,10 +57,13 @@
 .country-selector .country-selector__menu {
   width: max-content;
   min-width: 200px;
+  min-height: max-content;
+  max-height: 400px;
+  overflow-y: auto;
+  overflow-x: clip;
   margin-block: 5px;
   border: 1px solid #959697;
   border-radius: 6px;
-  overflow: hidden;
 }
 
 .country-selector .country-selector__menu-list {

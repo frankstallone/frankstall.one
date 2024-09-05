@@ -2,10 +2,21 @@ import { useState } from 'react';
 import { templateParser, templateFormatter, parseDigit } from 'input-format';
 import ReactInput from 'input-format/react';
 import CountrySelector from './CountrySelector';
+// import flags from '../flags/index.json';
 
 // US phone number template
 // TODO: Make this dynamic based on country
 const DEFAULT_TEMPLATE = '(xxx) xxx-xxxx';
+
+// function updateTemplate(iso: string) {
+//   const country = flags.find((country: any) => country.iso === iso);
+//   if (!country) return DEFAULT_TEMPLATE;
+//   if (Array.isArray(country.mask)) {
+//     return country.mask[0];
+//   } else {
+//     return country.mask;
+//   }
+// }
 
 const parse = templateParser(DEFAULT_TEMPLATE, parseDigit);
 const format = templateFormatter(DEFAULT_TEMPLATE);
