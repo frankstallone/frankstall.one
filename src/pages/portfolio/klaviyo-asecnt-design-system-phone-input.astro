@@ -1,7 +1,7 @@
 ---
 import InnerLayout from '../../layouts/InnerLayout.astro';
 import { Picture } from 'astro:assets';
-
+import PhoneInput from '@components/PhoneInput.tsx';
 import research from '@assets/klaviyo/klaviyo-asecnt-design-system-phone-input-research.png';
 import ideation from '@assets/klaviyo/klaviyo-asecnt-design-system-phone-input-ideation.png';
 import field from '@assets/klaviyo/klaviyo-asecnt-design-system-field.png';
@@ -315,6 +315,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           />
         </video>
       </div>
+    </div>
+    <div class="region wrapper">
+      <PhoneInput client:idle />
     </div>
   </section>
 </InnerLayout>
