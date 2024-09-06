@@ -7,6 +7,8 @@
 .phone-input {
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
   border: 1px solid #959697;
   border-left: 0;
   text-align: left;
