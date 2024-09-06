@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { templateParser, templateFormatter, parseDigit } from 'input-format';
 import ReactInput from 'input-format/react';
 import CountrySelector from './CountrySelector';
-import flags from '../flags/index.json';
+import countryMasks from '../../flags/index.json';
 
 /**
  * PhoneInput component
@@ -16,6 +16,9 @@ export default function PhoneInput() {
   // US phone number template
   const [template, setTemplate] = useState('(xxx) xxx-xxxx');
 
+  const parse = templateParser(template, parseDigit);
+  const format = templateFormatter(template);
+
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement> | string | undefined,
   ) => {
@@ -23,7 +26,9 @@ export default function PhoneInput() {
   };
 
   function updateTemplate(iso: string) {
-    const countryToUpdate = flags.find((country: any) => country.iso === iso);
+    const countryToUpdate = countryMasks.find(
+      (country: any) => country.iso === iso,
+    );
 
     if (!countryToUpdate) return template;
     if (Array.isArray(countryToUpdate.mask)) {
@@ -34,9 +39,6 @@ export default function PhoneInput() {
       setValue('');
     }
   }
-
-  const parse = templateParser(template, parseDigit);
-  const format = templateFormatter(template);
 
   return (
     <div className="phone-input-container">
