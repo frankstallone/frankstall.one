@@ -24,6 +24,7 @@ export default function PhoneInput() {
 
   function updateTemplate(iso: string) {
     const countryToUpdate = flags.find((country: any) => country.iso === iso);
+
     if (!countryToUpdate) return template;
     if (Array.isArray(countryToUpdate.mask)) {
       setTemplate(countryToUpdate.mask[0]);
