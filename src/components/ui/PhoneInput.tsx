@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { templateParser, templateFormatter, parseDigit } from 'input-format';
 import ReactInput from 'input-format/react';
-import CountrySelector from './CountrySelector';
-import countryMasks from '../../flags/index.json';
+import CountrySelector from '@ui/CountrySelector';
+import countryMasks from '@ui/flags/index.json';
 
 /**
  * PhoneInput component

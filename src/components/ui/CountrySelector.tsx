@@ -1,18 +1,18 @@
 import { useState, createElement } from 'react';
 import Select, { components } from 'react-select';
-import { Chevron } from '../../svg/chevron';
+import { Chevron } from '@ui/svg/chevron';
 // https://nucleoapp.com/svg-flag-icons
-import { Ukraine } from '../../flags/ukraine';
-import { UnitedArabEmirates } from '../../flags/unitedarabemirates';
-import { UnitedKingdom } from '../../flags/unitedkingdom';
-import { UnitedStates } from '../../flags/unitedstates';
-import { Uruguay } from '../../flags/uruguay';
-import { Uzbekistan } from '../../flags/uzbekistan';
-import { Venezuela } from '../../flags/venezuela';
-import { Vietnam } from '../../flags/vietnam';
-import { Yemen } from '../../flags/yemen';
-import { Zambia } from '../../flags/zambia';
-import { Zimbabwe } from '../../flags/zimbabwe';
+import { Ukraine } from '@ui/flags/ukraine';
+import { UnitedArabEmirates } from '@ui/flags/unitedarabemirates';
+import { UnitedKingdom } from '@ui/flags/unitedkingdom';
+import { UnitedStates } from '@ui/flags/unitedstates';
+import { Uruguay } from '@ui/flags/uruguay';
+import { Uzbekistan } from '@ui/flags/uzbekistan';
+import { Venezuela } from '@ui/flags/venezuela';
+import { Vietnam } from '@ui/flags/vietnam';
+import { Yemen } from '@ui/flags/yemen';
+import { Zambia } from '@ui/flags/zambia';
+import { Zimbabwe } from '@ui/flags/zimbabwe';
 
 interface CountrySelectorProps {
   updateTemplate: (value: string) => void;
