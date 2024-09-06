@@ -1,0 +1,100 @@
+.phone-input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.phone-input {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  text-align: left;
+  max-width: 200px;
+}
+
+.phone-input:focus {
+  border: 1px solid #3364a8;
+  outline: 3px solid #d2edfc;
+  outline-offset: 0;
+}
+
+.phone-input,
+.country-selector .country-selector__control {
+  font-size: 1rem;
+  color: #1d1e20;
+  border: 1px solid #959697;
+  padding-inline: 5px;
+  background: #fff;
+  max-height: 30px;
+}
+
+.country-selector .country-selector__control {
+  border-right: 0;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 30px;
+  gap: 4px;
+}
+
+.country-selector .country-selector__control--is-focused {
+  border: 1px solid #3364a8;
+  /* Overriding React Select's !important flag 🙈 */
+  outline: 3px solid #d2edfc !important;
+  outline-offset: 0;
+}
+
+.country-selector .country-selector__value-container {
+  line-height: 0;
+}
+
+.country-selector .country-selector__single-value svg {
+  height: 1.5rem;
+}
+
+.country-selector .country-selector__indicator svg {
+  height: 1.2rem;
+}
+
+.country-selector .country-selector__menu {
+  width: max-content;
+  min-width: 200px;
+  min-height: max-content;
+  max-height: 400px;
+  overflow-y: auto;
+  overflow-x: clip;
+  margin-block: 5px;
+  border: 1px solid #959697;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow:
+    0px 0px 0px 1px #0e3f7e08,
+    0px 1px 1px -0.5px #2a334508,
+    0px 3px 3px -1.5px #2a334608,
+    0px 6px 6px -3px #2a334608,
+    0px 12px 12px -6px #0e3f7e08,
+    0px 24px 24px -12px #0e3f7e10;
+}
+
+.country-selector .country-selector__menu-list {
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.country-selector .country-selector__option {
+  display: flex;
+  gap: 5px;
+  padding: 3px 10px;
+}
+
+.country-selector .country-selector__option--is-focused {
+  background-color: #e7e7e7;
+}
+
+.country-selector .country-selector__option--is-selected {
+  background-color: #e7e7e7;
+  border-left: solid 2px #1d1e20;
+}

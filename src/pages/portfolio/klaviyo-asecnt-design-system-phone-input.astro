@@ -1,7 +1,7 @@
 ---
 import InnerLayout from '../../layouts/InnerLayout.astro';
 import { Picture } from 'astro:assets';
-
+import PhoneInput from '@components/PhoneInput.tsx';
 import research from '@assets/klaviyo/klaviyo-asecnt-design-system-phone-input-research.png';
 import ideation from '@assets/klaviyo/klaviyo-asecnt-design-system-phone-input-ideation.png';
 import field from '@assets/klaviyo/klaviyo-asecnt-design-system-field.png';
@@ -314,6 +314,47 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
             type="video/mp4"
           />
         </video>
+      </div>
+    </div>
+    <div class="region wrapper">
+      <div
+        class="box mx-auto w-fit flow prose border-solid border-b-2 border-x-0 border-t-0 text-gold-vivid-800 bg-gold-100 border-gold-700"
+      >
+        <h2>React component</h2>
+        <div>
+          <PhoneInput client:idle />
+        </div>
+        <p>
+          What does this look like as a React component. Functionally, we have
+          this <code>PhoneInput</code> working correctly with some caveats. The world
+          is imperfect. When thinking about that conversation between design and
+          development, compromises need to occur.
+        </p>
+        <p>
+          Input masking is a good example. The design called for the country
+          code to be in place. Doing so is more of a challenge. Another user
+          experience consideration is what happens to numbers already input,
+          after the <code>CountrySelector</code> component is updated? Currently,
+          we clear the field. Is that the best UX?
+        </p>
+        <p>
+          Other trade offs are with the dependencies we use. Do we build the
+          input mask and formatter by hand? I've decided to use a dependency for
+          input masking, formatting, and the custom select menu. These
+          dependencies come with their own problems. For instance, the <code
+            >react-select</code
+          > dependency comes styled. I had to use the <code>unstyled</code> prop,
+          and write CSS based on the class names from <code>react-select</code>.
+          There's also a bug with being able to change the <code
+            >DownChevron</code
+          > that has been open now for years on GitHub.
+        </p>
+        <p>
+          As a prototype of this being built in React, I'm pleased. For
+          production, I would go deeper into the pros and cons of using these
+          depenedencies, look for more options, and read into what other
+          community members have done in the past.
+        </p>
       </div>
     </div>
   </section>
