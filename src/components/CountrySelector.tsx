@@ -6,10 +6,14 @@ import { UnitedKingdom } from '../flags/unitedkingdom';
 import { UnitedStates } from '../flags/unitedstates';
 import { Chevron } from '../svg/chevron';
 
+interface CountrySelectorProps {
+  updateTemplate: (value: string) => void;
+}
+
 const options = [
   { value: 'UA', label: 'Ukraine', icon: Ukraine },
   {
-    value: 'UE',
+    value: 'AE',
     label: 'United Arab Emirates',
     icon: UnitedArabEmirates,
   },
@@ -23,11 +27,14 @@ const options = [
  * @returns A country selector component
  */
 
-export default function CountrySelector() {
-  const [country, setCountry] = useState(options[0]);
+const CountrySelector: React.FC<CountrySelectorProps> = ({
+  updateTemplate,
+}) => {
+  const [country, setCountry] = useState(options[3]);
 
   const handleSetCountry = (e: any) => {
     setCountry(e);
+    updateTemplate(e.value);
   };
 
   // TODO: Not working
@@ -42,6 +49,7 @@ export default function CountrySelector() {
       {createElement(country.icon)}
     </components.SingleValue>
   );
+
   const Option = (props: any) => (
     <components.Option {...props}>
       {createElement(props.data.icon)} {props.data.label}
@@ -68,4 +76,5 @@ export default function CountrySelector() {
       }}
     />
   );
-}
+};
+export default CountrySelector;

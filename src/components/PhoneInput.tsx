@@ -2,24 +2,7 @@ import { useState } from 'react';
 import { templateParser, templateFormatter, parseDigit } from 'input-format';
 import ReactInput from 'input-format/react';
 import CountrySelector from './CountrySelector';
-// import flags from '../flags/index.json';
-
-// US phone number template
-// TODO: Make this dynamic based on country
-const DEFAULT_TEMPLATE = '(xxx) xxx-xxxx';
-
-// function updateTemplate(iso: string) {
-//   const country = flags.find((country: any) => country.iso === iso);
-//   if (!country) return DEFAULT_TEMPLATE;
-//   if (Array.isArray(country.mask)) {
-//     return country.mask[0];
-//   } else {
-//     return country.mask;
-//   }
-// }
-
-const parse = templateParser(DEFAULT_TEMPLATE, parseDigit);
-const format = templateFormatter(DEFAULT_TEMPLATE);
+import flags from '../flags/index.json';
 
 /**
  * PhoneInput component
@@ -28,7 +11,10 @@ const format = templateFormatter(DEFAULT_TEMPLATE);
  */
 
 export default function PhoneInput() {
+  // Phone input value
   const [value, setValue] = useState('');
+  // US phone number template
+  const [template, setTemplate] = useState('(xxx) xxx-xxxx');
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement> | string | undefined,
@@ -36,9 +22,22 @@ export default function PhoneInput() {
     setValue(typeof event === 'string' ? event : event?.target.value || '');
   };
 
+  function updateTemplate(iso: string) {
+    const countryToUpdate = flags.find((country: any) => country.iso === iso);
+    if (!countryToUpdate) return template;
+    if (Array.isArray(countryToUpdate.mask)) {
+      setTemplate(countryToUpdate.mask[0]);
+    } else {
+      setTemplate(countryToUpdate.mask);
+    }
+  }
+
+  const parse = templateParser(template, parseDigit);
+  const format = templateFormatter(template);
+
   return (
     <div className="phone-input-container">
-      <CountrySelector />
+      <CountrySelector updateTemplate={updateTemplate} />
       <ReactInput
         className="phone-input"
         value={value}
