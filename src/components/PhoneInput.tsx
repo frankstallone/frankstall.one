@@ -27,8 +27,10 @@ export default function PhoneInput() {
     if (!countryToUpdate) return template;
     if (Array.isArray(countryToUpdate.mask)) {
       setTemplate(countryToUpdate.mask[0]);
+      setValue('');
     } else {
       setTemplate(countryToUpdate.mask);
+      setValue('');
     }
   }
 

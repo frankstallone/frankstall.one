@@ -1,5 +1,7 @@
 .phone-input-container {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .phone-input {
@@ -26,7 +28,7 @@
 }
 
 .country-selector .country-selector__control {
-  border-right: 1px solid transparent;
+  border-right: 0;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
   display: flex;
@@ -64,7 +66,15 @@
   overflow-x: clip;
   margin-block: 5px;
   border: 1px solid #959697;
+  background: #fff;
   border-radius: 6px;
+  box-shadow:
+    0px 0px 0px 1px #0e3f7e08,
+    0px 1px 1px -0.5px #2a334508,
+    0px 3px 3px -1.5px #2a334608,
+    0px 6px 6px -3px #2a334608,
+    0px 12px 12px -6px #0e3f7e08,
+    0px 24px 24px -12px #0e3f7e10;
 }
 
 .country-selector .country-selector__menu-list {

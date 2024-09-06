@@ -37,7 +37,7 @@ const CountrySelector: React.FC<CountrySelectorProps> = ({
     updateTemplate(e.value);
   };
 
-  // TODO: Not working
+  // This does not work: https://github.com/JedWatson/react-select/issues/3739
   const DownChevron = (props: any) => (
     <components.DownChevron {...props}>
       {createElement(Chevron)}
