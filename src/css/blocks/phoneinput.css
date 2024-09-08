@@ -68,7 +68,8 @@
   padding: 3px 10px;
 }
 
-.country-selector-item:hover {
+.country-selector-item:hover,
+.country-selector-item[data-highlighted] {
   background-color: #e7e7e7;
 }
 

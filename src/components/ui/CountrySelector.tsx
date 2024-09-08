@@ -18,8 +18,13 @@ import { Zimbabwe } from '@ui/flags/zimbabwe';
 interface CountrySelectorProps {
   updateTemplate: (value: string) => void;
 }
+interface CountryOption {
+  value: string;
+  label: string;
+  icon: React.FC;
+}
 
-const options = [
+const options: CountryOption[] = [
   { value: 'UA', label: 'Ukraine', icon: Ukraine },
   {
     value: 'AE',
@@ -53,11 +58,18 @@ const CountrySelector: React.FC<CountrySelectorProps> = ({
     updateTemplate(value);
   };
 
+  function getCountryFlag(country: CountryOption) {
+    return createElement(
+      options.find((option) => option.value === country.value)?.icon ||
+        UnitedStates,
+    );
+  }
+
   return (
-    <Select.Root onValueChange={handleSetCountry}>
+    <Select.Root onValueChange={handleSetCountry} defaultValue={country.value}>
       <Select.Trigger className="country-selector-trigger">
         <Select.Icon>
-          <Select.Value>{createElement(country.icon)}</Select.Value>
+          <Select.Value>{getCountryFlag(country)}</Select.Value>
           <Chevron />
         </Select.Icon>
       </Select.Trigger>
@@ -68,7 +80,7 @@ const CountrySelector: React.FC<CountrySelectorProps> = ({
           <Select.Viewport>
             {options.map((option) => (
               <SelectItem value={option.value} key={option.value}>
-                {createElement(option.icon)} {option.label}
+                {getCountryFlag(option)} {option.label}
               </SelectItem>
             ))}
           </Select.Viewport>
