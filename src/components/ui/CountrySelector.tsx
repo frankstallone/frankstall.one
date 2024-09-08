@@ -1,5 +1,6 @@
-import { useState, createElement } from 'react';
-import Select, { components } from 'react-select';
+import { useState, createElement, forwardRef } from 'react';
+import * as Select from '@radix-ui/react-select';
+import classnames from 'classnames';
 import { Chevron } from '@ui/svg/chevron';
 // https://nucleoapp.com/svg-flag-icons
 import { Ukraine } from '@ui/flags/ukraine';
@@ -47,49 +48,58 @@ const CountrySelector: React.FC<CountrySelectorProps> = ({
 }) => {
   const [country, setCountry] = useState(options[3]);
 
-  const handleSetCountry = (e: any) => {
-    setCountry(e);
-    updateTemplate(e.value);
+  const handleSetCountry = (value: string) => {
+    setCountry(options.find((option) => option.value === value) || options[3]);
+    updateTemplate(value);
   };
 
-  // This does not work: https://github.com/JedWatson/react-select/issues/3739
-  const DownChevron = (props: any) => (
-    <components.DownChevron {...props}>
-      {createElement(Chevron)}
-    </components.DownChevron>
-  );
-
-  const SingleValue = (props: any) => (
-    <components.SingleValue {...props}>
-      {createElement(country.icon)}
-    </components.SingleValue>
-  );
-
-  const Option = (props: any) => (
-    <components.Option {...props}>
-      {createElement(props.data.icon)} {props.data.label}
-    </components.Option>
-  );
-
   return (
-    <Select
-      unstyled
-      defaultValue={country}
-      options={options}
-      onChange={handleSetCountry}
-      className="country-selector"
-      classNamePrefix="country-selector"
-      classNames={{
-        control: (state) =>
-          state.isFocused ? 'country-selector__focused' : '',
-      }}
-      isSearchable={false}
-      components={{
-        Option,
-        DownChevron,
-        SingleValue,
-      }}
-    />
+    <Select.Root onValueChange={handleSetCountry}>
+      <Select.Trigger className="country-selector-trigger">
+        <Select.Icon>
+          <Select.Value>{createElement(country.icon)}</Select.Value>
+          <Chevron />
+        </Select.Icon>
+      </Select.Trigger>
+
+      <Select.Portal>
+        <Select.Content className="country-selector-menu">
+          <Select.ScrollUpButton />
+          <Select.Viewport>
+            {options.map((option) => (
+              <SelectItem value={option.value} key={option.value}>
+                {createElement(option.icon)} {option.label}
+              </SelectItem>
+            ))}
+          </Select.Viewport>
+          <Select.ScrollDownButton />
+          <Select.Arrow />
+        </Select.Content>
+      </Select.Portal>
+    </Select.Root>
   );
 };
+
+interface SelectItemProps {
+  children: React.ReactNode;
+  className?: string;
+  value: string;
+  [key: string]: any;
+}
+
+const SelectItem = forwardRef<HTMLDivElement, SelectItemProps>(
+  ({ children, className, ...props }, forwardedRef) => {
+    return (
+      <Select.Item
+        className={classnames('country-selector-item', className)}
+        value={props.value}
+        {...props}
+        ref={forwardedRef}
+      >
+        <Select.ItemText>{children}</Select.ItemText>
+      </Select.Item>
+    );
+  },
+);
+
 export default CountrySelector;

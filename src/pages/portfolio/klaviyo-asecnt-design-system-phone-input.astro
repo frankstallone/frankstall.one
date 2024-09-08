@@ -366,15 +366,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           input mask and formatter by hand? I've decided to use a dependency for
           input masking, formatting, and the custom select menu. These
           dependencies come with their own problems. For instance, the <code
-            >react-select</code
-          > dependency comes styled. I had to use the <code>unstyled</code> prop,
-          and write CSS based on the class names from <code>react-select</code>.
-          There's also a bug with being able to change the <code
-            >DownChevron</code
-          > that has been open now for years on GitHub.
+            >radix</code
+          > dependency has an SVG icon when toggling on <code
+            >position="popper</code
+          >. This icon has no class, or data attribute, or option to toggle off.
+          Therefore, I have kept Radix's native MacOS menu style for the portal.
         </p>
         <p>
-          As a prototype of this being built in React, I'm pleased. For
+          As a prototype of this being built in React, I'm pleased. We have all
+          the elements and everything is accessible for keyboard users. For
           production, I would go deeper into the pros and cons of using these
           depenedencies, look for more options, and read into what other
           community members have done in the past.
