@@ -5,6 +5,7 @@
 }
 
 .phone-input {
+  position: relative;
   border-top-right-radius: 6px;
   border-bottom-right-radius: 6px;
   border-top-left-radius: 0;
@@ -16,6 +17,7 @@
 }
 
 .phone-input:focus {
+  z-index: 10;
   border: 1px solid #3364a8;
   border-left: 0;
   outline: 3px solid #d2edfc;
@@ -45,6 +47,7 @@
 }
 
 .country-selector-trigger:focus {
+  z-index: 10;
   border: 1px solid #3364a8;
   outline: 3px solid #d2edfc;
   outline-offset: 0;
