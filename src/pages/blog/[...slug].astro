@@ -48,37 +48,3 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     </div>
   </article>
 </InnerLayout>
-
-<script>
-  // Grab button
-  const likeButton = document.getElementById('like-button');
-  // Grab the slug from the button's data attribute
-  const slug = likeButton?.getAttribute('data-slug');
-
-  // If button is clicked, send a POST request to the server
-  likeButton?.addEventListener('click', async (e) => {
-    e.preventDefault();
-    try {
-      await fetch(`/api/like-post/${slug}/`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ slug: '{{ slug }}' }),
-      });
-      // const response = await fetch(`/api/like-post/${slug}/`, {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify({ slug: '{{ slug }}' }),
-      // });
-      // if (response.ok) {
-      //   const { message, count } = await response.json();
-      //   console.log(message, count);
-      // }
-    } catch (error) {
-      console.error(error);
-    }
-  });
-</script>
