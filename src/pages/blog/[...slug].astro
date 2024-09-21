@@ -59,16 +59,23 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   likeButton?.addEventListener('click', async (e) => {
     e.preventDefault();
     try {
-      await fetch(`/api/like-post/${slug}/`, {
+      const response = await fetch(`/api/like-post/${slug}/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ slug: '{{ slug }}' }),
       });
+      // const response = await fetch(`/api/like-post/${slug}/`, {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify({ slug: '{{ slug }}' }),
+      // });
       // if (response.ok) {
       //   const { message, count } = await response.json();
-      // console.log(message, count);
+      //   console.log(message, count);
       // }
     } catch (error) {
       console.error(error);
