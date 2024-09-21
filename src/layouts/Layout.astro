@@ -3,7 +3,9 @@ import ContactBook from '@components/ContactBook.astro';
 import Footer from '@components/Footer.astro';
 import Head from '@components/Head.astro';
 import HomeHero from '@components/HomeHero.astro';
-import type { Props } from '@components/Head.astro';
+import type { Header } from '../lib/client';
+
+export interface Props extends Header {}
 
 const { meta } = Astro.props;
 ---

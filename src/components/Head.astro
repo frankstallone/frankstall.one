@@ -1,15 +1,9 @@
 ---
 import '../css/global.css';
 import { ViewTransitions } from 'astro:transitions';
+import type { Header } from 'client';
 
-export type Props = {
-  meta: {
-    title?: string;
-    description?: string;
-    canonicalURL?: string;
-    image?: string;
-  };
-};
+export interface Props extends Header {}
 
 const { meta } = Astro.props;
 
@@ -191,7 +185,7 @@ const ogImage = meta.image
     is:inline
     src="https://www.googletagmanager.com/gtag/js?id=G-NJMVWJT1D7"
     type="text/partytown"></script>
-  <script type="text/partytown">
+  <script is:inline type="text/partytown">
     window.dataLayer = window.dataLayer || [];
     function gtag() {
       dataLayer.push(arguments);
