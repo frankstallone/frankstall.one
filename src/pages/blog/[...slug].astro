@@ -19,12 +19,12 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 
+console.log(entry);
+
 const [{ count: postLikesCount }] = await db
   .select({ count: count() })
   .from(Like)
   .where(eq(Like.slug, entry.slug));
-
-console.log('Count: ', await postLikesCount);
 
 const { Content, headings } = await entry.render();
 const headingsArray = buildHierarchy(headings);
