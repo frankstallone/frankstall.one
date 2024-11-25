@@ -3,7 +3,6 @@ import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import partytown from '@astrojs/partytown';
 import netlify from '@astrojs/netlify';
-import db from '@astrojs/db';
 import astroExpressiveCode from 'astro-expressive-code';
 import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers';
 
@@ -28,7 +27,6 @@ export default defineConfig({
         forward: ['dataLayer.push'],
       },
     }),
-    db(),
     astroExpressiveCode({
       themes: ['dracula-soft'],
       styleOverrides: {
