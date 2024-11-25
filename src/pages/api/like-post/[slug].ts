@@ -1,5 +1,7 @@
 import type { APIRoute } from 'astro';
-import { sql, eq, db, Like } from 'astro:db';
+import { Like } from 'db/schema';
+import { db } from 'src/turso';
+import { count, eq } from 'drizzle-orm';
 export const prerender = false;
 
 /**
@@ -82,11 +84,11 @@ export const GET: APIRoute = async ({ params, request, clientAddress }) => {
  * @returns A promise that resolves to the number of likes.
  */
 async function countCurrentPostLikes(slug: string): Promise<number> {
-  const [{ count }] = await db
-    .select({ count: sql<number>`count(*)` })
+  const [{ count: postLikesCount }] = await db
+    .select({ count: count() })
     .from(Like)
     .where(eq(Like.slug, slug));
-  return count;
+  return postLikesCount;
 }
 
 /**
