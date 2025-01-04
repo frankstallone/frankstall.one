@@ -1,18 +1,18 @@
 ---
-import Header from './Header.astro';
-import { getImage } from 'astro:assets';
-import background from '@assets/frank-stallone-home-header-blank.png';
-const { title, subtitle } = Astro.props;
+import Header from './Header.astro'
+import { getImage } from 'astro:assets'
+import background from '@assets/frank-stallone-home-header-blank.png'
+const { title, subtitle } = Astro.props
 
 type Props = {
-  title: string;
-  subtitle?: string;
-};
+  title: string
+  subtitle?: string
+}
 
-const optimizedBackground = await getImage({ src: background });
+const optimizedBackground = await getImage({ src: background })
 const description = subtitle
   ? subtitle
-  : 'Sharing actionable tips from my agency, enterprise, start up, and life experience with a design and developer twist.';
+  : 'Sharing actionable tips from my enterprise, start up, agency, and life experience with a design and developer twist.'
 ---
 
 <div
