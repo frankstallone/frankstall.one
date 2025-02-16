@@ -1,6 +1,6 @@
 ---
 import Header from './Header.astro'
-import frankstallone from '@assets/2023-Frank-Stallone-Web-Marketing-Expert.png'
+
 import { getImage, Picture } from 'astro:assets'
 import background from '@assets/frank-stallone-home-header-blank.png'
 
@@ -13,27 +13,11 @@ const optimizedBackground = await getImage({ src: background })
   aria-label="Hero section"
 >
   <Header />
-  <div class="switcher">
-    <div
-      class="box flex flex-col justify-center flow prose bg-transparent text-gray-100"
-    >
-      <h1>Learn, grow, prosper</h1>
-      <h2 class="font-regular">
-        Sharing actionable tips from my enterprise, start up, agency, and life
-        experience with a design and developer twist.
-      </h2>
-    </div>
-    <div class="text-center relative overflow-hidden flex items-end">
-      <Picture
-        src={frankstallone}
-        widths={[300, 800, 2000, frankstallone.width]}
-        sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${frankstallone.width}px`}
-        class="object-contain h-auto"
-        alt="The Internet's favorite Frank Stallone"
-        formats={['avif', 'webp']}
-        fetchpriority="high"
-        loading="eager"
-      />
-    </div>
+  <div
+    class="box flex flex-col justify-center flow prose bg-transparent text-gray-100 h-[20vh] md:h-[50vh]"
+  >
+    <h1 class="text-[10vw] uppercase font-bold leading-flat">
+      Creative <br /> empowerment
+    </h1>
   </div>
 </div>

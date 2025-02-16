@@ -1,25 +1,38 @@
 ---
-
+import { getImage, Picture } from 'astro:assets'
+import frankstallone from '@assets/2023-Frank-Stallone-Web-Marketing-Expert.png'
 ---
 
-<div class="region region-space-3xl-4xl bg-gray-1400 text-gray-800">
-  <div class="wrapper flow">
-    <p class="text-step-1">
-      I'm a husband, father, <span
-        class="bg-gradient-to-br from-indigo-vivid-400 to-indigo-vivid-600 bg-clip-text text-transparent"
-      >
-        designer</span
-      >, <code class="bg-gray-1300 text-blue-vivid-500">developer</code>, and <span
-        class="text-gold-500"
-        style="filter: drop-shadow(0 0 15px rgba(222, 198, 154, 0.5));"
-        >hopeless optimist</span
-      >.
-    </p>
-    <p class="text-step-0 text-gray-900">
-      Throughout my career, I've bridged the gap between design and development,
-      as well as between marketing and SaaS products, to produce stellar user
-      experiences. I enjoy mentoring and have worked in lab environments at
-      small and large organizations.
-    </p>
+<div class="region region-space-3xl-4xl bg-gray-1400 text-gray-800 pb-zero">
+  <div class="switcher">
+    <div class="box flow bg-transparent text-gray-800">
+      <p class="text-step-1">
+        I'm a husband, father, <span
+          class="bg-gradient-to-br from-indigo-vivid-400 to-indigo-vivid-600 bg-clip-text text-transparent"
+        >
+          designer</span
+        >, <code class="bg-gray-1300 text-blue-vivid-500">developer</code>, and <span
+          class="text-gold-500"
+          style="filter: drop-shadow(0 0 15px rgba(222, 198, 154, 0.5));"
+          >hopeless optimist</span
+        >.
+      </p>
+      <p class="text-step-0 text-gray-900">
+        Throughout my career, I've bridged the gap between design and
+        development, as well as between marketing and SaaS products, to produce
+        stellar user experiences. I enjoy mentoring and have worked in lab
+        environments at small and large organizations.
+      </p>
+    </div>
+    <div class="text-center relative overflow-hidden flex items-end">
+      <Picture
+        src={frankstallone}
+        widths={[300, 800, 2000, frankstallone.width]}
+        sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${frankstallone.width}px`}
+        class="object-contain h-auto"
+        alt="The Internet's favorite Frank Stallone"
+        formats={['avif', 'webp']}
+      />
+    </div>
   </div>
 </div>
