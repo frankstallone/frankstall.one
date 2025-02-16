@@ -5,7 +5,7 @@
   project: https://cube.fyi/css.html
 */
 body {
-  @apply font-base font-light text-gray-1400 m-zero text-step-0;
+  @apply font-base font-light text-gray-1400 m-zero text-step-000;
 }
 
 /* Base interactive elements */
@@ -48,19 +48,19 @@ h6 {
 }
 
 h1 {
-  @apply text-step-5;
-}
-
-h2 {
   @apply text-step-3;
 }
 
-h3 {
+h2 {
   @apply text-step-2;
 }
 
-h4 {
+h3 {
   @apply text-step-1;
+}
+
+h4 {
+  @apply text-step-0;
 }
 
 /* Scroll padding allowance below focused elements 
