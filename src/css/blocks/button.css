@@ -1,7 +1,7 @@
 /* Buttons */
 
 .button {
-  @apply font-display uppercase no-underline font-medium text-step-1 bg-indigo-vivid-700 text-indigo-100 cursor-pointer hover:bg-indigo-vivid-800 focus:outline focus:outline-offset-2 focus:outline-2 focus:outline-indigo-vivid-700 border-none px-m py-s text-center;
+  @apply font-display uppercase no-underline font-medium text-step-0 bg-indigo-vivid-700 text-indigo-100 cursor-pointer hover:bg-indigo-vivid-800 focus:outline focus:outline-offset-2 focus:outline-2 focus:outline-indigo-vivid-700 border-none px-s py-xs text-center;
 }
 .button:hover,
 .button:focus,
