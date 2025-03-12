@@ -2,16 +2,23 @@
 
 ---
 
+<!-- Add no-js class to header for CSS fallback -->
 <header
-  class="cluster box text-center justify-center md:justify-between bg-transparent text-white"
+  class="cluster box text-center justify-center md:justify-between bg-transparent text-white no-js"
 >
-  <a href="/" class="flex justify-center items-center opacity-0" id="logo-link">
+  <a
+    href="/"
+    class="flex justify-center items-center opacity-0 js-init"
+    id="logo-link"
+    aria-label="Frank Stallone home"
+  >
     <svg
       viewBox="0 0 1044 100"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"
       role="img"
+      aria-hidden="true"
       class="w-3xl hover:text-indigo-700 transition-colors duration-300 ease-in-out"
     >
       <title>Frank Stallone logo</title>
@@ -58,24 +65,37 @@
       </g>
     </svg>
   </a>
-  <nav>
+  <nav aria-label="Main navigation">
     <ul
       role="list"
       class="cluster justify-center font-medium font-display uppercase"
       style="--gutter: var(--space-m);"
     >
-      <li class="header-link nav-item opacity-0">
+      <li class="header-link nav-item opacity-0 js-init">
         <a href="/portfolio/">Portfolio</a>
       </li>
-      <li class="header-link nav-item opacity-0"><a href="/blog/">Blog</a></li>
-      <li class="header-link nav-item opacity-0">
+      <li class="header-link nav-item opacity-0 js-init">
+        <a href="/blog/">Blog</a>
+      </li>
+      <li class="header-link nav-item opacity-0 js-init">
         <a href="#contact">Reach out</a>
       </li>
     </ul>
   </nav>
 </header>
 
+<style>
+  /* Show elements by default when JS is disabled */
+  .no-js .js-init {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+</style>
+
 <script>
+  // Remove no-js class when JavaScript is enabled
+  document.querySelector('header')?.classList.remove('no-js')
+
   import { animate, stagger } from 'motion'
 
   // Run animation when view transition is complete
