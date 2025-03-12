@@ -102,75 +102,69 @@
 </style>
 
 <script>
+  import { animate, stagger } from 'motion'
   // Remove no-js class when JavaScript is enabled
   document.querySelector('header')?.classList.remove('no-js')
 
-  import { animate, stagger } from 'motion'
+  // Function to show all elements immediately without animation
+  const showElementsImmediately = () => {
+    const elements = document.querySelectorAll('.js-init')
+    elements.forEach((el) => {
+      if (el instanceof HTMLElement) {
+        el.style.opacity = '1'
+        el.style.transform = 'none'
+      }
+    })
+  }
+
+  // Animation configuration
+  const fadeInUp = {
+    opacity: [0, 1],
+    y: [-20, 0],
+  }
+
+  const animationTiming = {
+    duration: 0.5,
+  }
 
   // Run animation when view transition is complete
   document.addEventListener('astro:page-load', () => {
-    // Check if user prefers reduced motion
     const prefersReducedMotion = window.matchMedia(
       '(prefers-reduced-motion: reduce)'
-    ).matches
+    )
 
-    const animateNav = async () => {
+    const animateNav = () => {
       // If user prefers reduced motion, show elements without animation
-      if (prefersReducedMotion) {
-        const elements = document.querySelectorAll('.js-init')
-        elements.forEach((el) => {
-          if (el instanceof HTMLElement) {
-            el.style.opacity = '1'
-            el.style.transform = 'none'
-          }
-        })
+      if (prefersReducedMotion.matches) {
+        showElementsImmediately()
         return
       }
 
       // Otherwise, proceed with animations
-      animate(
-        '#logo-link',
-        {
-          opacity: [0, 1],
-          y: [-20, 0],
-        },
-        {
-          duration: 0.5,
-        }
-      )
+      try {
+        // Animate logo first
+        animate('#logo-link', fadeInUp, animationTiming)
 
-      // Animate nav items with a delay
-      setTimeout(() => {
-        animate(
-          '.nav-item',
-          {
-            opacity: [0, 1],
-            y: [-20, 0],
-          },
-          {
-            duration: 0.5,
+        // Animate nav items with a delay
+        setTimeout(() => {
+          animate('.nav-item', fadeInUp, {
+            ...animationTiming,
             delay: stagger(0.1),
-          }
-        )
-      }, 300)
+          })
+        }, animationTiming.duration * 1000) // Convert duration to milliseconds
+      } catch (error) {
+        // Fallback if animation fails
+        showElementsImmediately()
+      }
     }
 
     animateNav()
 
     // Listen for changes in motion preference
-    window
-      .matchMedia('(prefers-reduced-motion: reduce)')
-      .addEventListener('change', (event) => {
-        if (event.matches) {
-          // If user switches to reduced motion, show all elements immediately
-          const elements = document.querySelectorAll('.js-init')
-          elements.forEach((el) => {
-            if (el instanceof HTMLElement) {
-              el.style.opacity = '1'
-              el.style.transform = 'none'
-            }
-          })
-        }
-      })
+    prefersReducedMotion.addEventListener('change', (event) => {
+      if (event.matches) {
+        showElementsImmediately()
+      }
+    })
   })
 </script>
