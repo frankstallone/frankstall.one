@@ -5,7 +5,7 @@
 <header
   class="cluster box text-center justify-center md:justify-between bg-transparent text-white"
 >
-  <a href="/" class="flex justify-center items-center">
+  <a href="/" class="flex justify-center items-center opacity-0" id="logo-link">
     <svg
       viewBox="0 0 1044 100"
       version="1.1"
@@ -78,20 +78,35 @@
 <script>
   import { animate, stagger } from 'motion'
 
-  // Run animation when when view trasition is complete
+  // Run animation when view transition is complete
   document.addEventListener('astro:page-load', () => {
-    const animateNav = () => {
+    const animateNav = async () => {
+      // Animate logo first
       animate(
-        '.nav-item',
+        '#logo-link',
         {
           opacity: [0, 1],
           y: [-20, 0],
         },
         {
           duration: 0.5,
-          delay: stagger(0.1),
         }
       )
+
+      // Animate nav items with a delay
+      setTimeout(() => {
+        animate(
+          '.nav-item',
+          {
+            opacity: [0, 1],
+            y: [-20, 0],
+          },
+          {
+            duration: 0.5,
+            delay: stagger(0.1),
+          }
+        )
+      }, 300) // Start nav items 300ms after logo
     }
     animateNav()
   })
