@@ -1,58 +1,64 @@
 ---
 type Props = {
-  idx: number;
-  question: string;
-  answer: string;
-};
+  idx: number
+  question: string
+  answer: string
+}
 
-const { idx, question, answer } = Astro.props;
+const { idx, question, answer } = Astro.props
 ---
 
-<div
-  x-data={idx === 0
-    ? '{ activeAccordion: true }'
-    : '{ activeAccordion: false }'}
-  class="box flex flex-col bg-gray-200"
->
-  <button
-    @click="activeAccordion = !activeAccordion"
-    :aria-expanded="activeAccordion"
-    aria-controls={`accordion-panel-${idx}`}
-    id={`accordion-header-${idx}`}
-    class="faq-button"
-  >
-    {question}
-    <svg
-      x-show="!activeAccordion"
-      focusable="false"
-      aria-hidden="true"
-      viewBox="0 0 24 24"
-      ><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="currentColor"
-      ></path><path d="M0 0h24v24H0z" fill="none"></path></svg
-    ><svg
-      x-show="activeAccordion"
-      focusable="false"
-      aria-hidden="true"
-      viewBox="0 0 24 24"
-      ><path d="M19 13H5v-2h14v2z" fill="currentColor"></path><path
-        d="M0 0h24v24H0z"
-        fill="none"></path></svg
-    >
-  </button>
-  <section
-    :hidden="!activeAccordion"
-    id={`accordion-panel-${idx}`}
-    aria-labelledby={`accordion-header-${idx}`}
-  >
-    <p class="accordion-body">
-      {answer}
-    </p>
-  </section>
+<div class="box flex flex-col bg-gray-200">
+  <details open={idx === 0}>
+    <summary class="faq-button">
+      {question}
+      <svg
+        class="plus-icon"
+        focusable="false"
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+      >
+        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" fill="currentColor"
+        ></path>
+        <path d="M0 0h24v24H0z" fill="none"></path>
+      </svg>
+      <svg
+        class="minus-icon"
+        focusable="false"
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+      >
+        <path d="M19 13H5v-2h14v2z" fill="currentColor"></path>
+        <path d="M0 0h24v24H0z" fill="none"></path>
+      </svg>
+    </summary>
+    <div class="accordion-body">
+      <p>
+        {answer}
+      </p>
+    </div>
+  </details>
 </div>
 
-<script>
-  import Alpine from 'alpinejs';
+<style>
+  details > summary {
+    list-style: none;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
 
-  window.Alpine = Alpine;
-  Alpine.start();
-</script>
+  .plus-icon {
+    display: inline-block;
+  }
+  .minus-icon {
+    display: none;
+  }
+
+  details[open] .plus-icon {
+    display: none;
+  }
+  details[open] .minus-icon {
+    display: inline-block;
+  }
+</style>
