@@ -1,5 +1,20 @@
 ---
+import { animate, stagger } from 'motion'
 
+// Add client-side script for animations
+const animateNav = () => {
+  animate(
+    '.nav-item',
+    {
+      opacity: [0, 1],
+      y: [-20, 0],
+    },
+    {
+      duration: 0.5,
+      delay: stagger(0.1),
+    }
+  )
+}
 ---
 
 <header
@@ -64,9 +79,35 @@
       class="cluster justify-center font-medium font-display uppercase"
       style="--gutter: var(--space-m);"
     >
-      <li class="header-link"><a href="/portfolio/">Portfolio</a></li>
-      <li class="header-link"><a href="/blog/">Blog</a></li>
-      <li class="header-link"><a href="#contact">Reach out</a></li>
+      <li class="header-link nav-item opacity-0">
+        <a href="/portfolio/">Portfolio</a>
+      </li>
+      <li class="header-link nav-item opacity-0"><a href="/blog/">Blog</a></li>
+      <li class="header-link nav-item opacity-0">
+        <a href="#contact">Reach out</a>
+      </li>
     </ul>
   </nav>
 </header>
+
+<script>
+  import { animate, stagger } from 'motion'
+
+  // Run animation when the component mounts
+  document.addEventListener('DOMContentLoaded', () => {
+    const animateNav = () => {
+      animate(
+        '.nav-item',
+        {
+          opacity: [0, 1],
+          y: [-20, 0],
+        },
+        {
+          duration: 0.5,
+          delay: stagger(0.1),
+        }
+      )
+    }
+    animateNav()
+  })
+</script>
