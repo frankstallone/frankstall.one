@@ -90,6 +90,15 @@
     opacity: 1 !important;
     transform: none !important;
   }
+
+  /* Respect user's motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .js-init {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
 </style>
 
 <script>
@@ -100,8 +109,25 @@
 
   // Run animation when view transition is complete
   document.addEventListener('astro:page-load', () => {
+    // Check if user prefers reduced motion
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches
+
     const animateNav = async () => {
-      // Animate logo first
+      // If user prefers reduced motion, show elements without animation
+      if (prefersReducedMotion) {
+        const elements = document.querySelectorAll('.js-init')
+        elements.forEach((el) => {
+          if (el instanceof HTMLElement) {
+            el.style.opacity = '1'
+            el.style.transform = 'none'
+          }
+        })
+        return
+      }
+
+      // Otherwise, proceed with animations
       animate(
         '#logo-link',
         {
@@ -126,8 +152,25 @@
             delay: stagger(0.1),
           }
         )
-      }, 300) // Start nav items 300ms after logo
+      }, 300)
     }
+
     animateNav()
+
+    // Listen for changes in motion preference
+    window
+      .matchMedia('(prefers-reduced-motion: reduce)')
+      .addEventListener('change', (event) => {
+        if (event.matches) {
+          // If user switches to reduced motion, show all elements immediately
+          const elements = document.querySelectorAll('.js-init')
+          elements.forEach((el) => {
+            if (el instanceof HTMLElement) {
+              el.style.opacity = '1'
+              el.style.transform = 'none'
+            }
+          })
+        }
+      })
   })
 </script>
