@@ -2,16 +2,23 @@
 
 ---
 
+<!-- Add no-js class to header for CSS fallback -->
 <header
-  class="cluster box text-center justify-center md:justify-between bg-transparent text-white"
+  class="cluster box text-center justify-center md:justify-between bg-transparent text-white no-js"
 >
-  <a href="/" class="flex justify-center items-center">
+  <a
+    href="/"
+    class="flex justify-center items-center opacity-0 js-init"
+    id="logo-link"
+    aria-label="Frank Stallone home"
+  >
     <svg
       viewBox="0 0 1044 100"
       version="1.1"
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"
       role="img"
+      aria-hidden="true"
       class="w-3xl hover:text-indigo-700 transition-colors duration-300 ease-in-out"
     >
       <title>Frank Stallone logo</title>
@@ -58,15 +65,112 @@
       </g>
     </svg>
   </a>
-  <nav>
+  <nav aria-label="Main navigation">
     <ul
       role="list"
       class="cluster justify-center font-medium font-display uppercase"
       style="--gutter: var(--space-m);"
     >
-      <li class="header-link"><a href="/portfolio/">Portfolio</a></li>
-      <li class="header-link"><a href="/blog/">Blog</a></li>
-      <li class="header-link"><a href="#contact">Reach out</a></li>
+      <li class="header-link nav-item opacity-0 js-init">
+        <a href="/portfolio/">Portfolio</a>
+      </li>
+      <li class="header-link nav-item opacity-0 js-init">
+        <a href="/blog/">Blog</a>
+      </li>
+      <li class="header-link nav-item opacity-0 js-init">
+        <a href="#contact">Reach out</a>
+      </li>
     </ul>
   </nav>
 </header>
+
+<style>
+  /* Show elements by default when JS is disabled */
+  .no-js .js-init {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Respect user's motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .js-init {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+
+<script>
+  // Remove no-js class when JavaScript is enabled
+  document.querySelector('header')?.classList.remove('no-js')
+
+  import { animate, stagger } from 'motion'
+
+  // Run animation when view transition is complete
+  document.addEventListener('astro:page-load', () => {
+    // Check if user prefers reduced motion
+    const prefersReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches
+
+    const animateNav = async () => {
+      // If user prefers reduced motion, show elements without animation
+      if (prefersReducedMotion) {
+        const elements = document.querySelectorAll('.js-init')
+        elements.forEach((el) => {
+          if (el instanceof HTMLElement) {
+            el.style.opacity = '1'
+            el.style.transform = 'none'
+          }
+        })
+        return
+      }
+
+      // Otherwise, proceed with animations
+      animate(
+        '#logo-link',
+        {
+          opacity: [0, 1],
+          y: [-20, 0],
+        },
+        {
+          duration: 0.5,
+        }
+      )
+
+      // Animate nav items with a delay
+      setTimeout(() => {
+        animate(
+          '.nav-item',
+          {
+            opacity: [0, 1],
+            y: [-20, 0],
+          },
+          {
+            duration: 0.5,
+            delay: stagger(0.1),
+          }
+        )
+      }, 300)
+    }
+
+    animateNav()
+
+    // Listen for changes in motion preference
+    window
+      .matchMedia('(prefers-reduced-motion: reduce)')
+      .addEventListener('change', (event) => {
+        if (event.matches) {
+          // If user switches to reduced motion, show all elements immediately
+          const elements = document.querySelectorAll('.js-init')
+          elements.forEach((el) => {
+            if (el instanceof HTMLElement) {
+              el.style.opacity = '1'
+              el.style.transform = 'none'
+            }
+          })
+        }
+      })
+  })
+</script>

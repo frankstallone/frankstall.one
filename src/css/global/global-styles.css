@@ -5,7 +5,7 @@
   project: https://cube.fyi/css.html
 */
 body {
-  @apply font-base font-light text-gray-1400 m-zero text-step-000;
+  @apply font-base font-light text-gray-1400 m-zero text-step-00;
 }
 
 /* Base interactive elements */
