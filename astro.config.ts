@@ -1,18 +1,17 @@
-import { defineConfig } from 'astro/config';
-import sitemap from '@astrojs/sitemap';
-import tailwind from '@astrojs/tailwind';
-import partytown from '@astrojs/partytown';
-import netlify from '@astrojs/netlify';
-import astroExpressiveCode from 'astro-expressive-code';
-import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers';
+import { defineConfig } from 'astro/config'
+import sitemap from '@astrojs/sitemap'
+import tailwind from '@astrojs/tailwind'
+import partytown from '@astrojs/partytown'
+import netlify from '@astrojs/netlify'
+import astroExpressiveCode from 'astro-expressive-code'
+import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers'
 
 // export const prerender = false;
 
-import react from '@astrojs/react';
+import react from '@astrojs/react'
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'hybrid',
   adapter: netlify({
     imageCDN: false,
   }),
@@ -36,4 +35,4 @@ export default defineConfig({
     }),
     react(),
   ],
-});
+})

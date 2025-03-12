@@ -1,5 +1,5 @@
 ---
-import { getCollection } from 'astro:content'
+import { getCollection, render } from 'astro:content'
 import InnerLayout from '../../layouts/InnerLayout.astro'
 import Likes from '@components/Likes.astro'
 import { buildHierarchy } from '@utils/index'
@@ -12,7 +12,7 @@ import { count, eq } from 'drizzle-orm'
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog')
   return blogEntries.map((entry) => ({
-    params: { slug: entry.slug },
+    params: { slug: entry.id },
     props: { entry },
   }))
 }
@@ -22,9 +22,9 @@ const { entry } = Astro.props
 const [{ count: postLikesCount }] = await db
   .select({ count: count() })
   .from(Like)
-  .where(eq(Like.slug, entry.slug))
+  .where(eq(Like.slug, entry.id))
 
-const { Content, headings } = await entry.render()
+const { Content, headings } = await render(entry)
 const headingsArray = buildHierarchy(headings)
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
@@ -69,7 +69,7 @@ pl-s space-y-2xs"
       class="flex flow flow-space-2xs flex-col justify-center items-center mt-s max-w-[50ch]"
     >
       <p class="font-display font-bold">Helpful?</p>
-      <Likes count={postLikesCount} slug={entry.slug} />
+      <Likes count={postLikesCount} slug={entry.id} />
     </div>
   </article>
 </InnerLayout>

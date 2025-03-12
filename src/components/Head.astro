@@ -1,26 +1,24 @@
 ---
-import '../css/global.css';
-import { ViewTransitions } from 'astro:transitions';
-import type { Header } from '@types';
+import '../css/global.css'
+import { ClientRouter } from 'astro:transitions'
+import type { Header } from '@types'
 
 export interface Props extends Header {}
 
-const { meta } = Astro.props;
+const { meta } = Astro.props
 
-const title = meta.title
-  ? meta.title
-  : "The Internet's favorite Frank Stallone";
+const title = meta.title ? meta.title : "The Internet's favorite Frank Stallone"
 const description = meta.description
   ? meta.description
-  : "The Internet's favorite Frank Stallone";
-const canonicalURL = meta.canonicalURL ? meta.canonicalURL : Astro.site;
+  : "The Internet's favorite Frank Stallone"
+const canonicalURL = meta.canonicalURL ? meta.canonicalURL : Astro.site
 const ogImage = meta.image
   ? meta.image
-  : '/media/the-internets-favorite-frank-stallone-ogimage.png';
+  : '/media/the-internets-favorite-frank-stallone-ogimage.png'
 ---
 
 <head>
-  <ViewTransitions />
+  <ClientRouter />
   <!-- Meta -->
   <meta charset="UTF-8" />
   <meta name="description" content={description} />
@@ -186,28 +184,28 @@ const ogImage = meta.image
     src="https://www.googletagmanager.com/gtag/js?id=G-NJMVWJT1D7"
     type="text/partytown"></script>
   <script is:inline type="text/partytown">
-    window.dataLayer = window.dataLayer || [];
+    window.dataLayer = window.dataLayer || []
     function gtag() {
-      dataLayer.push(arguments);
+      dataLayer.push(arguments)
     }
-    gtag('js', new Date());
+    gtag('js', new Date())
 
-    gtag('config', 'G-NJMVWJT1D7');
+    gtag('config', 'G-NJMVWJT1D7')
   </script>
   <!-- Hotjar Tracking Code for Frank Stallone -->
   <script is:inline>
-    (function (h, o, t, j, a, r) {
+    ;(function (h, o, t, j, a, r) {
       h.hj =
         h.hj ||
         function () {
-          (h.hj.q = h.hj.q || []).push(arguments);
-        };
-      h._hjSettings = { hjid: 3786210, hjsv: 6 };
-      a = o.getElementsByTagName('head')[0];
-      r = o.createElement('script');
-      r.async = 1;
-      r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
-      a.appendChild(r);
-    })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+          ;(h.hj.q = h.hj.q || []).push(arguments)
+        }
+      h._hjSettings = { hjid: 3786210, hjsv: 6 }
+      a = o.getElementsByTagName('head')[0]
+      r = o.createElement('script')
+      r.async = 1
+      r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv
+      a.appendChild(r)
+    })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=')
   </script>
 </head>
