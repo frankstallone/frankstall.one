@@ -1,10 +1,20 @@
 ---
-import { getCollection } from 'astro:content'
+import { getCollection, type CollectionEntry } from 'astro:content'
+import type { Page } from 'astro'
 import InnerLayout from '../../layouts/InnerLayout.astro'
 
-const allPosts = (await getCollection('blog')).sort(
-  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
-)
+export const getStaticPaths = async ({ paginate }: { paginate: Function }) => {
+  const allPosts = (await getCollection('blog')).sort(
+    (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+  )
+  return paginate(allPosts, { pageSize: 10 })
+}
+
+interface Props {
+  page: Page<CollectionEntry<'blog'>>
+}
+
+const { page } = Astro.props
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
@@ -22,7 +32,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
   >
     <div class="grid" style="--grid-min-item-size: min(400px, 60%);">
       {
-        allPosts.map((post) => (
+        page.data.map((post) => (
           <div class="flow prose post-card text-gray-1200 bg-gray-400 border-solid border-b-2 border-x-0 border-t-0 border-gray-700">
             <h3 class="mt-zero">
               <a
@@ -50,5 +60,26 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
         ))
       }
     </div>
+    <nav
+      class="flex justify-between items-center mt-l font-mono text-step-000 uppercase font-medium text-gray-900"
+    >
+      {
+        page.url.prev ? (
+          <a href={page.url.prev}>← Previous</a>
+        ) : (
+          <span class="text-gray-700">← Previous</span>
+        )
+      }
+      <span>
+        Page {page.currentPage} of {page.lastPage}
+      </span>
+      {
+        page.url.next ? (
+          <a href={page.url.next}>Next →</a>
+        ) : (
+          <span class="text-gray-700">Next →</span>
+        )
+      }
+    </nav>
   </section>
 </InnerLayout>
