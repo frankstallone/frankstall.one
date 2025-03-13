@@ -1,14 +1,14 @@
 ---
-import InnerLayout from '../../layouts/InnerLayout.astro';
-import { Picture } from 'astro:assets';
+import InnerLayout from '../../layouts/InnerLayout.astro'
+import { Picture } from 'astro:assets'
 
-import businessOwner from '@assets//roll-by-adp/business-owner-smiling-on-call-roll-by-adp.jpg';
-import largeSketch from '@assets//roll-by-adp/accordion-scan-sketch-whiteboarding-modified.jpg';
-import accordionSketch from '@assets//roll-by-adp/accordionlist-scan-sketch-modified.jpg';
-import finalMock from '@assets//roll-by-adp/payroll-run-hi-fidelity@2x.png';
-import rollVideo from '@assets//roll-by-adp/payroll-run-video.mp4';
-import RollPortfolioGrid from '@components/RollPortfolioGrid.astro';
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+import businessOwner from '@assets//roll-by-adp/business-owner-smiling-on-call-roll-by-adp.jpg'
+import largeSketch from '@assets//roll-by-adp/accordion-scan-sketch-whiteboarding-modified.jpg'
+import accordionSketch from '@assets//roll-by-adp/accordionlist-scan-sketch-modified.jpg'
+import finalMock from '@assets//roll-by-adp/payroll-run-hi-fidelity@2x.png'
+import rollVideo from '@assets//roll-by-adp/payroll-run-video.mp4'
+import RollPortfolioGrid from '@components/RollPortfolioGrid.astro'
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
 <InnerLayout
@@ -237,6 +237,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           </p>
         </div>
         <video
+          preload="metadata"
           autoplay
           playsinline
           loop
