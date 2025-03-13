@@ -1,30 +1,30 @@
 ---
-import InnerLayout from '../../layouts/InnerLayout.astro';
-import { Picture } from 'astro:assets';
+import InnerLayout from '../../layouts/InnerLayout.astro'
+import { Picture } from 'astro:assets'
 
-import njcSquared01 from '@assets//squared/njc-squared-01@2x.png';
-import njcSquared02 from '@assets//squared/njc-squared-02@2x.png';
-import njcSquared03 from '@assets//squared/njc-squared-03@2x.png';
-import njcSquared04 from '@assets//squared/njc-squared-04@2x.png';
+import njcSquared01 from '@assets//squared/njc-squared-01@2x.png'
+import njcSquared02 from '@assets//squared/njc-squared-02@2x.png'
+import njcSquared03 from '@assets//squared/njc-squared-03@2x.png'
+import njcSquared04 from '@assets//squared/njc-squared-04@2x.png'
 
-import bracketsSquared01 from '@assets//squared/brackets-squared-01@2x.png';
-import bracketsSquared02 from '@assets//squared/brackets-squared-02@2x.png';
-import bracketsSquared03 from '@assets//squared/brackets-squared-03@2x.png';
-import bracketsSquared04 from '@assets//squared/brackets-squared-04@2x.png';
+import bracketsSquared01 from '@assets//squared/brackets-squared-01@2x.png'
+import bracketsSquared02 from '@assets//squared/brackets-squared-02@2x.png'
+import bracketsSquared03 from '@assets//squared/brackets-squared-03@2x.png'
+import bracketsSquared04 from '@assets//squared/brackets-squared-04@2x.png'
 
-import savaniSquared01 from '@assets//squared/savani-squared-01@2x.png';
-import savaniSquared02 from '@assets//squared/savani-squared-02@2x.png';
-import savaniSquared03 from '@assets//squared/savani-squared-03@2x.png';
-import savaniSquared04 from '@assets//squared/savani-squared-04@2x.png';
-import RollPortfolioGrid from '@components/RollPortfolioGrid.astro';
-import BTCPortfolioGrid from '@components/BTCPortfolioGrid.astro';
-import RollBanner from '@components/RollBanner.astro';
-import LoumarcGrid from '@components/LoumarcGrid.astro';
+import savaniSquared01 from '@assets//squared/savani-squared-01@2x.png'
+import savaniSquared02 from '@assets//squared/savani-squared-02@2x.png'
+import savaniSquared03 from '@assets//squared/savani-squared-03@2x.png'
+import savaniSquared04 from '@assets//squared/savani-squared-04@2x.png'
+import RollPortfolioGrid from '@components/RollPortfolioGrid.astro'
+import BTCPortfolioGrid from '@components/BTCPortfolioGrid.astro'
+import RollBanner from '@components/RollBanner.astro'
+import LoumarcGrid from '@components/LoumarcGrid.astro'
 
-import ADSBanner from '@components/ADSBanner.astro';
-import ADSPhoneBanner from '@components/ADSPhoneBanner.astro';
-import AboutMe from '@components/AboutMe.astro';
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+import ADSBanner from '@components/ADSBanner.astro'
+import ADSPhoneBanner from '@components/ADSPhoneBanner.astro'
+import AboutMe from '@components/AboutMe.astro'
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
 <InnerLayout
@@ -39,6 +39,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <div class="flow flow-space-l region pt-zero" data-layout="twelfths">
       <ADSPhoneBanner />
       <video
+        preload="metadata"
         autoplay
         loop
         muted
@@ -58,6 +59,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <div class="flow flow-space-l region" data-layout="twelfths">
       <ADSBanner />
       <video
+        preload="metadata"
         autoplay
         loop
         muted
