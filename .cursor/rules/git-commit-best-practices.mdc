@@ -1,0 +1,10 @@
+---
+description: Best practices for Git commit messages
+globs: **/.git/COMMIT_EDITMSG
+alwaysApply: false
+---
+- Follow the conventional commits specification
+- Use lowercase for types and scopes
+- Keep the subject line under 60 characters
+- Include a body for more complex changes, separated by a blank line
+- Use imperative mood in the subject line (e.g., "fix:", "feat:")

@@ -1,0 +1,8 @@
+---
+description: Best practices for using Tailwind CSS
+globs: **/*.{ts,tsx,js,jsx,css}
+alwaysApply: false
+---
+- Create a design system with Tailwind's utility classes
+- Utilize Tailwind's responsive variants for mobile-first design
+- Keep custom styles minimal, favoring Tailwind's utility classes

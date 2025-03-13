@@ -1,0 +1,9 @@
+---
+description: Best practices for developing with Astro
+globs: **/*.{astro,ts,tsx,js,jsx}
+alwaysApply: false
+---
+- Use Astro's component islands for better performance
+- Leverage Astro's built-in partial hydration
+- Keep Astro components focused on UI, separating logic into separate files
+- Utilize Astro's Content Layer API for defining, managing, and querying content collections
