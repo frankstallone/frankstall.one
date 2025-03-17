@@ -1,11 +1,12 @@
 /*
-BOX
-More info: https://every-layout.dev/layouts/box/#the-generator
-*/
+ * BOX
+ * More info: https://every-layout.dev/layouts/box/#the-generator
+ * Can either be configured by setting --box-space or use a default from the space scale
+ */
 
 .box {
   @apply text-gray-1400 bg-white;
-  padding: var(--space-s-m);
+  padding: var(--box-space, var(--space-s-m));
 }
 
 .box * {
