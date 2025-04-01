@@ -50,10 +50,7 @@ function truncateDescription(description: string) {
           latestPosts.map((post) => (
             <div class="box flow prose border-solid border-b-2 border-x-0 border-t-0 border-gray-700 text-gray-1200 bg-gray-400">
               <h3 class="mt-zero">
-                <a
-                  href={`/${post.collection}/${post.id}/`}
-                  transition:name={'blog' + post.data.title}
-                >
+                <a href={`/${post.collection}/${post.id}/`}>
                   {post.data.title}
                 </a>
               </h3>
