@@ -1,0 +1,175 @@
+---
+import InnerLayout from '../../layouts/InnerLayout.astro'
+import { Picture } from 'astro:assets'
+
+import sstPrototype from '@assets/sst/simpson-strong-tie-prototype@2x.png'
+import sstTrussConnector from '@assets/sst/truss-connector@2x.jpg'
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+---
+
+<InnerLayout
+  subtitle="A Strategic Approach to Design System Leadership, Team Growth, and Organizational Transformation."
+  meta={{
+    title: 'Revitalizing UX at Simpson Strong-Tie: The STUDS Design System',
+    description:
+      "As a Senior Product Designer at Simpson Strong-Tie, I strategically relaunched and scaled the previously unsuccessful STUDS Design System. By taking direct operational leadership and fostering cross-team collaboration, I streamlined workflows, mentored a growing UX team, and significantly enhanced product consistency. My approach not only solved immediate design and operational challenges but also contributed directly to Simpson Strong-Tie's ambitious UX vision for 2030, positioning UX as a strategic driver of business outcomes.",
+    canonicalURL: canonicalURL.href,
+    image: `/media/portfolio/kl-og-image.png`,
+  }}
+>
+  <section class="flow" id="main">
+    <div class="region">
+      <div class="wrapper grid" data-layout="twelfths">
+        <div
+          class="row-start-1 row-span-5 col-span-12 md:col-span-7 md:col-start-1 lg:col-span-6 lg:col-start-1 box flow flow-space-xs border-solid border-b-2 border-x-0 border-t-0 text-orange-vivid-800 bg-orange-100 border-orange-700 z-10"
+        >
+          <h2 class="mt-zero">Situation</h2>
+          <p>
+            When I joined Simpson Strong-Tie, the UX organization was facing
+            significant challenges. The existing STUDS Design System had
+            previously failed twice, creating internal skepticism and urgency.
+            There were notable skill gaps within design and development teams,
+            limited end-user and stakeholder engagement, and processes that
+            lacked clarity and collaboration.
+          </p>
+        </div>
+        <Picture
+          src={sstTrussConnector}
+          widths={[300, 800, 2000, sstTrussConnector.width]}
+          sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${sstTrussConnector.width}px`}
+          pictureAttributes={{
+            class:
+              'object-contain h-full w-full row-span-6 md:row-start-1 md:row-span-6 col-span-12 md:col-span-8 md:col-start-6',
+          }}
+          class={'object-contain h-full w-full row-span-6 md:row-start-1 md:row-span-6 col-span-12 md:col-span-8 md:col-start-6'}
+          alt="Simpson Strong-Tie Truss Connector"
+          formats={['avif', 'webp']}
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <div class="box flow flow-space-xs w-fit text-gray-1200 mx-auto">
+        <h2 class="mt-zero">Task</h2>
+        <p>
+          My role was to strategically relaunch and stabilize the STUDS Design
+          System, close skill gaps across the teams, and implement operational
+          processes to elevate the UX practice. Additionally, I aimed to foster
+          a culture of continuous learning, collaboration, and strategic
+          alignment to support the company's ambitious 2030 business goals.
+        </p>
+        <h3>Action</h3>
+
+        <ul>
+          <li>
+            <strong>Stakeholder Engagement & Strategy Alignment</strong>:
+            Conducted comprehensive listening tours with product teams and
+            stakeholders to understand goals, constraints, and success metrics.
+            I developed a design system strategy for STUDS that aligned with
+            Simpson Strong-Tie's digital transformation and modernization
+            initiatives.
+          </li>
+          <li>
+            <strong>Operational Excellence & DesignOps</strong>: Took
+            operational leadership of STUDS' day-to-day design, development,
+            Agile ceremonies introducing clear communication practices (weekly
+            Loom videos and sprint reviews) to improve team consistency and
+            quality. Contributed to the broader UX organization by creating
+            Standard Operating Procedures (SOPs), collaborated on restructuring
+            weekly design reviews to improve transparency and cross-team
+            alignment.
+          </li>
+          <li>
+            <strong>Operational Excellence & DesignOps</strong>: Took
+            operational leadership of STUDS' day-to-day design, development, and
+            Agile ceremonies, introducing clear communication practices such as
+            weekly Loom videos and sprint reviews to enhance team consistency
+            and output quality. Additionally, contributed to the broader UX
+            organization by creating Standard Operating Procedures (SOPs) and
+            collaborating on restructuring weekly design reviews to boost
+            transparency and collaboration, and cross-team alignment.
+          </li>
+          <li>
+            <strong>Technical Leadership & Execution</strong>: Led key technical
+            initiatives, including parallel development of React and Blazor
+            component libraries to ensure cross-platform consistency.
+            Contributed to shaping the Simpson Strong-Tie UX Organization's 2030
+            strategic vision. Transitioned the design system to a more
+            digital-friendly typeface (Helvetica Now) to address usability
+            issues, and implemented a robust design token strategy for improved
+            efficiency in design-to-development workflows.
+          </li>
+          <li>
+            <strong>Team Mentorship & Growth</strong>: Mentored the design team
+            in systems thinking, accessibility compliance, and visual design
+            excellence, empowering them to independently produce high-quality,
+            user-centered designs. Initiated ongoing UX education initiatives,
+            such as team-wide UX book clubs and training sessions.
+          </li>
+        </ul>
+        <h3>Result</h3>
+
+        <ul>
+          <li>
+            <strong>Successful Relaunch and Adoption</strong>: Relaunched and
+            stabilized the STUDS Design System, achieving widespread internal
+            adoption across multiple product teams.
+          </li>
+          <li>
+            <strong>Increased Efficiency & Collaboration</strong>: Reduced
+            design-development handoff friction significantly, enhancing overall
+            productivity and accelerating product delivery timelines.
+          </li>
+          <li>
+            <strong>Strategic Impact & Team Influence</strong>: Elevated the UX
+            team's strategic visibility within Simpson Strong-Tie, directly
+            contributing to the 2030 digital solutions strategy aimed at
+            increasing Annual Recurring Revenue by hundreds of millions.
+          </li>
+          <li>
+            <strong>Team Development & Maturity</strong>: Improved the team's
+            overall design capability and strategic thinking, demonstrated by
+            enhanced quality and independence in their project outcomes.
+          </li>
+        </ul>
+
+        <p>
+          This approach not only addressed immediate UX challenges but laid a
+          solid foundation for sustained innovation and strategic growth aligned
+          with Simpson Strong-Tie's long-term business vision.
+        </p>
+      </div>
+    </div>
+    <div class="wrapper">
+      <!-- <Picture
+          src={finalMockupComponent}
+          widths={[300, 800, 2000, finalMockupComponent.width]}
+          sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${finalMockupComponent.width}px`}
+          pictureAttributes={{
+            class:
+              'object-contain h-full w-full row-start-1 row-span-5 col-start-1 col-span-12 md:row-start-1 md:row-span-10 md:col-span-8 md:col-start-1',
+          }}
+          class={'object-contain h-full w-full row-start-1 row-span-5 col-start-1 col-span-12 md:row-start-1 md:row-span-10 md:col-span-8 md:col-start-1'}
+          alt="Ascent Design System high fidelity mock up - main landing page"
+          formats={['avif', 'webp']}
+          loading="lazy"
+        /> -->
+      <div class="wrapper region">
+        <Picture
+          src={sstPrototype}
+          widths={[300, 800, 2000, sstPrototype.width]}
+          sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${sstPrototype.width}px`}
+          pictureAttributes={{
+            class:
+              'object-contain h-full w-full row-start-1 row-span-5 col-start-1 col-span-12 md:row-start-1 md:row-span-10 md:col-span-8 md:col-start-1',
+          }}
+          class={'object-contain h-full w-full row-start-1 row-span-5 col-start-1 col-span-12 md:row-start-1 md:row-span-10 md:col-span-8 md:col-start-1'}
+          alt="Simpson Strong-Tie SaaS Software Prototype"
+          formats={['avif', 'webp']}
+          loading="lazy"
+        />
+      </div>
+    </div>
+  </section>
+</InnerLayout>
