@@ -1,5 +1,5 @@
 ---
-const { count, slug } = Astro.props;
+const { count, slug } = Astro.props
 ---
 
 <post-likes
@@ -30,52 +30,52 @@ const { count, slug } = Astro.props;
 
 <script>
   class Likes extends HTMLElement {
-    likeComponent: HTMLElement;
-    count: string | number;
-    slug: string | undefined;
-    likeButton: HTMLButtonElement;
-    countSpan: HTMLSpanElement;
-    liked: boolean;
+    likeComponent: HTMLElement
+    count: string | number
+    slug: string | undefined
+    likeButton: HTMLButtonElement
+    countSpan: HTMLSpanElement
+    liked: boolean
     constructor() {
-      super();
-      this.likeComponent = this;
-      this.count = this.dataset.initial ?? 0;
-      this.slug = this.dataset.slug;
-      this.likeButton = this.querySelector('button') as HTMLButtonElement;
-      this.countSpan = this.querySelector('span') as HTMLSpanElement;
-      this.liked = false;
+      super()
+      this.likeComponent = this
+      this.count = this.dataset.initial ?? 0
+      this.slug = this.dataset.slug
+      this.likeButton = this.querySelector('button') as HTMLButtonElement
+      this.countSpan = this.querySelector('span') as HTMLSpanElement
+      this.liked = false
     }
 
     connectedCallback() {
       // Set the initial count
       if (this.count !== 0) {
-        this.countSpan.textContent = this.count.toString();
+        this.countSpan.textContent = this.count.toString()
       }
       // Update the liked state
-      this.updateLikedState();
+      this.updateLikedState()
       // Initial update to the component UI
-      this.updateUI();
+      this.updateUI()
       // Add event listener to the button
-      this.addLikeButtonEventListener();
+      this.addLikeButtonEventListener()
     }
 
     addLikeButtonEventListener() {
       this.likeButton.addEventListener('click', async (e) => {
-        e.preventDefault();
+        e.preventDefault()
         // Initial count before the event handler
-        const initialCount = Number(this.count);
+        const initialCount = Number(this.count)
         // Toggle the liked state
-        this.liked = !this.liked;
+        this.liked = !this.liked
         // console.log(`liked after event handler click: ${this.liked}`);
         if (!!this.liked) {
-          this.count = Number(this.count) + 1;
-          this.countSpan.textContent = this.count.toString();
+          this.count = Number(this.count) + 1
+          this.countSpan.textContent = this.count.toString()
         } else {
-          this.count = Number(this.count) - 1;
-          this.countSpan.textContent = this.count.toString();
+          this.count = Number(this.count) - 1
+          this.countSpan.textContent = this.count.toString()
         }
         // Update the UI
-        this.updateUI();
+        this.updateUI()
         // Send a POST request to the server
         try {
           const response = await fetch(`/api/like-post/${this.slug}/`, {
@@ -83,43 +83,48 @@ const { count, slug } = Astro.props;
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ slug: '{{ slug }}' }),
-          });
+            body: JSON.stringify({ slug: this.slug }),
+          })
           // If the request is successful
           if (response.ok) {
-            this.updateLikedState();
-            this.updateUI();
+            this.updateLikedState()
+          } else {
+            // If the server returns an error, revert everything
+            this.count = initialCount
+            this.countSpan.textContent = this.count.toString()
+            this.updateLikedState() // Ensure we're in sync with server
+            console.error('Failed to update like status')
           }
         } catch (error) {
-          // If the request fails, revert the count and the liked state
-          this.count = initialCount - 1;
-          this.updateLikedState();
-          this.updateUI();
-          console.error(error);
+          // If the request fails, revert everything to initial state
+          this.count = initialCount
+          this.countSpan.textContent = this.count.toString()
+          this.updateLikedState() // Ensure we're in sync with server
+          console.error('Error updating like status:', error)
         }
-      });
+      })
     }
 
     updateUI() {
       // console.log(`liked before updateUI: ${this.liked}`);
       if (this.liked) {
-        this.likeComponent.classList.add('bg-indigo-vivid-600');
-        this.likeComponent.classList.remove('bg-gray-600');
-        this.likeButton.classList.remove('text-indigo-1000');
-        this.likeButton.classList.add('text-indigo-100');
+        this.likeComponent.classList.add('bg-indigo-vivid-600')
+        this.likeComponent.classList.remove('bg-gray-600')
+        this.likeButton.classList.remove('text-indigo-1000')
+        this.likeButton.classList.add('text-indigo-100')
         this.likeButton.setAttribute(
           'aria-label',
           `Thank you! Click to unlike this post. This post has been liked ${this.count} times.`
-        );
+        )
       } else {
-        this.likeComponent.classList.remove('bg-indigo-vivid-600');
-        this.likeComponent.classList.add('bg-gray-600');
-        this.likeButton.classList.remove('text-indigo-100');
-        this.likeButton.classList.add('text-indigo-1000');
+        this.likeComponent.classList.remove('bg-indigo-vivid-600')
+        this.likeComponent.classList.add('bg-gray-600')
+        this.likeButton.classList.remove('text-indigo-100')
+        this.likeButton.classList.add('text-indigo-1000')
         this.likeButton.setAttribute(
           'aria-label',
           `Click to like this post. This post has been liked ${this.count} times.`
-        );
+        )
       }
     }
 
@@ -131,18 +136,18 @@ const { count, slug } = Astro.props;
           headers: {
             'Content-Type': 'application/json',
           },
-        });
+        })
         if (response.ok) {
-          const { liked } = await response.json();
+          const { liked } = await response.json()
           // console.log(`liked after updateLikedState response: ${liked}`);
-          this.liked = liked;
-          this.updateUI();
+          this.liked = liked
+          this.updateUI()
         }
       } catch (error) {
-        console.error(error);
+        console.error(error)
       }
-    };
+    }
   }
 
-  customElements.define('post-likes', Likes);
+  customElements.define('post-likes', Likes)
 </script>
