@@ -1,4 +1,11 @@
 ---
+interface Props {
+  /** The current number of likes for this post */
+  count: number
+  /** The unique identifier for the post */
+  slug: string
+}
+
 const { count, slug } = Astro.props
 ---
 
@@ -29,21 +36,55 @@ const { count, slug } = Astro.props
 </post-likes>
 
 <script>
-  class Likes extends HTMLElement {
-    likeComponent: HTMLElement
-    count: string | number
-    slug: string | undefined
-    likeButton: HTMLButtonElement
-    countSpan: HTMLSpanElement
+  interface LikeResponse {
     liked: boolean
+  }
+
+  interface APIError {
+    message: string
+    code?: string
+  }
+
+  class Likes extends HTMLElement {
+    private readonly likeComponent: HTMLElement
+    private count: number
+    private readonly slug: string
+    private readonly likeButton: HTMLButtonElement
+    private readonly countSpan: HTMLSpanElement
+    private liked: boolean
+    private isUpdating: boolean
+
     constructor() {
       super()
       this.likeComponent = this
-      this.count = this.dataset.initial ?? 0
-      this.slug = this.dataset.slug
-      this.likeButton = this.querySelector('button') as HTMLButtonElement
-      this.countSpan = this.querySelector('span') as HTMLSpanElement
+
+      const initial = this.dataset.initial
+      const slug = this.dataset.slug
+
+      if (!initial) {
+        throw new Error('Likes component: data-initial attribute is required')
+      }
+      if (!slug) {
+        throw new Error('Likes component: data-slug attribute is required')
+      }
+
+      this.count = Number(initial)
+      if (isNaN(this.count)) {
+        throw new Error('Likes component: data-initial must be a valid number')
+      }
+
+      this.slug = slug
+      const button = this.querySelector('button')
+      const span = this.querySelector('span')
+
+      if (!button || !span) {
+        throw new Error('Likes component: Required elements not found')
+      }
+
+      this.likeButton = button
+      this.countSpan = span
       this.liked = false
+      this.isUpdating = false
     }
 
     connectedCallback() {
@@ -53,65 +94,73 @@ const { count, slug } = Astro.props
       }
       // Update the liked state
       this.updateLikedState()
-      // Initial update to the component UI
-      this.updateUI()
       // Add event listener to the button
       this.addLikeButtonEventListener()
     }
 
-    addLikeButtonEventListener() {
+    private addLikeButtonEventListener() {
       this.likeButton.addEventListener('click', async (e) => {
         e.preventDefault()
-        // Initial count before the event handler
-        const initialCount = Number(this.count)
-        // Toggle the liked state
-        this.liked = !this.liked
-        // console.log(`liked after event handler click: ${this.liked}`);
-        if (!!this.liked) {
-          this.count = Number(this.count) + 1
-          this.countSpan.textContent = this.count.toString()
-        } else {
-          this.count = Number(this.count) - 1
-          this.countSpan.textContent = this.count.toString()
+
+        // Prevent multiple rapid clicks
+        if (this.isUpdating) {
+          return
         }
-        // Update the UI
-        this.updateUI()
-        // Send a POST request to the server
+
         try {
-          const response = await fetch(`/api/like-post/${this.slug}/`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ slug: this.slug }),
-          })
-          // If the request is successful
-          if (response.ok) {
-            this.updateLikedState()
-          } else {
-            // If the server returns an error, revert everything
-            this.count = initialCount
-            this.countSpan.textContent = this.count.toString()
-            this.updateLikedState() // Ensure we're in sync with server
-            console.error('Failed to update like status')
-          }
+          this.isUpdating = true
+          this.likeButton.disabled = true
+          await this.handleLikeClick()
         } catch (error) {
-          // If the request fails, revert everything to initial state
-          this.count = initialCount
-          this.countSpan.textContent = this.count.toString()
-          this.updateLikedState() // Ensure we're in sync with server
-          console.error('Error updating like status:', error)
+          console.error('Error handling like click:', error)
+          this.showError('Failed to update like status. Please try again.')
+        } finally {
+          this.isUpdating = false
+          this.likeButton.disabled = false
         }
       })
     }
 
-    updateUI() {
-      // console.log(`liked before updateUI: ${this.liked}`);
+    private async handleLikeClick() {
+      // Store initial state for rollback
+      const initialCount = this.count
+      const wasLiked = this.liked
+
+      // Optimistic update
+      this.liked = !this.liked
+      this.count = this.liked ? this.count + 1 : this.count - 1
+      this.updateUI()
+
+      try {
+        const response = await this.sendLikeRequest()
+
+        if (!response.ok) {
+          const error = (await response.json()) as APIError
+          throw new Error(error.message || 'Server error')
+        }
+      } catch (error) {
+        // Revert on error
+        this.count = initialCount
+        this.liked = wasLiked
+        this.updateUI()
+        throw error // Re-throw for the caller
+      }
+    }
+
+    private async sendLikeRequest(): Promise<Response> {
+      return fetch(`/api/like-post/${this.slug}/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ slug: this.slug }),
+      })
+    }
+
+    private updateUI() {
       if (this.liked) {
         this.likeComponent.classList.add('bg-indigo-vivid-600')
         this.likeComponent.classList.remove('bg-gray-600')
-        this.likeButton.classList.remove('text-indigo-1000')
-        this.likeButton.classList.add('text-indigo-100')
         this.likeButton.setAttribute(
           'aria-label',
           `Thank you! Click to unlike this post. This post has been liked ${this.count} times.`
@@ -119,17 +168,15 @@ const { count, slug } = Astro.props
       } else {
         this.likeComponent.classList.remove('bg-indigo-vivid-600')
         this.likeComponent.classList.add('bg-gray-600')
-        this.likeButton.classList.remove('text-indigo-100')
-        this.likeButton.classList.add('text-indigo-1000')
         this.likeButton.setAttribute(
           'aria-label',
           `Click to like this post. This post has been liked ${this.count} times.`
         )
       }
+      this.countSpan.textContent = this.count.toString()
     }
 
-    updateLikedState = async () => {
-      // console.log(`liked before updateLikedState: ${this.liked}`);
+    private async updateLikedState() {
       try {
         const response = await fetch(`/api/like-post/${this.slug}/`, {
           method: 'GET',
@@ -137,17 +184,56 @@ const { count, slug } = Astro.props
             'Content-Type': 'application/json',
           },
         })
-        if (response.ok) {
-          const { liked } = await response.json()
-          // console.log(`liked after updateLikedState response: ${liked}`);
-          this.liked = liked
-          this.updateUI()
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch like state')
         }
+
+        const { liked } = (await response.json()) as LikeResponse
+        this.liked = liked
+        this.updateUI()
       } catch (error) {
-        console.error(error)
+        console.error('Error fetching like state:', error)
+        this.showError('Failed to load like status')
       }
+    }
+
+    private showError(message: string) {
+      console.error(message)
+      // Simple
+      this.likeButton.classList.add('error')
+      setTimeout(() => {
+        this.likeButton.classList.remove('error')
+      }, 2000)
     }
   }
 
   customElements.define('post-likes', Likes)
 </script>
+
+<style>
+  .error {
+    animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    transform: translate3d(0, 0, 0);
+  }
+
+  @keyframes shake {
+    10%,
+    90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    20%,
+    80% {
+      transform: translate3d(2px, 0, 0);
+    }
+    30%,
+    50%,
+    70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+    40%,
+    60% {
+      transform: translate3d(4px, 0, 0);
+    }
+  }
+</style>
