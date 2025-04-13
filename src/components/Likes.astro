@@ -13,11 +13,11 @@ const { count, slug } = Astro.props
   id="like-button"
   data-initial={count}
   data-slug={slug}
-  class="inline-flex align-center justify-center rounded-3xl bg-gray-600 text-step-00 text-gray-100"
+  class="inline-flex align-center justify-center"
 >
   <button
     aria-label="Click to like this post"
-    class="bg-transparent border-none flex justify-center align-center px-xs py-2xs"
+    class="border-none flex justify-center align-center px-xs py-2xs bg-gray-600 text-step-00 text-gray-1400 rounded-3xl disabled:opacity-50 disabled:cursor-not-allowed"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -159,15 +159,21 @@ const { count, slug } = Astro.props
 
     private updateUI() {
       if (this.liked) {
-        this.likeComponent.classList.add('bg-indigo-vivid-600')
-        this.likeComponent.classList.remove('bg-gray-600')
+        this.likeButton.classList.add(
+          'bg-indigo-vivid-600',
+          'text-indigo-vivid-100'
+        )
+        this.likeButton.classList.remove('bg-gray-600', 'text-gray-1400')
         this.likeButton.setAttribute(
           'aria-label',
           `Thank you! Click to unlike this post. This post has been liked ${this.count} times.`
         )
       } else {
-        this.likeComponent.classList.remove('bg-indigo-vivid-600')
-        this.likeComponent.classList.add('bg-gray-600')
+        this.likeButton.classList.remove(
+          'bg-indigo-vivid-600',
+          'text-indigo-vivid-100'
+        )
+        this.likeButton.classList.add('bg-gray-600', 'text-gray-1400')
         this.likeButton.setAttribute(
           'aria-label',
           `Click to like this post. This post has been liked ${this.count} times.`
@@ -200,7 +206,6 @@ const { count, slug } = Astro.props
 
     private showError(message: string) {
       console.error(message)
-      // Simple
       this.likeButton.classList.add('error')
       setTimeout(() => {
         this.likeButton.classList.remove('error')
