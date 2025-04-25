@@ -96,7 +96,7 @@ describe('Likes Component', () => {
     const button = screen.getByRole('button')
 
     // Click the like button
-    await fireEvent.click(button)
+    fireEvent.click(button)
 
     // Check immediate UI update
     await waitFor(() => {
@@ -120,7 +120,7 @@ describe('Likes Component', () => {
     const button = screen.getByRole('button')
 
     // Click the like button
-    await fireEvent.click(button)
+    fireEvent.click(button)
 
     // Wait for reversion
     await waitFor(() => {
@@ -146,7 +146,7 @@ describe('Likes Component', () => {
     const button = screen.getByRole('button')
 
     // Click the like button
-    await fireEvent.click(button)
+    fireEvent.click(button)
 
     // Wait for reversion
     await waitFor(() => {
@@ -172,7 +172,7 @@ describe('Likes Component', () => {
       'Click to like this post',
     )
 
-    await fireEvent.click(button)
+    fireEvent.click(button)
 
     await waitFor(() => {
       expect(button.getAttribute('aria-label')).toContain('Thank you!')
