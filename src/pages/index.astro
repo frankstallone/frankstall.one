@@ -43,12 +43,14 @@ function truncateDescription(description: string) {
         class="flex flex-col space-y-xs md:space-y-zero md:grid md:grid-recent mb-m md:gutter-m"
         id="recent-posts"
       >
-        <h2 class="md:text-center section-header text-gray-1200 bg-gray-400">
+        <h2
+          class="md:text-center section-header text-gray-1200 bg-gray-400 rounded-md"
+        >
           Recent posts
         </h2>
         {
           latestPosts.map((post) => (
-            <div class="box flow prose border-solid border-b-2 border-x-0 border-t-0 border-gray-700 text-gray-1200 bg-gray-400">
+            <div class="box flow prose border-solid border-b-2 border-x-0 border-t-0 border-gray-700 text-gray-1200 bg-gray-400 rounded-md">
               <h3 class="mt-zero">
                 <a
                   href={`/${post.collection}/${post.id}/`}
@@ -100,7 +102,7 @@ function truncateDescription(description: string) {
         loop
         muted
         playsinline
-        class="min-w-zero max-w-full md:row-start-3 md:row-span-2 md:col-span-8 md:col-start-1"
+        class="min-w-zero max-w-full md:row-start-3 md:row-span-2 md:col-span-8 md:col-start-1 rounded-md"
       >
         <source
           src="/media/klaviyo/klaviyo-phone-input-cover-web.webm"

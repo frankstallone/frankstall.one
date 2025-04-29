@@ -1,11 +1,11 @@
 ---
-import InnerLayout from '../../layouts/InnerLayout.astro';
-import { Picture } from 'astro:assets';
+import InnerLayout from '../../layouts/InnerLayout.astro'
+import { Picture } from 'astro:assets'
 
-import klaviyoAPI from '@assets/klaviyo/klaviyo-collaboration.webp';
-import finalMockup from '@assets/klaviyo/ascent-design-system-high-fidelity-mock-up.png';
-import ascentSitemap from '@assets/klaviyo/ascent-design-system-sitemap.png';
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+import klaviyoAPI from '@assets/klaviyo/klaviyo-collaboration.webp'
+import finalMockup from '@assets/klaviyo/ascent-design-system-high-fidelity-mock-up.png'
+import ascentSitemap from '@assets/klaviyo/ascent-design-system-sitemap.png'
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
 <InnerLayout
@@ -26,9 +26,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           widths={[300, 800, 2000, finalMockup.width]}
           sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${finalMockup.width}px`}
           pictureAttributes={{
-            class: 'object-contain h-full w-full',
+            class: 'object-contain h-full w-full rounded-md',
           }}
-          class={'object-contain h-full w-full'}
+          class={'object-contain h-full w-full rounded-md'}
           alt="Ascent Design System high fidelity mock up - main landing page"
           formats={['avif', 'webp']}
           loading="lazy"
@@ -59,7 +59,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <div class="region">
       <div class="wrapper grid" data-layout="twelfths">
         <div
-          class="row-start-1 row-span-5 col-span-12 md:col-span-7 md:col-start-1 lg:col-span-6 lg:col-start-1 box flow flow-space-xs border-solid border-b-2 border-x-0 border-t-0 text-mint-vivid-800 bg-mint-100 border-mint-700 z-10"
+          class="row-start-1 row-span-5 col-span-12 md:col-span-7 md:col-start-1 lg:col-span-6 lg:col-start-1 box flow flow-space-xs border-solid border-b-2 border-x-0 border-t-0 text-mint-vivid-800 bg-mint-100 border-mint-700 z-10 rounded-md"
         >
           <h2 class="mt-zero">Product Spec</h2>
           <p>
@@ -80,9 +80,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${klaviyoAPI.width}px`}
           pictureAttributes={{
             class:
-              'object-contain h-full w-full row-span-6 md:row-start-1 md:row-span-6 col-span-12 md:col-span-8 md:col-start-6',
+              'object-contain h-full w-full row-span-6 md:row-start-1 md:row-span-6 col-span-12 md:col-span-8 md:col-start-6 rounded-md',
           }}
-          class={'object-contain h-full w-full row-span-6 md:row-start-1 md:row-span-6 col-span-12 md:col-span-8 md:col-start-6'}
+          class={'object-contain h-full w-full row-span-6 md:row-start-1 md:row-span-6 col-span-12 md:col-span-8 md:col-start-6 rounded-md'}
           alt="Small business owner smiling on a call with a customer"
           formats={['avif', 'webp']}
           loading="lazy"
@@ -449,9 +449,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${ascentSitemap.width}px`}
           pictureAttributes={{
             class:
-              'object-contain h-full w-full row-start-1 row-span-5 col-start-1 col-span-12 md:row-start-1 md:row-span-10 md:col-span-8 md:col-start-1',
+              'object-contain h-full w-full row-start-1 row-span-5 col-start-1 col-span-12 md:row-start-1 md:row-span-10 md:col-span-8 md:col-start-1 rounded-md',
           }}
-          class={'object-contain h-full w-full row-start-1 row-span-5 col-start-1 col-span-12 md:row-start-1 md:row-span-10 md:col-span-8 md:col-start-1'}
+          class={'object-contain h-full w-full row-start-1 row-span-5 col-start-1 col-span-12 md:row-start-1 md:row-span-10 md:col-span-8 md:col-start-1 rounded-md'}
           alt="Ascent Design System FigJam sitemap"
           formats={['avif', 'webp']}
           loading="lazy"
@@ -555,7 +555,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <div class="wrapper">
       <iframe
         style="border: 1px solid rgba(0, 0, 0, 0.1);"
-        class="w-full"
+        class="w-full rounded-md"
         height="760"
         src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FmOnQIEz7YI8foqGeSHStS9%2FAscent-Design-System-Mockup%3Fpage-id%3D0%253A1%26node-id%3D3-349%26viewport%3D466%252C288%252C0.34%26t%3De8ov2Htrp1YTBrSU-1%26scaling%3Dscale-down%26content-scaling%3Dfixed"
         allowfullscreen></iframe>
