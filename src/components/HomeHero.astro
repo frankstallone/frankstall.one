@@ -22,3 +22,39 @@ const optimizedBackground = await getImage({ src: background })
     </h1>
   </div>
 </div>
+
+<script>
+  import { gsap } from 'gsap'
+  import SplitText from 'gsap/SplitText'
+  let mm = gsap.matchMedia()
+
+  gsap.registerPlugin(SplitText)
+
+  mm.add('(prefers-reduced-motion: no-preference)', (context) => {
+    document.fonts.ready.then(() => {
+      let split = SplitText.create('h1', {
+        type: 'lines, words, chars',
+        autoStart: true,
+        onSplit(self) {
+          gsap.from(self.chars, {
+            yPercent: 'random([-100, 100])',
+            rotate: 'random(-10, 10)',
+            autoAlpha: 0,
+            // repeat: -1,
+            // yoyo: true,
+            stagger: {
+              amount: 0.75,
+              from: 'random',
+            },
+            onComplete: () => {
+              split.revert()
+            },
+            // opacity: 0,
+            // duration: 1,
+            // stagger: 0.1,
+          })
+        },
+      })
+    })
+  })
+</script>
