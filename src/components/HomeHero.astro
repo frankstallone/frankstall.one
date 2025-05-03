@@ -16,9 +16,56 @@ const optimizedBackground = await getImage({ src: background })
   <div
     class="box flex flex-col justify-center flow prose bg-transparent text-gray-100 h-[30vh] md:h-[50vh]"
   >
-    <h1 class="text-[10vw] uppercase font-bold leading-flat">
+    <h1
+      class="text-[10vw] uppercase font-bold leading-flat bg-gradient-to-r from-indigo-vivid-100 to-indigo-vivid-600 bg-clip-text text-transparent"
+    >
       Creative <br />
       <em>empowerment</em>
     </h1>
   </div>
 </div>
+
+<script>
+  import { gsap } from 'gsap'
+  import SplitText from 'gsap/SplitText'
+  let mm = gsap.matchMedia()
+  const color = gsap.utils.interpolate('#f0f0ff', '#8289ff')
+
+  gsap.registerPlugin(SplitText)
+
+  mm.add('(prefers-reduced-motion: no-preference)', (context) => {
+    document.fonts.ready.then(() => {
+      let split = SplitText.create('h1', {
+        type: 'chars',
+        autoStart: true,
+        charsClass: 'empower++',
+        onSplit(self) {
+          // Colorize the characters
+          gsap.set(self.chars, {
+            color: (index, target, targets) =>
+              color(index / (targets.length - 1)),
+          })
+          // Animate the characters
+          gsap.from(self.chars, {
+            yPercent: 'random([-50, 50])',
+            xPercent: 'random([-100, 100])',
+            rotate: 'random(-30, 30)',
+            autoAlpha: 0,
+            // repeat: -1,
+            // yoyo: true,
+            stagger: {
+              amount: 0.75,
+              from: 'random',
+            },
+            onComplete: () => {
+              // split.revert()
+            },
+            // opacity: 0,
+            // duration: 1,
+            // stagger: 0.1,
+          })
+        },
+      })
+    })
+  })
+</script>
