@@ -102,7 +102,7 @@
 </style>
 
 <script>
-  import { animate, stagger } from 'motion'
+  import { gsap } from 'gsap'
   // Remove no-js class when JavaScript is enabled
   document.querySelector('header')?.classList.remove('no-js')
 
@@ -118,14 +118,8 @@
   }
 
   // Animation configuration
-  const fadeInUp = {
-    opacity: [0, 1],
-    y: [-20, 0],
-  }
-
-  const animationTiming = {
-    duration: 0.5,
-  }
+  const fadeInUpFrom = { opacity: 0, y: -20 }
+  const fadeInUpTo = { opacity: 1, y: 0, duration: 0.5 }
 
   // Run animation when view transition is complete
   document.addEventListener('astro:page-load', () => {
@@ -143,15 +137,14 @@
       // Otherwise, proceed with animations
       try {
         // Animate logo first
-        animate('#logo-link', fadeInUp, animationTiming)
+        gsap.fromTo('#logo-link', fadeInUpFrom, fadeInUpTo)
 
-        // Animate nav items with a delay
-        setTimeout(() => {
-          animate('.nav-item', fadeInUp, {
-            ...animationTiming,
-            delay: stagger(0.1),
-          })
-        }, animationTiming.duration * 1000) // Convert duration to milliseconds
+        // Animate nav items with a delay and stagger
+        gsap.fromTo('.nav-item', fadeInUpFrom, {
+          ...fadeInUpTo,
+          delay: 0.5,
+          stagger: 0.1,
+        })
       } catch (error) {
         // Fallback if animation fails
         showElementsImmediately()
