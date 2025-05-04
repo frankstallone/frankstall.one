@@ -19,8 +19,9 @@ const optimizedBackground = await getImage({ src: background })
     <h1
       class="text-[10vw] uppercase font-bold leading-flat bg-gradient-to-r from-indigo-vivid-100 to-indigo-vivid-600 bg-clip-text text-transparent"
     >
-      Creative <br />
-      <em>empowerment</em>
+      <span class="creative">Creative</span>
+      <br />
+      <em class="empowerment">empowerment</em>
     </h1>
   </div>
 </div>
@@ -35,10 +36,10 @@ const optimizedBackground = await getImage({ src: background })
 
   mm.add('(prefers-reduced-motion: no-preference)', (context) => {
     document.fonts.ready.then(() => {
-      let split = SplitText.create('h1', {
+      let creativeSplit = SplitText.create('.creative', {
         type: 'chars',
         autoStart: true,
-        charsClass: 'empower++',
+        charsClass: 'creative++',
         onSplit(self) {
           // Colorize the characters
           gsap.set(self.chars, {
@@ -51,18 +52,28 @@ const optimizedBackground = await getImage({ src: background })
             xPercent: 'random([-100, 100])',
             rotate: 'random(-30, 30)',
             autoAlpha: 0,
-            // repeat: -1,
-            // yoyo: true,
             stagger: {
               amount: 0.75,
               from: 'random',
             },
-            onComplete: () => {
-              // split.revert()
-            },
-            // opacity: 0,
-            // duration: 1,
-            // stagger: 0.1,
+          })
+        },
+      })
+      let empowermentSplit = SplitText.create('.empowerment', {
+        type: 'chars words',
+        autoStart: true,
+        charsClass: 'empower++',
+        onSplit(self) {
+          // Colorize the characters
+          gsap.set(self.chars, {
+            color: (index, target, targets) =>
+              color(index / (targets.length - 1)),
+          })
+          // Animate the word
+          gsap.from(self.words, {
+            scale: 0.75,
+            autoAlpha: 0,
+            delay: 0.5,
           })
         },
       })
