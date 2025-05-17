@@ -34,9 +34,9 @@ const optimizedBackground = await getImage({ src: background })
 
   gsap.registerPlugin(SplitText)
 
-  mm.add('(prefers-reduced-motion: no-preference)', (context) => {
-    document.fonts.ready.then(() => {
-      let creativeSplit = SplitText.create('.creative', {
+  mm.add('(prefers-reduced-motion: no-preference)', async (context) => {
+    await document.fonts.ready;
+    let creativeSplit = SplitText.create('.creative', {
         type: 'chars',
         autoStart: true,
         charsClass: 'creative++',

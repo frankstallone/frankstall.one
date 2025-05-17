@@ -1,5 +1,4 @@
-// const slugify = require('slugify');
-import slugify from 'slugify';
+import slugify from 'slugify'
 
 /**
  * Converts human readable tokens into tailwind config friendly ones
@@ -8,14 +7,14 @@ import slugify from 'slugify';
  * @return {object} {key, value}
  */
 const tokensToTailwind = (tokens) => {
-  const nameSlug = (text) => slugify(text, { lower: true });
-  let response = {};
+  const nameSlug = (text) => slugify(text, { lower: true })
+  const response = {}
 
   tokens.forEach(({ name, value }) => {
-    response[nameSlug(name)] = value;
-  });
+    response[nameSlug(name)] = value
+  })
 
-  return response;
-};
+  return response
+}
 
-module.exports = tokensToTailwind;
+export default tokensToTailwind
