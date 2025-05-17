@@ -38,7 +38,7 @@ Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page
 
 There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-Any static image assets get put in the `src/assets/` directiory and should use the `Picture` component to render.
+Any static image assets get put in the `src/assets/` directory and should use the `Picture` component to render.
 
 All other assets live directly in the `public/` directory. This is where you'll find your `favicon.svg` etc.
 

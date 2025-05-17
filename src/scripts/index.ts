@@ -11,7 +11,12 @@ export const buildHierarchy = (headings: any) => {
     if (heading.depth === 2) {
       toc.push(heading);
     } else {
-      parentHeadings.get(heading.depth - 1).subheadings.push(heading);
+      const parent = parentHeadings.get(heading.depth - 1);
+      if (parent) {
+        parent.subheadings.push(heading);
+      } else {
+        toc.push(heading);
+      }
     }
   });
   return toc;

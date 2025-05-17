@@ -10,6 +10,12 @@ describe('Likes Component', () => {
 
   // Helper function to create and mount component
   const mountComponent = (props = { count: 0, slug: 'test-post' }) => {
+    // Set up default mock response for initial state check
+    mockFetch.mockResolvedValueOnce({
+      ok: true,
+      json: () => Promise.resolve({ liked: false }),
+    })
+
     const template = document.createElement('template')
     template.innerHTML = `
       <post-likes
