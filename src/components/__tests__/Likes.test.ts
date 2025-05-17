@@ -50,6 +50,7 @@ describe('Likes Component', () => {
   afterEach(() => {
     // Cleanup
     container?.remove()
+    vi.useRealTimers()
   })
 
   const getCountElement = () => {
@@ -185,6 +186,20 @@ describe('Likes Component', () => {
       expect(button.getAttribute('aria-label')).toContain(
         'Click to unlike this post',
       )
+    })
+  })
+
+  it('should show and clear error state after timeout', async () => {
+    vi.useFakeTimers()
+    mountComponent({ count: 0, slug: 'test-post' })
+    const button = screen.getByRole('button')
+
+    ;(container as any).showError('boom')
+    expect(button.classList.contains('error')).toBe(true)
+
+    vi.advanceTimersByTime(2000)
+    await waitFor(() => {
+      expect(button.classList.contains('error')).toBe(false)
     })
   })
 })

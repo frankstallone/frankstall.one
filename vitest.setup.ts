@@ -104,5 +104,15 @@ customElements.define(
         console.error(error)
       }
     }
+
+    showError(message: string) {
+      console.error(message)
+      if (this.likeButton) {
+        this.likeButton.classList.add('error')
+        setTimeout(() => {
+          this.likeButton?.classList.remove('error')
+        }, 2000)
+      }
+    }
   },
 )
