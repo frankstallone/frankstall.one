@@ -26,7 +26,7 @@ Inside of your Astro project, you'll see the following folders and files:
 │       └── index.astro
 ├── .gitignore
 ├── .prettierrc
-├── astro.config.mjs
+├── astro.config.ts
 ├── netlify.toml
 ├── package-lock.json
 ├── package.json
