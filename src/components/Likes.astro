@@ -212,7 +212,9 @@ const { count, slug } = Astro.props
     }
   }
 
-  customElements.define('post-likes', Likes)
+  if (!customElements.get('post-likes')) {
+    customElements.define('post-likes', Likes)
+  }
 </script>
 
 <style>
