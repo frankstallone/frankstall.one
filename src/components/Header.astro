@@ -121,8 +121,8 @@
   const fadeInUpFrom = { opacity: 0, y: -20 }
   const fadeInUpTo = { opacity: 1, y: 0, duration: 0.5 }
 
-  // Run animation when view transition is complete
-  document.addEventListener('astro:page-load', () => {
+  // Run animation on page load
+  document.addEventListener('DOMContentLoaded', () => {
     const prefersReducedMotion = window.matchMedia(
       '(prefers-reduced-motion: reduce)'
     )

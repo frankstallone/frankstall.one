@@ -23,7 +23,7 @@ const description = subtitle
   <Header />
   <div class="region wrapper">
     <div class="flex flex-col justify-center flow prose text-gray-100">
-      <h1 transition:name={'blog' + title}>{title}</h1>
+      <h1 style={`view-transition-name: blog ${title}`}>{title}</h1>
       <h2 class="font-regular">{description}</h2>
     </div>
   </div>
