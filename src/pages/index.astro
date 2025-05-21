@@ -54,7 +54,7 @@ function truncateDescription(description: string) {
               <h3 class="mt-zero">
                 <a
                   href={`/${post.collection}/${post.id}/`}
-                  transition:name={'blog' + post.data.title}
+                  style={`view-transition-name: blog${post.data.title}`}
                 >
                   {post.data.title}
                 </a>
