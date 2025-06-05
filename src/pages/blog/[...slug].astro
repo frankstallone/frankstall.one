@@ -19,10 +19,18 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props
 
-const [{ count: postLikesCount }] = await db
-  .select({ count: count() })
-  .from(Like)
-  .where(eq(Like.slug, entry.id))
+let postLikesCount = 0
+if (import.meta.env.TURSO_DATABASE_URL) {
+  try {
+    const [{ count: countVal }] = await db
+      .select({ count: count() })
+      .from(Like)
+      .where(eq(Like.slug, entry.id))
+    postLikesCount = countVal
+  } catch {
+    postLikesCount = 0
+  }
+}
 
 const { Content, headings } = await render(entry)
 const headingsArray = buildHierarchy(headings)
