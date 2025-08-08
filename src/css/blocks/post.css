@@ -9,14 +9,16 @@ Inspired by: https://piccalil.li/blog/building-a-breakout-element-with-container
   --sidebar-target-width: clamp(16rem, 30cqi, 30rem);
   --gutter: var(--space-xl);
   --post-sidebar-border-color: #676cc8; /* Indigo 600 */
+  /* Threshold at which we consider the layout wide enough to place the sidebar inline */
+  --post-inline-threshold: 60rem;
 
   /* Enable container queries & units */
   container-type: inline-size;
 }
 
-/* Flip the visual order (sidebar on right) only when the container is wide enough. 
+/* Flip the visual order (sidebar on right) only when the container is wide enough.
    Keep sidebar first in DOM so that when stacked it appears above content. */
-@container (width > 50cqi) {
+@container (width > var(--post-inline-threshold, 60rem)) {
   .post[data-direction='rtl'] .post__row {
     flex-direction: row-reverse;
   }
@@ -34,7 +36,7 @@ Inspired by: https://piccalil.li/blog/building-a-breakout-element-with-container
 }
 
 /* Sidebar border: left when inline (sidebar on right); remove bottom */
-@container (width > 50cqi) {
+@container (width > var(--post-inline-threshold, 60rem)) {
   .post[data-direction='rtl'] .post__sidebar {
     border-block-end: 0;
     border-inline-start: 2px solid var(--post-sidebar-border-color);
