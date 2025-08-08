@@ -10,7 +10,7 @@ Inspired by: https://piccalil.li/blog/building-a-breakout-element-with-container
   --gutter: var(--space-xl);
   --post-sidebar-border-color: #676cc8; /* Indigo 600 */
   /* Threshold at which we consider the layout wide enough to place the sidebar inline */
-  --post-inline-threshold: 65ch;
+  --post-inline-threshold: 60rem;
 
   /* Enable container queries & units */
   container-type: inline-size;
@@ -18,8 +18,8 @@ Inspired by: https://piccalil.li/blog/building-a-breakout-element-with-container
 
 /* Flip the visual order (sidebar on right) only when the container is wide enough.
    Keep sidebar first in DOM so that when stacked it appears above content. */
-@container (inline-size > var(--post-inline-threshold, 65ch)) {
-  .post[data-direction='rtl'] .post__row {
+@container (min-width: 60rem) {
+  .post .post__row {
     flex-direction: row-reverse;
   }
 }
@@ -30,14 +30,14 @@ Inspired by: https://piccalil.li/blog/building-a-breakout-element-with-container
 }
 
 /* Sidebar border: bottom when stacked (sidebar on top) */
-.post[data-direction='rtl'] .post__sidebar {
+.post .post__sidebar {
   border: 0;
   border-block-end: 2px solid var(--post-sidebar-border-color);
 }
 
 /* Sidebar border: left when inline (sidebar on right); remove bottom */
-@container (inline-size > var(--post-inline-threshold, 65ch)) {
-  .post[data-direction='rtl'] .post__sidebar {
+@container (min-width: 60rem) {
+  .post .post__sidebar {
     border-block-end: 0;
     border-inline-start: 2px solid var(--post-sidebar-border-color);
   }
