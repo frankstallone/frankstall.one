@@ -1,30 +1,26 @@
-/* 
+/*
 POST block layout using container queries
-Inspired by: https://piccalil.li/blog/building-a-breakout-element-with-container-units/
+– Sidebar stacks above content by DOM order on narrow viewports
+– At a single container threshold, the row flips so the sidebar sits on the right
+– Borders switch in sync with that threshold (bottom → left)
+Reference: https://piccalil.li/blog/building-a-breakout-element-with-container-units/
 */
 
 .post {
-  /* Configure sidebar composition via custom properties */
-  --sidebar-content-min-width: 60%;
-  --sidebar-target-width: clamp(16rem, 30cqi, 30rem);
-  --gutter: var(--space-xl);
   --post-sidebar-border-color: #676cc8; /* Indigo 600 */
-  /* Threshold at which we consider the layout wide enough to place the sidebar inline */
+  /* Single container threshold that controls both the layout flip and border swap */
   --post-inline-threshold: 52rem;
 
   /* Enable container queries & units */
   container-type: inline-size;
 }
 
-/* Flip the visual order (sidebar on right) only when the container is wide enough.
-   Keep sidebar first in DOM so that when stacked it appears above content. */
+/* At/above the threshold, flip the row so the sidebar appears on the right.
+   Sidebar remains first in the DOM, so on narrow it stacks above the content. */
 @container (min-width: var(--post-inline-threshold, 52rem)) {
-  /* Ensure content is on the left and sidebar on the right when inline */
-  .post .post__content {
-    order: 1;
-  }
-  .post .post__sidebar {
-    order: 2;
+  /* Inline layout: force sidebar to the right */
+  .post .post__row {
+    flex-direction: row-reverse;
   }
 }
 
