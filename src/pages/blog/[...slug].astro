@@ -59,7 +59,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
           headingsArray && headingsArray.length > 0 && (
             <nav class="box mt-zero text-step-00">
               <h2 class="text-step-0">Table of contents</h2>
-              <ul class="list-none pl-s space-y-2xs">
+              <ul class="list-none pl-zero space-y-2xs">
                 {headingsArray.map((heading) => (
                   <TableOfContents heading={heading} />
                 ))}
