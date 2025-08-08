@@ -8,6 +8,7 @@ Inspired by: https://piccalil.li/blog/building-a-breakout-element-with-container
   --sidebar-content-min-width: 60%;
   --sidebar-target-width: clamp(16rem, 30cqi, 30rem);
   --gutter: var(--space-xl);
+  --post-sidebar-border-color: #676cc8; /* Indigo 600 */
 
   /* Enable container queries & units */
   container-type: inline-size;
@@ -24,4 +25,18 @@ Inspired by: https://piccalil.li/blog/building-a-breakout-element-with-container
 /* Optional: breakout element support inside the post */
 .post__breakout {
   width: 100cqi;
+}
+
+/* Sidebar border: bottom when stacked (sidebar on top) */
+.post[data-direction='rtl'] .post__sidebar {
+  border: 0;
+  border-block-end: 2px solid var(--post-sidebar-border-color);
+}
+
+/* Sidebar border: left when inline (sidebar on right); remove bottom */
+@container (width > 50cqi) {
+  .post[data-direction='rtl'] .post__sidebar {
+    border-block-end: 0;
+    border-inline-start: 2px solid var(--post-sidebar-border-color);
+  }
 }
