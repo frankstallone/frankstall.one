@@ -25,6 +25,7 @@ Reference source: https://github.com/Set-Creative-Studio/cube-boilerplate/blob/m
 @import 'blocks/phoneinput.css' layer(components);
 @import 'blocks/hero.css';
 @import 'blocks/prose.css' layer(components);
+@import 'blocks/post.css' layer(components);
 @import 'components/box.css' layer(components);
 @import 'components/center.css' layer(components);
 @import 'components/content.css' layer(components);

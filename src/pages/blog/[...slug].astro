@@ -4,7 +4,6 @@ import InnerLayout from '../../layouts/InnerLayout.astro'
 import Likes from '@components/Likes.astro'
 import { buildHierarchy } from '@utils/index'
 import TableOfContents from '@components/TableOfContents.astro'
-import Sidebar from '@components/Sidebar.astro'
 import { Like } from 'db/schema'
 import { db } from 'src/turso'
 import { count, eq } from 'drizzle-orm'
@@ -48,31 +47,31 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
   }}
 >
   <article
-    class="region wrapper overflow-clip"
+    class="post region wrapper overflow-clip"
     data-article="true"
     style="--measure: 85ch"
     id="main"
+    data-direction="rtl"
   >
-    <Sidebar class="sidebar flow prose" data-direction="rtl">
-      {
-        headingsArray && headingsArray.length > 0 && (
-          <nav class="box mt-zero text-step-00">
-            <h2 class="text-step-0">Table of contents</h2>
-            <ul
-              class="border-l-2 border-l-indigo-600 list-none
-pl-s space-y-2xs"
-            >
-              {headingsArray.map((heading) => (
-                <TableOfContents heading={heading} />
-              ))}
-            </ul>
-          </nav>
-        )
-      }
-      <div class="flow prose center">
+    <div class="post__row sidebar">
+      <div class="post__sidebar">
+        {
+          headingsArray && headingsArray.length > 0 && (
+            <nav class="box mt-zero text-step-00">
+              <h2 class="text-step-0">Table of contents</h2>
+              <ul class="border-l-2 border-l-indigo-600 list-none pl-s space-y-2xs">
+                {headingsArray.map((heading) => (
+                  <TableOfContents heading={heading} />
+                ))}
+              </ul>
+            </nav>
+          )
+        }
+      </div>
+      <div class="post__content flow prose center">
         <Content />
       </div>
-    </Sidebar>
+    </div>
     <div
       class="flex flow flow-space-2xs flex-col justify-center items-center mt-s max-w-[50ch]"
     >
