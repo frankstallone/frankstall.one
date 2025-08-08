@@ -19,8 +19,12 @@ Inspired by: https://piccalil.li/blog/building-a-breakout-element-with-container
 /* Flip the visual order (sidebar on right) only when the container is wide enough.
    Keep sidebar first in DOM so that when stacked it appears above content. */
 @container (min-width: var(--post-inline-threshold, 52rem)) {
-  .post .post__row {
-    flex-direction: row-reverse;
+  /* Ensure content is on the left and sidebar on the right when inline */
+  .post .post__content {
+    order: 1;
+  }
+  .post .post__sidebar {
+    order: 2;
   }
 }
 
