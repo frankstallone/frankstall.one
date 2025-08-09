@@ -15,12 +15,39 @@ Reference: https://piccalil.li/blog/building-a-breakout-element-with-container-u
   container-type: inline-size;
 }
 
+/* Default: stack sidebar above content on narrow viewports */
+.post .post__row {
+  display: flex;
+  flex-direction: column;
+}
+
+/* When stacked (narrow), neutralize sidebar width rules
+   from the generic `.sidebar` layout so items occupy full width */
+.post .post__row.sidebar > :first-child,
+.post .post__row.sidebar > :last-child {
+  flex-basis: auto;
+  flex-grow: 0;
+  min-inline-size: auto;
+}
+
 /* At/above the threshold, flip the row so the sidebar appears on the right.
    Sidebar remains first in the DOM, so on narrow it stacks above the content. */
 @container (min-width: 52rem) {
   /* Inline layout: force sidebar to the right */
   .post .post__row {
     flex-direction: row-reverse;
+  }
+
+  /* Restore sidebar/content sizing when inline */
+  .post .post__row.sidebar > :first-child {
+    flex-basis: var(--sidebar-target-width, 20rem);
+    flex-grow: 1;
+    min-inline-size: auto;
+  }
+  .post .post__row.sidebar > :last-child {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-inline-size: var(--sidebar-content-min-width, 50%);
   }
 }
 
