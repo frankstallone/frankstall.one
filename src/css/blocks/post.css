@@ -17,7 +17,7 @@ Reference: https://piccalil.li/blog/building-a-breakout-element-with-container-u
 
 /* At/above the threshold, flip the row so the sidebar appears on the right.
    Sidebar remains first in the DOM, so on narrow it stacks above the content. */
-@container (min-width: var(--post-inline-threshold, 52rem)) {
+@container (min-width: 52rem) {
   /* Inline layout: force sidebar to the right */
   .post .post__row {
     flex-direction: row-reverse;
@@ -36,7 +36,7 @@ Reference: https://piccalil.li/blog/building-a-breakout-element-with-container-u
 }
 
 /* Sidebar border: left when inline (sidebar on right); remove bottom */
-@container (min-width: var(--post-inline-threshold, 52rem)) {
+@container (min-width: 52rem) {
   .post .post__sidebar {
     border-block-end: 0;
     border-inline-start: 2px solid var(--post-sidebar-border-color);
