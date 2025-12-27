@@ -1,8 +1,19 @@
-import type { APIRoute } from 'astro';
-import { Like } from 'db/schema';
-import { db } from 'src/turso';
-import { count, eq } from 'drizzle-orm';
-export const prerender = false;
+import type { APIRoute } from 'astro'
+import { count, eq } from 'drizzle-orm'
+import { Like } from 'db/schema'
+import { db, dbStatus } from 'src/turso'
+export const prerender = false
+
+const JSON_HEADERS = {
+  'Content-Type': 'application/json; charset=utf-8',
+  'Cache-Control': 'no-store',
+}
+
+const jsonResponse = (body: Record<string, unknown>, status = 200) =>
+  new Response(JSON.stringify(body), {
+    status,
+    headers: JSON_HEADERS,
+  })
 
 /**
  * Handles a POST request to like a post.
@@ -13,44 +24,61 @@ export const prerender = false;
  */
 export const POST: APIRoute = async ({ params, request, clientAddress }) => {
   // get slug of liked item assuming a request like `/api/like-post/[slug].ts`
-  const { slug } = params;
-  const userAgent = request.headers.get('user-agent');
+  const { slug } = params
+  if (!slug) {
+    return jsonResponse({ message: 'Slug is required' }, 400)
+  }
+
+  if (!db) {
+    return jsonResponse(
+      {
+        message: 'Database unavailable',
+        reason: dbStatus.error ?? 'Unknown database init error',
+      },
+      503,
+    )
+  }
+
+  const database = db
+
+  const userAgent = request.headers.get('user-agent') ?? 'unknown'
+  const clientId =
+    clientAddress ?? request.headers.get('x-forwarded-for') ?? 'unknown'
   // hash the UA, IP address, and liked post slug to create a unique ID
-  const id = await digest(userAgent + clientAddress + slug);
+  const id = await digest(`${userAgent}:${clientId}:${slug}`)
   // insert the like and ignore it if it was already set
   if (id && slug) {
     // check if the like already exists in the database
-    const existingLike = await db.select().from(Like).where(eq(Like.id, id));
+    const existingLike = await database
+      .select()
+      .from(Like)
+      .where(eq(Like.id, id))
     // if the like exists, remove it from the database
     if (existingLike.length > 0) {
-      await db.delete(Like).where(eq(Like.id, id));
+      await database.delete(Like).where(eq(Like.id, id))
       // Grab the current count of likes for the post
-      const count = await countCurrentPostLikes(slug);
-      return new Response(
-        JSON.stringify({
+      const count = await countCurrentPostLikes(database, slug)
+      return jsonResponse(
+        {
           message: 'Successfully removed like!',
           count,
-        }),
-        {
-          status: 200,
         },
-      );
+        200,
+      )
     }
     // insert the like and ignore it if it was already set
-    await db.insert(Like).values({ id, slug }).onConflictDoNothing();
+    await database.insert(Like).values({ id, slug }).onConflictDoNothing()
   }
   // return a response
-  const count = await countCurrentPostLikes(slug || '');
-  return new Response(
-    JSON.stringify({
+  const count = await countCurrentPostLikes(database, slug)
+  return jsonResponse(
+    {
       message: 'Successfully liked!',
       count,
-    }),
-    {
-      status: 200,
     },
-  );
-};
+    200,
+  )
+}
 
 /**
  * Handles a GET request to check if a user has liked a post.
@@ -61,34 +89,58 @@ export const POST: APIRoute = async ({ params, request, clientAddress }) => {
  */
 export const GET: APIRoute = async ({ params, request, clientAddress }) => {
   // get slug of the post assuming a request like `/api/like-post/[slug].ts`
-  const { slug } = params;
-  const userAgent = request.headers.get('user-agent');
+  const { slug } = params
+  if (!slug) {
+    return jsonResponse({ message: 'Slug is required' }, 400)
+  }
+
+  if (!db) {
+    return jsonResponse(
+      {
+        message: 'Database unavailable',
+        reason: dbStatus.error ?? 'Unknown database init error',
+      },
+      503,
+    )
+  }
+
+  const database = db
+
+  const userAgent = request.headers.get('user-agent') ?? 'unknown'
+  const clientId =
+    clientAddress ?? request.headers.get('x-forwarded-for') ?? 'unknown'
   // hash the UA, IP address, and post slug to create a unique ID
-  const id = await digest(userAgent + clientAddress + slug);
+  const id = await digest(`${userAgent}:${clientId}:${slug}`)
   // check if the like exists in the database
-  const existingLike = await db.select().from(Like).where(eq(Like.id, id));
+  const existingLike = await database
+    .select()
+    .from(Like)
+    .where(eq(Like.id, id))
   // return a response indicating whether the user has liked the post
-  return new Response(
-    JSON.stringify({
-      liked: existingLike.length > 0,
-    }),
+  return jsonResponse(
     {
-      status: 200,
+      liked: existingLike.length > 0,
     },
-  );
-};
+    200,
+  )
+}
+
+type Database = NonNullable<typeof db>
 
 /**
  * Counts the number of likes for a given post slug.
  * @param slug - The slug of the post.
  * @returns A promise that resolves to the number of likes.
  */
-async function countCurrentPostLikes(slug: string): Promise<number> {
-  const [{ count: postLikesCount }] = await db
+async function countCurrentPostLikes(
+  database: Database,
+  slug: string,
+): Promise<number> {
+  const [{ count: postLikesCount }] = await database
     .select({ count: count() })
     .from(Like)
-    .where(eq(Like.slug, slug));
-  return postLikesCount;
+    .where(eq(Like.slug, slug))
+  return Number(postLikesCount)
 }
 
 /**
@@ -97,7 +149,7 @@ async function countCurrentPostLikes(slug: string): Promise<number> {
  * @returns A base64 encoded string representing the hashed message.
  */
 async function digest(message: string) {
-  const msgUint8 = new TextEncoder().encode(message); // encode as (utf-8) Uint8Array
-  const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8); // hash the message
-  return Buffer.from(hashBuffer).toString('base64');
+  const msgUint8 = new TextEncoder().encode(message) // encode as (utf-8) Uint8Array
+  const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8) // hash the message
+  return Buffer.from(hashBuffer).toString('base64')
 }
