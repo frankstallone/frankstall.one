@@ -109,7 +109,7 @@ describe('Likes Component', () => {
     await waitFor(() => {
       const countElement = getCountElement()
       expect(countElement.textContent).toContain((initialCount + 1).toString())
-      expect(container.classList.contains('bg-indigo-vivid-600')).toBe(true)
+      expect(container.classList.contains('bg-gray-1400')).toBe(true)
     })
   })
 
@@ -133,7 +133,7 @@ describe('Likes Component', () => {
     await waitFor(() => {
       const countElement = getCountElement()
       expect(countElement.textContent).toContain(initialCount.toString())
-      expect(container.classList.contains('bg-gray-600')).toBe(true)
+      expect(container.classList.contains('bg-transparent')).toBe(true)
     })
   })
 
@@ -159,7 +159,7 @@ describe('Likes Component', () => {
     await waitFor(() => {
       const countElement = getCountElement()
       expect(countElement.textContent).toContain(initialCount.toString())
-      expect(container.classList.contains('bg-gray-600')).toBe(true)
+      expect(container.classList.contains('bg-transparent')).toBe(true)
     })
   })
 

@@ -7,7 +7,7 @@ Reference: https://piccalil.li/blog/building-a-breakout-element-with-container-u
 */
 
 .post {
-  --post-sidebar-border-color: #676cc8; /* Indigo 600 */
+  --post-sidebar-border-color: #c9c9c9; /* Gray 700 */
   /* Single container threshold that controls both the layout flip and border swap */
   --post-inline-threshold: 52rem;
 

@@ -26,6 +26,7 @@
     "@astrojs/tailwind": "^6.0.2",
     "@expressive-code/plugin-line-numbers": "^0.40.2",
     "@libsql/client": "^0.14.0",
+    "@netlify/blobs": "^10.5.0",
     "@radix-ui/react-select": "^2.1.1",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",

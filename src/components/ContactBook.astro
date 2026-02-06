@@ -2,99 +2,109 @@
 const pathname = Astro.url.pathname
 ---
 
-<div class="region bg-gray-200">
-  <div class="wrapper flow prose" style="--wrapper-max-width: 65ch">
-    <div class="flow prose flex flex-col" id="book-call">
-      <h2>Want to work together?</h2>
-      <p>
-        I am working with a limited availability for consulting. Learn more
-        about how <a
-          href="https://designzen.co"
-          target="_blank"
-          aria-label="Opens a new tab"
-        >
-          I can sharpen your SaaS brand and product</a
-        >.
-      </p>
-      <span class="mt-zero self-end md:self-center">
-        <a
-          href="https://designzen.co"
-          style="line-height: 0; margin-left: var(--space-3xs);"
-          target="_blank"
-          aria-label="Opens a new tab"
-        >
-          <img
-            src="/media/designzen-wordmark.svg"
-            alt="designzen logo"
-            width="100px"
-          />
-        </a>
-      </span>
-    </div>
-    <div class="flow prose" id="contact">
-      <h2>Reach out</h2>
-      <p>Have a question or comment? Feel free to drop me a line below!</p>
-      <form
-        name="main"
-        netlify-honeypot="bot-field"
-        class="switcher"
-        method="POST"
-        data-netlify="true"
-        action="/"
-      >
-        <input
-          type="hidden"
-          name="subject"
-          value={`🤖 Form submission: frankstall.one${pathname}`}
-        />
-        <p class="hidden">
-          <label for="bot-field">Do you like delicious treats?</label>
-          <input
-            name="bot-field"
-            id="bot-field"
-            class="border-gray-600 border-1 border-solid"
-          />
+<div class="region bg-gray-100">
+  <div class="wrapper">
+    <div class="grid" data-layout="label" style="--gutter: var(--space-l);">
+      <div class="flow" style="--flow-space: var(--space-xs);">
+        <h2 class="text-step-1">Contact</h2>
+        <p class="text-step-00 text-gray-1100">
+          Availability, partnerships, and questions.
         </p>
-        <span class="stack">
-          <label for="name">Name</label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            required
-            class="border-gray-600 border-1 border-solid rounded-md"
-          />
-        </span>
-        <span class="stack">
-          <label for="email">Email</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            class="border-gray-600 border-1 border-solid"
-          />
-        </span>
-        <span class="stack">
-          <label for="tel">Phone number</label>
-          <input
-            id="tel"
-            name="tel"
-            type="tel"
-            class="border-gray-600 border-1 border-solid rounded-md"
-          />
-        </span>
-        <span class="stack">
-          <label for="message">Message</label>
-          <textarea
-            name="message"
-            id="message"
-            rows="6"
-            required
-            class="border-gray-600 border-1 border-solid rounded-md"></textarea>
-        </span>
-        <button type="submit" class="button">Submit</button>
-      </form>
+      </div>
+      <div class="flow" style="--flow-space: var(--space-l);">
+        <div class="flow prose border-t border-gray-600 pt-s" id="book-call">
+          <h3 class="text-step-1">Want to work together?</h3>
+          <p>
+            I am working with a limited availability for consulting. Learn more
+            about how <a
+              href="https://designzen.co"
+              target="_blank"
+              aria-label="Opens a new tab"
+            >
+              I can sharpen your SaaS brand and product</a
+            >.
+          </p>
+          <span class="mt-zero self-end md:self-center">
+            <a
+              href="https://designzen.co"
+              style="line-height: 0; margin-left: var(--space-3xs);"
+              target="_blank"
+              aria-label="Opens a new tab"
+            >
+              <img
+                src="/media/designzen-wordmark.svg"
+                alt="designzen logo"
+                width="100px"
+              />
+            </a>
+          </span>
+        </div>
+        <div class="flow prose border-t border-gray-600 pt-s" id="contact">
+          <h3 class="text-step-1">Reach out</h3>
+          <p>Have a question or comment? Feel free to drop me a line below!</p>
+          <form
+            name="main"
+            netlify-honeypot="bot-field"
+            class="switcher"
+            method="POST"
+            data-netlify="true"
+            action="/"
+          >
+            <input
+              type="hidden"
+              name="subject"
+              value={`🤖 Form submission: frankstall.one${pathname}`}
+            />
+            <p class="hidden">
+              <label for="bot-field">Do you like delicious treats?</label>
+              <input
+                name="bot-field"
+                id="bot-field"
+                class="border-gray-600 border-1 border-solid"
+              />
+            </p>
+            <span class="stack">
+              <label for="name">Name</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                class="border-gray-700 border border-solid"
+              />
+            </span>
+            <span class="stack">
+              <label for="email">Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                class="border-gray-700 border border-solid"
+              />
+            </span>
+            <span class="stack">
+              <label for="tel">Phone number</label>
+              <input
+                id="tel"
+                name="tel"
+                type="tel"
+                class="border-gray-700 border border-solid"
+              />
+            </span>
+            <span class="stack">
+              <label for="message">Message</label>
+              <textarea
+                name="message"
+                id="message"
+                rows="6"
+                required
+                class="border-gray-700 border border-solid"></textarea>
+            </span>
+            <button type="submit" class="button">Submit</button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </div>

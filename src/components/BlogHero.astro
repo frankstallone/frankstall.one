@@ -1,7 +1,5 @@
 ---
 import Header from './Header.astro'
-import { getImage } from 'astro:assets'
-import background from '@assets/frank-stallone-home-header-blank.png'
 const { title, subtitle } = Astro.props
 
 type Props = {
@@ -9,22 +7,22 @@ type Props = {
   subtitle?: string
 }
 
-const optimizedBackground = await getImage({ src: background })
 const description = subtitle
   ? subtitle
   : 'Sharing actionable tips from my enterprise, start up, agency, and life experience with a design and developer twist.'
 ---
 
-<div
-  id="hero"
-  style={`--cover-padding: 0; background: center / cover no-repeat var(--color-gray-1400) url(${optimizedBackground.src}); `}
-  aria-label="Hero section"
->
+<div id="hero" aria-label="Hero section" class="bg-gray-100 text-gray-1400">
   <Header />
-  <div class="region wrapper">
-    <div class="flex flex-col justify-center flow prose text-gray-100">
-      <h1 transition:name={'blog' + title}>{title}</h1>
-      <h2 class="font-regular">{description}</h2>
+  <div class="wrapper region">
+    <div class="flow prose">
+      <h1
+        class="text-balance hero-headline-alt"
+        transition:name={'blog' + title}
+      >
+        {title}
+      </h1>
+      <p class="text-step-0">{description}</p>
     </div>
   </div>
 </div>

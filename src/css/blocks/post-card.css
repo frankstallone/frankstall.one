@@ -1,16 +1,3 @@
 .post-card {
-  @apply p-l;
-}
-
-@supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) {
-    .post-card {
-      scale: 0.75;
-      opacity: 0.15;
-      animation: fade-in linear forwards;
-      animation-timeline: view();
-      animation-range-start: entry 20%;
-      animation-range-end: cover 30%;
-    }
-  }
+  @apply py-m;
 }

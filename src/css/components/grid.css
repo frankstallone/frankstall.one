@@ -41,6 +41,41 @@ to change how empty grid tracks are handled */
   grid-template-columns: repeat(12, 1fr);
 }
 
+/* Case study layout */
+.grid[data-layout='case'] {
+  grid-template-columns: 1fr;
+}
+
+@media screen(md) {
+  .grid[data-layout='case'] {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  }
+}
+
+/* Blog roll layout */
+.grid[data-layout='posts'] {
+  grid-template-columns: 1fr;
+}
+
+@media screen(md) {
+  .grid[data-layout='posts'] {
+    grid-template-columns: minmax(0, 14rem) minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+/* Label + content layout */
+.grid[data-layout='label'] {
+  grid-template-columns: 1fr;
+}
+
+@media screen(md) {
+  .grid[data-layout='label'] {
+    grid-template-columns: minmax(0, 14rem) minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
 /* Seven column grid layout */
 .grid[data-layout='sevenths'] {
   display: grid;

@@ -33,7 +33,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
     <div class="grid" style="--grid-min-item-size: min(400px, 60%);">
       {
         page.data.map((post) => (
-          <div class="flow prose post-card text-gray-1200 bg-gray-400 border-solid border-b-2 border-x-0 border-t-0 border-gray-700 rounded-md">
+          <div class="flow prose post-card border-b border-gray-600">
             <h3 class="mt-zero">
               <a
                 href={`/${post.collection}/${post.id}/`}
@@ -43,7 +43,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
               </a>
             </h3>
             <p class="mt-2xs ">
-              <small class="uppercase text-step-00 font-medium font-mono tracking-wide text-gray-900">
+              <small class="text-step-00 text-gray-1100 tabular-nums">
                 {new Date(post.data.publishDate).toLocaleDateString(undefined, {
                   weekday: 'long',
                   year: 'numeric',
@@ -61,7 +61,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
       }
     </div>
     <nav
-      class="flex justify-between items-center mt-l font-mono text-step-000 uppercase font-medium text-gray-900"
+      class="flex justify-between items-center mt-l text-step-00 text-gray-1100 tabular-nums"
     >
       {
         page.url.prev ? (

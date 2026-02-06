@@ -5,7 +5,7 @@
   project: https://cube.fyi/css.html
 */
 body {
-  @apply font-base font-light text-gray-1400 m-zero text-step-00;
+  @apply font-base font-regular text-gray-1400 m-zero text-step-00 bg-gray-100;
 }
 
 /* Base interactive elements */
@@ -30,11 +30,12 @@ abbr {
 p,
 li,
 blockquote:not([class]) {
+  @apply text-pretty;
   max-inline-size: 50ch;
 }
 
 blockquote {
-  @apply border-solid border-l-4 border-y-0 border-r-0 border-indigo-vivid-800 pl-s text-step-1;
+  @apply border-solid border-l-4 border-y-0 border-r-0 border-gray-700 pl-s text-step-1;
 }
 
 /* Base typesetting */
@@ -44,15 +45,17 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-display leading-fine font-medium tracking-tight;
+  @apply font-display leading-fine font-medium text-balance;
 }
 
 h1 {
-  @apply text-step-3;
+  @apply text-step-3 font-bold;
+  letter-spacing: -0.015em;
 }
 
 h2 {
-  @apply text-step-2;
+  @apply text-step-2 font-bold;
+  letter-spacing: -0.01em;
 }
 
 h3 {
@@ -61,6 +64,11 @@ h3 {
 
 h4 {
   @apply text-step-0;
+}
+
+/* Hero headlines only: opt into The Future stylistic sets */
+.hero-headline-alt {
+  font-feature-settings: 'ss01' 1, 'ss02' 1;
 }
 
 /* Scroll padding allowance below focused elements 
@@ -147,41 +155,10 @@ pre code {
     margin-block-start: var(--space-s);
   }
 
-  @keyframes fade-in {
-    from {
-      scale: 0.75;
-      opacity: 0.15;
-    }
-    to {
-      scale: 1;
-      opacity: 1;
-    }
-  }
-  @keyframes fade-to {
-    to {
-      scale: 1;
-      opacity: 1;
-    }
-  }
-
-  @supports (animation-timeline: view()) {
-    @media (prefers-reduced-motion: no-preference) {
-      img,
-      .animate-in {
-        scale: 0.75;
-        opacity: 0.15;
-        animation: fade-in linear forwards;
-        animation-timeline: view();
-        animation-range-start: entry 20%;
-        animation-range-end: cover 30%;
-      }
-    }
-  }
-
   /* Homepage section headers */
 
   .section-header {
-    @apply bg-white text-gray-1400 px-s py-xs m-zero;
+    @apply text-gray-1400 m-zero;
   }
 
   .grid-recent {

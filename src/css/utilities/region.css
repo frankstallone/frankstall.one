@@ -5,7 +5,7 @@
  */
 
 .region {
-  padding-top: var(--region-space, var(--space-2xl-3xl));
-  padding-bottom: var(--region-space, var(--space-2xl-3xl));
+  padding-top: var(--region-space, var(--space-l-xl));
+  padding-bottom: var(--region-space, var(--space-l-xl));
   background-color: var(--spot-color, transparent);
 }
