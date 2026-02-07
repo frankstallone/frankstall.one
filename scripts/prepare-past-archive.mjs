@@ -13,7 +13,7 @@ if (!archiveId) {
 
 const archiveDir = path.join(process.cwd(), 'public', 'past', archiveId)
 const mountBase = `/past/${archiveId}`
-const textExtensionPattern = /\.(html|css|js|mjs|xml|webmanifest)$/i
+const textExtensionPattern = /\.(html|htm|css|js|mjs|xml|webmanifest)$/i
 
 const replaceFromRoot = (content, fromPath, toPath) => {
   const escaped = fromPath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
