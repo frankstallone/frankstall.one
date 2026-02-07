@@ -6,26 +6,18 @@ type Props = {
 const { variant = 'default' } = Astro.props as Props
 ---
 
-<div
-  class={variant === 'home'
-    ? 'flow flow-space-xs text-gray-1400'
-    : 'flow flow-space-xs p-s border border-gray-700 text-gray-1400'}
->
+<div class="flow flow-space-xs text-gray-1400" data-variant={variant}>
   <hgroup>
     <h3 class="mt-zero">
       <a href="/portfolio/klaviyo-asecnt-design-system-phone-input/">
         Phone input
       </a>
     </h3>
-    <p
-      class={variant === 'home'
-        ? 'text-step-00 text-gray-1100 mt-zero'
-        : 'font-medium text-step-1 mt-zero'}
-    >
+    <p class="text-step-00 text-gray-1100 mt-zero">
       Design systems, Product design, UX, UI,
     </p>
   </hgroup>
-  <p class={variant === 'home' ? 'text-step-00 text-gray-1200' : ''}>
+  <p class="text-step-00 text-gray-1200">
     A look into the depths of a Phone input for Klaviyo's Ascent Design System.
     I produced the component from 0 to 1 ensuring multiple team stakeholders
     were in alignment.

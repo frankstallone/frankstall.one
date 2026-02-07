@@ -5,7 +5,8 @@ const pathname = Astro.url.pathname
 <div class="region bg-gray-100">
   <div class="wrapper">
     <div class="grid" data-layout="f4-home" style="--gutter: var(--space-l);">
-      <div class="flow" style="--flow-space: var(--space-xs);">
+      <div class="flow home-section-head">
+        {pathname === '/' && <p class="home-section-kicker">04</p>}
         <h2 class="text-step-1 text-gray-1400">Contact</h2>
         <p class="text-step-00 text-gray-1100">
           Availability, partnerships, and questions.
