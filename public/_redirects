@@ -1,10 +1,12 @@
 # Redirects from what the browser requests to what we serve
 
-# Archived sites under /past use static folder exports with index files.
-/past/:site /past/:site/index.html 200
-/past/:site /past/:site/index.htm 200
-/past/:site/* /past/:site/:splat/index.html 200
-/past/:site/* /past/:site/:splat/index.htm 200
+/past /past/ 301!
+/past/index /past/ 301!
+/past/index.html /past/ 301!
+/past/index.htm /past/ 301!
+
+/past/:site /past-proxy/:site 200!
+/past/:site/* /past-proxy/:site/:splat 200!
 
 /blog/tenets-for-prosperity-part-1 /blog/tenets-for-prosperity-part-1/
 /blog/tenets-for-prosperity-part-2 /blog/tenets-for-prosperity-part-2/

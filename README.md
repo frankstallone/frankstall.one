@@ -59,6 +59,13 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
+## Past Archive Notes
+
+- Archive snapshots live in `public/past/<id>/`.
+- Optional import helper: `npm run past:prepare -- <id>` rewrites root-relative asset paths inside that archive.
+- `/past/` is an Astro index page that lists all detected archives.
+- `/past/<id>/...` is served through a proxy route (via Netlify forced redirects), which overlays non-destructive prev/next archive controls without modifying original archive files.
+
 ## 👀 Want to learn more about Astro?
 
 Feel free to check [the documentation](https://docs.astro.build) or jump into their [Discord server](https://astro.build/chat).
