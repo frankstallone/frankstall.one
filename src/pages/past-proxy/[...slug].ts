@@ -123,7 +123,7 @@ const buildArchiveNavigatorMarkup = ({
 }) => {
   const previousControl = buildArchiveControl('Prev', previousHref, 'prev')
   const nextControl = buildArchiveControl('Next', nextHref, 'next')
-  const allControl = buildArchiveControl('All', '/past/', null)
+  const allControl = buildArchiveControl('All', '/past-sites/', null)
   const script = `
 <script>
   (() => {

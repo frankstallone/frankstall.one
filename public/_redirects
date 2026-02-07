@@ -1,10 +1,7 @@
 # Redirects from what the browser requests to what we serve
 
-/past /past/ 301!
-/past/index /past/ 301!
-/past/index.html /past/ 301!
-/past/index.htm /past/ 301!
-
+/past /past-sites/ 301!
+/past/ /past-sites/ 301!
 /past/:site /past-proxy/:site 200!
 /past/:site/* /past-proxy/:site/:splat 200!
 
