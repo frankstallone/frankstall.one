@@ -1,3 +1,16 @@
 .post-card {
   @apply py-m;
+  transition: transform var(--motion-duration-ui) var(--motion-ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .post-card:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .post-card {
+    transition: none;
+  }
 }

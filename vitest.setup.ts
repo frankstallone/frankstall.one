@@ -64,8 +64,8 @@ customElements.define(
     // Methods that we call in the tests
     updateUI() {
       if (this.liked) {
-        this.classList.add('bg-indigo-vivid-600')
-        this.classList.remove('bg-gray-600')
+        this.classList.add('bg-gray-1400')
+        this.classList.remove('bg-gray-600', 'bg-transparent')
         if (this.likeButton) {
           this.likeButton.setAttribute(
             'aria-label',
@@ -73,8 +73,8 @@ customElements.define(
           )
         }
       } else {
-        this.classList.remove('bg-indigo-vivid-600')
-        this.classList.add('bg-gray-600')
+        this.classList.remove('bg-gray-1400')
+        this.classList.add('bg-transparent')
         if (this.likeButton) {
           this.likeButton.setAttribute(
             'aria-label',

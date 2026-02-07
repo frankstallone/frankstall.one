@@ -20,6 +20,7 @@
 
 .home-post-item {
   --flow-space: var(--space-xs);
+  transition: transform var(--motion-duration-ui) var(--motion-ease-out);
 }
 
 .home-portfolio-grid {
@@ -41,6 +42,18 @@
   align-items: baseline;
   column-gap: 0.35rem;
   row-gap: 0.15rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .home-post-item:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-post-item {
+    transition: none;
+  }
 }
 
 @media screen(md) {

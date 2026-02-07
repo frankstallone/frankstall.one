@@ -1,11 +1,48 @@
 /* Main navigation buttons */
 .header-link a {
-  @apply text-gray-1400 no-underline inline-block;
+  @apply text-gray-1400 no-underline inline-block relative;
+  transition:
+    color var(--motion-duration-ui) var(--motion-ease-out),
+    transform var(--motion-duration-ui) var(--motion-ease-out);
 }
 
-.header-link a:hover,
-.header-link a:focus,
-.header-link a:active {
-  @apply text-gray-1200 underline;
-  text-decoration-thickness: max(0.08em, 1px);
+.header-link a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.08em;
+  height: max(0.08em, 1px);
+  background: currentcolor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--motion-duration-ui) var(--motion-ease-out);
+}
+
+.header-link a:focus-visible {
+  @apply text-gray-1200;
+}
+
+.header-link a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .header-link a:hover,
+  .header-link a:active {
+    @apply text-gray-1200;
+    transform: translateY(-1px);
+  }
+
+  .header-link a:hover::after,
+  .header-link a:active::after {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header-link a,
+  .header-link a::after {
+    transition: none;
+  }
 }

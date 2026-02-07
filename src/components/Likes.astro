@@ -30,13 +30,16 @@ const { count, slug } = Astro.props
         d="M240 67.7V32h96V67.7c0 38.1-9 75.1-25.8 108.3H464h48v96H496v80H472v72H448v56H400 280 265.5l-12.1-8.1-72-48L160 409.7V384 320 224 200.9l18-14.4 7.9-6.4c34.2-27.3 54-68.7 54-112.4zM128 192V480H0V192H128z"
       ></path></svg
     >
-    <span class="ml-2xs font-display font-bold tabular-nums"
-      ><div class="sr-only">This post's current likes:</div>{count}</span
-    ></button
+    <span class="ml-2xs font-display font-bold tabular-nums">
+      <span class="sr-only">This post's current likes:</span>
+      <span data-like-count>{count}</span>
+    </span></button
   >
 </post-likes>
 
 <script>
+  import { animate } from 'motion'
+
   interface LikeResponse {
     liked: boolean
   }
@@ -50,9 +53,10 @@ const { count, slug } = Astro.props
     private count: number
     private readonly slug: string
     private readonly likeButton: HTMLButtonElement
-    private readonly countSpan: HTMLSpanElement
+    private readonly countValue: HTMLSpanElement
     private liked: boolean
     private isUpdating: boolean
+    private readonly shouldReduceMotion: boolean
 
     constructor() {
       super()
@@ -74,22 +78,25 @@ const { count, slug } = Astro.props
 
       this.slug = slug
       const button = this.querySelector('button')
-      const span = this.querySelector('span')
+      const countValue = this.querySelector('[data-like-count]')
 
-      if (!button || !span) {
+      if (!button || !countValue || !(countValue instanceof HTMLSpanElement)) {
         throw new Error('Likes component: Required elements not found')
       }
 
       this.likeButton = button
-      this.countSpan = span
+      this.countValue = countValue
       this.liked = false
       this.isUpdating = false
+      this.shouldReduceMotion = window.matchMedia(
+        '(prefers-reduced-motion: reduce)',
+      ).matches
     }
 
     connectedCallback() {
       // Set the initial count
       if (this.count !== 0) {
-        this.countSpan.textContent = this.count.toString()
+        this.countValue.textContent = this.count.toString()
       }
       // Update the liked state
       this.updateLikedState()
@@ -129,6 +136,7 @@ const { count, slug } = Astro.props
       this.liked = !this.liked
       this.count = this.liked ? this.count + 1 : this.count - 1
       this.updateUI()
+      this.animateFeedback()
 
       try {
         const response = await this.sendLikeRequest()
@@ -158,27 +166,50 @@ const { count, slug } = Astro.props
 
     private updateUI() {
       if (this.liked) {
-        this.likeButton.classList.add(
-          'bg-gray-1400',
-          'text-gray-100'
-        )
+        this.likeButton.classList.add('bg-gray-1400', 'text-gray-100')
         this.likeButton.classList.remove('bg-transparent', 'text-gray-1400')
         this.likeButton.setAttribute(
           'aria-label',
-          `Thank you! Click to unlike this post. This post has been liked ${this.count} times.`
+          `Thank you! Click to unlike this post. This post has been liked ${this.count} times.`,
         )
       } else {
-        this.likeButton.classList.remove(
-          'bg-gray-1400',
-          'text-gray-100'
-        )
+        this.likeButton.classList.remove('bg-gray-1400', 'text-gray-100')
         this.likeButton.classList.add('bg-transparent', 'text-gray-1400')
         this.likeButton.setAttribute(
           'aria-label',
-          `Click to like this post. This post has been liked ${this.count} times.`
+          `Click to like this post. This post has been liked ${this.count} times.`,
         )
       }
-      this.countSpan.textContent = this.count.toString()
+      this.countValue.textContent = this.count.toString()
+    }
+
+    private animateFeedback() {
+      if (this.shouldReduceMotion) {
+        return
+      }
+
+      animate(
+        this.likeButton,
+        {
+          scale: [1, 1.03, 1],
+        },
+        {
+          duration: 0.18,
+          ease: [0.22, 1, 0.36, 1],
+        },
+      )
+
+      animate(
+        this.countValue,
+        {
+          opacity: [0, 1],
+          y: [this.liked ? -4 : 4, 0],
+        },
+        {
+          duration: 0.2,
+          ease: [0.22, 1, 0.36, 1],
+        },
+      )
     }
 
     private async updateLikedState() {
@@ -219,27 +250,22 @@ const { count, slug } = Astro.props
 
 <style>
   .error {
-    animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    animation: nudge 220ms cubic-bezier(0.22, 1, 0.36, 1) both;
     transform: translate3d(0, 0, 0);
   }
 
-  @keyframes shake {
-    10%,
-    90% {
-      transform: translate3d(-1px, 0, 0);
+  @keyframes nudge {
+    25% {
+      transform: translate3d(-2px, 0, 0);
     }
-    20%,
-    80% {
+    75% {
       transform: translate3d(2px, 0, 0);
     }
-    30%,
-    50%,
-    70% {
-      transform: translate3d(-4px, 0, 0);
-    }
-    40%,
-    60% {
-      transform: translate3d(4px, 0, 0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .error {
+      animation: none;
     }
   }
 </style>
