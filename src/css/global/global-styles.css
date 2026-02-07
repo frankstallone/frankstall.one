@@ -12,11 +12,11 @@ body {
 
 a {
   color: currentcolor;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 a:hover {
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 /* Baseline for default links */
@@ -54,7 +54,7 @@ h1 {
 }
 
 h2 {
-  @apply text-step-2 font-bold;
+  @apply text-step-2;
   letter-spacing: -0.01em;
 }
 

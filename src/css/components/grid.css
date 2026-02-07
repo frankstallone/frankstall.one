@@ -76,6 +76,18 @@ to change how empty grid tracks are handled */
   }
 }
 
+/* Home page layout: label rail + two content columns */
+.grid[data-layout='f4-home'] {
+  grid-template-columns: 1fr;
+}
+
+@media screen(md) {
+  .grid[data-layout='f4-home'] {
+    grid-template-columns: minmax(0, 14rem) minmax(0, 1fr) minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
 /* Seven column grid layout */
 .grid[data-layout='sevenths'] {
   display: grid;

@@ -1,9 +1,15 @@
 ---
+type Props = {
+  variant?: 'default' | 'home'
+}
 
+const { variant = 'default' } = Astro.props as Props
 ---
 
 <div
-  class="flow flow-space-xs p-s border border-gray-700 text-gray-1400"
+  class={variant === 'home'
+    ? 'flow flow-space-xs text-gray-1400'
+    : 'flow flow-space-xs p-s border border-gray-700 text-gray-1400'}
 >
   <hgroup>
     <h3 class="mt-zero">
@@ -11,11 +17,15 @@
         Phone input
       </a>
     </h3>
-    <p class="font-medium text-step-1 mt-zero">
+    <p
+      class={variant === 'home'
+        ? 'text-step-00 text-gray-1100 mt-zero'
+        : 'font-medium text-step-1 mt-zero'}
+    >
       Design systems, Product design, UX, UI,
     </p>
   </hgroup>
-  <p>
+  <p class={variant === 'home' ? 'text-step-00 text-gray-1200' : ''}>
     A look into the depths of a Phone input for Klaviyo's Ascent Design System.
     I produced the component from 0 to 1 ensuring multiple team stakeholders
     were in alignment.

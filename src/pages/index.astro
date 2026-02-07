@@ -37,20 +37,23 @@ function truncateDescription(description: string) {
       'For the last two decades, I have helped businesses of all sizes craft compelling user experiences that drove 100M+ in revenue.',
   }}
 >
-  <section class="region flow md:pt-zero md:-mt-s" id="main">
+  <section class="region flow" id="main">
     <div class="flow wrapper">
-      <div class="grid" data-layout="label" style="--gutter: var(--space-l);">
-        <div class="flow" style="--flow-space: var(--space-xs);">
+      <div class="grid" data-layout="f4-home" style="--gutter: var(--space-l);">
+        <div class="flow home-section-head">
+          <p class="home-section-kicker">01</p>
           <h2 class="text-step-1 text-gray-1400">Recent posts</h2>
           <p class="text-step-00 text-gray-1100">
             Writing on design, systems, and craft.
           </p>
-          <a class="text-step-00 text-gray-1100" href="/blog/">All posts</a>
+          <p class="text-step-00 text-gray-1100">
+            <a href="/blog/">All posts</a>
+          </p>
         </div>
-        <ol role="list" class="flow" style="--flow-space: var(--space-s);">
+        <ol role="list" class="home-posts-grid">
           {
             latestPosts.map((post) => (
-              <li class="flow prose border-t border-gray-600 pt-s last:pb-0">
+              <li class="flow prose home-post-item">
                 <h3 class="mt-zero">
                   <a
                     href={`/${post.collection}/${post.id}/`}
@@ -59,8 +62,8 @@ function truncateDescription(description: string) {
                     {post.data.title}
                   </a>
                 </h3>
-                <p class="mt-2xs">
-                  <small class="text-step-00 text-gray-1100 tabular-nums">
+                <p class="home-meta mt-2xs">
+                  <small class="text-step-00 tabular-nums">
                     {new Date(post.data.publishDate).toLocaleDateString(
                       undefined,
                       {
@@ -73,7 +76,7 @@ function truncateDescription(description: string) {
                   </small>
                 </p>
                 <p>{truncateDescription(post.data.description)}</p>
-                <p class="pb-s">
+                <p class="pb-2xs">
                   <a href={`/${post.collection}/${post.id}/`}>
                     Read more &hellip;
                   </a>
@@ -85,18 +88,19 @@ function truncateDescription(description: string) {
       </div>
     </div>
   </section>
-  <AboutMe />
+  <AboutMe variant="f4-home" sectionIndex="02" />
   <div class="region bg-gray-100">
     <div class="wrapper">
-      <div class="grid" data-layout="label" style="--gutter: var(--space-l);">
-        <div class="flow" style="--flow-space: var(--space-xs);">
+      <div class="grid" data-layout="f4-home" style="--gutter: var(--space-l);">
+        <div class="flow home-section-head">
+          <p class="home-section-kicker">03</p>
           <h2 class="text-step-1 text-gray-1400">Portfolio</h2>
           <p class="text-step-00 text-gray-1100">
             Selected work from product and systems design.
           </p>
         </div>
-        <div class="flow" style="--flow-space: var(--space-l);">
-          <ADSPhoneBanner />
+        <div class="home-portfolio-grid">
+          <ADSPhoneBanner variant="home" />
           <div class="flow" style="--flow-space: var(--space-s);">
             <video
               autoplay
@@ -115,8 +119,12 @@ function truncateDescription(description: string) {
                 type="video/mp4"
               />
             </video>
-            <p class="text-step-00 text-gray-1100">
-              1 of 5 <a href="/portfolio/">See full portfolio</a>
+            <p class="home-meta text-step-00">
+              <small>
+                <span>1 of 5</span>
+                <span aria-hidden="true">&middot;</span>
+                <a href="/portfolio/">See full portfolio</a>
+              </small>
             </p>
           </div>
         </div>
