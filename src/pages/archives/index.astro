@@ -1,0 +1,174 @@
+---
+import InnerLayout from '../../layouts/InnerLayout.astro'
+import { getPastArchives } from '../../lib/past-archives'
+
+const archivesAscending = await getPastArchives()
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+const toArchiveIndexLabel = (slug: string) => slug.padStart(2, '0')
+
+const archiveDetails = {
+  '1': {
+    name: "Vegeta's Domain",
+    dateLabel: 'circa 1999',
+    styleLabel: 'late-90s anime fan-web',
+    description:
+      'Dark anime fan-site layout with dense side navigation, frame-based structure, and gritty Dragon Ball collage visuals.',
+  },
+  '2': {
+    name: "Frank's Domain",
+    dateLabel: 'circa 1999',
+    styleLabel: 'Y2K chrome panel UI',
+    description:
+      'Light gray sci-fi panel interface with rounded black framing, compact nav rail, and monochrome content blocks.',
+  },
+  '3': {
+    name: "Frank's Domain #2",
+    dateLabel: 'circa 1999',
+    styleLabel: 'cyber terminal aesthetic',
+    description:
+      'Neon green terminal-inspired shell with faux command-line chrome, boxed sections, and early cyberpunk dashboard styling.',
+  },
+  '4': {
+    name: 'Phun-Ky Web Designs',
+    dateLabel: 'circa 2000',
+    styleLabel: 'dark personal zine',
+    description:
+      'High-contrast black layout with centered splash art, tiny text nav strips, and underground zine-era web aesthetics.',
+  },
+  '5': {
+    name: 'Phun-Ky Utopia',
+    dateLabel: 'circa 2000',
+    styleLabel: 'Winamp-skin era UI',
+    description:
+      'Ice-blue UI theme with floating panels, glossy iconography, and a skinnable desktop-like interface feel.',
+  },
+  '6': {
+    name: 'Project Goodfellas',
+    dateLabel: 'circa 2003',
+    styleLabel: 'early-2000s agency template',
+    description:
+      'Blue-gray corporate template with beveled tabs, patterned side texture, and brochure-style service sections.',
+  },
+  '7': {
+    name: 'Hamlet',
+    dateLabel: 'circa 2003',
+    styleLabel: 'early-2000s school project portal',
+    description:
+      'Black two-column project site with image-map sidebar navigation, theatrical collage header art, and essay-style Hamlet content.',
+  },
+  '8': {
+    name: 'Interfecio',
+    dateLabel: 'circa 2003',
+    styleLabel: 'grunge blog era',
+    description:
+      'Grunge editorial composition with distressed textures, layered type, and long-scroll music/photography blog blocks.',
+  },
+  '9': {
+    name: 'The Shire v1.0',
+    dateLabel: 'circa 2002',
+    styleLabel: 'Y2K blue portal hub',
+    description:
+      'Centered 800x600 blue interface with a Java applet news scroller, download links, and a wallpaper-first personal design hub.',
+  },
+  '10': {
+    name: 'The Shire v2.0',
+    dateLabel: 'circa 2002',
+    styleLabel: 'cool-blue portal layout',
+    description:
+      'Cool-toned geometric portal with left visual rail, boxed updates feed, and clean split-column information architecture.',
+  },
+  '11': {
+    name: 'Tri State Pool Table Service',
+    dateLabel: 'circa 2008',
+    styleLabel: 'skeuomorphic local-business web',
+    description:
+      'Niche business one-pager themed around a billiards table motif, rich texture graphics, and service-first copy.',
+  },
+  '12': {
+    name: 'Frank Stallone Portfolio',
+    dateLabel: 'circa 2023',
+    styleLabel: 'modern portfolio system',
+    description:
+      'Modern portfolio system with expressive typography, modular case-study cards, and contemporary responsive layout patterns.',
+  },
+} as const
+---
+
+<InnerLayout
+  subtitle="An incomplete timeline of my older site design and development work."
+  meta={{
+    title: 'Past site designs by Frank Stallone',
+    description:
+      "Browse archived versions of websites I've designed and developed throughout the years.",
+    canonicalURL: canonicalURL.href,
+  }}
+>
+  <section class="region" id="main">
+    <div class="wrapper flow" style="--flow-space: var(--space-l);">
+      {
+        archivesAscending.length ? (
+          <div class="grid gap-l md:grid-cols-3">
+            {archivesAscending.map((archive, index) => {
+              const detail =
+                archiveDetails[archive.slug as keyof typeof archiveDetails]
+
+              return (
+                <article class="flow prose post-card">
+                  <div class="archive-head flow flow-space-2xs">
+                    <p class="archive-index mt-zero">
+                      {toArchiveIndexLabel(archive.slug)}
+                    </p>
+                    <h3 class="mt-zero">
+                      <a href={`/past/${archive.slug}/`}>
+                        {detail?.name ?? `Site ${archive.slug}`}
+                      </a>
+                    </h3>
+                    <p class="mt-zero archive-date">
+                      <small class="text-step-00 text-gray-1100 tabular-nums">
+                        {detail
+                          ? `${detail.dateLabel} • ${detail.styleLabel}`
+                          : index === 0
+                            ? 'Oldest archive'
+                            : 'Archive snapshot'}
+                      </small>
+                    </p>
+                  </div>
+                  <p class="text-step-00 text-gray-1200">
+                    {detail?.description ??
+                      'Open this snapshot exactly as it shipped from the static archive.'}
+                  </p>
+                </article>
+              )
+            })}
+          </div>
+        ) : (
+          <p>
+            No archives were found in <code>public/past</code>.
+          </p>
+        )
+      }
+    </div>
+  </section>
+</InnerLayout>
+
+<style>
+  .archive-head {
+    --flow-space: var(--space-2xs);
+  }
+
+  .archive-date {
+    margin: 0;
+  }
+
+  .archive-index {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: var(--font-display);
+    font-size: var(--size-step-3);
+    font-weight: var(--font-bold);
+    line-height: 1;
+    letter-spacing: -0.01em;
+    color: var(--color-indigo-700, #4338ca);
+  }
+</style>
