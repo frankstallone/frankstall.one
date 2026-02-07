@@ -6,7 +6,7 @@
 
 .box {
   @apply text-gray-1400 bg-white;
-  padding: var(--box-space, var(--space-s-m));
+  padding: var(--box-space, var(--space-s));
 }
 
 .box * {

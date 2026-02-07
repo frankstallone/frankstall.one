@@ -2,21 +2,20 @@
 const date = new Date().getFullYear()
 ---
 
-<footer class="region bg-gray-1400 text-gray-300 relative overflow-clip">
+<footer class="region bg-gray-100 text-gray-1200">
   <div class="wrapper">
-    <div class="grid text-center md:text-left" data-layout="thirds">
+    <div
+      class="grid text-center md:text-left"
+      data-layout="f4-home"
+      style="--gutter: var(--space-l);"
+    >
       <div>
-        <h2>Navigation</h2>
+        <h2 class="text-gray-1400">Navigation</h2>
         <ul role="list" class="navigation">
           <li><a href="/">Home</a></li>
           <li><a href="/blog/">Blog</a></li>
           <li><a href="/uses/">Uses</a></li>
           <li><a href="/portfolio/">Portfolio</a></li>
-          <li>
-            <a href="/products/lead-generation-for-small-business/"
-              >Content compass</a
-            >
-          </li>
           <li><a href="#contact">Reach out</a></li>
           <li>
             <a href="/accessibility-statement/">Accessibility statement</a>
@@ -25,24 +24,9 @@ const date = new Date().getFullYear()
       </div>
       <ul
         role="list"
-        class="cluster justify-center"
+        class="cluster justify-center md:self-center"
         style="--gutter: var(--space-s)"
       >
-        <li>
-          <a href="https://bsky.app/profile/frankstall.one" target="_blank"
-            ><svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512"
-              height="1em"
-              viewBox="0 0 448 512"
-              role="img"
-              ><title>Bluesky</title>
-              <path
-                d="M111.8 62.2C170.2 105.9 233 194.7 256 242.4c23-47.6 85.8-136.4 144.2-180.2c42.1-31.6 110.3-56 110.3 21.8c0 15.5-8.9 130.5-14.1 149.2C478.2 298 412 314.6 353.1 304.5c102.9 17.5 129.1 75.5 72.5 133.5c-107.4 110.2-154.3-27.6-166.3-62.9l0 0c-1.7-4.9-2.6-7.8-3.3-7.8s-1.6 3-3.3 7.8l0 0c-12 35.3-59 173.1-166.3 62.9c-56.5-58-30.4-116 72.5-133.5C100 314.6 33.8 298 15.7 233.1C10.4 214.4 1.5 99.4 1.5 83.9c0-77.8 68.2-53.4 110.3-21.8z"
-                fill="currentColor"></path></svg
-            >
-          </a>
-        </li>
         <li>
           <a href="https://twitter.com/frankstallone" target="_blank"
             ><svg
@@ -103,17 +87,32 @@ const date = new Date().getFullYear()
             ></a
           >
         </li>
+        <li>
+          <a href="https://bsky.app/profile/frankstall.one" target="_blank"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+              height="1em"
+              viewBox="0 0 448 512"
+              role="img"
+              ><title>Bluesky</title>
+              <path
+                d="M111.8 62.2C170.2 105.9 233 194.7 256 242.4c23-47.6 85.8-136.4 144.2-180.2c42.1-31.6 110.3-56 110.3 21.8c0 15.5-8.9 130.5-14.1 149.2C478.2 298 412 314.6 353.1 304.5c102.9 17.5 129.1 75.5 72.5 133.5c-107.4 110.2-154.3-27.6-166.3-62.9l0 0c-1.7-4.9-2.6-7.8-3.3-7.8s-1.6 3-3.3 7.8l0 0c-12 35.3-59 173.1-166.3 62.9c-56.5-58-30.4-116 72.5-133.5C100 314.6 33.8 298 15.7 233.1C10.4 214.4 1.5 99.4 1.5 83.9c0-77.8 68.2-53.4 110.3-21.8z"
+                fill="currentColor"></path></svg
+            >
+          </a>
+        </li>
       </ul>
       <div
-        class="box text-center flex flex-col flow flow-space-m bg-transparent text-gray-300"
+        class="box text-center flex flex-col flow flow-space-s bg-transparent"
       >
         <svg
           viewBox="0 0 238 209"
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"
-          style="height: 7rem; transform: rotate(-2deg);"
-          class="w-auto text-gray-1000"
+          style="height: 3rem;"
+          class="w-auto text-gray-1200"
           role="img"
         >
           <title>Stallone Signature</title>
@@ -125,77 +124,7 @@ const date = new Date().getFullYear()
           ></path>
         </svg>
         <small class="text-step-000">Frank Stallone © {date}</small>
-        <a href="https://astro.build/">
-          <small class="flex justify-center items-center text-step-000">
-            <svg
-              width="85"
-              height="107"
-              viewBox="0 0 85 107"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              class="mr-2xs"
-            >
-              <path
-                d="M27.5893 91.1365C22.7555 86.7178 21.3443 77.4335 23.3583 70.7072C26.8503 74.948 31.6888 76.2914 36.7005 77.0497C44.4374 78.2199 52.0358 77.7822 59.2231 74.2459C60.0453 73.841 60.8052 73.3027 61.7036 72.7574C62.378 74.714 62.5535 76.6892 62.3179 78.6996C61.7452 83.5957 59.3086 87.3778 55.4332 90.2448C53.8835 91.3916 52.2437 92.4167 50.6432 93.4979C45.7262 96.8213 44.3959 100.718 46.2435 106.386C46.2874 106.525 46.3267 106.663 46.426 107C43.9155 105.876 42.0817 104.24 40.6844 102.089C39.2086 99.8193 38.5065 97.3081 38.4696 94.5909C38.4511 93.2686 38.4511 91.9345 38.2733 90.6309C37.8391 87.4527 36.3471 86.0297 33.5364 85.9478C30.6518 85.8636 28.37 87.6469 27.7649 90.4554C27.7187 90.6707 27.6517 90.8837 27.5847 91.1341L27.5893 91.1365Z"
-                fill="white"></path>
-              <path
-                d="M0 69.5866C0 69.5866 14.3139 62.6137 28.6678 62.6137L39.4901 29.1204C39.8953 27.5007 41.0783 26.3999 42.4139 26.3999C43.7495 26.3999 44.9325 27.5007 45.3377 29.1204L56.1601 62.6137C73.1601 62.6137 84.8278 69.5866 84.8278 69.5866C84.8278 69.5866 60.5145 3.35233 60.467 3.21944C59.7692 1.2612 58.5911 0 57.0029 0H27.8274C26.2392 0 25.1087 1.2612 24.3634 3.21944C24.3108 3.34983 0 69.5866 0 69.5866Z"
-                fill="white"></path>
-            </svg> Astro contributor
-          </small>
-        </a>
       </div>
     </div>
   </div>
-  <svg
-    viewBox="0 0 1044 100"
-    version="1.1"
-    xmlns="http://www.w3.org/2000/svg"
-    fill="currentColor"
-    role="img"
-    class="absolute w-dvw h-auto text-gray-1000 transition-colors duration-300 ease-in-out -bottom-2xs md:-bottom-l animate-in"
-  >
-    <title>Frank Stallone logo</title>
-    <g>
-      <path
-        d="M0.658,97.478l19.75,0l0,-39.5l33.25,0l0,-16.75l-33.25,0l0,-21.25l34.125,0l0,-16.75l-53.875,0l0,94.25Z"
-      ></path>
-      <path
-        d="M84.158,61.478l1.75,0l26.875,36l24,0l-29.75,-38.375c12.5,-4.125 20.75,-13.5 20.75,-26.75c0,-18.5 -14.875,-29.125 -35.625,-29.125l-27.875,0l0,94.25l19.875,0l0,-36Zm0,-41.75l7.625,0c9.125,0 15.75,4.5 15.75,13.125c0,8.875 -6.625,13.375 -15.75,13.375l-7.625,0l0,-26.5Z"
-      ></path>
-      <path
-        d="M213.908,97.478l21,0l-40.125,-94.25l-17,0l-40.125,94.25l20.5,0l8.125,-19.75l39.5,0l8.125,19.75Zm-27.875,-67.75l12.875,31.375l-25.75,0l12.875,-31.375Z"
-      ></path>
-      <path
-        d="M238.033,3.228l0,94.25l19.375,0l0,-61l50.25,61l15,0l0,-94.25l-19.375,0l0,60.375l-49.375,-60.375l-15.875,0Z"
-      ></path>
-      <path
-        d="M354.033,3.228l-20.125,0l0,94.25l20.125,0l0,-32.5l6.75,-7.625l30.75,40.125l24.375,0l-41.375,-54.25l36,-40l-24,0l-32.5,37.5l0,-37.5Z"
-      ></path>
-      <path
-        d="M510.908,68.228c0,-34 -44.625,-22.875 -44.625,-39.375c0,-6.25 4.75,-10.125 10.875,-10.125c6.625,0 10.75,4.625 12.5,10l18.5,-6.875c-4.125,-12.25 -15.5,-20.125 -30.25,-20.125c-18.75,0 -31.25,13.125 -31.25,28.5c0,33 44.25,21 44.25,39c0,7.75 -6,12.625 -14,12.625c-8.5,0 -14.75,-5.875 -16.875,-14.875l-18.75,6c3.5,15.75 17.5,26 35,26c19.125,0 34.625,-13 34.625,-30.75Z"
-      ></path>
-      <path
-        d="M581.658,19.978l0,-16.75l-69.625,0l0,16.75l24.75,0l0,77.5l20.125,0l0,-77.5l24.75,0Z"
-      ></path>
-      <path
-        d="M642.283,97.478l21,0l-40.125,-94.25l-17,0l-40.125,94.25l20.5,0l8.125,-19.75l39.5,0l8.125,19.75Zm-27.875,-67.75l12.875,31.375l-25.75,0l12.875,-31.375Z"
-      ></path>
-      <path
-        d="M668.908,97.478l55.125,0l0,-16.75l-35,0l0,-77.5l-20.125,0l0,94.25Z"
-      ></path>
-      <path
-        d="M732.533,97.478l55.125,0l0,-16.75l-35,0l0,-77.5l-20.125,0l0,94.25Z"
-      ></path>
-      <path
-        d="M785.533,50.353c0,26.75 21.75,48.625 48.625,48.625c27.125,0 48.75,-21.875 48.75,-48.625c0,-26.75 -21.625,-48.625 -48.75,-48.625c-26.875,0 -48.625,21.875 -48.625,48.625Zm77.125,0c0,17.25 -12.625,29.875 -28.5,29.875c-15.75,0 -28.5,-12.625 -28.5,-29.875c0,-17.25 12.75,-29.875 28.5,-29.875c15.875,0 28.5,12.625 28.5,29.875Z"
-      ></path>
-      <path
-        d="M891.408,3.228l0,94.25l19.375,0l0,-61l50.25,61l15,0l0,-94.25l-19.375,0l0,60.375l-49.375,-60.375l-15.875,0Z"
-      ></path>
-      <path
-        d="M987.283,97.478l56,0l0,-16.75l-36.25,0l0,-23.5l35.25,0l0,-16.75l-35.25,0l0,-20.5l36.125,0l0,-16.75l-55.875,0l0,94.25Z"
-      ></path>
-    </g>
-  </svg>
 </footer>

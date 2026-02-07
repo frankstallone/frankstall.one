@@ -8,7 +8,7 @@ type Props = {
 const { idx, question, answer } = Astro.props
 ---
 
-<div class="box flex flex-col bg-gray-200 rounded-md">
+<div class="box flex flex-col bg-transparent border border-gray-700">
   <details open={idx === 0}>
     <summary class="faq-button">
       {question}

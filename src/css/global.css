@@ -21,9 +21,11 @@ Reference source: https://github.com/Set-Creative-Studio/cube-boilerplate/blob/m
 @import 'blocks/faq-button.css' layer(components);
 @import 'blocks/footer.css';
 @import 'blocks/header-links.css';
+@import 'blocks/home.css' layer(components);
 @import 'blocks/post-card.css' layer(components);
 @import 'blocks/phoneinput.css' layer(components);
 @import 'blocks/hero.css';
+@import 'blocks/portfolio-case.css' layer(components);
 @import 'blocks/prose.css' layer(components);
 @import 'blocks/post.css' layer(components);
 @import 'components/box.css' layer(components);

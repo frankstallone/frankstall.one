@@ -57,7 +57,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
       <div class="post__sidebar">
         {
           headingsArray && headingsArray.length > 0 && (
-            <nav class="box mt-zero text-step-00">
+            <nav class="case-panel mt-zero">
               <h2 class="text-step-0">Table of contents</h2>
               <ul class="list-none pl-zero space-y-2xs">
                 {headingsArray.map((heading) => (
@@ -73,7 +73,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
       </div>
     </div>
     <div
-      class="flex flow flow-space-2xs flex-col justify-center items-center mt-s max-w-[50ch]"
+      class="flex flow flow-space-2xs flex-col justify-center items-center mt-s"
     >
       <p class="font-display font-bold">Helpful?</p>
       <Likes count={postLikesCount} slug={entry.id} />

@@ -1,7 +1,7 @@
 /* Footer */
 
 footer {
-  color: var(--gray-2);
+  color: var(--color-gray-1200);
 }
 
 footer small {
@@ -10,12 +10,12 @@ footer small {
 
 footer a,
 footer a:visited {
+  color: currentcolor;
   text-decoration: none;
-  transition: var(--transition-base);
 }
 footer a:hover,
 footer a:focus,
 footer a:active {
-  color: var(--gray-7);
-  text-decoration: none;
+  color: var(--color-gray-1400);
+  text-decoration: underline;
 }

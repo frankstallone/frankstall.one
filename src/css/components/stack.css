@@ -14,5 +14,5 @@ More info: https://every-layout.dev/layouts/stack/
 }
 
 .stack > * + * {
-  margin-block-start: var(--space-3xs, 1.5rem);
+  margin-block-start: var(--space-xs, 1rem);
 }

@@ -37,89 +37,98 @@ function truncateDescription(description: string) {
       'For the last two decades, I have helped businesses of all sizes craft compelling user experiences that drove 100M+ in revenue.',
   }}
 >
-  <section class="region flow md:pt-zero md:-mt-s" id="main">
-    <div class="animate-in flow wrapper">
-      <div
-        class="flex flex-col space-y-xs md:space-y-zero md:grid md:grid-recent mb-m md:gutter-m"
-        id="recent-posts"
-      >
-        <h2
-          class="md:text-center section-header text-gray-1200 bg-gray-400 rounded-md"
-        >
-          Recent posts
-        </h2>
-        {
-          latestPosts.map((post) => (
-            <div class="box flow prose border-solid border-b-2 border-x-0 border-t-0 border-gray-700 text-gray-1200 bg-gray-400 rounded-md">
-              <h3 class="mt-zero">
-                <a
-                  href={`/${post.collection}/${post.id}/`}
-                  transition:name={'blog' + post.data.title}
-                >
-                  {post.data.title}
-                </a>
-              </h3>
-              <p class="mt-2xs">
-                <small class="uppercase text-step-000 font-medium font-mono tracking-wide text-gray-900">
-                  {new Date(post.data.publishDate).toLocaleDateString(
-                    undefined,
-                    {
-                      weekday: 'long',
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    }
-                  )}
-                </small>
-              </p>
-              <p>{truncateDescription(post.data.description)}</p>
-              <p class="pb-l">
-                <a href={`/${post.collection}/${post.id}/`}>
-                  Read more &hellip;
-                </a>
-              </p>
-            </div>
-          ))
-        }
+  <section class="region flow" id="main">
+    <div class="flow wrapper">
+      <div class="grid" data-layout="f4-home" style="--gutter: var(--space-l);">
+        <div class="flow home-section-head">
+          <p class="home-section-kicker">01</p>
+          <h2 class="text-step-1 text-gray-1400">Recent posts</h2>
+          <p class="text-step-00 text-gray-1100">
+            Writing on design, systems, and craft.
+          </p>
+          <p class="text-step-00 text-gray-1100">
+            <a href="/blog/">All posts</a>
+          </p>
+        </div>
+        <ol role="list" class="home-posts-grid">
+          {
+            latestPosts.map((post) => (
+              <li class="flow prose home-post-item">
+                <h3 class="mt-zero">
+                  <a
+                    href={`/${post.collection}/${post.id}/`}
+                    transition:name={'blog' + post.data.title}
+                  >
+                    {post.data.title}
+                  </a>
+                </h3>
+                <p class="home-meta mt-2xs">
+                  <small class="text-step-00 tabular-nums">
+                    {new Date(post.data.publishDate).toLocaleDateString(
+                      undefined,
+                      {
+                        weekday: 'long',
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                      }
+                    )}
+                  </small>
+                </p>
+                <p>{truncateDescription(post.data.description)}</p>
+                <p class="pb-2xs">
+                  <a href={`/${post.collection}/${post.id}/`}>
+                    Read more &hellip;
+                  </a>
+                </p>
+              </li>
+            ))
+          }
+        </ol>
       </div>
-
-      <aside
-        class="uppercase font-mono font-medium text-step-000 text-gray-900 text-center"
-      >
-        <span>
-          <a href="/blog/">All posts</a>
-        </span>
-      </aside>
     </div>
   </section>
-  <AboutMe />
-  <div class="region flow bg-gray-100">
-    <div class="wrapper flow flow-space-xl">
-      <ADSPhoneBanner />
-      <video
-        autoplay
-        loop
-        muted
-        playsinline
-        class="min-w-zero max-w-full md:row-start-3 md:row-span-2 md:col-span-8 md:col-start-1 rounded-md"
-        poster="/media/klaviyo/klaviyo-phone-input-cover-web.png"
-      >
-        <source
-          src="/media/klaviyo/klaviyo-phone-input-cover-web.webm"
-          type="video/webm"
-        />
-        <source
-          src="/media/klaviyo/klaviyo-phone-input-cover-web.mp4"
-          type="video/mp4"
-        />
-      </video>
-      <aside
-        class="uppercase font-mono font-medium text-step-000 text-gray-1100 text-right"
-      >
-        <span class="mx-auto">
-          1 of 5 <a href="/portfolio/">See full portfolio</a>
-        </span>
-      </aside>
+  <AboutMe variant="f4-home" sectionIndex="02" />
+  <div class="region bg-gray-100">
+    <div class="wrapper">
+      <div class="grid" data-layout="f4-home" style="--gutter: var(--space-l);">
+        <div class="flow home-section-head">
+          <p class="home-section-kicker">03</p>
+          <h2 class="text-step-1 text-gray-1400">Portfolio</h2>
+          <p class="text-step-00 text-gray-1100">
+            Selected work from product and systems design.
+          </p>
+        </div>
+        <div class="home-portfolio-grid">
+          <ADSPhoneBanner variant="home" />
+          <div class="flow" style="--flow-space: var(--space-s);">
+            <video
+              autoplay
+              loop
+              muted
+              playsinline
+              class="min-w-zero max-w-full"
+              poster="/media/klaviyo/klaviyo-phone-input-cover-web.png"
+            >
+              <source
+                src="/media/klaviyo/klaviyo-phone-input-cover-web.webm"
+                type="video/webm"
+              />
+              <source
+                src="/media/klaviyo/klaviyo-phone-input-cover-web.mp4"
+                type="video/mp4"
+              />
+            </video>
+            <p class="home-meta text-step-00">
+              <small>
+                <span>1 of 5</span>
+                <span aria-hidden="true">&middot;</span>
+                <a href="/portfolio/">See full portfolio</a>
+              </small>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </Layout>

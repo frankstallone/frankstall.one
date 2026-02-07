@@ -17,7 +17,7 @@ const { count, slug } = Astro.props
 >
   <button
     aria-label="Click to like this post"
-    class="border-none flex justify-center align-center px-xs py-2xs bg-gray-600 text-step-00 text-gray-1400 rounded-3xl disabled:opacity-50 disabled:cursor-not-allowed"
+    class="border border-gray-700 flex justify-center align-center px-xs py-2xs bg-transparent text-step-00 text-gray-1400 disabled:opacity-50 disabled:cursor-not-allowed"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -30,7 +30,7 @@ const { count, slug } = Astro.props
         d="M240 67.7V32h96V67.7c0 38.1-9 75.1-25.8 108.3H464h48v96H496v80H472v72H448v56H400 280 265.5l-12.1-8.1-72-48L160 409.7V384 320 224 200.9l18-14.4 7.9-6.4c34.2-27.3 54-68.7 54-112.4zM128 192V480H0V192H128z"
       ></path></svg
     >
-    <span class="ml-2xs font-display font-bold"
+    <span class="ml-2xs font-display font-bold tabular-nums"
       ><div class="sr-only">This post's current likes:</div>{count}</span
     ></button
   >
@@ -159,20 +159,20 @@ const { count, slug } = Astro.props
     private updateUI() {
       if (this.liked) {
         this.likeButton.classList.add(
-          'bg-indigo-vivid-600',
-          'text-indigo-vivid-100'
+          'bg-gray-1400',
+          'text-gray-100'
         )
-        this.likeButton.classList.remove('bg-gray-600', 'text-gray-1400')
+        this.likeButton.classList.remove('bg-transparent', 'text-gray-1400')
         this.likeButton.setAttribute(
           'aria-label',
           `Thank you! Click to unlike this post. This post has been liked ${this.count} times.`
         )
       } else {
         this.likeButton.classList.remove(
-          'bg-indigo-vivid-600',
-          'text-indigo-vivid-100'
+          'bg-gray-1400',
+          'text-gray-100'
         )
-        this.likeButton.classList.add('bg-gray-600', 'text-gray-1400')
+        this.likeButton.classList.add('bg-transparent', 'text-gray-1400')
         this.likeButton.setAttribute(
           'aria-label',
           `Click to like this post. This post has been liked ${this.count} times.`

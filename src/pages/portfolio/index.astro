@@ -35,237 +35,261 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
     canonicalURL: canonicalURL.href,
   }}
 >
-  <section class="region wrapper flow" id="main">
-    <div class="flow flow-space-l region pt-zero" data-layout="twelfths">
-      <ADSPhoneBanner />
-      <video
-        autoplay
-        loop
-        muted
-        playsinline
-        class="min-w-zero max-w-full md:row-start-3 md:row-span-2 md:col-span-8 md:col-start-1 rounded-md"
-        poster="/media/klaviyo/klaviyo-phone-input-cover-web.png"
-      >
-        <source
-          src="/media/klaviyo/klaviyo-phone-input-cover-web.webm"
-          type="video/webm"
-        />
-        <source
-          src="/media/klaviyo/klaviyo-phone-input-cover-web.mp4"
-          type="video/mp4"
-        />
-      </video>
-    </div>
-    <div class="flow flow-space-l region" data-layout="twelfths">
-      <ADSBanner />
-      <video
-        autoplay
-        loop
-        muted
-        playsinline
-        class="min-w-zero max-w-full md:row-start-3 md:row-span-2 md:col-span-8 md:col-start-1 rounded-md"
-        poster="/media/klaviyo/ascent-design-system-scroll-by-cover-web.png"
-      >
-        <source
-          src="/media/klaviyo/ascent-design-system-scroll-by-cover-web.webm"
-          type="video/webm"
-        />
-        <source
-          src="/media/klaviyo/ascent-design-system-scroll-by-cover-web.mp4"
-          type="video/mp4"
-        />
-      </video>
-    </div>
-    <div class="flow flow-space-l region">
-      <RollBanner />
-      <RollPortfolioGrid />
-    </div>
-    <div class="flow flow-space-l region">
-      <div
-        class="animate-in box flow flow-space-xs w-fit border border-b-2 border-x-0 border-t-0 text-magenta-vivid-800 bg-magenta-200 border-magenta-700 rounded-md"
-      >
-        <hgroup>
-          <h3 class="uppercase mt-zero">
-            <a href="/portfolio/loumarc-signs/">Loumarc Signs</a>
-          </h3>
-          <p class="font-medium text-step-1 mt-zero">
-            Brand transformation, logo, website
+  <section id="main">
+    <article class="region wrapper grid" data-layout="case">
+      <div class="flow">
+        <ADSPhoneBanner />
+      </div>
+      <div class="flow">
+        <video
+          autoplay
+          loop
+          muted
+          playsinline
+          class="min-w-zero max-w-full"
+          poster="/media/klaviyo/klaviyo-phone-input-cover-web.png"
+        >
+          <source
+            src="/media/klaviyo/klaviyo-phone-input-cover-web.webm"
+            type="video/webm"
+          />
+          <source
+            src="/media/klaviyo/klaviyo-phone-input-cover-web.mp4"
+            type="video/mp4"
+          />
+        </video>
+      </div>
+    </article>
+    <article class="region wrapper grid" data-layout="case">
+      <div class="flow">
+        <ADSBanner />
+      </div>
+      <div class="flow">
+        <video
+          autoplay
+          loop
+          muted
+          playsinline
+          class="min-w-zero max-w-full"
+          poster="/media/klaviyo/ascent-design-system-scroll-by-cover-web.png"
+        >
+          <source
+            src="/media/klaviyo/ascent-design-system-scroll-by-cover-web.webm"
+            type="video/webm"
+          />
+          <source
+            src="/media/klaviyo/ascent-design-system-scroll-by-cover-web.mp4"
+            type="video/mp4"
+          />
+        </video>
+      </div>
+    </article>
+    <article class="region wrapper grid" data-layout="case">
+      <div class="flow">
+        <RollBanner />
+      </div>
+      <div class="flow">
+        <RollPortfolioGrid />
+      </div>
+    </article>
+    <article class="region wrapper grid" data-layout="case">
+      <div class="flow">
+        <div class="flow flow-space-xs text-gray-1400">
+          <hgroup>
+            <h3 class="mt-zero">
+              <a href="/portfolio/loumarc-signs/">Loumarc Signs</a>
+            </h3>
+            <p class="text-step-00 text-gray-1100 mt-zero">
+              Brand transformation, logo, website
+            </p>
+          </hgroup>
+          <p class="text-step-00 text-gray-1200">
+            After 30 years in business, Loumarc Signs needed a complete brand
+            refresh to attract a new generation of custom sign buyers. I
+            produced a new logo, website, and set of brand guidelines that
+            successfully connected them to this fresh new audience.
           </p>
-        </hgroup>
-        <p>
-          After 30 years in business, Loumarc Signs needed a complete brand
-          refresh to attract a new generation of custom sign buyers. I produced
-          a new logo, website, and set of brand guidelines that successfully
-          connected them to this fresh new audience.
-        </p>
+        </div>
       </div>
-      <LoumarcGrid />
-    </div>
-    <div class="flow flow-space-l region">
-      <div
-        class="animate-in box flow flow-space-xs w-fit border border-b-2 border-x-0 border-t-0 text-orange-vivid-800 bg-orange-200 border-orange-700 rounded-md"
-      >
-        <hgroup>
-          <h3 class="uppercase mt-zero">
-            <a href="/portfolio/btc/">Builders Trust Capital</a>
-          </h3>
-          <p class="font-medium text-step-1 mt-zero">
-            Brand transformation, logo, name, website
+      <div class="flow">
+        <LoumarcGrid />
+      </div>
+    </article>
+    <article class="region wrapper grid" data-layout="case">
+      <div class="flow">
+        <div class="flow flow-space-xs text-gray-1400">
+          <hgroup>
+            <h3 class="mt-zero">
+              <a href="/portfolio/btc/">Builders Trust Capital</a>
+            </h3>
+            <p class="text-step-00 text-gray-1100 mt-zero">
+              Brand transformation, logo, name, website
+            </p>
+          </hgroup>
+          <p class="text-step-00 text-gray-1200">
+            Rebranded Ashmore Partners to Builders Trust Capital, creating a new
+            logo, website, and brand guidelines to better connect with their
+            entrepreneurial clients.
           </p>
-        </hgroup>
-        <p>
-          Rebranded Ashmore Partners to Builders Trust Capital, creating a new
-          logo, website, and brand guidelines to better connect with their
-          entrepreneurial clients.
-        </p>
+        </div>
       </div>
-      <BTCPortfolioGrid />
-    </div>
-    <div class="flow flow-space-l region">
-      <div
-        class="animate-in box flow flow-space-xs w-fit border border-b-2 border-x-0 border-t-0 text-gray-1200 bg-gray-400 border-gray-700 rounded-md"
-      >
-        <hgroup>
-          <h3 class="uppercase mt-zero">NJ Stone Supply &amp; Tree Service</h3>
-          <p class="font-medium text-step-1 mt-zero">Logo</p>
-        </hgroup>
-        <p>
-          Designed a logo mark and type that reflects both Noah's work and his
-          audience's needs.
-        </p>
+      <div class="flow">
+        <BTCPortfolioGrid />
       </div>
-      <article class="grid" style="--grid-min-item-size: 250px">
-        <Picture
-          src={njcSquared01}
-          widths={[500, 700, 1400]}
-          class="object-cover h-auto rounded-md"
-          alt="The logo mark for Noah James Curtis Stone Supply & Tree Service"
-          quality={80}
-          format="avif"
-        />
-        <Picture
-          src={njcSquared02}
-          widths={[500, 700]}
-          class="object-cover h-auto rounded-md"
-          alt="The typeface and colors chosen for the branding of Noah James Curtis Stone Supply & Tree Service"
-          quality={80}
-          format="avif"
-        />
-        <Picture
-          src={njcSquared03}
-          widths={[500, 700]}
-          class="object-cover h-auto rounded-md"
-          alt="Screenshot of the grid used for one of the Noah James Curtis Stone Supply logos with type"
-          quality={80}
-          format="avif"
-        />
-        <Picture
-          src={njcSquared04}
-          widths={[500, 700]}
-          class="object-cover h-auto rounded-md"
-          alt="One of the variations of the NJC Stone Supply & Tree Service with logo mark and type logo"
-          quality={80}
-          format="avif"
-        />
-      </article>
-    </div>
-    <div class="flow flow-space-l region">
-      <div
-        class="animate-in box flow flow-space-xs w-fit border border-b-2 border-x-0 border-t-0 text-gray-1200 bg-gray-400 border-gray-700 rounded-md"
-      >
-        <hgroup>
-          <h3 class="uppercase mt-zero">Brackets podcast</h3>
-          <p class="font-medium text-step-1 mt-zero">Co-host, Logo, Branding</p>
-        </hgroup>
-        <p>
-          Co-created a technology podcast that aired for 5 years, serving as the
-          pulse of tech within ADP. Designed the logo and branding to establish
-          a strong, recognizable identity.
-        </p>
+    </article>
+    <article class="region wrapper grid" data-layout="case">
+      <div class="flow">
+        <div class="flow flow-space-xs text-gray-1400">
+          <hgroup>
+            <h3 class="mt-zero">NJ Stone Supply &amp; Tree Service</h3>
+            <p class="text-step-00 text-gray-1100 mt-zero">Logo</p>
+          </hgroup>
+          <p class="text-step-00 text-gray-1200">
+            Designed a logo mark and type that reflects both Noah's work and his
+            audience's needs.
+          </p>
+        </div>
       </div>
-      <article class="grid" style="--grid-min-item-size: 250px">
-        <Picture
-          src={bracketsSquared01}
-          widths={[500, 700, 1400]}
-          class="object-cover h-auto"
-          alt="The original logo mark and type logo for ADP's Developer Community Brackets Podcast"
-          quality={80}
-          format="avif"
-        />
-        <Picture
-          src={bracketsSquared02}
-          widths={[500, 700]}
-          class="object-cover h-auto rounded-md"
-          alt="The original logo mark for ADP's Developer Community Brackets Podcast"
-          quality={80}
-          format="avif"
-        />
-        <Picture
-          src={bracketsSquared03}
-          widths={[500, 700]}
-          class="object-cover h-auto"
-          alt="Play on the ADP's Developer Community Brackets Podcast logo"
-          quality={80}
-          format="avif"
-        />
-        <Picture
-          src={bracketsSquared04}
-          widths={[500, 700]}
-          class="object-cover h-auto"
-          alt="Another spin of the design of the ADP's Developer Community Brackets Podcast logo"
-          quality={80}
-          format="avif"
-        />
-      </article>
-    </div>
-    <div class="flow flow-space-l region">
-      <div
-        class="animate-in box flow flow-space-xs w-fit border border-b-2 border-x-0 border-t-0 text-gray-1200 bg-gray-400 border-gray-700 rounded-md"
-      >
-        <hgroup>
-          <h3 class="uppercase mt-zero">Savani</h3>
-          <p class="font-medium text-step-1 mt-zero">Logo, Branding</p>
-        </hgroup>
-        <p>
-          Rebranded a niche Volkswagen parts company, creating a new logo and
-          brand identity to better connect with their target audience.
-        </p>
+      <div class="flow">
+        <article class="grid" style="--grid-min-item-size: 250px">
+          <Picture
+            src={njcSquared01}
+            widths={[500, 700, 1400]}
+            class="object-cover h-auto"
+            alt="The logo mark for Noah James Curtis Stone Supply & Tree Service"
+            quality={80}
+            format="avif"
+          />
+          <Picture
+            src={njcSquared02}
+            widths={[500, 700]}
+            class="object-cover h-auto"
+            alt="The typeface and colors chosen for the branding of Noah James Curtis Stone Supply & Tree Service"
+            quality={80}
+            format="avif"
+          />
+          <Picture
+            src={njcSquared03}
+            widths={[500, 700]}
+            class="object-cover h-auto"
+            alt="Screenshot of the grid used for one of the Noah James Curtis Stone Supply logos with type"
+            quality={80}
+            format="avif"
+          />
+          <Picture
+            src={njcSquared04}
+            widths={[500, 700]}
+            class="object-cover h-auto"
+            alt="One of the variations of the NJC Stone Supply & Tree Service with logo mark and type logo"
+            quality={80}
+            format="avif"
+          />
+        </article>
       </div>
-      <article class="grid" style="--grid-min-item-size: 250px">
-        <Picture
-          src={savaniSquared01}
-          widths={[500, 700, 1400]}
-          class="object-cover h-auto rounded-md"
-          alt="The original logo mark for Savani Auto Parts"
-          quality={80}
-          format="avif"
-        />
-        <Picture
-          src={savaniSquared02}
-          widths={[500, 700]}
-          class="object-cover h-auto rounded-md"
-          alt="The type logo for Savani Auto Parts"
-          quality={80}
-          format="avif"
-        />
-        <Picture
-          src={savaniSquared03}
-          widths={[500, 700]}
-          class="object-cover h-auto rounded-md"
-          alt="The logo mark and type logo for Savani Auto Parts"
-          quality={80}
-          format="avif"
-        />
-        <Picture
-          src={savaniSquared04}
-          widths={[500, 700]}
-          class="object-cover h-auto rounded-md"
-          alt="A t-shirt with the Savani Auto Parts logo mark and type logo"
-          quality={80}
-          format="avif"
-        />
-      </article>
-    </div>
+    </article>
+    <article class="region wrapper grid" data-layout="case">
+      <div class="flow">
+        <div class="flow flow-space-xs text-gray-1400">
+          <hgroup>
+            <h3 class="mt-zero">Brackets podcast</h3>
+            <p class="text-step-00 text-gray-1100 mt-zero">
+              Co-host, Logo, Branding
+            </p>
+          </hgroup>
+          <p class="text-step-00 text-gray-1200">
+            Co-created a technology podcast that aired for 5 years, serving as
+            the pulse of tech within ADP. Designed the logo and branding to
+            establish a strong, recognizable identity.
+          </p>
+        </div>
+      </div>
+      <div class="flow">
+        <article class="grid" style="--grid-min-item-size: 250px">
+          <Picture
+            src={bracketsSquared01}
+            widths={[500, 700, 1400]}
+            class="object-cover h-auto"
+            alt="The original logo mark and type logo for ADP's Developer Community Brackets Podcast"
+            quality={80}
+            format="avif"
+          />
+          <Picture
+            src={bracketsSquared02}
+            widths={[500, 700]}
+            class="object-cover h-auto"
+            alt="The original logo mark for ADP's Developer Community Brackets Podcast"
+            quality={80}
+            format="avif"
+          />
+          <Picture
+            src={bracketsSquared03}
+            widths={[500, 700]}
+            class="object-cover h-auto"
+            alt="Play on the ADP's Developer Community Brackets Podcast logo"
+            quality={80}
+            format="avif"
+          />
+          <Picture
+            src={bracketsSquared04}
+            widths={[500, 700]}
+            class="object-cover h-auto"
+            alt="Another spin of the design of the ADP's Developer Community Brackets Podcast logo"
+            quality={80}
+            format="avif"
+          />
+        </article>
+      </div>
+    </article>
+    <article class="region wrapper grid" data-layout="case">
+      <div class="flow">
+        <div class="flow flow-space-xs text-gray-1400">
+          <hgroup>
+            <h3 class="mt-zero">Savani</h3>
+            <p class="text-step-00 text-gray-1100 mt-zero">Logo, Branding</p>
+          </hgroup>
+          <p class="text-step-00 text-gray-1200">
+            Rebranded a niche Volkswagen parts company, creating a new logo and
+            brand identity to better connect with their target audience.
+          </p>
+        </div>
+      </div>
+      <div class="flow">
+        <article class="grid" style="--grid-min-item-size: 250px">
+          <Picture
+            src={savaniSquared01}
+            widths={[500, 700, 1400]}
+            class="object-cover h-auto"
+            alt="The original logo mark for Savani Auto Parts"
+            quality={80}
+            format="avif"
+          />
+          <Picture
+            src={savaniSquared02}
+            widths={[500, 700]}
+            class="object-cover h-auto"
+            alt="The type logo for Savani Auto Parts"
+            quality={80}
+            format="avif"
+          />
+          <Picture
+            src={savaniSquared03}
+            widths={[500, 700]}
+            class="object-cover h-auto"
+            alt="The logo mark and type logo for Savani Auto Parts"
+            quality={80}
+            format="avif"
+          />
+          <Picture
+            src={savaniSquared04}
+            widths={[500, 700]}
+            class="object-cover h-auto"
+            alt="A t-shirt with the Savani Auto Parts logo mark and type logo"
+            quality={80}
+            format="avif"
+          />
+        </article>
+      </div>
+    </article>
   </section>
   <AboutMe />
 </InnerLayout>

@@ -2,7 +2,7 @@
 const pathname = Astro.url.pathname
 ---
 
-<div class="region bg-gray-200">
+<div class="region bg-gray-100">
   <div class="wrapper" style="--wrapper-max-width: 65ch;">
     <div class="flow prose" id="contact">
       <h2>Reach out</h2>
@@ -35,7 +35,7 @@ const pathname = Astro.url.pathname
             name="name"
             type="text"
             required
-            class="border-gray-600 border-1 border-solid rounded-md"
+            class="border-gray-700 border border-solid"
           />
         </span>
         <span class="stack">
@@ -45,7 +45,7 @@ const pathname = Astro.url.pathname
             name="email"
             type="email"
             required
-            class="border-gray-600 border-1 border-solid rounded-md"
+            class="border-gray-700 border border-solid"
           />
         </span>
         <span class="stack">
@@ -54,7 +54,7 @@ const pathname = Astro.url.pathname
             id="tel"
             name="tel"
             type="tel"
-            class="border-gray-600 border-1 border-solid rounded-md"
+            class="border-gray-700 border border-solid"
           />
         </span>
         <span class="stack">
@@ -64,7 +64,7 @@ const pathname = Astro.url.pathname
             id="message"
             rows="6"
             required
-            class="border-gray-600 border-1 border-solid rounded-md"></textarea>
+            class="border-gray-700 border border-solid"></textarea>
         </span>
         <button type="submit" class="button">Submit</button>
       </form>

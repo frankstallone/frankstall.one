@@ -1,0 +1,14 @@
+.case-panel {
+  @apply border border-gray-700 bg-gray-100 text-gray-1400;
+  --flow-space: var(--space-xs);
+  padding: var(--space-s);
+  box-shadow: 0 0 0 1px rgb(255 255 255 / 0.55) inset;
+}
+
+.case-panel :is(h2, h3) {
+  @apply text-step-1 text-gray-1400;
+}
+
+.case-panel :is(p, li) {
+  @apply text-step-00 text-gray-1200;
+}

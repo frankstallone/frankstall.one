@@ -2,13 +2,12 @@
 
 ---
 
-<!-- Add no-js class to header for CSS fallback -->
 <header
-  class="cluster box text-center justify-center md:justify-between bg-transparent text-white no-js"
+  class="cluster box text-center bg-transparent text-gray-1400 flex-col md:flex-row md:justify-between"
 >
   <a
     href="/"
-    class="flex justify-center items-center opacity-0 js-init"
+    class="flex justify-center items-center"
     id="logo-link"
     aria-label="Frank Stallone home"
   >
@@ -19,7 +18,7 @@
       fill="currentColor"
       role="img"
       aria-hidden="true"
-      class="w-3xl hover:text-indigo-700 transition-colors duration-300 ease-in-out"
+      class="w-3xl text-gray-1400"
     >
       <title>Frank Stallone logo</title>
       <g>
@@ -68,96 +67,18 @@
   <nav aria-label="Main navigation">
     <ul
       role="list"
-      class="cluster justify-center font-medium font-display uppercase"
-      style="--gutter: var(--space-m);"
+      class="cluster justify-center font-medium"
+      style="--gutter: var(--space-s);"
     >
-      <li class="header-link nav-item opacity-0 js-init">
+      <li class="header-link nav-item">
         <a href="/portfolio/">Portfolio</a>
       </li>
-      <li class="header-link nav-item opacity-0 js-init">
+      <li class="header-link nav-item">
         <a href="/blog/">Blog</a>
       </li>
-      <li class="header-link nav-item opacity-0 js-init">
+      <li class="header-link nav-item">
         <a href="#contact">Reach out</a>
       </li>
     </ul>
   </nav>
 </header>
-
-<style>
-  /* Show elements by default when JS is disabled */
-  .no-js .js-init {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-
-  /* Respect user's motion preferences */
-  @media (prefers-reduced-motion: reduce) {
-    .js-init {
-      opacity: 1 !important;
-      transform: none !important;
-      transition: none !important;
-    }
-  }
-</style>
-
-<script>
-  import { gsap } from 'gsap'
-  // Remove no-js class when JavaScript is enabled
-  document.querySelector('header')?.classList.remove('no-js')
-
-  // Function to show all elements immediately without animation
-  const showElementsImmediately = () => {
-    const elements = document.querySelectorAll('.js-init')
-    elements.forEach((el) => {
-      if (el instanceof HTMLElement) {
-        el.style.opacity = '1'
-        el.style.transform = 'none'
-      }
-    })
-  }
-
-  // Animation configuration
-  const fadeInUpFrom = { opacity: 0, y: -20 }
-  const fadeInUpTo = { opacity: 1, y: 0, duration: 0.5 }
-
-  // Run animation when view transition is complete
-  document.addEventListener('astro:page-load', () => {
-    const prefersReducedMotion = window.matchMedia(
-      '(prefers-reduced-motion: reduce)'
-    )
-
-    const animateNav = () => {
-      // If user prefers reduced motion, show elements without animation
-      if (prefersReducedMotion.matches) {
-        showElementsImmediately()
-        return
-      }
-
-      // Otherwise, proceed with animations
-      try {
-        // Animate logo first
-        gsap.fromTo('#logo-link', fadeInUpFrom, fadeInUpTo)
-
-        // Animate nav items with a delay and stagger
-        gsap.fromTo('.nav-item', fadeInUpFrom, {
-          ...fadeInUpTo,
-          delay: 0.5,
-          stagger: 0.1,
-        })
-      } catch (error) {
-        // Fallback if animation fails
-        showElementsImmediately()
-      }
-    }
-
-    animateNav()
-
-    // Listen for changes in motion preference
-    prefersReducedMotion.addEventListener('change', (event) => {
-      if (event.matches) {
-        showElementsImmediately()
-      }
-    })
-  })
-</script>
