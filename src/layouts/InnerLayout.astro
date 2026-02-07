@@ -1,16 +1,17 @@
 ---
-import Contact from '@components/ContactBook.astro';
-import Footer from '@components/Footer.astro';
-import Head from '@components/Head.astro';
-import BlogHero from '@components/BlogHero.astro';
-import type { Header, SubPages } from '@types';
+import Contact from '@components/ContactBook.astro'
+import Footer from '@components/Footer.astro'
+import Head from '@components/Head.astro'
+import BlogHero from '@components/BlogHero.astro'
+import MotionOrchestrator from '@components/MotionOrchestrator.astro'
+import type { Header, SubPages } from '@types'
 
 export interface Props extends Header, SubPages {}
 
-const { meta, subtitle } = Astro.props;
+const { meta, subtitle } = Astro.props
 const pageTitle = meta.title
   ? meta.title
-  : 'The Internets favorite Frank Stallone';
+  : 'The Internets favorite Frank Stallone'
 ---
 
 <!doctype html>
@@ -26,6 +27,7 @@ const pageTitle = meta.title
       <Contact />
       <!-- Footer -->
       <Footer />
+      <MotionOrchestrator />
     </main>
   </body>
 </html>

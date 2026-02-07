@@ -33,10 +33,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
           page.data.map((post) => (
             <div class="flow prose post-card">
               <h3 class="mt-zero">
-                <a
-                  href={`/${post.collection}/${post.id}/`}
-                  transition:name={'blog' + post.data.title}
-                >
+                <a href={`/${post.collection}/${post.id}/`}>
                   {post.data.title}
                 </a>
               </h3>

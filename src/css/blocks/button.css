@@ -2,10 +2,29 @@
 
 .button {
   @apply font-display no-underline font-medium text-step-0 bg-transparent text-gray-1400 cursor-pointer border border-gray-700 px-s py-2xs text-center;
+  transition:
+    background-color var(--motion-duration-ui) var(--motion-ease-out),
+    color var(--motion-duration-ui) var(--motion-ease-out),
+    transform var(--motion-duration-micro) var(--motion-ease-standard);
 }
-.button:hover,
-.button:focus,
-.button:active {
+
+.button:focus-visible {
   @apply bg-gray-200;
   text-decoration: none;
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .button:hover {
+    @apply bg-gray-200;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none;
+  }
 }

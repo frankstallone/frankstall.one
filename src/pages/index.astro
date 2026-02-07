@@ -9,7 +9,7 @@ import AboutMe from '@components/AboutMe.astro'
 type Props = HeadProps
 
 const allPosts = (await getCollection('blog')).sort(
-  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
 )
 const latestPosts = allPosts.slice(0, 2)
 
@@ -55,10 +55,7 @@ function truncateDescription(description: string) {
             latestPosts.map((post) => (
               <li class="flow prose home-post-item">
                 <h3 class="mt-zero">
-                  <a
-                    href={`/${post.collection}/${post.id}/`}
-                    transition:name={'blog' + post.data.title}
-                  >
+                  <a href={`/${post.collection}/${post.id}/`}>
                     {post.data.title}
                   </a>
                 </h3>
@@ -71,7 +68,7 @@ function truncateDescription(description: string) {
                         year: 'numeric',
                         month: 'long',
                         day: 'numeric',
-                      }
+                      },
                     )}
                   </small>
                 </p>

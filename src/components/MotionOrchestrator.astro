@@ -1,0 +1,110 @@
+---
+
+---
+
+<script>
+  import { animate, inView, stagger } from 'motion'
+
+  const shouldReduceMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)',
+  ).matches
+
+  if (!shouldReduceMotion) {
+    type RevealOptions = {
+      delay?: number | ReturnType<typeof stagger>
+    }
+
+    const easeOut: [number, number, number, number] = [0.22, 1, 0.36, 1]
+
+    const reveal = (
+      targets: Element | Element[],
+      options: RevealOptions = {},
+    ) => {
+      animate(
+        targets,
+        { opacity: [0, 1], y: [8, 0] },
+        {
+          duration: 0.26,
+          ease: easeOut,
+          delay: options.delay,
+        },
+      )
+    }
+
+    const revealInView = (
+      container: Element,
+      targets: Element[],
+      options: RevealOptions = {},
+    ) => {
+      if (!targets.length) {
+        return
+      }
+
+      let hasAnimated = false
+      inView(
+        container,
+        () => {
+          if (hasAnimated) {
+            return
+          }
+
+          hasAnimated = true
+          reveal(targets, options)
+        },
+        { amount: 0.2 },
+      )
+    }
+
+    const heroIntroTargets = Array.from(
+      document.querySelectorAll('#hero .flow.prose > *'),
+    )
+    if (heroIntroTargets.length) {
+      reveal(heroIntroTargets, { delay: stagger(0.05) })
+    }
+
+    const heroNavTargets = Array.from(
+      document.querySelectorAll('#hero #logo-link, #hero .nav-item'),
+    )
+    if (heroNavTargets.length) {
+      animate(
+        heroNavTargets,
+        { opacity: [0, 1], y: [-6, 0] },
+        {
+          duration: 0.24,
+          ease: easeOut,
+          delay: stagger(0.03),
+        },
+      )
+    }
+
+    document.querySelectorAll('.home-section-head').forEach((sectionHead) => {
+      revealInView(sectionHead, Array.from(sectionHead.children), {
+        delay: stagger(0.04),
+      })
+    })
+
+    document
+      .querySelectorAll(
+        '.home-about-copy, .home-about-media, .contact-book-call, .contact-reach-out, #contact.flow.prose:not(.contact-reach-out)',
+      )
+      .forEach((element) => {
+        const children = Array.from(element.children)
+        revealInView(element, children.length ? children : [element])
+      })
+
+    document
+      .querySelectorAll('.home-posts-grid, .home-portfolio-grid')
+      .forEach((grid) => {
+        revealInView(grid, Array.from(grid.children), { delay: stagger(0.06) })
+      })
+
+    document.querySelectorAll('.grid').forEach((grid) => {
+      const cards = Array.from(grid.querySelectorAll(':scope > .post-card'))
+      if (cards.length === 0) {
+        return
+      }
+
+      revealInView(grid, cards, { delay: stagger(0.05) })
+    })
+  }
+</script>
