@@ -4,6 +4,7 @@
 
 <script>
   import { animate, inView, stagger } from 'motion'
+  import type { Easing } from 'motion'
 
   const shouldReduceMotion = window.matchMedia(
     '(prefers-reduced-motion: reduce)',
@@ -12,23 +13,74 @@
   if (!shouldReduceMotion) {
     type RevealOptions = {
       delay?: number | ReturnType<typeof stagger>
+      blur?: number | boolean
+      ease?: Easing
+      duration?: number
+      y?: number
     }
 
-    const easeOut: [number, number, number, number] = [0.22, 1, 0.36, 1]
+    type HeroAnimationConfig = {
+      blur: number
+      duration: number
+      delay: number
+      yOffset: number
+      easing: 'linear' | 'gentle' | 'smooth' | 'snappy'
+    }
+
+    const defaultHeroConfig: HeroAnimationConfig = {
+      blur: 18,
+      duration: 1.2,
+      delay: 0.12,
+      yOffset: 28,
+      easing: 'gentle',
+    }
+
+    const easeOut: Easing = [0.22, 1, 0.36, 1]
+    const heroEaseByPreset: Record<HeroAnimationConfig['easing'], Easing> = {
+      gentle: [0.25, 0.1, 0.25, 1],
+      smooth: [0.4, 0, 0.2, 1],
+      snappy: [0.18, 0.89, 0.32, 1.28],
+      linear: 'linear',
+    }
+
+    let heroAnimationControls: ReturnType<typeof animate> | null = null
+
+    const getHeroConfig = () => {
+      const windowConfig = (
+        window as Window & {
+          __heroAnimationConfig?: HeroAnimationConfig
+        }
+      ).__heroAnimationConfig
+
+      return {
+        ...defaultHeroConfig,
+        ...windowConfig,
+      }
+    }
 
     const reveal = (
       targets: Element | Element[],
       options: RevealOptions = {},
     ) => {
-      animate(
-        targets,
-        { opacity: [0, 1], y: [8, 0] },
-        {
-          duration: 0.26,
-          ease: easeOut,
-          delay: options.delay,
-        },
-      )
+      const blur = typeof options.blur === 'number' ? options.blur : null
+      const keyframes = (
+        blur
+          ? {
+              opacity: [0, 1] as [number, number],
+              y: [options.y ?? 8, 0] as [number, number],
+              filter: [`blur(${blur}px)`, 'blur(0px)'] as [string, string],
+            }
+          : {
+              opacity: [0, 1] as [number, number],
+              y: [options.y ?? 8, 0] as [number, number],
+            }
+      ) as unknown as Parameters<typeof animate>[1]
+
+      return animate(targets, keyframes, {
+        duration: options.duration ?? 0.26,
+        ease: options.ease ?? easeOut,
+        delay: options.delay,
+      })
     }
 
     const revealInView = (
@@ -58,9 +110,35 @@
     const heroIntroTargets = Array.from(
       document.querySelectorAll('#hero .flow.prose > *'),
     )
-    if (heroIntroTargets.length) {
-      reveal(heroIntroTargets, { delay: stagger(0.05) })
+    const runHeroIntro = () => {
+      if (!heroIntroTargets.length) {
+        return
+      }
+
+      const { blur, duration, delay, yOffset, easing } = getHeroConfig()
+
+      heroIntroTargets.forEach((target) => {
+        const el = target as HTMLElement
+        el.style.opacity = '0'
+        el.style.transform = `translateY(${yOffset}px)`
+        el.style.filter = `blur(${blur}px)`
+      })
+
+      heroAnimationControls?.stop()
+      heroAnimationControls = reveal(heroIntroTargets, {
+        delay,
+        blur,
+        duration,
+        y: yOffset,
+        ease: heroEaseByPreset[easing],
+      })
     }
+
+    if (heroIntroTargets.length) {
+      runHeroIntro()
+    }
+
+    window.addEventListener('hero-animation-config-change', runHeroIntro)
 
     const heroNavTargets = Array.from(
       document.querySelectorAll('#hero #logo-link, #hero .nav-item'),
