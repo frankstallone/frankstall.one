@@ -32,6 +32,46 @@
   --flow-space: var(--space-s);
 }
 
+.home-about-media {
+  isolation: isolate;
+}
+
+.home-about-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    var(--color-gray-100) 8%,
+    var(--color-gray-100) 18%,
+    transparent 52%
+  );
+}
+
+@supports (background: color-mix(in srgb, white 50%, transparent)) {
+  .home-about-media::after {
+    background: linear-gradient(
+      to top,
+      var(--color-gray-100) 0%,
+      var(--color-gray-100) 8%,
+      color-mix(in srgb, var(--color-gray-100) 98%, transparent)
+        calc(18% + (52% - 18%) * 0.16),
+      color-mix(in srgb, var(--color-gray-100) 90%, transparent)
+        calc(18% + (52% - 18%) * 0.34),
+      color-mix(in srgb, var(--color-gray-100) 74%, transparent)
+        calc(18% + (52% - 18%) * 0.52),
+      color-mix(in srgb, var(--color-gray-100) 52%, transparent)
+        calc(18% + (52% - 18%) * 0.68),
+      color-mix(in srgb, var(--color-gray-100) 30%, transparent)
+        calc(18% + (52% - 18%) * 0.82),
+      color-mix(in srgb, var(--color-gray-100) 12%, transparent)
+        calc(18% + (52% - 18%) * 0.94),
+      transparent 52%
+    );
+  }
+}
+
 .home-meta {
   margin: 0;
 }
