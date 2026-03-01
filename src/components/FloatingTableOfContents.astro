@@ -1,0 +1,336 @@
+---
+import TableOfContents from '@components/TableOfContents.astro'
+import type { TocHeading } from '@utils/index'
+
+interface Props {
+  headings: TocHeading[]
+}
+
+const { headings } = Astro.props
+---
+
+<floating-toc class="post__toc-fab">
+  <button
+    type="button"
+    class="post__toc-fab-button"
+    data-toc-toggle
+    aria-controls="floating-toc-panel"
+    aria-expanded="false"
+    aria-label="Open table of contents"
+  >
+    <span>Contents</span>
+  </button>
+
+  <div class="post__toc-backdrop" data-toc-backdrop aria-hidden="true"></div>
+
+  <nav
+    id="floating-toc-panel"
+    class="post__toc-panel case-panel"
+    aria-label="Table of contents"
+    data-toc-panel
+    tabindex="-1"
+  >
+    <div class="post__toc-panel-header">
+      <h2 class="post__toc-panel-title">Table of contents</h2>
+      <button
+        type="button"
+        class="post__toc-close"
+        data-toc-close
+        aria-label="Close table of contents"
+      >
+        Close
+      </button>
+    </div>
+    <ul class="list-none pl-zero space-y-2xs">
+      {headings.map((heading) => <TableOfContents heading={heading} />)}
+    </ul>
+  </nav>
+</floating-toc>
+
+<script>
+  class FloatingToc extends HTMLElement {
+    private isOpen: boolean
+    private readonly toggleButton: HTMLButtonElement | null
+    private readonly backdrop: HTMLDivElement | null
+    private readonly panel: HTMLElement | null
+    private readonly closeButton: HTMLButtonElement | null
+    private readonly tocLinks: HTMLAnchorElement[]
+    private headingTargets: HTMLElement[]
+    private headingObserver: IntersectionObserver | null
+    private readonly visibleHeadingIds: Set<string>
+    private activeHeadingId: string | null
+    private frameRequest: number | null
+
+    constructor() {
+      super()
+      this.isOpen = false
+      this.toggleButton = this.querySelector(
+        '[data-toc-toggle]',
+      ) as HTMLButtonElement | null
+      this.backdrop = this.querySelector(
+        '[data-toc-backdrop]',
+      ) as HTMLDivElement | null
+      this.panel = this.querySelector('[data-toc-panel]') as HTMLElement | null
+      this.closeButton = this.querySelector(
+        '[data-toc-close]',
+      ) as HTMLButtonElement | null
+      this.tocLinks = Array.from(
+        this.querySelectorAll('[data-toc-panel] a[href^="#"]'),
+      ) as HTMLAnchorElement[]
+      this.headingTargets = []
+      this.headingObserver = null
+      this.visibleHeadingIds = new Set<string>()
+      this.activeHeadingId = null
+      this.frameRequest = null
+      this.onToggle = this.onToggle.bind(this)
+      this.onBackdropClick = this.onBackdropClick.bind(this)
+      this.onCloseClick = this.onCloseClick.bind(this)
+      this.onKeyDown = this.onKeyDown.bind(this)
+      this.onPanelClick = this.onPanelClick.bind(this)
+      this.onIntersection = this.onIntersection.bind(this)
+      this.onScroll = this.onScroll.bind(this)
+      this.onHashChange = this.onHashChange.bind(this)
+    }
+
+    connectedCallback() {
+      if (
+        !this.toggleButton ||
+        !this.backdrop ||
+        !this.panel ||
+        !this.closeButton
+      ) {
+        return
+      }
+
+      this.toggleButton.addEventListener('click', this.onToggle)
+      this.backdrop.addEventListener('click', this.onBackdropClick)
+      this.closeButton.addEventListener('click', this.onCloseClick)
+      this.panel.addEventListener('click', this.onPanelClick)
+      this.initActiveHeadingTracking()
+    }
+
+    disconnectedCallback() {
+      this.toggleButton?.removeEventListener('click', this.onToggle)
+      this.backdrop?.removeEventListener('click', this.onBackdropClick)
+      this.closeButton?.removeEventListener('click', this.onCloseClick)
+      this.panel?.removeEventListener('click', this.onPanelClick)
+      document.removeEventListener('keydown', this.onKeyDown)
+      window.removeEventListener('scroll', this.onScroll)
+      window.removeEventListener('resize', this.onScroll)
+      window.removeEventListener('hashchange', this.onHashChange)
+      this.headingObserver?.disconnect()
+      if (this.frameRequest !== null) {
+        window.cancelAnimationFrame(this.frameRequest)
+      }
+    }
+
+    onToggle() {
+      this.setOpen(!this.isOpen, { returnFocus: false })
+    }
+
+    onBackdropClick() {
+      this.setOpen(false, { returnFocus: true })
+    }
+
+    onCloseClick() {
+      this.setOpen(false, { returnFocus: true })
+    }
+
+    onPanelClick(event: Event) {
+      const target = event.target
+      if (!(target instanceof HTMLElement)) {
+        return
+      }
+
+      const link = target.closest('a[href^="#"]')
+      if (link) {
+        this.setOpen(false, { returnFocus: false })
+      }
+    }
+
+    onKeyDown(event: KeyboardEvent) {
+      if (event.key === 'Escape') {
+        this.setOpen(false, { returnFocus: true })
+      }
+    }
+
+    initActiveHeadingTracking() {
+      this.headingTargets = this.tocLinks
+        .map((link) => {
+          const headingId = this.getHeadingIdFromLink(link)
+          if (!headingId) {
+            return null
+          }
+
+          return document.getElementById(headingId)
+        })
+        .filter((heading): heading is HTMLElement => Boolean(heading))
+
+      if (this.headingTargets.length === 0) {
+        return
+      }
+
+      this.updateActiveHeadingByPosition()
+
+      this.headingObserver = new IntersectionObserver(this.onIntersection, {
+        root: null,
+        rootMargin: '-20% 0px -65% 0px',
+        threshold: 0,
+      })
+
+      for (const heading of this.headingTargets) {
+        this.headingObserver.observe(heading)
+      }
+
+      window.addEventListener('scroll', this.onScroll, { passive: true })
+      window.addEventListener('resize', this.onScroll)
+      window.addEventListener('hashchange', this.onHashChange)
+    }
+
+    onIntersection(entries: IntersectionObserverEntry[]) {
+      for (const entry of entries) {
+        const headingId = (entry.target as HTMLElement).id
+        if (!headingId) {
+          continue
+        }
+
+        if (entry.isIntersecting) {
+          this.visibleHeadingIds.add(headingId)
+        } else {
+          this.visibleHeadingIds.delete(headingId)
+        }
+      }
+
+      this.updateActiveHeadingFromObserver()
+    }
+
+    onScroll() {
+      if (this.frameRequest !== null) {
+        return
+      }
+
+      this.frameRequest = window.requestAnimationFrame(() => {
+        this.frameRequest = null
+        this.updateActiveHeadingByPosition()
+      })
+    }
+
+    onHashChange() {
+      this.updateActiveHeadingByPosition()
+    }
+
+    updateActiveHeadingFromObserver() {
+      let nextActiveHeadingId: string | null = null
+
+      for (const heading of this.headingTargets) {
+        if (this.visibleHeadingIds.has(heading.id)) {
+          nextActiveHeadingId = heading.id
+        }
+      }
+
+      if (!nextActiveHeadingId) {
+        nextActiveHeadingId = this.getActiveHeadingByPosition()
+      }
+
+      if (nextActiveHeadingId) {
+        this.setActiveHeading(nextActiveHeadingId)
+      }
+    }
+
+    updateActiveHeadingByPosition() {
+      const nextActiveHeadingId = this.getActiveHeadingByPosition()
+      if (nextActiveHeadingId) {
+        this.setActiveHeading(nextActiveHeadingId)
+      }
+    }
+
+    getActiveHeadingByPosition(): string | null {
+      const activationOffset = 132
+      let nextActiveHeadingId = this.headingTargets[0]?.id ?? null
+
+      for (const heading of this.headingTargets) {
+        const top = heading.getBoundingClientRect().top
+        if (top <= activationOffset) {
+          nextActiveHeadingId = heading.id
+        } else {
+          break
+        }
+      }
+
+      return nextActiveHeadingId
+    }
+
+    setActiveHeading(headingId: string) {
+      if (this.activeHeadingId === headingId) {
+        return
+      }
+
+      this.activeHeadingId = headingId
+
+      for (const link of this.tocLinks) {
+        const linkHeadingId = this.getHeadingIdFromLink(link)
+        const isActive = linkHeadingId === headingId
+
+        if (isActive) {
+          link.setAttribute('aria-current', 'location')
+          if (this.isOpen) {
+            link.scrollIntoView({ block: 'nearest' })
+          }
+        } else {
+          link.removeAttribute('aria-current')
+        }
+      }
+    }
+
+    getHeadingIdFromLink(link: HTMLAnchorElement): string | null {
+      const href = link.getAttribute('href')
+      if (!href || !href.startsWith('#')) {
+        return null
+      }
+
+      const rawId = href.slice(1)
+      if (!rawId) {
+        return null
+      }
+
+      try {
+        return decodeURIComponent(rawId)
+      } catch {
+        return rawId
+      }
+    }
+
+    setOpen(
+      nextState: boolean,
+      options: { returnFocus: boolean } = { returnFocus: true },
+    ) {
+      this.isOpen = nextState
+      this.classList.toggle('is-open', nextState)
+
+      if (this.toggleButton) {
+        this.toggleButton.setAttribute('aria-expanded', String(nextState))
+        this.toggleButton.setAttribute(
+          'aria-label',
+          nextState ? 'Close table of contents' : 'Open table of contents',
+        )
+      }
+
+      if (nextState) {
+        document.addEventListener('keydown', this.onKeyDown)
+        window.requestAnimationFrame(() => {
+          this.panel?.focus()
+          this.updateActiveHeadingByPosition()
+        })
+      } else {
+        document.removeEventListener('keydown', this.onKeyDown)
+        if (options.returnFocus) {
+          this.toggleButton?.focus()
+        }
+      }
+    }
+  }
+
+  if (!customElements.get('floating-toc')) {
+    customElements.define('floating-toc', FloatingToc)
+  }
+</script>

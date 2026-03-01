@@ -28,6 +28,7 @@ Reference source: https://github.com/Set-Creative-Studio/cube-boilerplate/blob/m
 @import 'blocks/portfolio-case.css' layer(components);
 @import 'blocks/prose.css' layer(components);
 @import 'blocks/post.css' layer(components);
+@import 'blocks/post-toc.css' layer(components);
 @import 'components/box.css' layer(components);
 @import 'components/center.css' layer(components);
 @import 'components/content.css' layer(components);
