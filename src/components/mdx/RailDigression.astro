@@ -7,7 +7,7 @@ export interface Props {
 const { label, class: className } = Astro.props
 ---
 
-<section class:list={['post__rail-digression', className]}>
+<div class:list={['post__rail-digression', className]}>
   <div class="post__rail-digression-source">
     <slot />
   </div>
@@ -15,4 +15,4 @@ const { label, class: className } = Astro.props
     {label && <p class="post__rail-digression-label">{label}</p>}
     <slot name="note" />
   </aside>
-</section>
+</div>

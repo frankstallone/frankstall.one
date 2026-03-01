@@ -64,9 +64,10 @@ Reference: https://piccalil.li/blog/building-a-breakout-element-with-container-u
   grid-column: popout;
 }
 
-/* Phase 5: explicit opt-in rail controls */
+/* Phase 4: explicit opt-in rail controls */
 .post .post__content > :is(.post__full, .post__breakout, .breakout) {
   grid-column: full;
+  width: 100%;
 }
 
 /* Default: stack sidebar above content on narrow viewports */
@@ -103,11 +104,6 @@ Reference: https://piccalil.li/blog/building-a-breakout-element-with-container-u
     flex-grow: 999;
     min-inline-size: var(--sidebar-content-min-width, 50%);
   }
-}
-
-/* Keep full-width breakouts constrained to their full rail */
-.post .post__content > :is(.post__full, .post__breakout, .breakout) {
-  width: 100%;
 }
 
 /* Inline marker highlight for emphasized phrases */
