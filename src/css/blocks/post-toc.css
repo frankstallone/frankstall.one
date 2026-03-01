@@ -1,0 +1,158 @@
+/* ─────────────────────────────────────────────────────────
+ * ANIMATION STORYBOARD
+ *
+ * Read top-to-bottom. Each value is ms after open trigger.
+ *
+ *    0ms  backdrop fades in
+ *   40ms  panel rises and fades in
+ *   90ms  table-of-contents links fade/slide in
+ * ───────────────────────────────────────────────────────── */
+
+.post__toc-fab {
+  position: fixed;
+  inset-inline-end: var(--space-s);
+  inset-block-end: calc(var(--space-s) + env(safe-area-inset-bottom, 0px));
+  display: block;
+  z-index: 40;
+
+  --toc-backdrop-duration: 160ms;
+  --toc-panel-enter-delay: 40ms;
+  --toc-panel-enter-duration: 200ms;
+  --toc-panel-exit-duration: 140ms;
+  --toc-links-enter-delay: 90ms;
+  --toc-links-duration: 180ms;
+}
+
+.post__toc-fab-button {
+  @apply border border-gray-700 bg-gray-1400 text-gray-100 font-display text-step-00;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  min-block-size: 44px;
+  border-radius: 999px;
+  padding-inline: var(--space-s);
+  padding-block: var(--space-2xs);
+  box-shadow:
+    0 0 0 1px rgb(255 255 255 / 0.25) inset,
+    0 12px 30px rgb(0 0 0 / 0.2);
+  touch-action: manipulation;
+}
+
+.post__toc-panel {
+  position: fixed;
+  inset-inline-end: var(--space-s);
+  inset-inline-start: var(--space-s);
+  inset-block-end: calc(
+    var(--space-s) + env(safe-area-inset-bottom, 0px) + 3.75rem
+  );
+  max-block-size: min(70vh, 30rem);
+  overflow: auto;
+  z-index: 30;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition:
+    opacity var(--toc-panel-exit-duration) var(--motion-ease-out),
+    transform var(--toc-panel-exit-duration) var(--motion-ease-out),
+    visibility 0s linear var(--toc-panel-exit-duration);
+}
+
+.post__toc-backdrop {
+  position: fixed;
+  inset: 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: rgb(16 16 16 / 0.4);
+  z-index: 20;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity var(--toc-backdrop-duration) var(--motion-ease-out),
+    visibility 0s linear var(--toc-backdrop-duration);
+}
+
+.post__toc-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xs);
+  margin-block-end: var(--space-2xs);
+}
+
+.post__toc-panel-title {
+  margin: 0;
+}
+
+.post__toc-close {
+  @apply border border-gray-700 bg-transparent text-gray-1400 text-step-00;
+  min-block-size: 1.75rem;
+  padding-inline: var(--space-2xs);
+  padding-block: 0.125rem;
+  border-radius: var(--space-3xs);
+  touch-action: manipulation;
+}
+
+.post__toc-panel a {
+  display: inline-block;
+  padding-inline: var(--space-3xs);
+  padding-block: 0.125rem;
+  border-right: 2px solid transparent;
+  opacity: 0;
+  transform: translateY(4px);
+  transition:
+    opacity var(--toc-links-duration) var(--motion-ease-out),
+    transform var(--toc-links-duration) var(--motion-ease-out);
+}
+
+.post__toc-panel a[aria-current='location'] {
+  @apply bg-gray-300 text-gray-1400;
+  text-decoration: none;
+  border-right-color: var(--gray-700);
+}
+
+.post__toc-fab.is-open .post__toc-panel {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition-delay: var(--toc-panel-enter-delay), var(--toc-panel-enter-delay),
+    0s;
+  transition-duration: var(--toc-panel-enter-duration),
+    var(--toc-panel-enter-duration), 0s;
+}
+
+.post__toc-fab.is-open .post__toc-backdrop {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition-delay: 0s;
+}
+
+.post__toc-fab.is-open .post__toc-panel a {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: var(--toc-links-enter-delay);
+}
+
+@media (min-width: 40rem) {
+  .post__toc-panel {
+    inset-inline-start: auto;
+    inline-size: min(24rem, calc(100vw - (var(--space-s) * 2)));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .post__toc-panel,
+  .post__toc-backdrop,
+  .post__toc-panel a {
+    transition: none;
+  }
+
+  .post__toc-panel a {
+    opacity: 1;
+    transform: none;
+  }
+}

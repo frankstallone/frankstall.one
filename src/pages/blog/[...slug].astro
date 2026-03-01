@@ -3,7 +3,7 @@ import { getCollection, render } from 'astro:content'
 import InnerLayout from '../../layouts/InnerLayout.astro'
 import Likes from '@components/Likes.astro'
 import { buildHierarchy } from '@utils/index'
-import TableOfContents from '@components/TableOfContents.astro'
+import FloatingTableOfContents from '@components/FloatingTableOfContents.astro'
 import { Like } from 'db/schema'
 import { db } from 'src/turso'
 import { count, eq } from 'drizzle-orm'
@@ -53,25 +53,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
     id="main"
     data-direction="rtl"
   >
-    <div class="post__row sidebar">
-      <div class="post__sidebar">
-        {
-          headingsArray && headingsArray.length > 0 && (
-            <nav class="case-panel mt-zero">
-              <h2 class="text-step-0">Table of contents</h2>
-              <ul class="list-none pl-zero space-y-2xs">
-                {headingsArray.map((heading) => (
-                  <TableOfContents heading={heading} />
-                ))}
-              </ul>
-            </nav>
-          )
-        }
-      </div>
+    <div class="post__row">
       <div class="post__content flow prose center">
         <Content />
       </div>
     </div>
+    {
+      headingsArray && headingsArray.length > 0 && (
+        <FloatingTableOfContents headings={headingsArray} />
+      )
+    }
     <div
       class="flex flow flow-space-2xs flex-col justify-center items-center mt-s"
     >
