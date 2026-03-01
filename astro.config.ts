@@ -29,7 +29,9 @@ export default defineConfig({
     tailwind({
       applyBaseStyles: false,
     }),
-    sitemap(),
+    sitemap({
+      filter: (page) => !page.includes('/sandbox/'),
+    }),
     partytown({
       config: {
         forward: ['dataLayer.push'],

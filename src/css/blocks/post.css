@@ -138,8 +138,7 @@ Reference: https://piccalil.li/blog/building-a-breakout-element-with-container-u
   font-size: var(--size-step-000);
   margin-inline-start: var(--space-xs);
   padding-inline-start: var(--space-2xs);
-  border-inline-start: 2px solid
-    color-mix(in srgb, var(--color-indigo-500) 45%, transparent);
+  border-inline-start: 2px solid var(--color-indigo-400);
 }
 
 .post .post__rail-digression-label {

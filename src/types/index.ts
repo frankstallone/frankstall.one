@@ -4,6 +4,7 @@ export type Header = {
     description?: string;
     canonicalURL?: string;
     image?: string;
+    robots?: string;
   };
 };
 

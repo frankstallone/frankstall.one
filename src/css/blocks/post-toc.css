@@ -129,9 +129,10 @@
 }
 
 .post__toc-panel a[aria-current='location'] {
-  @apply bg-gray-300 text-gray-1400;
+  background-color: var(--color-indigo-100);
+  color: var(--color-indigo-800);
   text-decoration: none;
-  border-right-color: var(--gray-700);
+  border-right-color: var(--color-indigo-400);
 }
 
 .post__toc-fab.is-open .post__toc-panel {

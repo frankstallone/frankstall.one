@@ -14,12 +14,14 @@ const canonicalURL = meta.canonicalURL ? meta.canonicalURL : Astro.site
 const ogImage = meta.image
   ? meta.image
   : '/media/the-internets-favorite-frank-stallone-ogimage.png'
+const robots = meta.robots
 ---
 
 <head>
   <!-- Meta -->
   <meta charset="UTF-8" />
   <meta name="description" content={description} />
+  {robots && <meta name="robots" content={robots} />}
   <meta name="viewport" content="width=device-width" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
