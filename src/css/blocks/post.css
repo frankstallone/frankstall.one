@@ -8,9 +8,34 @@ Reference: https://piccalil.li/blog/building-a-breakout-element-with-container-u
 .post {
   /* Single container threshold that controls the layout flip */
   --post-inline-threshold: 52rem;
+  --post-content-max-width: 75ch;
+  --post-popout-width: clamp(0rem, 5cqi, 4rem);
+  --post-rail-gutter: var(--gutter);
 
   /* Enable container queries & units */
   container-type: inline-size;
+}
+
+/*
+  Phase 1: Add layout rails to blog content.
+  Phase 2: Default all direct children to the content rail.
+*/
+.post .post__content {
+  display: grid;
+  grid-template-columns:
+    [full-start] minmax(var(--post-rail-gutter), 1fr)
+    [popout-start] minmax(0, var(--post-popout-width))
+    [content-start] min(
+      var(--post-content-max-width),
+      100% - (var(--post-rail-gutter) * 2)
+    )
+    [content-end] minmax(0, var(--post-popout-width))
+    [popout-end] minmax(var(--post-rail-gutter), 1fr)
+    [full-end];
+}
+
+.post .post__content > * {
+  grid-column: content;
 }
 
 /* Default: stack sidebar above content on narrow viewports */

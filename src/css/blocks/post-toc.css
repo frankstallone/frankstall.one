@@ -23,6 +23,27 @@
   --toc-links-duration: 180ms;
 }
 
+.post__toc-fallback {
+  --flow-space: var(--space-2xs);
+  max-inline-size: var(--measure, 85ch);
+  margin-inline: auto;
+  margin-block-end: var(--space-m);
+}
+
+.post__toc-fallback-title {
+  margin: 0;
+}
+
+.post__toc-fallback-list {
+  margin: 0;
+  padding: 0;
+}
+
+.post__toc-fallback a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
 .post__toc-fab-button {
   @apply border border-gray-700 bg-gray-1400 text-gray-100 font-display text-step-00;
   display: inline-flex;

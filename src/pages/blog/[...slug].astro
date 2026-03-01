@@ -4,6 +4,7 @@ import InnerLayout from '../../layouts/InnerLayout.astro'
 import Likes from '@components/Likes.astro'
 import { buildHierarchy } from '@utils/index'
 import FloatingTableOfContents from '@components/FloatingTableOfContents.astro'
+import TableOfContents from '@components/TableOfContents.astro'
 import { Like } from 'db/schema'
 import { db } from 'src/turso'
 import { count, eq } from 'drizzle-orm'
@@ -53,8 +54,20 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
     id="main"
     data-direction="rtl"
   >
+    {
+      headingsArray && headingsArray.length > 0 && (
+        <noscript>
+          <nav class="post__toc-fallback case-panel flow" aria-label="Table of contents">
+            <h2 class="post__toc-fallback-title">Table of contents</h2>
+            <ul class="post__toc-fallback-list list-none pl-zero space-y-2xs">
+              {headingsArray.map((heading) => <TableOfContents heading={heading} />)}
+            </ul>
+          </nav>
+        </noscript>
+      )
+    }
     <div class="post__row">
-      <div class="post__content flow prose center">
+      <div class="post__content flow prose">
         <Content />
       </div>
     </div>
