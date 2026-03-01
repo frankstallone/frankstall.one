@@ -1,0 +1,13 @@
+---
+export interface Props {
+  as?: 'mark' | 'span'
+  class?: string
+}
+
+const { as = 'mark', class: className } = Astro.props
+const Tag = as
+---
+
+<Tag class:list={['post__highlight', className]}>
+  <slot />
+</Tag>

@@ -5,6 +5,7 @@ import Likes from '@components/Likes.astro'
 import { buildHierarchy } from '@utils/index'
 import FloatingTableOfContents from '@components/FloatingTableOfContents.astro'
 import TableOfContents from '@components/TableOfContents.astro'
+import { mdxComponents } from '@components/mdx'
 import { Like } from 'db/schema'
 import { db } from 'src/turso'
 import { count, eq } from 'drizzle-orm'
@@ -68,7 +69,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
     }
     <div class="post__row">
       <div class="post__content flow prose">
-        <Content />
+        <Content components={mdxComponents} />
       </div>
     </div>
     {

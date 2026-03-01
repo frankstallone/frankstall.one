@@ -1,0 +1,60 @@
+---
+import InnerLayout from '../../layouts/InnerLayout.astro'
+import Highlight from '@components/mdx/Highlight.astro'
+import RailDigression from '@components/mdx/RailDigression.astro'
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+---
+
+<InnerLayout
+  subtitle="Left-rail digression and inline highlight demo"
+  meta={{
+    title: 'Digression Pattern Demo',
+    description:
+      'Sandbox preview for left-rail digressions and inline highlights in long-form content.',
+    canonicalURL: canonicalURL.href,
+  }}
+>
+  <article class="post region wrapper overflow-clip" id="main">
+    <div class="post__row">
+      <div class="post__content flow prose">
+        <h2>Digression Pattern Demo</h2>
+        <p>
+          This route mirrors your blog post content rails. It includes the
+          rail-digression pattern and inline emphasis through
+          <Highlight> marker-style highlighting</Highlight>.
+        </p>
+
+        <p>
+          The main text stays centered on the content rail. In the book-style
+          version below, the source paragraph shifts to indigo and a left rail
+          note appears on desktop, aligned to the same block.
+        </p>
+
+        <RailDigression label="Fischer">
+          <Fragment slot="note">
+            <p>
+              I ran across a bit from Alice Rawsthorn in the design documentary
+              <em>Objectified</em> that mentioned the historical roots of
+              standardized military parts.
+            </p>
+          </Fragment>
+          <p>
+            The idea of interchangeable parts was something new in the world.
+            Its supporters knew it could change the world, but they quickly
+            discovered how hard it would be to accomplish for social as well as
+            technical and financial reasons.
+          </p>
+        </RailDigression>
+
+        <h3>Usage in Future MDX Posts</h3>
+        <p>
+          Because the blog route now passes shared MDX components into content
+          rendering, future <code>.mdx</code> posts can use
+          <code>{`<RailDigression />`}</code> and
+          <code>{`<Highlight />`}</code> directly.
+        </p>
+      </div>
+    </div>
+  </article>
+</InnerLayout>
