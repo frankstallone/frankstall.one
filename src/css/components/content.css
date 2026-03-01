@@ -25,3 +25,42 @@ Breakout content elements to wrapper based on full bleed image solution by josh 
 .content img {
   width: 100%;
 }
+
+/*
+CONTENT RAILS
+
+Shared centered-rail layout for long-form text pages.
+*/
+.content-rails {
+  --content-rails-max-width: 75ch;
+  --content-rails-popout-width: clamp(0rem, 5cqi, 4rem);
+  --content-rails-gutter: var(--gutter);
+
+  display: grid;
+  grid-template-columns:
+    [full-start] minmax(var(--content-rails-gutter), 1fr)
+    [popout-start] minmax(0, var(--content-rails-popout-width))
+    [content-start] min(
+      var(--content-rails-max-width),
+      100% - (var(--content-rails-gutter) * 2)
+    )
+    [content-end] minmax(0, var(--content-rails-popout-width))
+    [popout-end] minmax(var(--content-rails-gutter), 1fr)
+    [full-end];
+}
+
+.content-rails > * {
+  grid-column: content;
+}
+
+.content-rails :is(p, li, blockquote:not([class])) {
+  max-inline-size: none;
+}
+
+.content-rails > :is(.content-popout) {
+  grid-column: popout;
+}
+
+.content-rails > :is(.content-full) {
+  grid-column: full;
+}

@@ -38,6 +38,37 @@ Reference: https://piccalil.li/blog/building-a-breakout-element-with-container-u
   grid-column: content;
 }
 
+/* Let the post rail control text measure instead of the global 50ch cap */
+.post .post__content :is(p, li, blockquote:not([class])) {
+  max-inline-size: none;
+}
+
+/* Phase 3: route non-text blocks to wider rails */
+.post .post__content > :is(
+  pre,
+  .astro-code,
+  table,
+  figure,
+  img,
+  picture,
+  video,
+  iframe,
+  .post__popout
+) {
+  grid-column: popout;
+}
+
+.post .post__content > :is(div, p, figure):has(
+    > :is(img, picture, video, iframe, table, pre, .astro-code)
+  ) {
+  grid-column: popout;
+}
+
+/* Phase 5: explicit opt-in rail controls */
+.post .post__content > :is(.post__full, .post__breakout, .breakout) {
+  grid-column: full;
+}
+
 /* Default: stack sidebar above content on narrow viewports */
 .post .post__row {
   display: flex;
@@ -74,7 +105,7 @@ Reference: https://piccalil.li/blog/building-a-breakout-element-with-container-u
   }
 }
 
-/* Optional: breakout element support inside the post */
-.post__breakout {
-  width: 100cqi;
+/* Keep full-width breakouts constrained to their full rail */
+.post .post__content > :is(.post__full, .post__breakout, .breakout) {
+  width: 100%;
 }
