@@ -3,6 +3,7 @@ import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 import partytown from '@astrojs/partytown'
 import netlify from '@astrojs/netlify'
+import mdx from '@astrojs/mdx'
 import astroExpressiveCode from 'astro-expressive-code'
 import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers'
 
@@ -17,21 +18,24 @@ export default defineConfig({
   }),
   site: 'https://frankstall.one',
   integrations: [
-    tailwind({
-      applyBaseStyles: false,
-    }),
-    sitemap(),
-    partytown({
-      config: {
-        forward: ['dataLayer.push'],
-      },
-    }),
     astroExpressiveCode({
       themes: ['dracula-soft'],
       styleOverrides: {
         codeFontFamily: 'var(--font-mono)',
       },
       plugins: [pluginLineNumbers()],
+    }),
+    mdx(),
+    tailwind({
+      applyBaseStyles: false,
+    }),
+    sitemap({
+      filter: (page) => !page.includes('/sandbox/'),
+    }),
+    partytown({
+      config: {
+        forward: ['dataLayer.push'],
+      },
     }),
     react(),
   ],

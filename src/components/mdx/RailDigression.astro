@@ -1,0 +1,18 @@
+---
+export interface Props {
+  label?: string
+  class?: string
+}
+
+const { label, class: className } = Astro.props
+---
+
+<div class:list={['post__rail-digression', className]}>
+  <div class="post__rail-digression-source">
+    <slot />
+  </div>
+  <aside class="post__rail-digression-note" aria-label={label || 'Digression note'}>
+    {label && <p class="post__rail-digression-label">{label}</p>}
+    <slot name="note" />
+  </aside>
+</div>

@@ -10,11 +10,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     canonicalURL: canonicalURL.href,
   }}
 >
-  <section class="region flow prose wrapper" id="main">
-    Unfortunately, you've reached a page that doesn't exist! Head <a href="/"
-      >back to the homepage</a
-    > and see if you can find what you're looking for, or <a href="#contact">
-      reach out to me if there's something missing</a
-    >!
-  </section>.
+  <section class="region flow prose wrapper content-rails" id="main">
+    <p>
+      Unfortunately, you've reached a page that doesn't exist! Head <a href="/"
+        >back to the homepage</a
+      > and see if you can find what you're looking for, or <a href="#contact">
+        reach out to me if there's something missing</a
+      >!
+    </p>
+  </section>
 </InnerLayout>
