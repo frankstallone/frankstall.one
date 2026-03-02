@@ -27,6 +27,8 @@
     "@astrojs/sitemap": "^3.4.2",
     "@astrojs/tailwind": "^6.0.2",
     "@expressive-code/plugin-line-numbers": "^0.40.2",
+    "@fontsource/geist": "^5.2.8",
+    "@fontsource/geist-mono": "^5.2.7",
     "@libsql/client": "^0.14.0",
     "@netlify/blobs": "^10.5.0",
     "@radix-ui/react-select": "^2.1.1",
