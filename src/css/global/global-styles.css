@@ -165,7 +165,7 @@ pre code {
     --grid-min-item-size: 75%;
   }
 
-  @media screen(md) {
+  @media (width >= 47.5rem) {
     .grid-recent {
       --grid-min-item-size: min(500px, 40%);
     }

@@ -13,3 +13,14 @@ Info: https://piccalil.li/quick-tip/visually-hidden/
   width: 1px;
   white-space: nowrap;
 }
+
+.sr-only-focusable:focus,
+.sr-only-focusable:active {
+  clip: auto;
+  clip-path: none;
+  height: auto;
+  width: auto;
+  overflow: visible;
+  position: static;
+  white-space: normal;
+}
