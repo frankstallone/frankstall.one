@@ -23,25 +23,19 @@ const spacing = tokensToTailwind(clampGenerator(spacingTokens.items))
 const normalizeTokenValue = (value) =>
   Array.isArray(value) ? value.join(', ') : `${value}`
 
-const buildRootCustomProperties = (theme) => {
+const buildRootCustomProperties = () => {
   const rootCustomProperties = {}
   const groups = [
-    { key: 'colors', prefix: 'color' },
-    { key: 'spacing', prefix: 'space' },
-    { key: 'fontSize', prefix: 'size' },
-    { key: 'lineHeight', prefix: 'leading' },
-    { key: 'fontFamily', prefix: 'font' },
-    { key: 'fontWeight', prefix: 'font' },
+    { values: colors, prefix: 'color' },
+    { values: spacing, prefix: 'space' },
+    { values: fontSize, prefix: 'size' },
+    { values: lineHeight, prefix: 'leading' },
+    { values: fontFamily, prefix: 'font' },
+    { values: fontWeight, prefix: 'font' },
   ]
 
-  groups.forEach(({ key, prefix }) => {
-    const group = theme(key)
-
-    if (!group || typeof group !== 'object') {
-      return
-    }
-
-    Object.entries(group).forEach(([tokenKey, tokenValue]) => {
+  groups.forEach(({ values, prefix }) => {
+    Object.entries(values).forEach(([tokenKey, tokenValue]) => {
       rootCustomProperties[`--${prefix}-${tokenKey}`] =
         normalizeTokenValue(tokenValue)
     })
@@ -50,22 +44,16 @@ const buildRootCustomProperties = (theme) => {
   return rootCustomProperties
 }
 
-const buildCustomUtilities = (theme) => {
+const buildCustomUtilities = () => {
   const utilities = {}
   const customUtilities = [
-    { key: 'spacing', prefix: 'flow-space', property: '--flow-space' },
-    { key: 'spacing', prefix: 'region-space', property: '--region-space' },
-    { key: 'spacing', prefix: 'gutter', property: '--gutter' },
+    { values: spacing, prefix: 'flow-space', property: '--flow-space' },
+    { values: spacing, prefix: 'region-space', property: '--region-space' },
+    { values: spacing, prefix: 'gutter', property: '--gutter' },
   ]
 
-  customUtilities.forEach(({ key, prefix, property }) => {
-    const group = theme(key)
-
-    if (!group || typeof group !== 'object') {
-      return
-    }
-
-    Object.entries(group).forEach(([tokenKey, tokenValue]) => {
+  customUtilities.forEach(({ values, prefix, property }) => {
+    Object.entries(values).forEach(([tokenKey, tokenValue]) => {
       utilities[`.${prefix}-${tokenKey}`] = {
         [property]: normalizeTokenValue(tokenValue),
       }
@@ -91,13 +79,13 @@ export default {
     fontWeight,
   },
   plugins: [
-    plugin(function ({ addBase, theme }) {
+    plugin(function ({ addBase }) {
       addBase({
-        ':root': buildRootCustomProperties(theme),
+        ':root': buildRootCustomProperties(),
       })
     }),
-    plugin(function ({ addUtilities, theme }) {
-      addUtilities(buildCustomUtilities(theme))
+    plugin(function ({ addUtilities }) {
+      addUtilities(buildCustomUtilities())
     }),
   ],
 }
