@@ -26,6 +26,38 @@
 - Files: kebab-case for Astro/TS files (e.g., `post-card.astro`), PascalCase for React components.
 - Content: blog files in `src/content/blog/*.mdx`; metadata must match `src/content.config.ts` schema.
 
+## Tailwind Token System
+
+- `src/design-tokens/*.json` is the source of truth for colors, spacing, type sizes, leading, font weights, fonts, and breakpoints.
+- Do not edit `src/css/generated/*` directly. Generated styling artifacts are written by `npm run tokens:build`.
+- If you change token JSON or `src/css-utils/tailwind-token-generator.js`, run `npm run tokens:build`.
+
+### Canonical CSS Variables
+
+- Use canonical token-backed variables only:
+  - colors: `--color-*`
+  - spacing: `--spacing-*`
+  - text sizes: `--text-*`
+  - font families: `--font-*`
+  - font weights: `--font-weight-*`
+  - line heights: `--leading-*`
+  - breakpoints: `--breakpoint-*`
+- Do not introduce compatibility aliases like `--space-*`, `--size-step-*`, `--gray-*`, or `--font-bold`.
+
+### Tailwind 4 Usage
+
+- Tailwind classes are driven by the generated `@theme` file in `src/css/generated/tailwind-theme.css`.
+- Prefer token-backed Tailwind utilities such as `bg-gray-100`, `text-step-3`, `font-display`, `font-bold`, `gap-s`, and `px-l`.
+- Generated custom utilities live in `src/css/generated/tailwind-utilities.css`:
+  - `flow-space-*`
+  - `region-space-*`
+  - `gutter-*`
+
+### Guardrails
+
+- Do not reintroduce `tailwind.config.js`, `@config`, JS theme plugins, or CSS variable compatibility layers.
+- Keep the current reset strategy in `src/css/global.css`; do not enable Tailwind Preflight.
+
 ## Testing Guidelines
 
 - Framework: Vitest (`jsdom`) + Testing Library.
