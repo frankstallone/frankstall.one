@@ -123,17 +123,11 @@ export const buildTailwindCssArtifacts = ({
     name: `font-${name}`,
     value: `var(--font-weight-${name})`,
   }))
-  const legacyGrayAliases = [
-    { name: 'gray-2', value: 'var(--color-gray-200)' },
-    { name: 'gray-8', value: 'var(--color-gray-800)' },
-    { name: 'gray-11', value: 'var(--color-gray-1100)' },
-  ]
 
   const compatSections = [
     formatRootAliasSection('Spacing Aliases', spacingAliases),
     formatRootAliasSection('Text Size Aliases', sizeAliases),
     formatRootAliasSection('Font Weight Aliases', fontWeightAliases),
-    formatRootAliasSection('Legacy Gray Aliases', legacyGrayAliases),
   ]
 
   const utilityBlocks = createSpacingUtilityBlocks(spacing)

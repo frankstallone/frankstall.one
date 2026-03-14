@@ -43,9 +43,4 @@
   --font-regular: var(--font-weight-regular);
   --font-medium: var(--font-weight-medium);
   --font-bold: var(--font-weight-bold);
-
-  /* Legacy Gray Aliases */
-  --gray-2: var(--color-gray-200);
-  --gray-8: var(--color-gray-800);
-  --gray-11: var(--color-gray-1100);
 }
