@@ -1,12 +1,14 @@
-@import 'tailwindcss/base';
+@layer theme, base, components, utilities;
 
-@import 'global/reset.css';
-@import 'global/fonts.css';
+@config '../../tailwind.config.js';
 
-@import 'tailwindcss/components';
+@import 'tailwindcss/theme.css' layer(theme);
 
-@import 'global/variables.css';
-@import 'global/global-styles.css';
+@import './global/reset.css' layer(base);
+@import './global/fonts.css' layer(base);
+
+@import './global/variables.css' layer(base);
+@import './global/global-styles.css' layer(base);
 /* 
 See issue: https://github.com/frankstallone/astro-cube-boilerplate/issues/1
 Reference source: https://github.com/Set-Creative-Studio/cube-boilerplate/blob/main/src/css/global.css#L11
@@ -16,33 +18,33 @@ Reference source: https://github.com/Set-Creative-Studio/cube-boilerplate/blob/m
 @import-glob 'utilities/*.css'; 
 */
 
-@import 'blocks/button.css' layer(components);
-@import 'blocks/card.css' layer(components);
-@import 'blocks/faq-button.css' layer(components);
-@import 'blocks/footer.css';
-@import 'blocks/header-links.css';
-@import 'blocks/home.css' layer(components);
-@import 'blocks/post-card.css' layer(components);
-@import 'blocks/phoneinput.css' layer(components);
-@import 'blocks/hero.css';
-@import 'blocks/portfolio-case.css' layer(components);
-@import 'blocks/prose.css' layer(components);
-@import 'blocks/post.css' layer(components);
-@import 'blocks/post-toc.css' layer(components);
-@import 'components/box.css' layer(components);
-@import 'components/center.css' layer(components);
-@import 'components/content.css' layer(components);
-@import 'components/cluster.css' layer(components);
-@import 'components/cover.css' layer(components);
-@import 'components/flow.css' layer(components);
-@import 'components/grid.css' layer(components);
-@import 'components/icon.css' layer(components);
-@import 'components/repel.css' layer(components);
-@import 'components/sidebar.css' layer(components);
-@import 'components/stack.css' layer(components);
-@import 'components/switcher.css' layer(components);
-@import 'components/wrapper.css' layer(components);
-@import 'utilities/region.css' layer(components);
-@import 'utilities/visually-hidden.css' layer(components);
+@import './blocks/button.css' layer(components);
+@import './blocks/card.css' layer(components);
+@import './blocks/faq-button.css' layer(components);
+@import './blocks/footer.css' layer(components);
+@import './blocks/header-links.css' layer(components);
+@import './blocks/home.css' layer(components);
+@import './blocks/post-card.css' layer(components);
+@import './blocks/phoneinput.css' layer(components);
+@import './blocks/hero.css' layer(components);
+@import './blocks/portfolio-case.css' layer(components);
+@import './blocks/prose.css' layer(components);
+@import './blocks/post.css' layer(components);
+@import './blocks/post-toc.css' layer(components);
+@import './components/box.css' layer(components);
+@import './components/center.css' layer(components);
+@import './components/content.css' layer(components);
+@import './components/cluster.css' layer(components);
+@import './components/cover.css' layer(components);
+@import './components/flow.css' layer(components);
+@import './components/grid.css' layer(components);
+@import './components/icon.css' layer(components);
+@import './components/repel.css' layer(components);
+@import './components/sidebar.css' layer(components);
+@import './components/stack.css' layer(components);
+@import './components/switcher.css' layer(components);
+@import './components/wrapper.css' layer(components);
+@import './utilities/region.css' layer(components);
 
-@import 'tailwindcss/utilities';
+@import 'tailwindcss/utilities.css' layer(utilities);
+@import './utilities/visually-hidden.css' layer(utilities);

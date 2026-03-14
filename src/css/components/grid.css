@@ -46,7 +46,7 @@ to change how empty grid tracks are handled */
   grid-template-columns: 1fr;
 }
 
-@media screen(md) {
+@media (width >= 47.5rem) {
   .grid[data-layout='case'] {
     grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
   }
@@ -57,7 +57,7 @@ to change how empty grid tracks are handled */
   grid-template-columns: 1fr;
 }
 
-@media screen(md) {
+@media (width >= 47.5rem) {
   .grid[data-layout='posts'] {
     grid-template-columns: minmax(0, 14rem) minmax(0, 1fr);
     align-items: start;
@@ -69,7 +69,7 @@ to change how empty grid tracks are handled */
   grid-template-columns: 1fr;
 }
 
-@media screen(md) {
+@media (width >= 47.5rem) {
   .grid[data-layout='label'] {
     grid-template-columns: minmax(0, 14rem) minmax(0, 1fr);
     align-items: start;
@@ -81,7 +81,7 @@ to change how empty grid tracks are handled */
   grid-template-columns: 1fr;
 }
 
-@media screen(md) {
+@media (width >= 47.5rem) {
   .grid[data-layout='f4-home'] {
     grid-template-columns: minmax(0, 14rem) minmax(0, 1fr) minmax(0, 1fr);
     align-items: start;
@@ -99,13 +99,13 @@ to change how empty grid tracks are handled */
   grid-template-columns: 100%;
 }
 
-@media screen(md) {
+@media (width >= 47.5rem) {
   .grid[data-layout='lg:10/2'] {
     grid-template-columns: clamp(40rem, 80vw, 60rem);
   }
 }
 
-@media screen(lg) {
+@media (width >= 76.875rem) {
   .grid[data-layout='lg:10/2'] {
     grid-template-columns: 10fr 2fr;
   }
