@@ -24,7 +24,7 @@ const writeArtifact = async (filename, contents) => {
 const main = async () => {
   await mkdir(outputDir, { recursive: true })
 
-  const { themeCss, compatCss, utilitiesCss } = buildTailwindCssArtifacts({
+  const { themeCss, utilitiesCss } = buildTailwindCssArtifacts({
     colorTokens: colorTokens.items,
     fontTokens: fontTokens.items,
     spacingTokens: spacingTokens.items,
@@ -36,7 +36,6 @@ const main = async () => {
 
   const files = await Promise.all([
     writeArtifact('tailwind-theme.css', themeCss),
-    writeArtifact('token-compat.css', compatCss),
     writeArtifact('tailwind-utilities.css', utilitiesCss),
   ])
 

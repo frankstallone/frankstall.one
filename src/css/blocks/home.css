@@ -1,5 +1,5 @@
 .home-section-head {
-  --flow-space: var(--space-2xs);
+  --flow-space: var(--spacing-2xs);
 }
 
 .home-section-kicker {
@@ -15,21 +15,21 @@
 
 .home-posts-grid {
   display: grid;
-  gap: var(--space-l);
+  gap: var(--spacing-l);
 }
 
 .home-post-item {
-  --flow-space: var(--space-xs);
+  --flow-space: var(--spacing-xs);
   transition: transform var(--motion-duration-ui) var(--motion-ease-out);
 }
 
 .home-portfolio-grid {
   display: grid;
-  gap: var(--space-l);
+  gap: var(--spacing-l);
 }
 
 .home-about-copy {
-  --flow-space: var(--space-s);
+  --flow-space: var(--spacing-s);
 }
 
 .home-about-media {

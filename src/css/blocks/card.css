@@ -20,5 +20,5 @@
   border-radius: var(--border-radius);
 }
 .card-content {
-  padding: var(--space-s-m);
+  padding: var(--spacing-s-m);
 }

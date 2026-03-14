@@ -11,7 +11,6 @@ const GENERATED_FILE_HEADER = [
   '',
 ].join('\n')
 
-const ROOT_ALIAS_COMMENT = '/* Compatibility aliases for authored CSS */'
 const UTILITY_COMMENT =
   '/* Generated custom utilities backed by theme tokens */'
 
@@ -47,14 +46,6 @@ const formatThemeSection = (title, prefix, entries) => {
   const lines = entries.map(
     ({ name, value }) =>
       `  --${prefix}-${name}: ${normalizeTokenValue(value)};`,
-  )
-
-  return [`  /* ${title} */`, ...lines].join('\n')
-}
-
-const formatRootAliasSection = (title, entries) => {
-  const lines = entries.map(
-    ({ name, value }) => `  --${name}: ${normalizeTokenValue(value)};`,
   )
 
   return [`  /* ${title} */`, ...lines].join('\n')
@@ -111,14 +102,6 @@ export const buildTailwindCssArtifacts = ({
     formatThemeSection('Breakpoints', 'breakpoint', breakpoints),
   ]
 
-  const spacingAliases = spacing.map(({ name }) => ({
-    name: `space-${name}`,
-    value: `var(--spacing-${name})`,
-  }))
-  const compatSections = [
-    formatRootAliasSection('Spacing Aliases', spacingAliases),
-  ]
-
   const utilityBlocks = createSpacingUtilityBlocks(spacing)
 
   return {
@@ -126,14 +109,6 @@ export const buildTailwindCssArtifacts = ({
       GENERATED_FILE_HEADER.trimEnd(),
       '@theme static {',
       themeSections.join('\n\n'),
-      '}',
-      '',
-    ].join('\n'),
-    compatCss: [
-      GENERATED_FILE_HEADER.trimEnd(),
-      ROOT_ALIAS_COMMENT,
-      ':root {',
-      compatSections.join('\n\n'),
       '}',
       '',
     ].join('\n'),

@@ -29,8 +29,8 @@ describe('tailwind token generator', () => {
     )
   })
 
-  it('emits theme variables, compatibility aliases, and custom utilities', () => {
-    const { themeCss, compatCss, utilitiesCss } = buildTailwindCssArtifacts({
+  it('emits theme variables and custom utilities', () => {
+    const { themeCss, utilitiesCss } = buildTailwindCssArtifacts({
       colorTokens: colors.items,
       fontTokens: fonts.items,
       spacingTokens: spacing.items,
@@ -51,11 +51,6 @@ describe('tailwind token generator', () => {
     expect(themeCss).toContain('--font-weight-regular: 400;')
     expect(themeCss).toContain('--leading-fine: 1.15;')
     expect(themeCss).toContain('--breakpoint-md: 760px;')
-
-    expect(compatCss).toContain('--space-s: var(--spacing-s);')
-    expect(compatCss).not.toContain('--size-step-1:')
-    expect(compatCss).not.toContain('--font-bold:')
-    expect(compatCss).not.toContain('--gray-11:')
 
     expect(utilitiesCss).toContain('@utility flow-space-s {')
     expect(utilitiesCss).toContain('--flow-space: var(--spacing-s);')

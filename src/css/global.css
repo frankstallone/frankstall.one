@@ -8,7 +8,6 @@
 @import './global/reset.css' layer(base);
 @import './global/fonts.css' layer(base);
 
-@import './generated/token-compat.css' layer(base);
 @import './global/variables.css' layer(base);
 @import './global/global-styles.css' layer(base);
 /* 
