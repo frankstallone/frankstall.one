@@ -1,12 +1,12 @@
 .home-section-head {
-  --flow-space: var(--space-2xs);
+  --flow-space: var(--spacing-2xs);
 }
 
 .home-section-kicker {
   margin: 0;
   font-family: var(--font-display);
-  font-size: var(--size-step-5);
-  font-weight: var(--font-bold);
+  font-size: var(--text-step-5);
+  font-weight: var(--font-weight-bold);
   line-height: var(--leading-flat);
   letter-spacing: -0.015em;
   text-transform: uppercase;
@@ -15,21 +15,21 @@
 
 .home-posts-grid {
   display: grid;
-  gap: var(--space-l);
+  gap: var(--spacing-l);
 }
 
 .home-post-item {
-  --flow-space: var(--space-xs);
+  --flow-space: var(--spacing-xs);
   transition: transform var(--motion-duration-ui) var(--motion-ease-out);
 }
 
 .home-portfolio-grid {
   display: grid;
-  gap: var(--space-l);
+  gap: var(--spacing-l);
 }
 
 .home-about-copy {
-  --flow-space: var(--space-s);
+  --flow-space: var(--spacing-s);
 }
 
 .home-about-media {

@@ -4,7 +4,7 @@ const pathname = Astro.url.pathname
 
 <div class="region bg-gray-100">
   <div class="wrapper">
-    <div class="grid" data-layout="f4-home" style="--gutter: var(--space-l);">
+    <div class="grid" data-layout="f4-home" style="--gutter: var(--spacing-l);">
       <div class="flow home-section-head">
         {pathname === '/' && <p class="home-section-kicker">04</p>}
         <h2 class="text-step-1 text-gray-1400">Contact</h2>
@@ -27,7 +27,7 @@ const pathname = Astro.url.pathname
         <span class="mt-zero self-end md:self-center">
           <a
             href="https://designzen.co"
-            style="line-height: 0; margin-left: var(--space-3xs);"
+            style="line-height: 0; margin-left: var(--spacing-3xs);"
             target="_blank"
             aria-label="Opens a new tab"
           >
@@ -46,7 +46,7 @@ const pathname = Astro.url.pathname
           name="main"
           netlify-honeypot="bot-field"
           class="switcher"
-          style="--gutter: var(--space-2xs-xs);"
+          style="--gutter: var(--spacing-2xs-xs);"
           method="POST"
           data-netlify="true"
           action="/"

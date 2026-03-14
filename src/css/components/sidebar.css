@@ -8,7 +8,7 @@ width *and* the main content minimum width, they will stack
 on top of each other
 
 CUSTOM PROPERTIES AND CONFIGURATION
---gutter (var(--space-size-1)): This defines the space
+--gutter (var(--spacing-s-l)): This defines the space
 between the sidebar and main content.
 
 --sidebar-target-width (20rem): How large the sidebar should be
@@ -21,7 +21,7 @@ EXCEPTIONS
 .sidebar {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--gutter, var(--space-s-l));
+  gap: var(--gutter, var(--spacing-s-l));
 }
 
 .sidebar > :first-child {
@@ -38,7 +38,7 @@ EXCEPTIONS
 sidebar-l {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--gutter, var(--space-s-m));
+  gap: var(--gutter, var(--spacing-s-m));
 }
 
 /* Web component */

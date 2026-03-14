@@ -1,8 +1,9 @@
 @layer theme, base, components, utilities;
 
-@config '../../tailwind.config.js';
+@source '../';
 
 @import 'tailwindcss/theme.css' layer(theme);
+@import './generated/tailwind-theme.css';
 
 @import './global/reset.css' layer(base);
 @import './global/fonts.css' layer(base);
@@ -46,5 +47,6 @@ Reference source: https://github.com/Set-Creative-Studio/cube-boilerplate/blob/m
 @import './components/wrapper.css' layer(components);
 @import './utilities/region.css' layer(components);
 
+@import './generated/tailwind-utilities.css';
 @import 'tailwindcss/utilities.css' layer(utilities);
 @import './utilities/visually-hidden.css' layer(utilities);

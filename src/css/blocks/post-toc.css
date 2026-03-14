@@ -10,8 +10,8 @@
 
 .post__toc-fab {
   position: fixed;
-  inset-inline-end: var(--space-s);
-  inset-block-end: calc(var(--space-s) + env(safe-area-inset-bottom, 0px));
+  inset-inline-end: var(--spacing-s);
+  inset-block-end: calc(var(--spacing-s) + env(safe-area-inset-bottom, 0px));
   display: block;
   z-index: 40;
 
@@ -24,10 +24,10 @@
 }
 
 .post__toc-fallback {
-  --flow-space: var(--space-2xs);
+  --flow-space: var(--spacing-2xs);
   max-inline-size: var(--measure, 85ch);
   margin-inline: auto;
-  margin-block-end: var(--space-m);
+  margin-block-end: var(--spacing-m);
 }
 
 .post__toc-fallback-title {
@@ -48,11 +48,11 @@
   @apply border border-gray-700 bg-gray-1400 text-gray-100 font-display text-step-00;
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2xs);
+  gap: var(--spacing-2xs);
   min-block-size: 44px;
   border-radius: 999px;
-  padding-inline: var(--space-s);
-  padding-block: var(--space-2xs);
+  padding-inline: var(--spacing-s);
+  padding-block: var(--spacing-2xs);
   box-shadow:
     0 0 0 1px rgb(255 255 255 / 0.25) inset,
     0 12px 30px rgb(0 0 0 / 0.2);
@@ -61,10 +61,10 @@
 
 .post__toc-panel {
   position: fixed;
-  inset-inline-end: var(--space-s);
-  inset-inline-start: var(--space-s);
+  inset-inline-end: var(--spacing-s);
+  inset-inline-start: var(--spacing-s);
   inset-block-end: calc(
-    var(--space-s) + env(safe-area-inset-bottom, 0px) + 3.75rem
+    var(--spacing-s) + env(safe-area-inset-bottom, 0px) + 3.75rem
   );
   max-block-size: min(70vh, 30rem);
   overflow: auto;
@@ -99,8 +99,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-xs);
-  margin-block-end: var(--space-2xs);
+  gap: var(--spacing-xs);
+  margin-block-end: var(--spacing-2xs);
 }
 
 .post__toc-panel-title {
@@ -110,15 +110,15 @@
 .post__toc-close {
   @apply border border-gray-700 bg-transparent text-gray-1400 text-step-00;
   min-block-size: 1.75rem;
-  padding-inline: var(--space-2xs);
+  padding-inline: var(--spacing-2xs);
   padding-block: 0.125rem;
-  border-radius: var(--space-3xs);
+  border-radius: var(--spacing-3xs);
   touch-action: manipulation;
 }
 
 .post__toc-panel a {
   display: inline-block;
-  padding-inline: var(--space-3xs);
+  padding-inline: var(--spacing-3xs);
   padding-block: 0.125rem;
   border-right: 2px solid transparent;
   opacity: 0;
@@ -162,7 +162,7 @@
 @media (min-width: 40rem) {
   .post__toc-panel {
     inset-inline-start: auto;
-    inline-size: min(24rem, calc(100vw - (var(--space-s) * 2)));
+    inline-size: min(24rem, calc(100vw - (var(--spacing-s) * 2)));
   }
 }
 
