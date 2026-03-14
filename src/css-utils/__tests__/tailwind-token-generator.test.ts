@@ -53,8 +53,8 @@ describe('tailwind token generator', () => {
     expect(themeCss).toContain('--breakpoint-md: 760px;')
 
     expect(compatCss).toContain('--space-s: var(--spacing-s);')
-    expect(compatCss).toContain('--size-step-1: var(--text-step-1);')
-    expect(compatCss).toContain('--font-bold: var(--font-weight-bold);')
+    expect(compatCss).not.toContain('--size-step-1:')
+    expect(compatCss).not.toContain('--font-bold:')
     expect(compatCss).not.toContain('--gray-11:')
 
     expect(utilitiesCss).toContain('@utility flow-space-s {')

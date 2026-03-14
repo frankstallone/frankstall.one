@@ -115,19 +115,8 @@ export const buildTailwindCssArtifacts = ({
     name: `space-${name}`,
     value: `var(--spacing-${name})`,
   }))
-  const sizeAliases = textSizes.map(({ name }) => ({
-    name: `size-${name}`,
-    value: `var(--text-${name})`,
-  }))
-  const fontWeightAliases = fontWeights.map(({ name }) => ({
-    name: `font-${name}`,
-    value: `var(--font-weight-${name})`,
-  }))
-
   const compatSections = [
     formatRootAliasSection('Spacing Aliases', spacingAliases),
-    formatRootAliasSection('Text Size Aliases', sizeAliases),
-    formatRootAliasSection('Font Weight Aliases', fontWeightAliases),
   ]
 
   const utilityBlocks = createSpacingUtilityBlocks(spacing)
