@@ -8,6 +8,4 @@ const { as = 'mark', class: className } = Astro.props
 const Tag = as
 ---
 
-<Tag class:list={['post__highlight', className]}>
-  <slot />
-</Tag>
+<Tag class:list={['post__highlight', className]}><slot /></Tag>
