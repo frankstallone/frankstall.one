@@ -35,7 +35,7 @@ blockquote:not([class]) {
 }
 
 blockquote {
-  @apply border-solid border-l-4 border-y-0 border-r-0 border-gray-700 pl-s text-step-1;
+  @apply border-solid border-l-4 border-y-0 border-r-0 border-gray-700 pl-s text-step-0;
 }
 
 /* Base typesetting */
