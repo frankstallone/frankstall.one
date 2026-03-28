@@ -109,13 +109,14 @@ Reference: https://piccalil.li/blog/building-a-breakout-element-with-container-u
 /* Inline marker highlight for emphasized phrases */
 .post .post__content :is(mark, .post__highlight) {
   color: inherit;
-  background: linear-gradient(
-    180deg,
-    transparent 0.28em,
-    color-mix(in srgb, var(--color-indigo-300) 80%, white) 0.28em,
-    color-mix(in srgb, var(--color-indigo-300) 80%, white) calc(100% - 0.12em),
-    transparent calc(100% - 0.12em)
+  background-color: transparent;
+  background-image: linear-gradient(
+    color-mix(in srgb, var(--color-indigo-300) 80%, white),
+    color-mix(in srgb, var(--color-indigo-300) 80%, white)
   );
+  background-repeat: no-repeat;
+  background-size: 100% 1.1em;
+  background-position: 0 88%;
   border-radius: 0.2em;
   padding-inline: 0.15em;
   box-decoration-break: clone;
