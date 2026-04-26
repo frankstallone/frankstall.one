@@ -6,19 +6,21 @@ publishDate: 04-26-2026
 description: 'AI can generate polished screens quickly, but taste is the trained judgment that helps us see what is actually good.'
 ---
 
-AI can generate screens that look finished.
+Lately, when I'm building apps with AI in the loop, I keep seeing the same thing. AI can generate screens that *look* finished.
 
-That sentence still feels strange to write, but it's true. You can ask a model to create a dashboard, a settings page, a pricing table, a workflow, a component library, or a dozen visual directions for the same product idea. In seconds, you get something that compiles, renders, has hover states, uses modern spacing, and probably includes a tasteful gradient somewhere—maybe.
+That sentence still feels strange to write, but it's true. You can ask a model to create a dashboard, a settings page, a workflow, a form, or a dozen versions of the same product screen. In seconds, you get something that compiles, renders, has hover states, and looks close enough.
 
-At first glance, it looks designed with direction.
+For a minute, it can feel like real progress.
 
-But polished-looking is not the same as good.
+But polished looking is not the same as good.
 
-That's the shift. When production gets cheap, the hard part becomes deciding what deserves to ship.
+That's the shift I keep running into. When production gets cheap, the hard part becomes deciding what deserves to ship.
 
-This is why taste has become such a loud topic again. People are arguing about whether taste is the new core skill for the AI era or whether taste has always mattered. I think both sides are right.
+I think that's why taste has become such a loud topic again. People are arguing about whether taste is the new core skill for the AI era or whether taste has always mattered. I think both sides are right.
 
 Taste is newly visible because AI made production cheap. But taste itself is not new. It has always been the difference between something that merely works and something that feels right.
+
+I don't know that I ever thought taste was fixed, but I also don't think I understood how much it could be cultivated. The more product work I've done, and the more AI generated work I've reviewed, the more obvious that feels.
 
 The mistake is treating taste like a mystical trait. Like some people are born with good taste and everyone else is out of luck.
 
@@ -46,11 +48,11 @@ That's where teams get stuck. "Can we make this pop?" "It feels too flat." "Can 
 
 Are we trying to create emphasis? Reduce hesitation? Make the next action clearer? Increase trust? Make the interface feel more precise?
 
-Taste gets useful when it moves from reaction to reasoning.
+That's when taste gets useful. It gives the reaction somewhere to go.
 
-David Hume wrote about taste as something improved through practice and comparison in [_Of the Standard of Taste_](https://sourcebooks.fordham.edu/mod/1760hume-taste.asp). Dieter Rams gave designers a more operational version with his principles for good design, including ["good design is as little design as possible"](https://www.vitsoe.com/us/about/good-design).
+This isn't a new idea. David Hume wrote about taste as something improved through practice and comparison in [_Of the Standard of Taste_](https://sourcebooks.fordham.edu/mod/1760hume-taste.asp). Dieter Rams made it feel more practical for designers with principles like ["good design is as little design as possible"](https://www.vitsoe.com/us/about/good-design).
 
-Taste isn't a personality trait. It's trained judgment formed through exposure, comparison, critique, and repetition.
+That is the version of taste I mean here. Not personality. Not instinct alone. Trained judgment formed through exposure, comparison, critique, and repetition.
 
 ## Before you can judge, you have to see
 
@@ -58,13 +60,15 @@ The first step in developing taste is not making things. It's seeing things.
 
 That sounds obvious, but most of us don't really see what is in front of us. We glance. We recognize. We categorize. We move on.
 
-This happens constantly in product work.
+This happens constantly when reviewing AI generated product work.
 
-A screen renders. The spacing is close enough. The component seems to work. The acceptance criteria are met. The ticket moves forward.
+A list gets a count it doesn't need. A quiet action gets an icon. A section gets a new color just so it feels different. A dense settings area gets the same breathing room as a simple empty state. An existing component gets extra class names even though the canonical version already looks good without overrides.
+
+Technically, the screen renders. The component works. The acceptance criteria are met. The ticket moves forward.
 
 But did anyone really look at it?
 
-Did anyone notice where the eye goes first? Did anyone notice that the primary action is visually competing with a decorative badge, that the empty state explains what happened but not what to do next, that the interface technically works, but asks the user to trust a conclusion without showing enough evidence?
+Did anyone notice where the eye goes first? Did anyone notice that the count pulls attention away from the list, that the icon doesn't clarify the action, that the spacing works in one section but falls apart when the density changes?
 
 That's the gap between functional and crafted.
 
@@ -83,11 +87,11 @@ These are taste questions, but they start as observation questions.
 
 ## The industry standard is the floor
 
-Here's the hard truth: users don't judge your product only against your competitors.
+The thing I keep coming back to is this: users don't judge your product only against your competitors.
 
 They judge it against every good piece of software they use.
 
-Your B2B dashboard is being compared, quietly and subconsciously, to Linear, Notion, Raycast, Stripe, Apple, Instagram, Google Maps, and whatever else lives in the user's daily software diet.
+Your B2B dashboard is being compared, quietly and subconsciously, to Linear, Notion, Raycast, Stripe, Apple, and whatever else lives in the user's daily software diet.
 
 That might feel unfair. It doesn't matter. 😅
 
@@ -97,17 +101,17 @@ They may not know how to name it. They may not tell you the typography feels unc
 
 That's probably not fair to the engineering underneath. I've seen fantastically engineered systems hidden behind mediocre interfaces. But users don't experience your architecture diagram. They experience the surface area you give them.
 
-The surface area has to earn trust.
+That surface area has a lot of trust to earn.
 
-The industry standard is not the ceiling. It's the floor.
+I try to treat the industry standard as the floor, not the ceiling.
 
-That doesn't mean every product should look like the same modern SaaS template. That's part of the AI-era problem. The tools are very good at producing generic competence. Rounded cards. Soft shadows. "Pleasant" gradients. Balanced grids. A little badge in the corner that says "New."
+That doesn't mean every product should look like the same modern SaaS template. That's part of the AI era problem. The tools are very good at producing generic competence. Rounded cards. Soft shadows. "Pleasant" gradients. Balanced grids. A little badge in the corner that says "New."
 
 It all looks fine.
 
 But fine can hide weak judgment.
 
-I wrote a little about this in [AI is very good at adding. Design is required to subtract.](/blog/ai-is-very-good-at-adding-design-is-required-to-subtract/) The next post in this series is about craft, so I won't go too far down the subtraction path here. For now, the point is simple: taste is what tells you whether the polished output deserves to stay.
+I wrote a little about this in [AI is very good at adding. Design is required to subtract.](/blog/ai-is-very-good-at-adding-design-is-required-to-subtract/) The next post in this series is about craft, so I won't go too far down the subtraction path here. For now, I think of taste as the thing that helps you decide whether the polished output deserves to stay.
 
 ## Shared language creates shared taste
 
@@ -115,9 +119,9 @@ Taste can't scale if it only lives in one person's head.
 
 A senior designer saying, "This doesn't feel right," may be correct. But if the team can't understand the reasoning, the judgment doesn't spread. It creates dependency. Everyone waits for the person with taste to bless the work.
 
-That doesn't scale.
+That might work for a little while, but it doesn't scale.
 
-The better move: turn taste into language.
+What I've found more useful is turning taste into language.
 
 A team should be able to point at a screen and ask clear questions:
 
@@ -129,7 +133,7 @@ A team should be able to point at a screen and ask clear questions:
 
 Those words should come from the brand. A bank, a creative tool, a healthcare workflow, a developer platform, and a consumer social app are different brands, so quality should look and feel different in each.
 
-The practical move: turn brand strategy into a few product-quality filters. Not a wall of values. A small set of words that can survive a design review, guide a pull request, shape a scope decision, and constrain an AI-generated first pass.
+For me, this gets practical when brand strategy turns into a few product quality filters. Not a wall of values. A small set of words that can survive a design review, guide a pull request, shape a scope decision, and constrain an AI generated first pass.
 
 If the words can't change the product, they aren't doing enough work. Shared language is how a team develops shared taste.
 
@@ -156,10 +160,10 @@ Do this regularly and your eye will sharpen.
 
 Do it with your team and your language will sharpen.
 
-That is where better product work starts.
+That's where better product work starts.
 
 Not with a new tool. Not with a more polished mockup. Not with another generated variation.
 
-With attention.
+Just attention, practiced over time.
 
-Taste starts as attention. The more clearly you see, the more clearly you can decide.
+The more clearly you see, the more clearly you can decide.
