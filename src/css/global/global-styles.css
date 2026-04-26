@@ -12,7 +12,9 @@ body {
 
 a {
   color: currentcolor;
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-thickness: max(0.08em, 1px);
+  text-underline-offset: 0.15em;
 }
 
 a:hover {
@@ -20,7 +22,6 @@ a:hover {
 }
 
 /* Baseline for default links */
-a:not([class]),
 abbr {
   /* Relatively sized thickness and offset */
   text-decoration-thickness: max(0.08em, 1px);
