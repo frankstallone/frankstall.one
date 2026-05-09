@@ -42,6 +42,7 @@ const { count, slug } = Astro.props
 
   interface LikeResponse {
     liked: boolean
+    count?: number
   }
 
   interface APIError {
@@ -145,6 +146,12 @@ const { count, slug } = Astro.props
           const error = (await response.json()) as APIError
           throw new Error(error.message || 'Server error')
         }
+
+        const { count } = (await response.json()) as LikeResponse
+        if (typeof count === 'number') {
+          this.count = count
+          this.updateUI()
+        }
       } catch (error) {
         // Revert on error
         this.count = initialCount
@@ -225,8 +232,11 @@ const { count, slug } = Astro.props
           throw new Error('Failed to fetch like state')
         }
 
-        const { liked } = (await response.json()) as LikeResponse
+        const { liked, count } = (await response.json()) as LikeResponse
         this.liked = liked
+        if (typeof count === 'number') {
+          this.count = count
+        }
         this.updateUI()
       } catch (error) {
         console.error('Error fetching like state:', error)

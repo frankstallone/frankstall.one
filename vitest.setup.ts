@@ -19,7 +19,8 @@ customElements.define(
     }
 
     connectedCallback() {
-      this.countSpan = this.querySelector('span')
+      this.countSpan =
+        this.querySelector('[data-like-count]') ?? this.querySelector('span')
       this.likeButton = this.querySelector('button')
       this.updateLikedState()
       this.addLikeButtonEventListener()
@@ -51,6 +52,12 @@ customElements.define(
 
           if (!response.ok) {
             throw new Error('Server error')
+          }
+
+          const { count } = await response.json()
+          if (typeof count === 'number') {
+            this.count = count
+            this.updateUI()
           }
         } catch (error) {
           // Revert on error
@@ -96,8 +103,11 @@ customElements.define(
           },
         })
         if (response.ok) {
-          const { liked } = await response.json()
+          const { liked, count } = await response.json()
           this.liked = liked
+          if (typeof count === 'number') {
+            this.count = count
+          }
           this.updateUI()
         }
       } catch (error) {

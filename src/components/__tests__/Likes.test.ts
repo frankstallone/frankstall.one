@@ -13,7 +13,7 @@ describe('Likes Component', () => {
     // Set up default mock response for initial state check
     mockFetch.mockResolvedValueOnce({
       ok: true,
-      json: () => Promise.resolve({ liked: false }),
+      json: () => Promise.resolve({ liked: false, count: props.count }),
     })
 
     const template = document.createElement('template')
@@ -30,7 +30,8 @@ describe('Likes Component', () => {
         >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"></svg>
           <span class="ml-2xs font-display font-bold">
-            <div class="sr-only">This post's current likes:</div>${props.count}
+            <span class="sr-only">This post's current likes:</span>
+            <span data-like-count>${props.count}</span>
           </span>
         </button>
       </post-likes>
@@ -54,8 +55,7 @@ describe('Likes Component', () => {
   })
 
   const getCountElement = () => {
-    // First find the span that contains both the sr-only div and the count
-    const span = screen.getByRole('button').querySelector('span')
+    const span = screen.getByRole('button').querySelector('[data-like-count]')
     if (!span) {
       throw new Error('Count element not found')
     }
@@ -73,7 +73,7 @@ describe('Likes Component', () => {
   it('should fetch initial liked state on mount', async () => {
     mockFetch.mockResolvedValueOnce({
       ok: true,
-      json: () => Promise.resolve({ liked: true }),
+      json: () => Promise.resolve({ liked: true, count: 7 }),
     })
 
     mountComponent({ count: 0, slug: 'test-post' })
@@ -87,16 +87,21 @@ describe('Likes Component', () => {
         }),
       )
     })
+
+    await waitFor(() => {
+      expect(getCountElement()).toHaveTextContent('7')
+    })
   })
 
   it('should update UI optimistically on like click', async () => {
     const initialCount = 5
     mockFetch.mockResolvedValueOnce({
       ok: true,
-      json: () => Promise.resolve({ liked: false }),
+      json: () => Promise.resolve({ liked: false, count: initialCount }),
     })
     mockFetch.mockResolvedValueOnce({
       ok: true,
+      json: () => Promise.resolve({ count: initialCount + 1 }),
     })
 
     mountComponent({ count: initialCount, slug: 'test-post' })
@@ -118,7 +123,7 @@ describe('Likes Component', () => {
     // Mock initial state fetch
     mockFetch.mockResolvedValueOnce({
       ok: true,
-      json: () => Promise.resolve({ liked: false }),
+      json: () => Promise.resolve({ liked: false, count: initialCount }),
     })
     // Mock failed like request
     mockFetch.mockRejectedValueOnce(new Error('Network error'))
@@ -142,7 +147,7 @@ describe('Likes Component', () => {
     // Mock initial state fetch
     mockFetch.mockResolvedValueOnce({
       ok: true,
-      json: () => Promise.resolve({ liked: false }),
+      json: () => Promise.resolve({ liked: false, count: initialCount }),
     })
     // Mock server error response
     mockFetch.mockResolvedValueOnce({
@@ -166,10 +171,11 @@ describe('Likes Component', () => {
   it('should update aria-label based on liked state', async () => {
     mockFetch.mockResolvedValueOnce({
       ok: true,
-      json: () => Promise.resolve({ liked: false }),
+      json: () => Promise.resolve({ liked: false, count: 5 }),
     })
     mockFetch.mockResolvedValueOnce({
       ok: true,
+      json: () => Promise.resolve({ count: 6 }),
     })
 
     mountComponent({ count: 5, slug: 'test-post' })
