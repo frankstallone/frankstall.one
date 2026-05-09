@@ -112,14 +112,13 @@ export const GET: APIRoute = async ({ params, request, clientAddress }) => {
   // hash the UA, IP address, and post slug to create a unique ID
   const id = await digest(`${userAgent}:${clientId}:${slug}`)
   // check if the like exists in the database
-  const existingLike = await database
-    .select()
-    .from(Like)
-    .where(eq(Like.id, id))
+  const existingLike = await database.select().from(Like).where(eq(Like.id, id))
+  const count = await countCurrentPostLikes(database, slug)
   // return a response indicating whether the user has liked the post
   return jsonResponse(
     {
       liked: existingLike.length > 0,
+      count,
     },
     200,
   )
