@@ -15,68 +15,67 @@ const jsonResponse = (body: Record<string, unknown>, status = 200) =>
     headers: JSON_HEADERS,
   })
 
+const databaseUnavailableResponse = () =>
+  jsonResponse(
+    {
+      message: 'Database unavailable',
+      reason: dbStatus.error ?? 'Unknown database init error',
+      available: false,
+    },
+    503,
+  )
+
 /**
- * Handles a POST request to like a post.
+ * Handles a POST request to set a post's liked state.
  * @param params - The parameters from the request URL.
  * @param request - The incoming request object.
  * @param clientAddress - The IP address of the client making the request.
- * @returns A response indicating the success of the like operation.
+ * @returns A response indicating the current liked state and count.
  */
 export const POST: APIRoute = async ({ params, request, clientAddress }) => {
-  // get slug of liked item assuming a request like `/api/like-post/[slug].ts`
   const { slug } = params
   if (!slug) {
     return jsonResponse({ message: 'Slug is required' }, 400)
   }
 
   if (!db) {
-    return jsonResponse(
-      {
-        message: 'Database unavailable',
-        reason: dbStatus.error ?? 'Unknown database init error',
-      },
-      503,
-    )
+    return databaseUnavailableResponse()
   }
 
   const database = db
+  let desiredLiked: unknown
+
+  try {
+    const body = (await request.json()) as { liked?: unknown }
+    desiredLiked = body.liked
+  } catch {
+    return jsonResponse({ message: 'Request body must be JSON' }, 400)
+  }
+
+  if (typeof desiredLiked !== 'boolean') {
+    return jsonResponse({ message: 'liked must be a boolean' }, 400)
+  }
 
   const userAgent = request.headers.get('user-agent') ?? 'unknown'
   const clientId =
     clientAddress ?? request.headers.get('x-forwarded-for') ?? 'unknown'
-  // hash the UA, IP address, and liked post slug to create a unique ID
   const id = await digest(`${userAgent}:${clientId}:${slug}`)
-  // insert the like and ignore it if it was already set
-  if (id && slug) {
-    // check if the like already exists in the database
-    const existingLike = await database
-      .select()
-      .from(Like)
-      .where(eq(Like.id, id))
-    // if the like exists, remove it from the database
-    if (existingLike.length > 0) {
-      await database.delete(Like).where(eq(Like.id, id))
-      // Grab the current count of likes for the post
-      const count = await countCurrentPostLikes(database, slug)
-      return jsonResponse(
-        {
-          message: 'Successfully removed like!',
-          liked: false,
-          count,
-        },
-        200,
-      )
-    }
-    // insert the like and ignore it if it was already set
+
+  if (desiredLiked) {
     await database.insert(Like).values({ id, slug }).onConflictDoNothing()
+  } else {
+    await database.delete(Like).where(eq(Like.id, id))
   }
-  // return a response
+
   const count = await countCurrentPostLikes(database, slug)
   return jsonResponse(
     {
-      message: 'Successfully liked!',
-      liked: true,
+      message: desiredLiked
+        ? 'Successfully liked!'
+        : 'Successfully removed like!',
+      liked: desiredLiked,
       count,
+      available: true,
     },
     200,
   )
@@ -97,13 +96,7 @@ export const GET: APIRoute = async ({ params, request, clientAddress }) => {
   }
 
   if (!db) {
-    return jsonResponse(
-      {
-        message: 'Database unavailable',
-        reason: dbStatus.error ?? 'Unknown database init error',
-      },
-      503,
-    )
+    return databaseUnavailableResponse()
   }
 
   const database = db
@@ -121,6 +114,7 @@ export const GET: APIRoute = async ({ params, request, clientAddress }) => {
     {
       liked: existingLike.length > 0,
       count,
+      available: true,
     },
     200,
   )

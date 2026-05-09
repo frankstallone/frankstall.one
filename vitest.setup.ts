@@ -37,17 +37,18 @@ customElements.define(
 
         const initialCount = this.count
         const wasLiked = this.liked
+        const desiredLiked = !this.liked
         this.isUpdating = true
         if (this.likeButton) {
           this.likeButton.disabled = true
         }
 
         // Optimistic update
-        this.liked = !this.liked
+        this.liked = desiredLiked
         if (this.liked) {
           this.count++
         } else {
-          this.count--
+          this.count = Math.max(0, this.count - 1)
         }
         this.updateUI()
 
@@ -57,20 +58,17 @@ customElements.define(
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ slug: this.dataset.slug }),
+            body: JSON.stringify({
+              slug: this.dataset.slug,
+              liked: desiredLiked,
+            }),
           })
 
           if (!response.ok) {
             throw new Error('Server error')
           }
 
-          const { liked, count } = await response.json()
-          if (typeof liked === 'boolean') {
-            this.liked = liked
-          }
-          if (typeof count === 'number') {
-            this.count = count
-          }
+          this.applyServerState(await response.json())
           this.updateUI()
         } catch (error) {
           // Revert on error
@@ -113,39 +111,56 @@ customElements.define(
     }
 
     async hydrateLikedState() {
+      this.isUpdating = true
       if (this.likeButton) {
         this.likeButton.disabled = true
       }
       try {
         await this.updateLikedState()
-      } finally {
         this.isUpdating = false
         if (this.likeButton) {
           this.likeButton.disabled = false
         }
+      } catch (error) {
+        console.error(error)
+        this.showError('Failed to load like status')
+        this.setUnavailableState()
       }
     }
 
     async updateLikedState() {
-      try {
-        const response = await fetch(`/api/like-post/${this.dataset.slug}/`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        })
-        if (response.ok) {
-          const { liked, count } = await response.json()
-          if (typeof liked === 'boolean') {
-            this.liked = liked
-          }
-          if (typeof count === 'number') {
-            this.count = count
-          }
-          this.updateUI()
-        }
-      } catch (error) {
-        console.error(error)
+      const response = await fetch(`/api/like-post/${this.dataset.slug}/`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch like state')
+      }
+
+      this.applyServerState(await response.json())
+      this.updateUI()
+    }
+
+    applyServerState({ liked, count }: { liked?: unknown; count?: unknown }) {
+      if (typeof liked === 'boolean') {
+        this.liked = liked
+      }
+      if (typeof count === 'number') {
+        this.count = count
+      }
+    }
+
+    setUnavailableState() {
+      this.isUpdating = true
+      if (this.likeButton) {
+        this.likeButton.disabled = true
+        this.likeButton.setAttribute(
+          'aria-label',
+          'Likes are unavailable right now.',
+        )
       }
     }
 
