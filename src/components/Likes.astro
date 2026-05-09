@@ -132,28 +132,23 @@ const { count, slug } = Astro.props
       // Store initial state for rollback
       const initialCount = this.count
       const wasLiked = this.liked
+      const desiredLiked = !this.liked
 
       // Optimistic update
-      this.liked = !this.liked
-      this.count = this.liked ? this.count + 1 : this.count - 1
+      this.liked = desiredLiked
+      this.count = this.liked ? this.count + 1 : Math.max(0, this.count - 1)
       this.updateUI()
       this.animateFeedback()
 
       try {
-        const response = await this.sendLikeRequest()
+        const response = await this.sendLikeRequest(desiredLiked)
 
         if (!response.ok) {
           const error = (await response.json()) as APIError
           throw new Error(error.message || 'Server error')
         }
 
-        const { liked, count } = (await response.json()) as LikeResponse
-        if (typeof liked === 'boolean') {
-          this.liked = liked
-        }
-        if (typeof count === 'number') {
-          this.count = count
-        }
+        this.applyServerState((await response.json()) as LikeResponse)
         this.updateUI()
       } catch (error) {
         // Revert on error
@@ -164,24 +159,46 @@ const { count, slug } = Astro.props
       }
     }
 
-    private async sendLikeRequest(): Promise<Response> {
+    private async sendLikeRequest(liked: boolean): Promise<Response> {
       return fetch(`/api/like-post/${this.slug}/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ slug: this.slug }),
+        body: JSON.stringify({ slug: this.slug, liked }),
       })
     }
 
     private async hydrateLikedState() {
+      this.isUpdating = true
       this.likeButton.disabled = true
       try {
         await this.updateLikedState()
-      } finally {
         this.isUpdating = false
         this.likeButton.disabled = false
+      } catch (error) {
+        console.error('Error fetching like state:', error)
+        this.showError('Failed to load like status')
+        this.setUnavailableState()
       }
+    }
+
+    private applyServerState({ liked, count }: LikeResponse) {
+      if (typeof liked === 'boolean') {
+        this.liked = liked
+      }
+      if (typeof count === 'number') {
+        this.count = count
+      }
+    }
+
+    private setUnavailableState() {
+      this.isUpdating = true
+      this.likeButton.disabled = true
+      this.likeButton.setAttribute(
+        'aria-label',
+        'Likes are unavailable right now.',
+      )
     }
 
     private updateUI() {
@@ -233,30 +250,19 @@ const { count, slug } = Astro.props
     }
 
     private async updateLikedState() {
-      try {
-        const response = await fetch(`/api/like-post/${this.slug}/`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        })
+      const response = await fetch(`/api/like-post/${this.slug}/`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
 
-        if (!response.ok) {
-          throw new Error('Failed to fetch like state')
-        }
-
-        const { liked, count } = (await response.json()) as LikeResponse
-        if (typeof liked === 'boolean') {
-          this.liked = liked
-        }
-        if (typeof count === 'number') {
-          this.count = count
-        }
-        this.updateUI()
-      } catch (error) {
-        console.error('Error fetching like state:', error)
-        this.showError('Failed to load like status')
+      if (!response.ok) {
+        throw new Error('Failed to fetch like state')
       }
+
+      this.applyServerState((await response.json()) as LikeResponse)
+      this.updateUI()
     }
 
     private showError(message: string) {

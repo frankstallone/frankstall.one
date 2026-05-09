@@ -55,6 +55,7 @@ describe('Likes Component', () => {
     // Cleanup
     container?.remove()
     vi.useRealTimers()
+    vi.restoreAllMocks()
   })
 
   const getCountElement = () => {
@@ -112,7 +113,7 @@ describe('Likes Component', () => {
     })
     mockFetch.mockResolvedValueOnce({
       ok: true,
-      json: () => Promise.resolve({ count: initialCount + 1 }),
+      json: () => Promise.resolve({ liked: true, count: initialCount + 1 }),
     })
 
     mountComponent({ count: initialCount, slug: 'test-post' })
@@ -127,6 +128,41 @@ describe('Likes Component', () => {
       expect(countElement.textContent).toContain((initialCount + 1).toString())
       expect(container.classList.contains('bg-gray-1400')).toBe(true)
     })
+    expect(mockFetch).toHaveBeenLastCalledWith(
+      '/api/like-post/test-post/',
+      expect.objectContaining({
+        method: 'POST',
+        body: JSON.stringify({ slug: 'test-post', liked: true }),
+      }),
+    )
+  })
+
+  it('should send the desired unlike state on click', async () => {
+    mockFetch.mockResolvedValueOnce({
+      ok: true,
+      json: () => Promise.resolve({ liked: true, count: 5 }),
+    })
+    mockFetch.mockResolvedValueOnce({
+      ok: true,
+      json: () => Promise.resolve({ liked: false, count: 4 }),
+    })
+
+    mountComponent({ count: 5, slug: 'test-post' })
+    const button = await waitForReady()
+
+    fireEvent.click(button)
+
+    await waitFor(() => {
+      expect(getCountElement()).toHaveTextContent('4')
+      expect(button.getAttribute('aria-label')).toContain('Click to like')
+    })
+    expect(mockFetch).toHaveBeenLastCalledWith(
+      '/api/like-post/test-post/',
+      expect.objectContaining({
+        method: 'POST',
+        body: JSON.stringify({ slug: 'test-post', liked: false }),
+      }),
+    )
   })
 
   it('should revert UI on failed like request', async () => {
@@ -252,8 +288,40 @@ describe('Likes Component', () => {
     })
   })
 
+  it('should keep likes disabled when the initial liked state fails', async () => {
+    vi.useFakeTimers()
+    const consoleError = vi
+      .spyOn(console, 'error')
+      .mockImplementation(() => undefined)
+    mockFetch.mockResolvedValueOnce({
+      ok: false,
+      json: () => Promise.resolve({ available: false }),
+    })
+
+    mountComponent({ count: 2, slug: 'test-post' })
+    const button = screen.getByRole('button')
+
+    await waitFor(() => {
+      expect(button).toBeDisabled()
+      expect(button.getAttribute('aria-label')).toBe(
+        'Likes are unavailable right now.',
+      )
+      expect(button.classList.contains('error')).toBe(true)
+    })
+
+    vi.advanceTimersByTime(2000)
+    await waitFor(() => {
+      expect(button).toBeDisabled()
+      expect(button.classList.contains('error')).toBe(false)
+    })
+    expect(consoleError).toHaveBeenCalled()
+  })
+
   it('should show and clear error state after timeout', async () => {
     vi.useFakeTimers()
+    const consoleError = vi
+      .spyOn(console, 'error')
+      .mockImplementation(() => undefined)
     mountComponent({ count: 0, slug: 'test-post' })
     const button = screen.getByRole('button')
 
@@ -264,5 +332,6 @@ describe('Likes Component', () => {
     await waitFor(() => {
       expect(button.classList.contains('error')).toBe(false)
     })
+    expect(consoleError).toHaveBeenCalledWith('boom')
   })
 })
