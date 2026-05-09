@@ -41,7 +41,7 @@ const { count, slug } = Astro.props
   import { animate } from 'motion'
 
   interface LikeResponse {
-    liked: boolean
+    liked?: boolean
     count?: number
   }
 
@@ -88,7 +88,7 @@ const { count, slug } = Astro.props
       this.likeButton = button
       this.countValue = countValue
       this.liked = false
-      this.isUpdating = false
+      this.isUpdating = true
       this.shouldReduceMotion = window.matchMedia(
         '(prefers-reduced-motion: reduce)',
       ).matches
@@ -99,10 +99,10 @@ const { count, slug } = Astro.props
       if (this.count !== 0) {
         this.countValue.textContent = this.count.toString()
       }
-      // Update the liked state
-      this.updateLikedState()
       // Add event listener to the button
       this.addLikeButtonEventListener()
+      // Update the liked state before allowing user interaction
+      void this.hydrateLikedState()
     }
 
     private addLikeButtonEventListener() {
@@ -147,11 +147,14 @@ const { count, slug } = Astro.props
           throw new Error(error.message || 'Server error')
         }
 
-        const { count } = (await response.json()) as LikeResponse
+        const { liked, count } = (await response.json()) as LikeResponse
+        if (typeof liked === 'boolean') {
+          this.liked = liked
+        }
         if (typeof count === 'number') {
           this.count = count
-          this.updateUI()
         }
+        this.updateUI()
       } catch (error) {
         // Revert on error
         this.count = initialCount
@@ -169,6 +172,16 @@ const { count, slug } = Astro.props
         },
         body: JSON.stringify({ slug: this.slug }),
       })
+    }
+
+    private async hydrateLikedState() {
+      this.likeButton.disabled = true
+      try {
+        await this.updateLikedState()
+      } finally {
+        this.isUpdating = false
+        this.likeButton.disabled = false
+      }
     }
 
     private updateUI() {
@@ -233,7 +246,9 @@ const { count, slug } = Astro.props
         }
 
         const { liked, count } = (await response.json()) as LikeResponse
-        this.liked = liked
+        if (typeof liked === 'boolean') {
+          this.liked = liked
+        }
         if (typeof count === 'number') {
           this.count = count
         }

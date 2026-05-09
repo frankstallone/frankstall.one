@@ -9,12 +9,15 @@ describe('Likes Component', () => {
   let container: HTMLElement
 
   // Helper function to create and mount component
-  const mountComponent = (props = { count: 0, slug: 'test-post' }) => {
-    // Set up default mock response for initial state check
-    mockFetch.mockResolvedValueOnce({
+  const mountComponent = (
+    props = { count: 0, slug: 'test-post' },
+    initialResponse: unknown = {
       ok: true,
       json: () => Promise.resolve({ liked: false, count: props.count }),
-    })
+    },
+  ) => {
+    // Set up default mock response for initial state check
+    mockFetch.mockResolvedValueOnce(initialResponse)
 
     const template = document.createElement('template')
     template.innerHTML = `
@@ -62,6 +65,14 @@ describe('Likes Component', () => {
     return span
   }
 
+  const waitForReady = async () => {
+    const button = screen.getByRole('button')
+    await waitFor(() => {
+      expect(button).not.toBeDisabled()
+    })
+    return button
+  }
+
   it('should render with initial count', () => {
     const initialCount = 5
     mountComponent({ count: initialCount, slug: 'test-post' })
@@ -105,7 +116,7 @@ describe('Likes Component', () => {
     })
 
     mountComponent({ count: initialCount, slug: 'test-post' })
-    const button = screen.getByRole('button')
+    const button = await waitForReady()
 
     // Click the like button
     fireEvent.click(button)
@@ -129,7 +140,7 @@ describe('Likes Component', () => {
     mockFetch.mockRejectedValueOnce(new Error('Network error'))
 
     mountComponent({ count: initialCount, slug: 'test-post' })
-    const button = screen.getByRole('button')
+    const button = await waitForReady()
 
     // Click the like button
     fireEvent.click(button)
@@ -155,7 +166,7 @@ describe('Likes Component', () => {
     })
 
     mountComponent({ count: initialCount, slug: 'test-post' })
-    const button = screen.getByRole('button')
+    const button = await waitForReady()
 
     // Click the like button
     fireEvent.click(button)
@@ -175,11 +186,11 @@ describe('Likes Component', () => {
     })
     mockFetch.mockResolvedValueOnce({
       ok: true,
-      json: () => Promise.resolve({ count: 6 }),
+      json: () => Promise.resolve({ liked: true, count: 6 }),
     })
 
     mountComponent({ count: 5, slug: 'test-post' })
-    const button = screen.getByRole('button')
+    const button = await waitForReady()
 
     expect(button.getAttribute('aria-label')).toContain(
       'Click to like this post',
@@ -192,6 +203,52 @@ describe('Likes Component', () => {
       expect(button.getAttribute('aria-label')).toContain(
         'Click to unlike this post',
       )
+    })
+  })
+
+  it('should ignore clicks until the initial liked state loads', async () => {
+    let resolveInitialState: (value: unknown) => void
+    const initialState = new Promise((resolve) => {
+      resolveInitialState = resolve
+    })
+
+    mountComponent({ count: 2, slug: 'test-post' }, initialState)
+    const button = screen.getByRole('button')
+
+    expect(button).toBeDisabled()
+    fireEvent.click(button)
+    expect(mockFetch).toHaveBeenCalledTimes(1)
+
+    resolveInitialState!({
+      ok: true,
+      json: () => Promise.resolve({ liked: true, count: 2 }),
+    })
+
+    await waitFor(() => {
+      expect(button).not.toBeDisabled()
+    })
+    expect(mockFetch).toHaveBeenCalledTimes(1)
+  })
+
+  it('should use the server liked state after a click', async () => {
+    mockFetch.mockResolvedValueOnce({
+      ok: true,
+      json: () => Promise.resolve({ liked: false, count: 2 }),
+    })
+    mockFetch.mockResolvedValueOnce({
+      ok: true,
+      json: () => Promise.resolve({ liked: false, count: 1 }),
+    })
+
+    mountComponent({ count: 2, slug: 'test-post' })
+    const button = await waitForReady()
+
+    fireEvent.click(button)
+
+    await waitFor(() => {
+      expect(getCountElement()).toHaveTextContent('1')
+      expect(button.getAttribute('aria-label')).toContain('Click to like')
+      expect(button.getAttribute('aria-label')).not.toContain('Thank you!')
     })
   })
 

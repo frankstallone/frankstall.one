@@ -61,6 +61,7 @@ export const POST: APIRoute = async ({ params, request, clientAddress }) => {
       return jsonResponse(
         {
           message: 'Successfully removed like!',
+          liked: false,
           count,
         },
         200,
@@ -74,6 +75,7 @@ export const POST: APIRoute = async ({ params, request, clientAddress }) => {
   return jsonResponse(
     {
       message: 'Successfully liked!',
+      liked: true,
       count,
     },
     200,

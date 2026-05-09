@@ -8,6 +8,7 @@ customElements.define(
     count: number
     countSpan: HTMLSpanElement | null
     likeButton: HTMLButtonElement | null
+    isUpdating: boolean
 
     constructor() {
       super()
@@ -16,21 +17,30 @@ customElements.define(
       this.count = Number(this.dataset.initial || 0)
       this.countSpan = null
       this.likeButton = null
+      this.isUpdating = true
     }
 
     connectedCallback() {
       this.countSpan =
         this.querySelector('[data-like-count]') ?? this.querySelector('span')
       this.likeButton = this.querySelector('button')
-      this.updateLikedState()
       this.addLikeButtonEventListener()
+      void this.hydrateLikedState()
     }
 
     addLikeButtonEventListener() {
       this.likeButton?.addEventListener('click', async (e) => {
         e.preventDefault()
+        if (this.isUpdating) {
+          return
+        }
+
         const initialCount = this.count
         const wasLiked = this.liked
+        this.isUpdating = true
+        if (this.likeButton) {
+          this.likeButton.disabled = true
+        }
 
         // Optimistic update
         this.liked = !this.liked
@@ -54,16 +64,24 @@ customElements.define(
             throw new Error('Server error')
           }
 
-          const { count } = await response.json()
+          const { liked, count } = await response.json()
+          if (typeof liked === 'boolean') {
+            this.liked = liked
+          }
           if (typeof count === 'number') {
             this.count = count
-            this.updateUI()
           }
+          this.updateUI()
         } catch (error) {
           // Revert on error
           this.count = initialCount
           this.liked = wasLiked
           this.updateUI()
+        } finally {
+          this.isUpdating = false
+          if (this.likeButton) {
+            this.likeButton.disabled = false
+          }
         }
       })
     }
@@ -94,6 +112,20 @@ customElements.define(
       }
     }
 
+    async hydrateLikedState() {
+      if (this.likeButton) {
+        this.likeButton.disabled = true
+      }
+      try {
+        await this.updateLikedState()
+      } finally {
+        this.isUpdating = false
+        if (this.likeButton) {
+          this.likeButton.disabled = false
+        }
+      }
+    }
+
     async updateLikedState() {
       try {
         const response = await fetch(`/api/like-post/${this.dataset.slug}/`, {
@@ -104,7 +136,9 @@ customElements.define(
         })
         if (response.ok) {
           const { liked, count } = await response.json()
-          this.liked = liked
+          if (typeof liked === 'boolean') {
+            this.liked = liked
+          }
           if (typeof count === 'number') {
             this.count = count
           }
