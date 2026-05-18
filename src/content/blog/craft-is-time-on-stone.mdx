@@ -1,0 +1,137 @@
+---
+isDraft: true
+title: 'Craft is time on stone'
+subtitle: 'Taste, craft, and leverage, part 2'
+publishDate: 05-17-2026
+description: 'AI can rough out product work quickly, but craft is the discipline of shaping the real thing until only what matters remains.'
+---
+
+In the first post in this series, I wrote that [taste is trained judgment](/blog/taste-is-trained-judgment/). Taste helps us see what is good, what is weak, what is generic, what is overworked, and what is missing. It gives us a way to judge the work without getting trapped in personal preference.
+
+But taste is not enough. You can see the problem clearly and still not do the hard part.
+
+You can know the interface is too loud, the hierarchy is off, the action is buried, the component feels unfamiliar, or the AI generated version looks like a perfectly acceptable SaaS object from nowhere. Craft is what happens after you see it. It is the discipline of staying with the work long enough to make it right.
+
+That sounds obvious, but seeing is a discipline of its own. Most of us are trained to recognize a screen and move on: it renders, the button clicks, the ticket says done. Craft starts when we stay with it long enough to notice the quieter things: where the eye hesitates, where the expectation breaks, where the tone shifts, and where the product asks decoration to do the work of structure. You cannot shape what you have not actually seen.
+
+<RailDigression label="Digression 01">
+  <Fragment slot="note">This is heavy.</Fragment>
+  AI can get a product team to a plausible first pass very quickly. That is
+  genuinely useful. But a plausible first pass has a weird gravity. Once
+  something renders, everyone starts treating it like it is closer to finished
+  than it actually is.
+</RailDigression>
+
+That is the danger. AI makes the rough shape cheap, but it does not remove the need for craft. If anything, it makes craft more visible because the distance between "this exists" and "this is good" is now where most of the value lives.
+
+## We are in a Loos moment
+
+In 1908, the Austrian architect Adolf Loos wrote an essay called _Ornament and Crime_. The title is doing a lot, but the idea underneath it is pretty simple: decoration for its own sake obscures the thing it is attached to. If the ornament does not serve the object, remove it. That idea runs straight through Modernism.
+
+Mies van der Rohe gave us "less is more." Dieter Rams said it as ["less, but better"](https://www.vitsoe.com/us/about/good-design). His tenth principle expands the idea: good design is as little design as possible. The Bauhaus made a similar argument at a cultural level: people deserve functional, well-considered things, not decorative excess masquerading as quality. The through-line is restraint.
+
+Restraint is not the absence of care. **Restraint is care under pressure**. It is the ability to look at something that could have more and decide it should not. That feels extremely relevant right now because AI is very good at more.
+
+More cards, more badges, more counting, more icons, more gradients, more shadow, more helper text. More custom components that look fine until you realize a better battle hardened version already existed in the blessed component library. This is ornament, just in React and Tailwind.
+
+The question Loos was asking in 1908 is still the question. Do we add more, or do we strip the thing back until what matters can be seen?
+
+## Craft is not polish
+
+Polish is often how we talk about craft when we're in a hurry. "This needs polish" usually means the thing feels unfinished or unresolved. The spacing is probably off, states might be missing, the interaction may be a little clumsy, or the visual rhythm is not quite there. The copy might be doing that generated thing where it sounds helpful but says nothing.
+
+But polish is too small a word. Polish can sound like shine, like we already built the thing and now someone should come through with a little visual wax. Make it nicer, smooth the edges, add delight, bless it with design.
+
+That isn't craft. Craft is deeper than making something look finished. Craft asks whether the thing is shaped correctly in the first place.
+
+- Does the hierarchy match the decision the user is trying to make?
+- Does the component already exist in the design system?
+- Does the color communicate intent, or is it just making the screen less boring?
+- Does the motion clarify cause and effect?
+- Does the empty state help someone move forward?
+- Does the interface still work with real data, long labels, failures, loading states, and awkward edge cases?
+- If we remove this element, what actually gets worse?
+
+Those are not polish questions. They are craft questions.
+
+But craft also needs a point of view. The industry standard gets you to competent, but competent is not the same thing as specific. A product can meet the baseline and still feel like it could belong to anyone.
+
+That is where brand becomes useful. Not brand as the logo in the corner or the approved shade of blue, but brand as a set of quality filters. If the strategy says the product should feel calm, precise, generous, rebellious, expert, warm, or direct, those words have to change the interface. They should affect hierarchy, density, motion, copy, color, empty states, and the way the product asks someone to make a decision.
+
+A good quality lens turns "this doesn't feel right" into something the team can use. "This is clear, but it is not calm." "This is efficient, but it is not generous." "This is visually interesting, but it is not trustworthy." The point is not to make every screen perform the brand loudly. The point is to give craft a direction, so subtraction does not become blandness and polish does not become decoration.
+
+## The rough-out is not the work
+
+One way I have been thinking about AI generated product work is as a rough-out. In sculpture, the rough-out is the early stage where the broad form starts to emerge.
+
+You can see the shape. You can see where it is going. But nobody mistakes that for the finished work.
+
+In software, AI is getting very good at rough-outs. It can create the route, wire the form, draft the layout, stub the interaction, generate the component, and make something you can click through. That is useful because it gets us to the material faster.
+
+But the rough-out is not the work. The rough-out is what lets the work begin.
+
+<RailDigression label="Digression 02">
+  <Fragment slot="note">
+    This is where I think designers and engineers can accidentally talk past
+    each other.
+  </Fragment>
+  An engineer may see a working implementation and think, "Great, the hard part
+  is done." A designer may see the same screen and think, "Great, now we can
+  finally see the hard part." Both reactions make sense. They are just looking
+  at different kinds of risk.
+</RailDigression>
+
+Engineering risk often hides in behavior: whether it works, scales, fails safely, stays secure, and fits the architecture. Design risk often hides in the surface area: whether the user understands it, whether the flow creates confidence, whether the right thing is obvious, and whether the product still feels like us.
+
+The AI rough-out can make both sides feel closer than they are. It can satisfy the ticket while still missing the product.
+
+It can compile while still feeling generic. It can look polished while still being wrong. Craft is the part where we refuse to let "it exists" become the same thing as "it is done."
+
+## Time on stone
+
+The metaphor I keep coming back to is a Renaissance sculpture studio. In some studios, the master made a wax model and specialists carved the marble to match it. The design was fixed. The execution followed.
+
+That is not how modern product work feels to me, especially with AI in the loop. There usually is no perfect wax model. There is no static artifact that contains every behavior, state, edge case, and interaction detail. There is the thing itself, partly formed, being shaped by people with different specialties.
+
+Software engineers, AI engineers, product designers, design engineers, and product managers are all standing around the same block of marble. The craft happens during time on stone.
+
+Time on stone is when we shape the real material together. Not just the Figma file, the pull request, or the Storybook component in isolation. The actual product, in the actual system, with actual constraints. This is where the rough-out becomes a product experience.
+
+The component structure gets simpler. The spacing stops being arbitrary. The action moves to where the user expects it. The scary state gets clearer.
+
+The generated copy gets deleted. The custom color becomes a semantic token. The one-off component becomes the canonical component. The empty state stops trying to be charming and starts being useful.
+
+Small things, but not shallow things. That is the part of craft I think AI makes more important, not less. When output gets faster, the product needs more people who can spend focused time on the actual material and ask: what is this becoming?
+
+## Good craft reduces drift
+
+Product quality rarely falls apart all at once. It drifts. One screen gets a custom gray, another gets a slightly different card treatment, one workflow uses a primary action in the footer, and another puts it in the header.
+
+One AI generated component adds a count because counts feel useful. Another adds an icon because buttons look lonely without icons. Nobody makes a catastrophic decision. The product just slowly becomes less itself.
+
+This is why craft has to be more than individual effort. A careful designer can fix one screen. A careful engineer can clean up one component. But if the system keeps allowing the same drift, everyone is going to keep paying the same tax.
+
+So craft has a first job: improve the thing in front of you.
+
+But good craft also leaves clues. If you keep correcting the same spacing issue, that might belong in the component. If you keep explaining the same color distinction, that might belong in the tokens. If you keep asking AI not to invent a component, that might belong in the agent instructions or a design system alignment agent.
+
+That is where craft starts to become leverage, which is the next post in this series. For now, the important part is this: craft notices drift early. It does not wait until the product feels inconsistent and then schedule a cleanup project. It sees the small loss of intent while it is still small.
+
+## A small exercise
+
+Pick one AI generated screen, prototype, or pull request. Don't ask whether it works. Assume it works. Now spend ten minutes looking at it as material.
+
+- What was added because the tool could add it?
+- What is decorative but not useful?
+- What is custom but should be canonical?
+- What feels generic instead of specific to the product?
+- Where does the interface create hesitation?
+- Where does the hierarchy fail under real data?
+- What would you remove first?
+- What needs time on stone?
+
+The goal is not to become slower. AI gives us speed, and that speed is useful. The opportunity is to use some of that time to step back, look at what we made, and make it better.
+
+That fits the moment. It fits the way I see product teams on the leading edge increasingly work. It fits the value of getting to something real quickly. But speed only helps if we use it with judgment.
+
+Taste lets us see. Craft makes us stay. Leverage is how we make that judgment easier for everyone else to use.
