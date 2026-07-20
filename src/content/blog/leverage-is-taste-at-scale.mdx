@@ -1,0 +1,111 @@
+---
+isDraft: true
+title: 'Leverage is taste at scale'
+subtitle: 'Taste, craft, and leverage, part 3'
+publishDate: 07-20-2026
+description: 'Taste and craft do not scale when every decision still has to pass through one person. Leverage turns judgment into part of how the team works.'
+---
+
+In the first post in this series, I admitted that [I was the dependency](/blog/taste-is-trained-judgment/#i-was-the-dependency).
+
+At the time I gave this presentation, I was the only designer working with six-plus agentic engineers at a young startup. They could create functional features faster than I could review them. I could see when something hadn't cleared the premium bar or wasn't resolved, but too much of the reasoning still lived in my head.
+
+The work had to come through me before that judgment became useful.
+
+That isn't leverage. It is a bottleneck.
+
+If the same design judgment has to be made manually every time, the team may be moving quickly, but the quality bar still depends on one person's attention. Eventually that person runs out of it.
+
+Taste helps us see what matters. Craft is the work of shaping it into the product. Leverage is how that judgment becomes useful when we aren't in the room.
+
+That is the part I hadn't figured out yet.
+
+## I broke my own rule
+
+Before this startup, I had a deck I used to share with senior leadership about when a design system was worth bringing into an organization. I looked for three things:
+
+1. **The same decisions keep showing up across multiple products or experiences.**
+2. **Enough teams are solving the same problems that keeping everyone aligned by hand stops working.**
+3. **The system needs to support the work from early design through development—not become a library someone reaches for at the end.**
+
+By that test, we weren't ready. We were a really early startup with one designer. We didn't meet the criteria I had used in the past.
+
+I had a feeling the criteria were missing something.
+
+The organization was small. The volume of design decisions being made through agents was not. The same choices about color, spacing, typography, accessibility, density, iconography, and components kept appearing across the work.
+
+The question stopped being, "Are we large enough for a design system?" It became, "Are we repeating enough judgment that it should live somewhere besides my head?"
+
+## The first lever was a skill
+
+I didn't begin by building an entire design system. I started with a design engineering skill.
+
+By skill, I mean a set of instructions, references, and scripts that an agent can load while it works. I encoded foundational guidance for color, typography, spacing, accessibility, sizing, and density, then put it in the repository where our agents could call it automatically.
+
+Instead of waiting for the work to reach me and repeating the same feedback, I was trying to put some of that judgment closer to where the decisions were being made.
+
+Then I watched our demos.
+
+The results weren't perfect. Maybe 60% of the time, I started seeing better alignment here and there.
+
+That was enough to matter.
+
+That first skill was nowhere near a complete design system. But it showed me that encoded judgment could influence the work before everything had to come through me.
+
+## Sixty percent was enough
+
+<RailDigression label="Digression 01">
+  <Fragment slot="note">
+    Internally, we affectionately called that wild use of color Skittles.
+  </Fragment>
+  Before the skill, I kept seeing illustrative or decorative icons added to
+  interfaces for no real reason. Color was used wildly, without meaning. Agents
+  would build entirely new components instead of reaching for the canonical ones
+  already in our component library.
+</RailDigression>
+
+Afterward, those problems didn't disappear. But I started seeing agents use color and iconography more judiciously to support the workflow. They reached for our blessed components more often. The work was beginning to reflect decisions I hadn't personally made in that moment.
+
+That was the proof.
+
+The skill wasn't replacing taste or craft. It was reducing how often we had to start from zero. Even at 60%, the work arrived closer to the premium bar, which meant I could spend more of my time on the harder parts of the workflow.
+
+Since then, we've built out the design system and component library alongside more skills and scripts. The components make the right building blocks available. The encoded judgment helps agents understand when and why to use them.
+
+The lever got longer.
+
+## Repeated feedback is a system asking to exist
+
+The system now grows through review.
+
+When I see the same pattern showing up across the work, I treat it as a candidate for encoded judgment. Counts added to the end of titles or buttons are a good example. Most of the time, the count isn't helping someone make a better decision. It is just one more thing to process.
+
+I can remove it from one interface and leave a comment. But if I keep making the same correction, that correction shouldn't live only in the comment.
+
+The rule isn't "never use counts." Usually, one count in the right place is enough. Repeating it across titles and buttons doesn't make it more useful. If a count doesn't help someone understand or decide something, it doesn't need to be there.
+
+That judgment can become part of the design system vocabulary agents reach for while they work. Sometimes the answer belongs in a component. Sometimes it belongs in a skill or reference. Sometimes a script can catch it. The form matters less than moving the reasoning closer to the decision.
+
+This isn't limited to design judgment. My coworker [Jeff Wainwright](https://jeffry.in/) has since written fantastic ESLint and oxlint rules, along with stop hooks focused on code readability and legibility, performance at architectural boundaries, component discovery, and tighter feedback loops.
+
+That work encodes engineering judgment the same way the design system encodes design judgment. The agent gets useful feedback closer to the moment it makes the decision. Jeff has helped make the lever longer too.
+
+I still need to review the work. The goal isn't to remove the designer from the process. It is to stop spending human judgment on the same problem over and over when the system could have helped earlier.
+
+## The next lever is the feedback loop
+
+We haven't built all of this yet, but I can see where it could go.
+
+A hook could review UI changes before they're committed. An agent could spin up the product in a quick virtual machine, use Playwright to walk through the workflow, and visually inspect what it built instead of stopping when the code compiles and the tests pass.
+
+Are the fields labeled? Is the iconography helping someone understand the workflow? Did the agent reach for a canonical component or invent another one? Does the hierarchy make the next action clear? Does the whole thing feel resolved?
+
+Then the agent could fix what it finds before the work reaches a human.
+
+I don't expect the first version of that loop to be perfect. The first skill wasn't perfect either. It worked maybe 60% of the time, and that was still enough to change the work.
+
+The goal isn't to teach an agent to replace taste. It is to teach it where to look, give it useful criteria, and move familiar feedback earlier in the process. Human attention can stay on the parts the system hasn't learned yet.
+
+At the beginning of this series, the work had to pass through me before my judgment became useful. I still want to be part of the work. I just don't want every familiar decision waiting for me.
+
+The lever gets longer every time judgment stops being a private thought and becomes part of how the team works.
