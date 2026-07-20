@@ -44,21 +44,25 @@ Reference: https://piccalil.li/blog/building-a-breakout-element-with-container-u
 }
 
 /* Phase 3: route non-text blocks to wider rails */
-.post .post__content > :is(
-  pre,
-  .astro-code,
-  table,
-  figure,
-  img,
-  picture,
-  video,
-  iframe,
-  .post__popout
-) {
+.post
+  .post__content
+  > :is(
+    pre,
+    .astro-code,
+    table,
+    figure,
+    img,
+    picture,
+    video,
+    iframe,
+    .post__popout
+  ) {
   grid-column: popout;
 }
 
-.post .post__content > :is(div, p, figure):has(
+.post
+  .post__content
+  > :is(div, p, figure):has(
     > :is(img, picture, video, iframe, table, pre, .astro-code)
   ) {
   grid-column: popout;
@@ -121,6 +125,44 @@ Reference: https://piccalil.li/blog/building-a-breakout-element-with-container-u
   padding-inline: 0.15em;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
+}
+
+/* Accessible footnotes generated from Markdown references */
+.post .post__content [data-footnote-ref] {
+  color: var(--color-indigo-700);
+  font-size: 0.7em;
+  font-weight: var(--font-weight-bold);
+  line-height: 0;
+  margin-inline-start: 0.08em;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.15em;
+}
+
+.post .post__content > [data-footnotes] {
+  margin-block-start: var(--spacing-xl);
+  padding-block-start: var(--spacing-s);
+  border-block-start: 1px solid var(--color-gray-700);
+  color: var(--color-gray-1100);
+  font-size: var(--text-step-000);
+}
+
+.post .post__content [data-footnotes] > #footnote-label {
+  margin-block-end: var(--spacing-xs);
+  font-size: var(--text-step-1);
+}
+
+.post .post__content [data-footnotes] ol {
+  padding-inline-start: var(--spacing-s);
+}
+
+.post .post__content [data-footnotes] li::marker {
+  color: var(--color-indigo-700);
+  font-weight: var(--font-weight-bold);
+}
+
+.post .post__content [data-footnote-backref] {
+  margin-inline-start: var(--spacing-3xs);
+  white-space: nowrap;
 }
 
 /* Book-style rail digression: source text in flow, note in left margin */

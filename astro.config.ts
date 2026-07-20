@@ -6,6 +6,7 @@ import mdx from '@astrojs/mdx'
 import astroExpressiveCode from 'astro-expressive-code'
 import tailwindcss from '@tailwindcss/vite'
 import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers'
+import remarkGfm from 'remark-gfm'
 
 // export const prerender = false;
 
@@ -34,7 +35,9 @@ export default defineConfig({
       },
       plugins: [pluginLineNumbers()],
     }),
-    mdx(),
+    mdx({
+      remarkPlugins: [remarkGfm],
+    }),
     sitemap({
       filter: (page) => !page.includes('/sandbox/'),
     }),
