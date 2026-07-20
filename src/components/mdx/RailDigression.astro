@@ -1,18 +1,26 @@
 ---
 export interface Props {
   label?: string
+  note: string
   class?: string
 }
 
-const { label, class: className } = Astro.props
+const { label, note, class: className } = Astro.props
+
+if (!note?.trim()) {
+  throw new Error('RailDigression requires a non-empty note prop')
+}
 ---
 
 <div class:list={['post__rail-digression', className]}>
   <div class="post__rail-digression-source">
     <slot />
   </div>
-  <aside class="post__rail-digression-note" aria-label={label || 'Digression note'}>
+  <aside
+    class="post__rail-digression-note"
+    aria-label={label || 'Digression note'}
+  >
     {label && <p class="post__rail-digression-label">{label}</p>}
-    <slot name="note" />
+    <p>{note}</p>
   </aside>
 </div>

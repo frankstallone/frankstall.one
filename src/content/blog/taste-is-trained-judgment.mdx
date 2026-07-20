@@ -10,11 +10,10 @@ At [TENEX](https://tenex.ai/), we're building an AI-native, human-led security p
 
 I saw this while working on an investigation workflow. It worked. An analyst could complete the job, and at first glance, the workflow looked done.
 
-<RailDigression label="Digression 01">
-  <Fragment slot="note">
-    At this point in time I'm jealous of how fast software engineers can create
-    functionality.
-  </Fragment>
+<RailDigression
+  label="Digression 01"
+  note="At this point in time I'm jealous of how fast software engineers can create functionality."
+>
   For a minute, it can feel like real progress.
 </RailDigression>
 
@@ -32,9 +31,8 @@ I don't know that I ever thought taste was innate, but I didn't understand how m
 
 The mistake is treating taste like a mystical trait—like some people are born with it and everyone else is out of luck.
 
-<RailDigression label="Digression 02">
-  <Fragment slot="note">Taste may be the last moat.</Fragment>I don't buy that
-  taste is mystical. Taste is trained judgment.
+<RailDigression label="Digression 02" note="Taste may be the last moat.">
+  I don't buy that taste is mystical. Taste is trained judgment.
 </RailDigression>
 
 ## Taste is not preference
@@ -51,7 +49,7 @@ Taste says:
 
 > This card layout works because the hierarchy matches the user's decision path. The most important information is scannable first, the secondary details are available without competing, and the action is placed where the user naturally expects to act.
 
-Logo work works the same way. "I like this mark" doesn't tell us whether it identifies the organization without trying to communicate everything the organization does. It doesn't tell us whether the mark is appropriate, distinctive, or simple enough to work on a sign, an app icon, or a pin. Those are reasons a team can examine and use.
+Logo design works the same way. "I like this mark" doesn't tell us whether it identifies the organization without trying to communicate everything the organization does. It doesn't tell us whether the mark is appropriate, distinctive, or simple enough to work on a sign, an app icon, or a pin. Those are reasons a team can examine and use.
 
 "I like it" doesn't scale. Teams and organizations can scale reasoning, shared language, and principles. But if taste stays trapped inside personal preference, every design conversation becomes a debate over vibes.
 
@@ -67,7 +65,7 @@ David Hume wrote about taste as something improved through practice and comparis
 
 ## Before you can judge, you have to see
 
-Developing taste starts with learning to see. That sounds obvious, but I still catch myself recognizing what's in front of me without really looking at it. I glance. I categorize. I move on.
+Developing taste starts with learning to see. That sounds obvious, but I still catch myself recognizing what's in front of me without really looking at it. I glance. I categorize. I move on.[^interface-craft-noticing]
 
 I see the same thing when I'm reviewing AI-generated product work. A list gets a count it doesn't need. A quiet action gets an icon. A section gets a new color just so it feels different. A dense settings area gets the same breathing room as a simple empty state. An existing component gets extra class names even though the canonical version already looks good without overrides.
 
@@ -92,12 +90,14 @@ Interfaces work the same way. A color, component, or spacing decision can look f
 
 These are taste questions, but they start as observation questions.
 
-## The industry standard is the floor
+## The premium bar doesn't start with your competitors
 
-The thing I keep coming back to is this: users don't judge your product only against your competitors. They judge it against every good piece of software they use.
+Users don't limit their expectations to other products in your category. The premium bar starts with every good piece of software they already use.[^interface-craft-industry-standards]
 
-<RailDigression label="Digression 03">
-  <Fragment slot="note">Although honestly maybe not Apple these days.</Fragment>
+<RailDigression
+  label="Digression 03"
+  note="Although honestly maybe not Apple these days."
+>
   Your B2B dashboard is being compared, quietly and subconsciously, to Linear,
   Notion, Raycast, Stripe, Apple, and whatever else lives in the user's daily
   software diet.
@@ -125,21 +125,21 @@ Andrej Karpathy makes a [useful distinction between vibe coding and agentic engi
 
 I think design is running into the same problem. LLMs can raise the floor, but the average thing they produce is not the premium bar. Designers and engineers develop tacit knowledge from doing the work repeatedly. That knowledge helps us recognize the little things that make something feel unresolved, even when it technically works.
 
-At the time I gave this presentation, I was the only designer working with six-plus agentic engineers at a young startup. They could create functional features faster than I could review them.
+When I first presented these ideas, I was the only designer working with six-plus agentic engineers at a young startup. They could create functional features faster than I could review them.
 
 I was the dependency.
 
 Honestly, I didn't scale well enough to serve the team. I could look at a workflow and say it hadn't cleared the premium bar, or that the design wasn't resolved yet. I knew what I meant. But too much of the reasoning still lived in my head, so the work had to come through me before that judgment became useful.
 
-<RailDigression label="Digression 04">
-  <Fragment slot="note">
-    Agentic design engineering? I coined it. I don't love it. 🤣
-  </Fragment>
+<RailDigression
+  label="Digression 04"
+  note="Agentic design engineering? I coined it. I don't love it. 🤣"
+>
   It's the closest phrase I have for designers holding the same quality bar
   while working through agents.
 </RailDigression>
 
-That was the intention behind the quality filters. Tie product judgment to the brand attributes so the team has language for what is working, what is missing, and what needs more attention.
+I wanted to turn our brand attributes into quality filters so the team had language for what was working, what was missing, and what needed more attention.[^interface-craft-facets]
 
 We don't use that language internally yet. I want to be honest about that. It was the intention, and I still think the idea is right.
 
@@ -150,3 +150,9 @@ That's the part I didn't do well enough. I could see the gap, but I hadn't given
 The point isn't to turn taste into a checklist. It's to make the judgment useful before everything has to come through one person.
 
 The more clearly we see, the more clearly we can decide.
+
+[^interface-craft-noticing]: This section was inspired by Josh Puckett's excellent [Noticing](https://www.interfacecraft.dev/library/noticing) lesson from _Interface Craft_.
+
+[^interface-craft-industry-standards]: The framing here was inspired by Josh Puckett's excellent [Industry Standards](https://www.interfacecraft.dev/library/industry-standards) lesson from _Interface Craft_.
+
+[^interface-craft-facets]: The quality filters were inspired in part by Josh Puckett's excellent [Facets of Quality](https://www.interfacecraft.dev/library/facets-of-quality) lesson from _Interface Craft_.

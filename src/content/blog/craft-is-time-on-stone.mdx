@@ -10,14 +10,14 @@ In the first post in this series, I wrote that [taste is trained judgment](/blog
 
 Craft is what happens when we stay with that gap.
 
-An engineer-led project recently came to me after AI had helped take a workflow from zero to one. Every step, from creating the workflow to viewing it, lived on a single route. You could complete the job, and the team had a working demo.
+The investigation workflow from the first post began as an engineer-led project that AI had helped take from zero to one. Every step, from creating the workflow to viewing it, lived on a single route. You could complete the job, and the team had a working demo.
 
 Functionally, it was all there.
 
-<RailDigression label="Digression 01">
-  <Fragment slot="note">
-    In the wise words of Marty McFly: This is heavy.
-  </Fragment>
+<RailDigression
+  label="Digression 01"
+  note="In the wise words of Marty McFly: This is heavy."
+>
   AI can get a product team to a plausible first pass very quickly. That is
   genuinely useful. But a plausible first pass has a weird gravity. Once
   something renders, everyone starts treating it like it's closer to finished
@@ -53,13 +53,11 @@ Craft begins with something concrete enough to inspect and change. A working imp
 
 ## Subtraction is harder than addition
 
-The Austrian architect Adolf Loos wrote an essay called [_Ornament and Crime_](https://depts.washington.edu/vienna/documents/Loos/Loos_Ornament.htm). His argument about ornament was more complicated than the shorthand we remember, but the question underneath it still matters: does the decoration serve the thing it is attached to?
-
-Dieter Rams later gave designers a cleaner version: ["less, but better"](https://www.vitsoe.com/us/about/good-design). His tenth principle expands the idea:
+Dieter Rams gave designers a useful principle: ["less, but better"](https://www.vitsoe.com/us/about/good-design). His tenth principle expands the idea:
 
 > Good design is as little design as possible.
 
-The through line is restraint. **Restraint is care under pressure.** It's the ability to look at something that could have more and decide it shouldn't.
+The through line is restraint. **Restraint is care under pressure.** It's the ability to look at something that could have more and decide it shouldn't.[^interface-craft-less]
 
 More cards, more badges, more counting, more icons, more gradients, more shadow, more helper text. More custom components when a better battle-hardened version already exists in the blessed component library. This is ornament, just in React and Tailwind.
 
@@ -85,22 +83,21 @@ I think of an engineer-led implementation as a rough-out. It establishes the bro
 
 You can see the shape. You can see where it's going. But nobody mistakes a rough-out for the finished work.
 
-<RailDigression label="Digression 02">
-  <Fragment slot="note">
-    This is where I think designers and engineers can accidentally talk past
-    each other.
-  </Fragment>
+<RailDigression
+  label="Digression 02"
+  note="This is where I think designers and engineers can accidentally talk past each other."
+>
   An engineer may see a working implementation and think, "Great, the hard part
   is done." A designer may see the same screen and think, "Great, now we can
   finally see the hard part." Both reactions make sense. They are just seeing
   different parts of the work.
 </RailDigression>
 
-Both reactions make sense because the rough-out makes different kinds of work visible. It can satisfy the ticket while still missing the product. Craft is the part where we refuse to let "it exists" become the same thing as "it's done."
+The rough-out makes different kinds of work visible. It can satisfy the ticket while still missing the product. Craft is the part where we refuse to let "it exists" become the same thing as "it's done."
 
 I don't use Figma for this work. I work in the codebase itself. The engineers rough in the functionality, then I take out the finer tools and work through the hierarchy, interaction, accessibility, and details that make the workflow feel resolved.
 
-We're all standing around the same block of marble. The craft happens during time on stone.
+We're all standing around the same block of marble.
 
 Time on stone is when we shape the real material together, inside the product and its constraints. This is where the rough-out becomes a product experience.
 
@@ -127,3 +124,7 @@ That is what time on stone is for.
 Craft is not decoration. Craft is the visible result of decisions made carefully enough to disappear.
 
 Taste helps us see what matters. Craft helps us remove what does not.
+
+When the same craft decision keeps returning in review, it stops being only a review problem. It becomes a leverage opportunity.
+
+[^interface-craft-less]: This section was inspired in part by Josh Puckett's excellent [Less, but Better](https://www.interfacecraft.dev/library/less-but-better) lesson from _Interface Craft_.
