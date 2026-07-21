@@ -5,6 +5,29 @@
 @import 'tailwindcss/theme.css' layer(theme);
 @import './generated/tailwind-theme.css';
 
+/* shadcn semantic roles mapped to the canonical design tokens */
+@theme inline {
+  --color-background: var(--color-white);
+  --color-foreground: var(--color-gray-1400);
+  --color-card: var(--color-white);
+  --color-card-foreground: var(--color-gray-1400);
+  --color-popover: var(--color-white);
+  --color-popover-foreground: var(--color-gray-1400);
+  --color-primary: var(--color-gray-1400);
+  --color-primary-foreground: var(--color-white);
+  --color-secondary: var(--color-gray-500);
+  --color-secondary-foreground: var(--color-gray-1400);
+  --color-muted: var(--color-gray-400);
+  --color-muted-foreground: var(--color-gray-1100);
+  --color-accent: var(--color-indigo-100);
+  --color-accent-foreground: var(--color-indigo-900);
+  --color-destructive: var(--color-orange-700);
+  --color-destructive-foreground: var(--color-white);
+  --color-border: var(--color-gray-700);
+  --color-input: var(--color-gray-800);
+  --color-ring: var(--color-indigo-700);
+}
+
 @import './global/reset.css' layer(base);
 @import './global/fonts.css' layer(base);
 

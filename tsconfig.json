@@ -4,8 +4,14 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@ui": ["./src/components/ui"],
       "@ui/*": ["./src/components/ui/*"],
+      "@components": ["./src/components"],
       "@components/*": ["./src/components/*"],
+      "@lib": ["./src/lib"],
+      "@lib/*": ["./src/lib/*"],
+      "@hooks": ["./src/hooks"],
+      "@hooks/*": ["./src/hooks/*"],
       "@assets/*": ["./src/assets/*"],
       "@types": ["./src/types/index"],
       "@utils/*": ["src/scripts/*"]

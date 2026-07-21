@@ -1,0 +1,24 @@
+---
+import CraftWorkflowPrototype from '@components/article-workbench/CraftWorkflowPrototype'
+import Head from '@components/Head.astro'
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+---
+
+<!doctype html>
+<html lang="en">
+  <Head
+    meta={{
+      title: 'Craft Workflow Prototype',
+      description:
+        'Three interactive article illustration directions for Craft is time on stone.',
+      canonicalURL: canonicalURL.href,
+      robots: 'noindex, nofollow',
+    }}
+  />
+  <body>
+    <main id="main">
+      <CraftWorkflowPrototype client:load showSwitcher={import.meta.env.DEV} />
+    </main>
+  </body>
+</html>
