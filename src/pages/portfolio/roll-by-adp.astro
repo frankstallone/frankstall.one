@@ -12,7 +12,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
 <InnerLayout
-  subtitle="Revamping Roll by ADP, I transformed complex payroll processes into an intuitive mobile experience, focusing on simplifying payroll HCM and HR management for small business owners."
+  subtitle="I designed and built Roll's mobile payroll experience for small business owners. The goal was simple: make payroll feel like sending a text."
   meta={{
     title: 'Roll by ADP',
     description:
@@ -27,21 +27,17 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
         <div
           class="row-start-1 row-span-5 col-span-12 md:col-span-7 md:col-start-1 lg:col-span-6 lg:col-start-1 flow case-panel z-10"
         >
-          <h2 class="mt-zero">The Challenge</h2>
+          <h2 class="mt-zero">Make payroll feel small</h2>
           <p>
-            As I stepped into the ADP Innovation Labs, I was faced with a
-            daunting task: transforming the complexity of traditional payroll
-            systems into a streamlined, mobile-first solution for small business
-            owners. The goal was ambitious &mdash; to make payroll management as
-            simple as sending a text message.
+            I joined ADP Innovation Labs to help turn a traditional payroll
+            system into a mobile experience for small business owners. We wanted
+            running payroll to feel as simple as sending a text.
           </p>
           <p>
-            The challenge lay in the intricate web of employee attributes:
-            payment methods, mid-cycle raises, work hours, overtime, sick time -
-            all with varying logic determined by company, location, and
-            organizational structure. How could we distill this complexity into
-            an intuitive, user-friendly application that would seamlessly fit
-            into the daily lives of busy entrepreneurs?
+            The system still had to handle payment methods, raises during a pay
+            cycle, work hours, overtime, and sick time. The rules could change
+            by company, location, and organization. The interface had to keep
+            that complexity out of the owner's way without losing it.
           </p>
         </div>
         <Picture
@@ -63,25 +59,23 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
       <div
         class="row-start-3 row-span-4 col-start-1 col-span-12 md:row-span-4 md:col-span-8 md:row-start-2 md:col-start-4 flow case-panel z-10"
       >
-        <h2 class="mt-zero">Discovery and Collaboration</h2>
+        <h2 class="mt-zero">Narrow the first problem</h2>
         <p>
-          Our journey began in the main meeting room, surrounded by a diverse
-          team with over 40 years of combined payroll and <abbr
+          The team brought more than 40 years of combined payroll and <abbr
             title="Human Capital Management">HCM</abbr
-          > knowledge. From our <abbr title="Senior Vice President">SVP</abbr> of
-          Innovation to a few Product Owners, our Chief Architect, Content designer,
-          <abbr title="Quality Assurance">QA</abbr>
-          Lead, and <abbr title="Machine Learning">ML</abbr> &amp; Backend Engineers,
-          every voice at the table held value.
+          > knowledge. It included our <abbr title="Senior Vice President"
+            >SVP</abbr
+          >
+          of Innovation, Product Owners, Chief Architect, Content Designer,
+          <abbr title="Quality Assurance">QA</abbr> Lead, and <abbr
+            title="Machine Learning">ML</abbr
+          > and Backend Engineers.
         </p>
         <p>
-          I kicked off our discovery session by probing into the vast array of
-          employee attributes. As the list grew, it became clear that we needed
-          to narrow our focus even more. I asked and wrote down all the payroll
-          workflows we needed to design for and collectively decided to scope
-          our initial discussion to a single, critical flow: a manager managing
-          employee hours. Once we were happy with the design for this workflow,
-          we could come back to pressure test it on the other workflows.
+          I asked the team to list the employee data and payroll workflows we
+          needed to support. The list grew fast, so we picked one critical flow:
+          a manager entering employee hours. We would solve that first, then
+          test the design against the other workflows.
         </p>
       </div>
       <Picture
@@ -93,7 +87,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
             'object-contain h-full w-full row-start-1 row-span-5 col-start-1 col-span-12 md:row-start-1 md:row-span-10 md:col-span-8 md:col-start-1 ',
         }}
         class={'object-contain h-full w-full row-start-1 row-span-5 col-start-1 col-span-12 md:row-start-1 md:row-span-10 md:col-span-8 md:col-start-1 '}
-        alt="Small business owner smiling on a call with a customer"
+        alt="Whiteboard sketch of the employee hours workflow"
         formats={['avif', 'webp']}
         loading="lazy"
       />
@@ -106,7 +100,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
             'object-contain h-full w-full row-start-7 col-start-1 col-span-12 md:row-start-6 md:row-span-6 md:col-span-6 md:col-start-6 ',
         }}
         class={'object-contain h-full w-full row-start-7 col-start-1 col-span-12 md:row-start-6 md:row-span-6 md:col-span-6 md:col-start-6 '}
-        alt="Small business owner smiling on a call with a customer"
+        alt="High fidelity Roll payroll screen"
         formats={['avif', 'webp']}
         loading="lazy"
       />
@@ -117,62 +111,50 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
         <div
           class="row-start-1 col-start-1 row-span-12 col-span-12 md:row-start-1 md:row-span-2 md:col-start-1 md:col-span-6 flow case-panel"
         >
-          <h2 class="mt-zero">Ideation and Design</h2>
+          <h2 class="mt-zero">Keep the common work visible</h2>
           <p>
-            Armed with insights from our <abbr title="Subject Matter Experts"
-              >SME</abbr
-            >s, I started sketching on the whiteboard, noting down attributes.
-            It quickly became apparent that some attributes were non-essential
-            for our core functionality. I could see we were essentially aiming
-            for a list of employees that managers could quickly scroll through,
-            add hours to, and submit for payroll &mdash; with minimal friction
-            and cognitive load.
+            I sketched while our <abbr title="Subject Matter Experts">SMEs</abbr
+            >
+            named the data each employee could need. Some of it mattered only in special
+            cases. The common task was much smaller: scan a list of employees, enter
+            hours, and submit payroll.
           </p>
           <p>
-            As I absorbed the requirements, a solution began to take shape in my
-            mind. I saw how an accordion design pattern could elegantly solve
-            our problem. I sketched out an example on the whiteboard, explaining
-            how this pattern could hide less common attributes like overtime,
-            bonuses, and payment types, while keeping the interface clean and
-            accessible.
+            An accordion pattern let us keep that task visible while hiding
+            overtime, bonuses, payment types, and other less common details. I
+            drew the pattern on the whiteboard so the team could react to the
+            same idea.
           </p>
           <p>
-            The team's enthusiasm grew as they saw the concept come to life. We
-            then dove into discussing the hierarchy of the main attributes. I
-            guided the team through the importance of visual hierarchy, pressing
-            them to be judicious about what becomes a main attribute to prevent
-            cognitive overload.
+            We then decided which employee details deserved to stay visible.
+            Every item added weight, so a field had to earn its place in the
+            main row.
           </p>
           <p>
-            Finally we had consensus on a wireframe. We came back to the list of
-            other workflows and proceeded to contemplate if each could be
-            accomplished with this initial design idea.
+            Once the wireframe held together, we returned to the other payroll
+            workflows and checked whether the same pattern could support them.
           </p>
         </div>
         <div
           class="row-start-13 col-start-1 row-span-12 col-span-12 md:row-start-1 md:row-span-2 md:col-start-7 md:col-span-7 flow case-panel"
         >
-          <h2 class="mt-zero">From Wireframes to High-Fidelity Mockups</h2>
+          <h2 class="mt-zero">Pressure test the layout</h2>
           <p>
-            With an approved wireframe in hand, I moved to create high-fidelity
-            mockups. This step was crucial in pushing the design limits and
-            considering edge cases. I meticulously laid out the accordion
-            panels, designing an area to signal additional actions to users and
-            arranging the main attributes.
+            I moved the approved wireframe into high fidelity mockups. I laid
+            out the accordion panels, made room for more actions, and arranged
+            the main employee details.
           </p>
           <p>
-            Throughout this process, I maintained an open dialogue with our
-            backend developers, clarifying data structures and contemplating how
-            to make these panel layouts pliable with flexbox. Working closely
-            with the stakeholders, we explored various scenarios: How many
-            decimal places might we encounter? What about different pay cycles?
-            How would the design hold up when translated to German?
+            I worked with Backend Engineers to understand the data and how the
+            layout could adapt with flexbox. We tested long values, different
+            pay cycles, and German translations. The layout had to bend without
+            breaking the hierarchy.
           </p>
           <p>
-            Every decision was made with accessibility in mind, considering
-            color contrast ratios, font sizes, and readability. We stripped away
-            unnecessary design elements, keeping the user focused
-          </p>on their task.
+            We checked color contrast, type size, and readability as part of the
+            design. Then we removed anything that pulled attention away from the
+            payroll task.
+          </p>
         </div>
       </div>
     </div>
@@ -180,27 +162,25 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
       <RollPortfolioGrid />
     </div>
     <div class="region wrapper flow prose">
-      <div class="flex flex-col flow md:grid" data-layout="twelfths">
+      <div
+        class="flex flex-col flow md:grid md:grid-cols-12"
+        data-layout="twelfths"
+      >
         <div
-          class="md:row-start-1 md:row-span-4 md:col-start-1 md:col-span-6 flow case-panel z-10"
+          class="min-w-0 md:row-start-1 md:col-start-1 md:col-span-6 self-start flow case-panel z-10"
         >
-          <h2 class="mt-zero">Building the React Component</h2>
+          <h2 class="mt-zero">Build the pattern, not just the screen</h2>
           <p>
-            With approved mockups in hand, it was time to bring our designs to
-            life. I fired up Storybook and began building out compound React
-            components for our component library. Flexbox became my layout tool
-            of choice, offering the flexibility (no pun intended) we needed for
-            various screen sizes and orientations.
+            I built the approved design as compound React components in
+            Storybook. Flexbox let the employee rows adapt across screen sizes
+            and orientations.
           </p>
           <p>
-            Collaboration with our backend engineers was key during this phase.
-            We discussed data structures extensively to ensure our conversation
-            authors could easily display all the required information correctly.
-            Being the only UX/UI Designer on the team, ensuring a balance
-            between giving the backend team full control over the layout and
-            keeping the fidelity of the design output was carefully considered.
-            Ultimately, we found an elegant solution that maintained design
-            integrity while allowing for necessary flexibility.
+            The Backend Engineers needed control over the data and our
+            conversation authors needed to show the right details. As the only
+            UX and UI Designer on the team, I had to make that flexibility safe.
+            The component allowed the content to change without giving up the
+            hierarchy we had agreed on.
           </p>
         </div>
         <Picture
@@ -209,31 +189,28 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
           sizes={`(max-width: 300px) 300px, (max-width: 700px) 700px, ${accordionSketch.width}px`}
           pictureAttributes={{
             class:
-              'object-contain h-full w-full md:row-start-1 md:row-span-3 md:col-span-7 md:col-start-7 ',
+              'min-w-0 object-contain h-full w-full md:row-start-1 md:col-span-6 md:col-start-7 ',
           }}
-          class={'object-contain h-full w-full md:row-start-1 md:row-span-3 md:col-span-7 md:col-start-7 '}
+          class={'min-w-0 object-contain h-full w-full md:row-start-1 md:col-span-6 md:col-start-7 '}
           alt="Sketches of the main accordion panel with variations"
           formats={['avif', 'webp']}
           loading="lazy"
         />
         <div
-          class="md:row-start-5 md:row-span-3 md:col-start-1 md:col-span-6 flow case-panel z-10"
+          class="min-w-0 md:row-start-2 md:col-start-1 md:col-span-6 self-start flow case-panel z-10"
         >
-          <h2 class="mt-zero">Refinement and Implementation</h2>
+          <h2 class="mt-zero">Ship it into the app</h2>
 
           <p>
-            As we approached the finish line, I shipped a beta version of our
-            component library featuring the new AccordionList component. This
-            allowed our backend developers to start integrating it into the app
-            on their local build environments.
+            I shipped a beta of the component library with the new AccordionList
+            component. Backend Engineers could then integrate it into their
+            local app builds.
           </p>
           <p>
-            This phase was essential for identifying what worked well and what
-            needed modification. It gave me the opportunity to clean up code,
-            finalize lower-priority functionality, write tests, and
-            comprehensive documentation. Throughout this process, we continually
-            referred back to our original goals, ensuring that we were truly
-            simplifying the payroll process for small business owners.
+            Integration showed what worked and what needed to change. I cleaned
+            up the code, finished the remaining behavior, wrote tests, and
+            documented the component. We kept checking the result against the
+            original goal: make payroll simpler for small business owners.
           </p>
         </div>
         <video
@@ -241,7 +218,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
           playsinline
           loop
           muted
-          class="w-full h-full md:row-start-4 md:row-span-4 md:col-start-7 md:col-span-6"
+          class="min-w-0 w-full h-auto self-start md:row-start-2 md:row-span-2 md:col-start-8 md:col-span-5"
         >
           <source src={rollVideo} type="video/mp4" />
           Sorry, your browser doesn't support embedded videos. <a
@@ -249,33 +226,23 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
           >.
         </video>
         <div
-          class="md:row-start-8 md:row-span-4 md:col-start-3 md:col-span-7 flow case-panel z-10"
+          class="min-w-0 md:row-start-3 md:col-start-1 md:col-span-6 self-start flow case-panel z-10"
         >
-          <h3>The Results</h3>
+          <h3>Thirty seconds a week</h3>
           <p>
-            The outcome of our efforts was a robust, accessible, and intuitive
-            design solution that streamlined the payroll management process. We
-            had successfully transformed a complex task into an experience as
-            simple as engaging with a chat interface.
+            Roll turned a dense payroll process into a focused mobile flow. The
+            accordion kept the common work close and the unusual details within
+            reach.
           </p>
           <p>
-            By simplifying payroll management into an easy, mobile-first
-            experience, we helped Roll by ADP set a new standard for
-            user-centric design in financial applications. The feedback from
-            customers using the platform has been overwhelmingly positive,
-            confirming that we didn't just make payroll easier &mdash; we
-            transformed it into a task that could be handled on the go, with
-            just a few taps on a phone. The principal goal of Roll by ADP was to
-            be invisible. On average, our customers are only in our app for 30
-            seconds a week.
+            Roll's goal was to be almost invisible. Customers spent about 30
+            seconds a week in the app, on average. That is the result I care
+            about here. People could finish payroll and get back to running
+            their business.
           </p>
           <p>
-            This project represents how thoughtful user experience, coupled with
-            cutting-edge technology stacks, can revolutionize even the most
-            complex business processes. From discovery to implementation, every
-            step was taken with the end-user in mind, resulting in a solution
-            that truly meets the needs of small business owners in today's
-            fast-paced, mobile-first world.
+            The component also gave the team a reusable way to handle dense
+            employee data without designing every payroll workflow from scratch.
           </p>
         </div>
       </div>

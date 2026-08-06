@@ -9,9 +9,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
 <InnerLayout
-  subtitle="Creating 'just' another phone number input for Klaviyo's Ascent Design System subscribers."
+  subtitle="A phone number input for Klaviyo's Ascent Design System. Simple on the surface. Not simple underneath."
   meta={{
-    title: 'Klaviyo Ascent Design System: Phone input',
+    title: 'Klaviyo Ascent Design System: Phone number input',
     description:
       'Case study of the Ascent Design System Phone number input for Klaviyo, from the portfolio of Frank Stallone',
     canonicalURL: canonicalURL.href,
@@ -44,40 +44,33 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
         <div
           class="md:row-start-1 md:row-span-6 md:col-start-7 md:col-span-7 flow case-panel z-10"
         >
-          <h2 class="mt-zero">The Challenge</h2>
+          <h2 class="mt-zero">Phone numbers aren't simple</h2>
           <p>
-            What could be more simple than creating a Phone Number component?
-            Constructing a simple yet powerful component that was ready for the
-            future of the Klaviyo app, and work well for the marketing team.
+            A phone number input looks small until it has to work across
+            countries, locales, validation states, and the rest of an app.
           </p>
           <p>
-            The challenge here was to consider all of the possible ways to
-            layout an input, in the context of others, that gave the user
-            affordances to choose their country, and handling validation for
-            such a renown complex component.
+            The component needed to give people a clear country choice, format
+            the mask and placeholder for that country, and stay visually
+            consistent with Klaviyo.
           </p>
           <p>
-            Through discussions with the stakeholders I was able to acquire some
-            insight into previously used solutions by the marketing team, where
-            they wanted to go, and pulled that all into my research document.
-            There were a few stand out features that came became primary
-            priorities:
+            I spoke with stakeholders about the marketing team's earlier
+            solutions and where they needed to go. That research made three
+            priorities clear:
           </p>
           <ul>
             <li>
-              Representing different countries, with a default based on the
-              app's locale
+              Represent each country, with a default based on the app's locale
             </li>
             <li>
-              Phone number formatting of the input mask and placeholder based on
-              the country
+              Format the input mask and placeholder for the selected country
             </li>
-            <li>Consistent look and feel with the rest of the Klaviyo app</li>
+            <li>Match the look and feel of the Klaviyo app</li>
           </ul>
           <p>
-            Getting these primary considerations together, and in alignment with
-            stakeholders, meant the product and marketing teams would be able to
-            use this single component for their use cases.
+            The goal was one component that product and marketing teams could
+            use without solving the same problem twice.
           </p>
         </div>
       </div>
@@ -90,37 +83,30 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
         <div
           class="md:row-start-2 md:row-span-4 md:col-start-2 md:col-span-8 flow case-panel z-10"
         >
-          <h2 class="mt-zero">Discovery and Collaboration</h2>
+          <h2 class="mt-zero">Align the teams first</h2>
           <p>
-            This particular journey begins with an extensive list of prioritized
-            components and the organizations larger initiative to enter the
-            international space. We had an existing component that was similar,
-            the Number Input, however the variations for this input were growing
-            on it's own without putting in logic for phone numbers.
+            This started with a prioritized component list and Klaviyo's move
+            into international markets. We already had a Number Input, but its
+            variations were growing without phone number logic.
           </p>
           <p>
-            In talking to a few different team leaders I created a list of
-            stakeholders who had a vested interest in the results. These
-            stakeholders included Directors of Product Design, and Engineering
-            Managers on both the app team, and marketing team. I also consulted
-            with other Lead Product Designers who had related expertise. I
-            scheduled interviews with these individuals to inform them on my
-            process, gather any requirements or requests to create user stories,
-            and let them know how I would be communicating progress through
-            Jira.
+            I mapped the people who needed a say: Product Design directors,
+            Engineering Managers from the app and marketing teams, and Lead
+            Product Designers with related experience. I interviewed them for
+            requirements and user stories, then used Jira to keep progress
+            visible.
           </p>
           <p>
-            While waiting for those meetings, I starting a FigJam pulling in
-            existing references from our Number Input and commenting on
-            similarities and differences. I then performed cursory research into
-            what other design systems were doing for a Phone Number input, also
-            searching a few design system communities. I laughed &mdash; I had
-            personal experience designing and developing the Roll by ADP Phone
-            Number React input, and saw the same complex logic discussions and
-            trade offs in older online community threads. Specifically, I
-            remember dealing with the definitive phone number formatting and
-            parsing library, developed by Google. It's JavaScript port is 8MB
-            which drastically affects web app performance.
+            While those conversations were getting scheduled, I built a FigJam
+            from the existing Number Input. I marked what carried over and what
+            did not. I also looked at how other design systems and communities
+            handled phone number inputs.
+          </p>
+          <p>
+            I had built the Roll by ADP phone number React input before, so the
+            tradeoffs looked familiar. Accurate phone number formatting often
+            requires a large dependency. Correctness has a real performance
+            cost.
           </p>
         </div>
         <Picture
@@ -143,76 +129,56 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
         <div
           class="md:row-start-1 md:row-span-3 md:col-start-6 md:col-span-6 flow case-panel z-10"
         >
-          <h2 class="mt-zero">Ideation and Design</h2>
+          <h2 class="mt-zero">Turn requirements into rules</h2>
           <p>
-            Taking a step back to look at all of the data and information
-            collected from stakeholders, existing component methodology, and
-            research guidelines and UX from other design systems I'm armed with
-            everything I need to make decisions about how this component will
-            look and feel. This is where the whiteboard or sketchpad comes in
-            handy. I'll take themes that start to develop and sketch them out.
+            With the requirements, existing patterns, and outside research in
+            front of me, I started sketching. The point was to make the
+            decisions visible before locking them into Figma.
           </p>
           <p>
-            At the same time, I am writing a template we created for the design
-            system team to organize our documentation of the component. This
-            includes:
+            At the same time, I documented the component with the design system
+            team's template. It covered:
           </p>
           <ul>
             <li>
               Best practices
               <ul>
-                <li>What to use</li>
-                <li>When not to use</li>
+                <li>When to use it</li>
+                <li>When not to use it</li>
               </ul>
             </li>
             <li>Related components</li>
-            <li>Internal components (that will be used in this component)</li>
+            <li>Internal components used by this component</li>
             <li>Rules</li>
             <li>
               Behaviors
               <ul>
                 <li>
-                  States: Describing each state the component can be in, and the
-                  expectations
+                  States: Each state the component can be in and its expected
+                  behavior
                 </li>
                 <li>
-                  Interactions: Describing the mouse, keyboard, and screen
-                  reader expectations
+                  Interactions: Mouse, keyboard, and screen reader expectations
                 </li>
               </ul>
             </li>
             <li>
               Content
               <ul>
-                <li>
-                  Working with the Content design team to align with best
-                  practices, and set expectations
-                </li>
+                <li>Content Design guidance and expectations</li>
               </ul>
             </li>
           </ul>
           <p>
-            During our regular stand ups with the team, we critique everyones
-            work. This is where I bring up to the team my progress, and discuss
-            best practice decisions. After those critiques, I will update the
-            stakeholders to ensure they are on board, with the right level of
-            detail. For instance, a Product Owners may only need a written
-            bulleted list of what's been done, and whether we're on track.
-            Product Designers and Engineers who are subscribers to the design
-            system, and have a vested interest in the component may get that
-            same list with visuals, or links directly to Figma for them to
-            provide feedback.
+            We reviewed the work in regular standups. I brought the decisions
+            back to the team, then updated each stakeholder at the level they
+            needed: bullets for a Product Owner; visuals and Figma links for
+            designers and engineers who needed to respond.
           </p>
           <p>
-            Let's take a moment to talk about critiques. I have successfully
-            used a few techniques throughout my career that were embedded since
-            design school around critiques. No matter what your title is, I
-            always keep the conversation related to the ideas and decisions that
-            brought us to those ideas. Doing this keeps us on track with the
-            objectives shaped from the start, and dissolves any potential
-            emotional consequences. It's never about who is doing the work, it's
-            about the work and whether that meets the needs of our users and the
-            business.
+            A critique works when it stays about the decision, not the person
+            who made it. We kept returning to the original question: does this
+            serve the user and the business?
           </p>
         </div>
         <Picture
@@ -238,19 +204,17 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
         <div
           class="md:row-start-1 md:row-span-4 md:col-start-1 md:col-span-6 flow case-panel z-10"
         >
-          <h2 class="mt-zero">Refinement &amp; Results</h2>
+          <h2 class="mt-zero">Make it fit the system</h2>
           <p>
-            Since Figma is the tool of choice these days, it's worth noting that
-            I will start designing without aligning Figma Styles or Variants for
-            speed, and to explore any newer innovation a component may need.
-            During the refinement stages, I start to align closer to existing
-            component design principals that have been set by the team. In this
-            particular case, the Phone input is similar to the Text input, a
-            form component. That means sitting it in a Field component to see
-            how it works with other inputs, labels, descriptions, and error
-            messages. I'll also start applying any relevant Styles and replacing
-            any parts with existing internal components that are already solving
-            that problem.
+            I start fast in Figma. Early exploration does not need every Style
+            and Variant in place. Refinement is where the work has to fit the
+            system.
+          </p>
+          <p>
+            The Phone Input is a form control, like the Text Input, so I placed
+            it in a Field to test it with other inputs, labels, descriptions,
+            and error messages. I applied the relevant Styles and replaced parts
+            with internal components where they already solved the problem.
           </p>
           <Picture
             src={field}
@@ -260,43 +224,32 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
               class: 'object-contain h-auto w-auto ',
             }}
             class={'object-contain h-auto w-auto '}
-            alt="Phone input component in a Field component showing variants"
+            alt="Phone number input component in a Field component showing variants"
             formats={['avif', 'webp']}
             loading="lazy"
           />
-          <p>
-            Coming back to the documentation for the component, this is where I
-            add:
-          </p>
+          <p>The documentation then added:</p>
           <ul>
+            <li>Visual examples of what to do and what not to do</li>
             <li>
-              Visual representations of what to do, and what not to do for the
-              Rules
+              Variants: Relevant states, how they differ from the base, and the
+              data they need
             </li>
             <li>
-              Variants: Relevant states and how they look compared to base, and
-              any relevant data
-            </li>
-            <li>
-              Anatomy: One of the visuals we use on the documentation site, and
-              in the Figma component itself is a section with redlines to
-              clearly articulate naming. This helps for describing and talking
-              about the decisions made about each of these parts that make the
-              whole
+              Anatomy: Redlines and shared names for the parts that make the
+              whole component
             </li>
           </ul>
           <p>
-            Finally we clean up the Figma file ensuring actual components are in
-            the right page, and that there is a documentation page with examples
-            of all the relevant states and considerations.
+            Finally, I cleaned up the Figma file. The components lived on the
+            right page, with a documentation page for the relevant states and
+            considerations.
           </p>
           <p>
-            The results are a well thought out component with all the design,
-            development, content, and accessibility considerations that make our
-            teams more efficient and effective at their job. We'll ensure we've
-            updated the Figma library changelog accordingly, and broadcast to
-            all stakeholders via email newsletters, Slack groups, DM's and
-            relevant calls.
+            The final handoff brought the component, its states, examples, and
+            guidance into one place. The release process then called for a Figma
+            library changelog update and announcements through email, Slack,
+            direct messages, and team calls.
           </p>
         </div>
         <video
@@ -319,14 +272,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
       </div>
     </div>
     <div class="region wrapper">
-      <div class="case-panel mx-auto flow prose">
-        <h2>React component</h2>
+      <div class="case-panel center flow prose" style="--measure: 50ch;">
+        <h2>Build it to find the compromises</h2>
         <div>
           <PhoneInput client:idle />
         </div>
         <p>
-          What does this look like as a React component? Functionally, we have
-          this <code>PhoneInput</code>
+          Here is the React prototype. The <code>PhoneInput</code>
           <a
             href="https://github.com/frankstallone/frankstall.one/blob/main/src/components/ui/PhoneInput.tsx"
           >
@@ -338,15 +290,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
               ><path
                 d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
               ></path></svg
-            > working correctly
-          </a> with some caveats. The world is imperfect. When thinking about that
-          conversation between design and development, compromises need to occur.
+            > source
+          </a> works, with caveats. The world is imperfect. Design and development
+          have to make tradeoffs.
         </p>
         <p>
-          Input masking is a good example. The design called for the country
-          code to be in place. Doing so is more of a challenge. Another user
-          experience consideration is what happens to numbers already input,
-          after the <code>CountrySelector</code>
+          Input masking is one example. The design called for the country code
+          to stay in place. That is harder than it sounds. Another question:
+          what should happen to a number after the <code>CountrySelector</code>
           <a
             href="https://github.com/frankstallone/frankstall.one/blob/main/src/components/ui/CountrySelector.tsx"
           >
@@ -358,26 +309,22 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
               ><path
                 d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
               ></path></svg
-            > component
-          </a> is updated? Currently, we clear the field. Is that the best UX?
+            > source
+          </a> changes? This prototype clears the field. Is that the right experience?
         </p>
         <p>
-          Other trade offs are with the dependencies we use. Do we build the
-          input mask and formatter by hand? I've decided to use a dependency for
-          input masking, formatting, and the custom select menu. These
-          dependencies come with their own problems. For instance, the <code
-            >radix</code
-          > dependency has an SVG icon when toggling on <code
-            >position="popper</code
-          >. This icon has no class, or data attribute, or option to toggle off.
-          Therefore, I have kept Radix's native MacOS menu style for the portal.
+          Dependencies create their own tradeoffs. I used libraries for input
+          masking, formatting, and the custom select menu instead of building
+          them by hand. Radix, for example, adds an SVG icon when <code
+            >position="popper"</code
+          > is enabled. In this prototype, I could not remove or target that icon,
+          so I kept Radix's native macOS menu style for the portal.
         </p>
         <p>
-          As a prototype of this being built in React, I'm pleased. We have all
-          the elements and everything is accessible for keyboard users. For
-          production, I would go deeper into the pros and cons of using these
-          depenedencies, look for more options, and read into what other
-          community members have done in the past.
+          As a React prototype, it has the core pieces and keyboard access.
+          Before production, I would test the dependency choices more deeply,
+          compare alternatives, and study how others have handled the same
+          problems.
         </p>
       </div>
     </div>
