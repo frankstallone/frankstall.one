@@ -1,7 +1,7 @@
 /* Buttons */
 
 .button {
-  @apply font-display no-underline font-medium text-step-0 bg-transparent text-gray-1400 cursor-pointer border border-gray-700 px-s py-2xs text-center;
+  @apply font-display no-underline font-medium text-step-0 bg-transparent text-gray-1400 cursor-pointer border border-gray-700 rounded-md px-s py-2xs text-center;
   transition:
     background-color var(--motion-duration-ui) var(--motion-ease-out),
     color var(--motion-duration-ui) var(--motion-ease-out),

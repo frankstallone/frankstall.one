@@ -50,7 +50,7 @@
   align-items: center;
   gap: var(--spacing-2xs);
   min-block-size: 44px;
-  border-radius: 999px;
+  border-radius: var(--radius-md);
   padding-inline: var(--spacing-s);
   padding-block: var(--spacing-2xs);
   box-shadow:
@@ -112,7 +112,7 @@
   min-block-size: 1.75rem;
   padding-inline: var(--spacing-2xs);
   padding-block: 0.125rem;
-  border-radius: var(--spacing-3xs);
+  border-radius: var(--radius-md);
   touch-action: manipulation;
 }
 
