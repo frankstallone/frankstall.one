@@ -1,20 +1,27 @@
 /* Buttons */
 
+:where(button, .button, .faq-button, [data-slot='button']) {
+  scale: 1;
+  transition: scale var(--motion-duration-micro) var(--motion-ease-standard);
+}
+
+:where(button, .button, .faq-button, [data-slot='button']):not(:disabled):not(
+    [aria-disabled='true']
+  ):active:not(:focus-visible) {
+  scale: 0.98;
+}
+
 .button {
-  @apply font-display no-underline font-medium text-step-0 bg-transparent text-gray-1400 cursor-pointer border border-gray-700 px-s py-2xs text-center;
+  @apply font-display no-underline font-medium text-step-0 bg-transparent text-gray-1400 cursor-pointer border border-gray-700 rounded-md px-s py-2xs text-center;
   transition:
     background-color var(--motion-duration-ui) var(--motion-ease-out),
     color var(--motion-duration-ui) var(--motion-ease-out),
-    transform var(--motion-duration-micro) var(--motion-ease-standard);
+    scale var(--motion-duration-micro) var(--motion-ease-standard);
 }
 
 .button:focus-visible {
   @apply bg-gray-200;
   text-decoration: none;
-}
-
-.button:active {
-  transform: scale(0.98);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -24,6 +31,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  :where(button, .button, .faq-button, [data-slot='button']):active {
+    scale: 1;
+  }
+
   .button {
     transition: none;
   }

@@ -113,6 +113,7 @@ form > p label {
 input,
 textarea {
   border: 1px solid var(--color-gray-800);
+  border-radius: var(--radius-md);
   padding-block: var(--spacing-2xs);
   padding-inline: var(--spacing-xs);
 }
