@@ -1,11 +1,14 @@
 :root {
   --gutter: var(--spacing-s);
   --rhythm: var(--spacing-s);
-  --motion-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --motion-ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
   --motion-ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
   --motion-duration-micro: 120ms;
   --motion-duration-ui: 180ms;
   --motion-duration-reveal: 260ms;
+  --motion-duration-press: 160ms;
+  --motion-duration-release: 100ms;
   --transition-base: 250ms ease;
   --transition-movement: 200ms linear;
   --transition-fade: 300ms ease;

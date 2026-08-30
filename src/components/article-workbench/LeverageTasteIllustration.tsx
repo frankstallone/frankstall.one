@@ -2,6 +2,7 @@ import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { BellRing, Gem, WandSparkles, type LucideIcon } from 'lucide-react'
 import { useState } from 'react'
 
+import { motionDuration, motionEasing } from '@lib/motion'
 import { cn } from '@lib/utils'
 import { Badge } from '@ui/badge'
 import { Button } from '@ui/button'
@@ -24,20 +25,29 @@ function InterfaceRow({
   iconClassName: string
   reducedMotion: boolean
 }) {
-  const transition = { duration: reducedMotion ? 0 : 0.18 }
+  const transition = {
+    duration: reducedMotion ? 0 : motionDuration.ui,
+    ease: motionEasing.out,
+  }
 
   return (
     <motion.div
-      layout={!reducedMotion}
+      layout={reducedMotion ? false : 'position'}
       className="flex flex-col items-stretch gap-3 rounded-lg border border-gray-700 bg-background px-3 py-2.5 md:flex-row md:items-center md:justify-between"
     >
       <div className="flex min-w-0 items-center gap-2">
         <AnimatePresence initial={false}>
           {!resolved && (
             <motion.span
-              initial={reducedMotion ? false : { opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1, width: 28 }}
-              exit={{ opacity: 0, scale: 0.8, width: 0 }}
+              initial={
+                reducedMotion ? false : { opacity: 0, transform: 'scale(0.95)' }
+              }
+              animate={{ opacity: 1, transform: 'scale(1)' }}
+              exit={
+                reducedMotion
+                  ? { opacity: 0 }
+                  : { opacity: 0, transform: 'scale(0.95)' }
+              }
               transition={transition}
               className={cn(
                 'flex size-7 shrink-0 items-center justify-center overflow-hidden rounded-md',
@@ -54,11 +64,19 @@ function InterfaceRow({
             <AnimatePresence initial={false}>
               {!resolved && (
                 <motion.span
-                  initial={reducedMotion ? false : { opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.8 }}
+                  initial={
+                    reducedMotion
+                      ? false
+                      : { opacity: 0, transform: 'scale(0.95)' }
+                  }
+                  animate={{ opacity: 1, transform: 'scale(1)' }}
+                  exit={
+                    reducedMotion
+                      ? { opacity: 0 }
+                      : { opacity: 0, transform: 'scale(0.95)' }
+                  }
                   transition={transition}
-                  className="ml-1 text-muted-foreground"
+                  className="ml-1 inline-block text-muted-foreground"
                 >
                   {' '}
                   ({count})
@@ -80,11 +98,16 @@ function InterfaceRow({
         <AnimatePresence initial={false}>
           {!resolved && (
             <motion.span
-              initial={reducedMotion ? false : { opacity: 0, width: 0 }}
-              animate={{ opacity: 1, width: 'auto' }}
-              exit={{ opacity: 0, width: 0 }}
+              initial={
+                reducedMotion ? false : { opacity: 0, transform: 'scale(0.95)' }
+              }
+              animate={{ opacity: 1, transform: 'scale(1)' }}
+              exit={
+                reducedMotion
+                  ? { opacity: 0 }
+                  : { opacity: 0, transform: 'scale(0.95)' }
+              }
               transition={transition}
-              className="overflow-hidden"
             >
               &nbsp;({count})
             </motion.span>

@@ -9,6 +9,7 @@ import {
 } from 'lucide-react'
 import { useRef, useState, type ReactNode } from 'react'
 
+import { motionDuration, motionEasing } from '@lib/motion'
 import { cn } from '@lib/utils'
 import { Alert, AlertDescription, AlertTitle } from '@ui/alert'
 import { Badge } from '@ui/badge'
@@ -23,6 +24,7 @@ import {
 } from '@ui/card'
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
@@ -36,8 +38,6 @@ import { Separator } from '@ui/separator'
 import { Tabs, TabsList, TabsTrigger } from '@ui/tabs'
 
 export type WorkflowState = 'rough' | 'resolved'
-
-const easeOut = [0.22, 1, 0.36, 1] as const
 
 export function WorkflowFrame({
   children,
@@ -78,6 +78,7 @@ export function RoughWorkflowFragment({
   const [name, setName] = useState('')
   const [lostDraft, setLostDraft] = useState(false)
   const dialogBoundaryRef = useRef<HTMLDivElement>(null)
+  const reducedMotion = useReducedMotion()
 
   const changeOpen = (nextOpen: boolean) => {
     if (!nextOpen && name) {
@@ -170,13 +171,11 @@ export function RoughWorkflowFragment({
                   )}
                 </div>
                 <DialogFooter>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => changeOpen(false)}
-                  >
-                    Cancel
-                  </Button>
+                  <DialogClose asChild>
+                    <Button variant="outline" size="sm">
+                      Cancel
+                    </Button>
+                  </DialogClose>
                   <Button size="sm">Create &amp; run</Button>
                 </DialogFooter>
               </DialogContent>
@@ -190,9 +189,17 @@ export function RoughWorkflowFragment({
           <AnimatePresence>
             {lostDraft && (
               <motion.div
-                initial={{ opacity: 0, y: -4 }}
-                animate={{ opacity: 1, y: 0 }}
+                initial={
+                  reducedMotion
+                    ? { opacity: 0, transform: 'translateY(0)' }
+                    : { opacity: 0, transform: 'translateY(-4px)' }
+                }
+                animate={{ opacity: 1, transform: 'translateY(0)' }}
                 exit={{ opacity: 0 }}
+                transition={{
+                  duration: motionDuration.ui,
+                  ease: motionEasing.out,
+                }}
               >
                 <Alert variant="destructive" className="py-2 text-xs">
                   <AlertTriangle aria-hidden="true" />
@@ -256,7 +263,7 @@ export function ResolvedWorkflowFragment({
             <motion.div
               initial={reducedMotion ? false : { opacity: 0, y: -4 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.2, ease: easeOut }}
+              transition={{ duration: 0.2, ease: motionEasing.out }}
             >
               <Alert variant="destructive">
                 <AlertTriangle aria-hidden="true" />
@@ -353,7 +360,10 @@ export function CraftWorkflowIllustration() {
               opacity: state === 'rough' ? 1 : 0,
               x: reducedMotion || state === 'rough' ? 0 : -8,
             }}
-            transition={{ duration: reducedMotion ? 0 : 0.22, ease: easeOut }}
+            transition={{
+              duration: reducedMotion ? 0 : 0.22,
+              ease: motionEasing.out,
+            }}
           >
             <RoughWorkflowFragment />
           </motion.div>
@@ -368,7 +378,10 @@ export function CraftWorkflowIllustration() {
               opacity: state === 'resolved' ? 1 : 0,
               x: reducedMotion || state === 'resolved' ? 0 : 8,
             }}
-            transition={{ duration: reducedMotion ? 0 : 0.22, ease: easeOut }}
+            transition={{
+              duration: reducedMotion ? 0 : 0.22,
+              ease: motionEasing.out,
+            }}
           >
             <ResolvedWorkflowFragment />
           </motion.div>

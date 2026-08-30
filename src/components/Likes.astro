@@ -17,7 +17,7 @@ const { count, slug } = Astro.props
 >
   <button
     aria-label="Click to like this post"
-    class="border border-gray-700 rounded-md flex justify-center align-center px-xs py-2xs bg-transparent text-step-00 text-gray-1400 disabled:opacity-50 disabled:cursor-not-allowed"
+    class="post-likes__button border border-gray-700 rounded-md flex justify-center align-center px-xs py-2xs bg-transparent text-step-00 text-gray-1400 disabled:opacity-50 disabled:cursor-not-allowed"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -40,6 +40,8 @@ const { count, slug } = Astro.props
 <script>
   import { animate } from 'motion'
 
+  import { motionDuration, motionEasing } from '@lib/motion'
+
   interface LikeResponse {
     liked?: boolean
     count?: number
@@ -58,6 +60,7 @@ const { count, slug } = Astro.props
     private liked: boolean
     private isUpdating: boolean
     private readonly shouldReduceMotion: boolean
+    private errorAnimation: ReturnType<typeof animate> | null
 
     constructor() {
       super()
@@ -89,6 +92,7 @@ const { count, slug } = Astro.props
       this.countValue = countValue
       this.liked = false
       this.isUpdating = true
+      this.errorAnimation = null
       this.shouldReduceMotion = window.matchMedia(
         '(prefers-reduced-motion: reduce)',
       ).matches
@@ -103,6 +107,11 @@ const { count, slug } = Astro.props
       this.addLikeButtonEventListener()
       // Update the liked state before allowing user interaction
       void this.hydrateLikedState()
+    }
+
+    disconnectedCallback() {
+      this.errorAnimation?.stop()
+      this.errorAnimation = null
     }
 
     private addLikeButtonEventListener() {
@@ -228,11 +237,11 @@ const { count, slug } = Astro.props
       animate(
         this.likeButton,
         {
-          scale: [1, 1.03, 1],
+          transform: ['scale(1)', 'scale(1.03)', 'scale(1)'],
         },
         {
-          duration: 0.18,
-          ease: [0.22, 1, 0.36, 1],
+          duration: motionDuration.ui,
+          ease: motionEasing.out,
         },
       )
 
@@ -240,11 +249,11 @@ const { count, slug } = Astro.props
         this.countValue,
         {
           opacity: [0, 1],
-          y: [this.liked ? -4 : 4, 0],
+          transform: [`translateY(${this.liked ? -4 : 4}px)`, 'translateY(0)'],
         },
         {
-          duration: 0.2,
-          ease: [0.22, 1, 0.36, 1],
+          duration: motionDuration.ui,
+          ease: motionEasing.out,
         },
       )
     }
@@ -267,10 +276,28 @@ const { count, slug } = Astro.props
 
     private showError(message: string) {
       console.error(message)
-      this.likeButton.classList.add('error')
-      setTimeout(() => {
-        this.likeButton.classList.remove('error')
-      }, 2000)
+      this.errorAnimation?.stop()
+      this.errorAnimation = null
+
+      if (this.shouldReduceMotion) {
+        return
+      }
+
+      this.errorAnimation = animate(
+        this.likeButton,
+        {
+          transform: [
+            'translateX(0)',
+            'translateX(-2px)',
+            'translateX(2px)',
+            'translateX(0)',
+          ],
+        },
+        {
+          duration: motionDuration.ui,
+          ease: motionEasing.out,
+        },
+      )
     }
   }
 
@@ -280,23 +307,26 @@ const { count, slug } = Astro.props
 </script>
 
 <style>
-  .error {
-    animation: nudge 220ms cubic-bezier(0.22, 1, 0.36, 1) both;
-    transform: translate3d(0, 0, 0);
+  .post-likes__button {
+    transition:
+      background-color var(--motion-duration-ui) var(--motion-ease-out),
+      color var(--motion-duration-ui) var(--motion-ease-out),
+      scale var(--motion-duration-release) var(--motion-ease-out);
   }
 
-  @keyframes nudge {
-    25% {
-      transform: translate3d(-2px, 0, 0);
-    }
-    75% {
-      transform: translate3d(2px, 0, 0);
-    }
+  .post-likes__button:active {
+    transition:
+      background-color var(--motion-duration-ui) var(--motion-ease-out),
+      color var(--motion-duration-ui) var(--motion-ease-out),
+      scale var(--motion-duration-press) var(--motion-ease-out);
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .error {
-      animation: none;
+    .post-likes__button,
+    .post-likes__button:active {
+      transition:
+        background-color var(--motion-duration-ui) var(--motion-ease-out),
+        color var(--motion-duration-ui) var(--motion-ease-out);
     }
   }
 </style>

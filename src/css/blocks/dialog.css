@@ -1,0 +1,68 @@
+[data-slot='dialog-overlay'] {
+  opacity: 1;
+  transition: opacity 160ms var(--motion-ease-out);
+}
+
+[data-slot='dialog-overlay'][data-motion-state='closing'] {
+  animation: dialog-overlay-out 160ms var(--motion-ease-out) forwards;
+}
+
+[data-slot='dialog-content'] {
+  opacity: 1;
+  scale: 1;
+  transition:
+    opacity 200ms var(--motion-ease-out),
+    scale 200ms var(--motion-ease-out);
+}
+
+[data-slot='dialog-content'][data-motion-state='closing'] {
+  animation: dialog-content-out 200ms var(--motion-ease-out) forwards;
+}
+
+@starting-style {
+  [data-slot='dialog-overlay'][data-state='open'] {
+    opacity: 0;
+  }
+
+  [data-slot='dialog-content'][data-state='open'] {
+    opacity: 0;
+    scale: 0.95;
+  }
+}
+
+@keyframes dialog-overlay-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes dialog-content-out {
+  to {
+    opacity: 0;
+    scale: 0.95;
+  }
+}
+
+@keyframes dialog-content-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-slot='dialog-content'] {
+    scale: 1;
+    transition: opacity 160ms var(--motion-ease-out);
+  }
+
+  [data-slot='dialog-content'][data-motion-state='closing'] {
+    scale: 1;
+    animation: dialog-content-fade-out 160ms var(--motion-ease-out) forwards;
+  }
+
+  @starting-style {
+    [data-slot='dialog-content'][data-state='open'] {
+      scale: 1;
+    }
+  }
+}
