@@ -1,27 +1,27 @@
-import { useState, createElement, forwardRef } from 'react';
-import * as Select from '@radix-ui/react-select';
-import classnames from 'classnames';
-import { Chevron } from '@ui/svg/chevron';
+import { useState, createElement, forwardRef } from 'react'
+import * as Select from '@radix-ui/react-select'
+import classnames from 'classnames'
+import { Chevron } from '@ui/svg/chevron'
 // https://nucleoapp.com/svg-flag-icons
-import { Ukraine } from '@ui/flags/ukraine';
-import { UnitedArabEmirates } from '@ui/flags/unitedarabemirates';
-import { UnitedKingdom } from '@ui/flags/unitedkingdom';
-import { UnitedStates } from '@ui/flags/unitedstates';
-import { Uruguay } from '@ui/flags/uruguay';
-import { Uzbekistan } from '@ui/flags/uzbekistan';
-import { Venezuela } from '@ui/flags/venezuela';
-import { Vietnam } from '@ui/flags/vietnam';
-import { Yemen } from '@ui/flags/yemen';
-import { Zambia } from '@ui/flags/zambia';
-import { Zimbabwe } from '@ui/flags/zimbabwe';
+import { Ukraine } from '@ui/flags/ukraine'
+import { UnitedArabEmirates } from '@ui/flags/unitedarabemirates'
+import { UnitedKingdom } from '@ui/flags/unitedkingdom'
+import { UnitedStates } from '@ui/flags/unitedstates'
+import { Uruguay } from '@ui/flags/uruguay'
+import { Uzbekistan } from '@ui/flags/uzbekistan'
+import { Venezuela } from '@ui/flags/venezuela'
+import { Vietnam } from '@ui/flags/vietnam'
+import { Yemen } from '@ui/flags/yemen'
+import { Zambia } from '@ui/flags/zambia'
+import { Zimbabwe } from '@ui/flags/zimbabwe'
 
 interface CountrySelectorProps {
-  updateTemplate: (value: string) => void;
+  updateTemplate: (value: string) => void
 }
 interface CountryOption {
-  value: string;
-  label: string;
-  icon: React.FC;
+  value: string
+  label: string
+  icon: React.FC
 }
 
 const options: CountryOption[] = [
@@ -40,7 +40,7 @@ const options: CountryOption[] = [
   { value: 'YE', label: 'Yemen', icon: Yemen },
   { value: 'ZM', label: 'Zambia', icon: Zambia },
   { value: 'ZW', label: 'Zimbabwe', icon: Zimbabwe },
-];
+]
 
 /**
  * CountrySelector component
@@ -51,18 +51,18 @@ const options: CountryOption[] = [
 const CountrySelector: React.FC<CountrySelectorProps> = ({
   updateTemplate,
 }) => {
-  const [country, setCountry] = useState(options[3]);
+  const [country, setCountry] = useState(options[3])
 
   const handleSetCountry = (value: string) => {
-    setCountry(options.find((option) => option.value === value) || options[3]);
-    updateTemplate(value);
-  };
+    setCountry(options.find((option) => option.value === value) || options[3])
+    updateTemplate(value)
+  }
 
   function getCountryFlag(country: CountryOption) {
     return createElement(
       options.find((option) => option.value === country.value)?.icon ||
         UnitedStates,
-    );
+    )
   }
 
   return (
@@ -75,7 +75,11 @@ const CountrySelector: React.FC<CountrySelectorProps> = ({
       </Select.Trigger>
 
       <Select.Portal>
-        <Select.Content className="country-selector-menu">
+        <Select.Content
+          className="country-selector-menu"
+          position="popper"
+          sideOffset={4}
+        >
           <Select.ScrollUpButton />
           <Select.Viewport>
             {options.map((option) => (
@@ -89,14 +93,14 @@ const CountrySelector: React.FC<CountrySelectorProps> = ({
         </Select.Content>
       </Select.Portal>
     </Select.Root>
-  );
-};
+  )
+}
 
 interface SelectItemProps {
-  children: React.ReactNode;
-  className?: string;
-  value: string;
-  [key: string]: any;
+  children: React.ReactNode
+  className?: string
+  value: string
+  [key: string]: any
 }
 
 const SelectItem = forwardRef<HTMLDivElement, SelectItemProps>(
@@ -110,8 +114,8 @@ const SelectItem = forwardRef<HTMLDivElement, SelectItemProps>(
       >
         <Select.ItemText>{children}</Select.ItemText>
       </Select.Item>
-    );
+    )
   },
-);
+)
 
-export default CountrySelector;
+export default CountrySelector
