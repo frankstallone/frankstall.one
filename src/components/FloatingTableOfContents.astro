@@ -60,6 +60,7 @@ const { headings } = Astro.props
     private readonly visibleHeadingIds: Set<string>
     private activeHeadingId: string | null
     private frameRequest: number | null
+    private scrollEndTimer: number | null
 
     constructor() {
       super()
@@ -82,6 +83,7 @@ const { headings } = Astro.props
       this.visibleHeadingIds = new Set<string>()
       this.activeHeadingId = null
       this.frameRequest = null
+      this.scrollEndTimer = null
       this.onToggle = this.onToggle.bind(this)
       this.onBackdropClick = this.onBackdropClick.bind(this)
       this.onCloseClick = this.onCloseClick.bind(this)
@@ -89,6 +91,7 @@ const { headings } = Astro.props
       this.onPanelClick = this.onPanelClick.bind(this)
       this.onIntersection = this.onIntersection.bind(this)
       this.onScroll = this.onScroll.bind(this)
+      this.onResize = this.onResize.bind(this)
       this.onHashChange = this.onHashChange.bind(this)
     }
 
@@ -116,11 +119,14 @@ const { headings } = Astro.props
       this.panel?.removeEventListener('click', this.onPanelClick)
       document.removeEventListener('keydown', this.onKeyDown)
       window.removeEventListener('scroll', this.onScroll)
-      window.removeEventListener('resize', this.onScroll)
+      window.removeEventListener('resize', this.onResize)
       window.removeEventListener('hashchange', this.onHashChange)
       this.headingObserver?.disconnect()
       if (this.frameRequest !== null) {
         window.cancelAnimationFrame(this.frameRequest)
+      }
+      if (this.scrollEndTimer !== null) {
+        window.clearTimeout(this.scrollEndTimer)
       }
     }
 
@@ -183,7 +189,7 @@ const { headings } = Astro.props
       }
 
       window.addEventListener('scroll', this.onScroll, { passive: true })
-      window.addEventListener('resize', this.onScroll)
+      window.addEventListener('resize', this.onResize)
       window.addEventListener('hashchange', this.onHashChange)
     }
 
@@ -204,7 +210,7 @@ const { headings } = Astro.props
       this.updateActiveHeadingFromObserver()
     }
 
-    onScroll() {
+    onResize() {
       if (this.frameRequest !== null) {
         return
       }
@@ -213,6 +219,17 @@ const { headings } = Astro.props
         this.frameRequest = null
         this.updateActiveHeadingByPosition()
       })
+    }
+
+    onScroll() {
+      if (this.scrollEndTimer !== null) {
+        window.clearTimeout(this.scrollEndTimer)
+      }
+
+      this.scrollEndTimer = window.setTimeout(() => {
+        this.scrollEndTimer = null
+        this.updateActiveHeadingByPosition()
+      }, 120)
     }
 
     onHashChange() {

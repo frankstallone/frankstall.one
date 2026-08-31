@@ -10,6 +10,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .post-card:hover {
+    transform: none;
+  }
+
   .post-card {
     transition: none;
   }

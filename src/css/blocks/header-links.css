@@ -45,4 +45,9 @@
   .header-link a::after {
     transition: none;
   }
+
+  .header-link a:hover,
+  .header-link a:active {
+    transform: none;
+  }
 }

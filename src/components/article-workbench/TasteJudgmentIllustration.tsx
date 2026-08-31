@@ -1,4 +1,3 @@
-import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
 import { Check, ChevronRight } from 'lucide-react'
 import { useState } from 'react'
 
@@ -13,8 +12,6 @@ import {
   CardTitle,
 } from '@ui/card'
 import { Tabs, TabsList, TabsTrigger } from '@ui/tabs'
-
-const easeOut = [0.22, 1, 0.36, 1] as const
 
 function QueueFragment() {
   return (
@@ -59,7 +56,6 @@ function QueueFragment() {
 
 export function TasteJudgmentIllustration() {
   const [mode, setMode] = useState<'preference' | 'judgment'>('preference')
-  const reducedMotion = useReducedMotion()
 
   return (
     <div className="mx-auto max-w-[48rem] font-base text-foreground">
@@ -83,53 +79,44 @@ export function TasteJudgmentIllustration() {
           <QueueFragment />
         </div>
         <div className="flex min-h-[18rem] items-center border-t border-border bg-background p-5 md:border-t-0 md:border-l">
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.div
-              key={mode}
-              initial={reducedMotion ? false : { opacity: 0, y: 6 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -4 }}
-              transition={{ duration: reducedMotion ? 0 : 0.2, ease: easeOut }}
-              className="w-full"
-            >
-              {mode === 'preference' ? (
-                <BubbleGroup>
-                  <Bubble variant="muted">
-                    <BubbleContent>I like this card layout.</BubbleContent>
-                  </Bubble>
-                  <Bubble variant="outline" align="end">
-                    <BubbleContent>
-                      True, maybe. But there is nowhere for the conversation to
-                      go.
-                    </BubbleContent>
-                  </Bubble>
-                </BubbleGroup>
-              ) : (
-                <div>
-                  <p className="mb-3 text-sm font-semibold">
-                    This works because…
-                  </p>
-                  <ul className="m-0 grid list-none gap-3 pl-0 text-sm">
-                    <li className="flex gap-2">
-                      <Check className="mt-0.5 size-4 shrink-0 text-mint-700" />
-                      The hierarchy follows the analyst’s decision path.
-                    </li>
-                    <li className="flex gap-2">
-                      <Check className="mt-0.5 size-4 shrink-0 text-mint-700" />
-                      Critical context is scannable before secondary detail.
-                    </li>
-                    <li className="flex gap-2">
-                      <Check className="mt-0.5 size-4 shrink-0 text-mint-700" />
-                      The action appears where the analyst is ready to act.
-                    </li>
-                  </ul>
-                  <p className="mt-4 text-sm font-semibold">
-                    Now the team has something it can examine.
-                  </p>
-                </div>
-              )}
-            </motion.div>
-          </AnimatePresence>
+          <div className="w-full">
+            {mode === 'preference' ? (
+              <BubbleGroup>
+                <Bubble variant="muted">
+                  <BubbleContent>I like this card layout.</BubbleContent>
+                </Bubble>
+                <Bubble variant="outline" align="end">
+                  <BubbleContent>
+                    True, maybe. But there is nowhere for the conversation to
+                    go.
+                  </BubbleContent>
+                </Bubble>
+              </BubbleGroup>
+            ) : (
+              <div>
+                <p className="mb-3 text-sm font-semibold">
+                  This works because…
+                </p>
+                <ul className="m-0 grid list-none gap-3 pl-0 text-sm">
+                  <li className="flex gap-2">
+                    <Check className="mt-0.5 size-4 shrink-0 text-mint-700" />
+                    The hierarchy follows the analyst’s decision path.
+                  </li>
+                  <li className="flex gap-2">
+                    <Check className="mt-0.5 size-4 shrink-0 text-mint-700" />
+                    Critical context is scannable before secondary detail.
+                  </li>
+                  <li className="flex gap-2">
+                    <Check className="mt-0.5 size-4 shrink-0 text-mint-700" />
+                    The action appears where the analyst is ready to act.
+                  </li>
+                </ul>
+                <p className="mt-4 text-sm font-semibold">
+                  Now the team has something it can examine.
+                </p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>

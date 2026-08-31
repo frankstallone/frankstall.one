@@ -91,6 +91,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .home-post-item:hover {
+    transform: none;
+  }
+
   .home-post-item {
     transition: none;
   }

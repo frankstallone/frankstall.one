@@ -2,13 +2,14 @@
 
 :where(button, .button, .faq-button, [data-slot='button']) {
   scale: 1;
-  transition: scale var(--motion-duration-micro) var(--motion-ease-standard);
+  transition: scale var(--motion-duration-release) var(--motion-ease-out);
 }
 
 :where(button, .button, .faq-button, [data-slot='button']):not(:disabled):not(
     [aria-disabled='true']
   ):active:not(:focus-visible) {
-  scale: 0.98;
+  scale: 0.97;
+  transition-duration: var(--motion-duration-press);
 }
 
 .button {
@@ -16,7 +17,7 @@
   transition:
     background-color var(--motion-duration-ui) var(--motion-ease-out),
     color var(--motion-duration-ui) var(--motion-ease-out),
-    scale var(--motion-duration-micro) var(--motion-ease-standard);
+    scale var(--motion-duration-release) var(--motion-ease-out);
 }
 
 .button:focus-visible {
@@ -31,7 +32,9 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :where(button, .button, .faq-button, [data-slot='button']):active {
+  :where(button, .button, .faq-button, [data-slot='button']):not(:disabled):not(
+      [aria-disabled='true']
+    ):active:not(:focus-visible) {
     scale: 1;
   }
 

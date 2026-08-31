@@ -44,6 +44,7 @@ Reference source: https://github.com/Set-Creative-Studio/cube-boilerplate/blob/m
 
 @import './blocks/button.css' layer(components);
 @import './blocks/card.css' layer(components);
+@import './blocks/dialog.css' layer(components);
 @import './blocks/faq-button.css' layer(components);
 @import './blocks/footer.css' layer(components);
 @import './blocks/header-links.css' layer(components);

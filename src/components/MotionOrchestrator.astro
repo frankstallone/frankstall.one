@@ -6,6 +6,8 @@
   import { animate, inView, stagger } from 'motion'
   import type { Easing } from 'motion'
 
+  import { motionDuration, motionEasing } from '@lib/motion'
+
   const shouldReduceMotion = window.matchMedia(
     '(prefers-reduced-motion: reduce)',
   ).matches
@@ -35,7 +37,6 @@
       easing: 'gentle',
     }
 
-    const easeOut: Easing = [0.22, 1, 0.36, 1]
     const heroEaseByPreset: Record<HeroAnimationConfig['easing'], Easing> = {
       gentle: [0.25, 0.1, 0.25, 1],
       smooth: [0.4, 0, 0.2, 1],
@@ -63,22 +64,20 @@
       options: RevealOptions = {},
     ) => {
       const blur = typeof options.blur === 'number' ? options.blur : null
-      const keyframes = (
-        blur
-          ? {
-              opacity: [0, 1] as [number, number],
-              y: [options.y ?? 8, 0] as [number, number],
-              filter: [`blur(${blur}px)`, 'blur(0px)'] as [string, string],
-            }
-          : {
-              opacity: [0, 1] as [number, number],
-              y: [options.y ?? 8, 0] as [number, number],
-            }
-      ) as unknown as Parameters<typeof animate>[1]
+      const keyframes = (blur
+        ? {
+            opacity: [0, 1] as [number, number],
+            y: [options.y ?? 8, 0] as [number, number],
+            filter: [`blur(${blur}px)`, 'blur(0px)'] as [string, string],
+          }
+        : {
+            opacity: [0, 1] as [number, number],
+            y: [options.y ?? 8, 0] as [number, number],
+          }) as unknown as Parameters<typeof animate>[1]
 
       return animate(targets, keyframes, {
-        duration: options.duration ?? 0.26,
-        ease: options.ease ?? easeOut,
+        duration: options.duration ?? motionDuration.reveal,
+        ease: options.ease ?? motionEasing.out,
         delay: options.delay,
       })
     }
@@ -102,6 +101,37 @@
 
           hasAnimated = true
           reveal(targets, options)
+        },
+        { amount: 0.2 },
+      )
+    }
+
+    const revealMosaicInView = (container: Element, targets: Element[]) => {
+      if (!targets.length) {
+        return
+      }
+
+      let hasAnimated = false
+      inView(
+        container,
+        () => {
+          if (hasAnimated) {
+            return
+          }
+
+          hasAnimated = true
+          animate(
+            targets,
+            {
+              opacity: [0, 1],
+              transform: ['scale(0.95)', 'scale(1)'],
+            },
+            {
+              duration: motionDuration.reveal,
+              ease: motionEasing.out,
+              delay: stagger(0.05),
+            },
+          )
         },
         { amount: 0.2 },
       )
@@ -148,8 +178,8 @@
         heroNavTargets,
         { opacity: [0, 1], y: [-6, 0] },
         {
-          duration: 0.24,
-          ease: easeOut,
+          duration: motionDuration.reveal,
+          ease: motionEasing.out,
           delay: stagger(0.03),
         },
       )
@@ -183,6 +213,13 @@
       }
 
       revealInView(grid, cards, { delay: stagger(0.05) })
+    })
+
+    document.querySelectorAll('[data-motion-mosaic]').forEach((mosaic) => {
+      const swatches = Array.from(
+        mosaic.querySelectorAll('[data-motion-swatch]'),
+      )
+      revealMosaicInView(mosaic, swatches)
     })
   }
 </script>
