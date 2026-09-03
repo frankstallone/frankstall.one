@@ -20,19 +20,18 @@
 }
 
 .flux-instrument {
-  position: relative;
-  isolation: isolate;
+  display: block;
   min-inline-size: 0;
+  max-inline-size: 100%;
+  aspect-ratio: 38 / 31;
 }
 
 .flux-instrument__control {
-  position: relative;
   display: block;
   inline-size: 100%;
-  aspect-ratio: 38 / 31;
   padding: 0;
   border: 0;
-  color: inherit;
+  border-radius: 1.5rem;
   background: transparent;
   cursor: pointer;
   touch-action: manipulation;
@@ -42,177 +41,36 @@
 .flux-instrument__control:focus-visible {
   outline: 2px solid var(--color-indigo-700);
   outline-offset: var(--spacing-3xs);
-  border-radius: 1.5rem;
 }
 
-.flux-instrument__machine,
+.flux-instrument__scene {
+  position: relative;
+  display: block;
+}
+
 .flux-energy-canvas {
   position: absolute;
   inset: 0;
-  display: block;
   inline-size: 100%;
   block-size: 100%;
-}
-
-.flux-instrument__machine {
-  overflow: visible;
+  pointer-events: none;
+  opacity: 0;
   filter: drop-shadow(0 1rem 1.8rem rgb(27 27 27 / 0.08));
 }
 
-.flux-energy-canvas {
-  z-index: 3;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity var(--motion-duration-reveal) var(--motion-ease-out);
-}
-
 .flux-instrument[data-gpu-ready='true'] .flux-energy-canvas {
-  opacity: 0.96;
-}
-
-.flux-case {
-  fill: var(--color-gray-300);
-  stroke: var(--color-gray-1300);
-  stroke-width: 3;
-}
-
-.flux-case__lip {
-  fill: var(--color-gray-100);
-  stroke: var(--color-gray-800);
-  stroke-width: 2;
-}
-
-.flux-case__seam {
-  fill: none;
-  stroke: var(--color-gray-600);
-  stroke-width: 2;
-}
-
-.flux-branch__bed,
-.flux-branch__rail,
-.flux-branch__channel,
-.flux-static-energy {
-  fill: none;
-  stroke-linecap: round;
-}
-
-.flux-branch__bed {
-  stroke: var(--color-gray-1300);
-  stroke-width: 68;
-}
-
-.flux-branch__rail {
-  stroke: var(--color-gold-500);
-  stroke-width: 56;
-}
-
-.flux-branch__channel {
-  stroke: var(--color-gray-1000);
-  stroke-width: 31;
-}
-
-.flux-static-energy {
-  stroke: var(--color-blue-vivid-400);
-  stroke-width: 8;
-  stroke-dasharray: 4 24;
-  filter: url('#flux-static-glow');
-  animation: flux-static-charge 2.8s linear infinite;
-  opacity: 0.72;
-  transition: opacity var(--motion-duration-reveal) var(--motion-ease-out);
-}
-
-.flux-branch--right .flux-static-energy {
-  animation-delay: -0.9s;
-}
-
-.flux-branch--lower .flux-static-energy {
-  animation-delay: -1.8s;
-}
-
-.flux-instrument[data-gpu-ready='true'] .flux-static-energy {
-  opacity: 0.18;
-}
-
-.flux-terminal__plate {
-  fill: var(--color-gray-1300);
-}
-
-.flux-terminal__cap {
-  fill: var(--color-gold-400);
-  stroke: var(--color-gold-800);
-  stroke-width: 3;
-}
-
-.flux-terminal__coil {
-  fill: none;
-  stroke: var(--color-gold-900);
-  stroke-width: 5;
-  stroke-linecap: round;
-}
-
-.flux-junction__housing {
-  fill: var(--color-gray-1300);
-  stroke: var(--color-gray-1400);
-  stroke-width: 3;
-}
-
-.flux-junction__ring {
-  fill: var(--color-gray-1000);
-  stroke: var(--color-gold-400);
-  stroke-width: 7;
-}
-
-.flux-junction__core {
-  stroke: var(--color-gray-1400);
-  stroke-width: 2;
-}
-
-.flux-core-fill__center {
-  stop-color: var(--color-white);
-}
-
-.flux-core-fill__middle {
-  stop-color: var(--color-blue-vivid-300);
-}
-
-.flux-core-fill__edge {
-  stop-color: var(--color-blue-vivid-700);
-}
-
-.flux-junction__spark {
-  fill: var(--color-white);
-  filter: url('#flux-static-glow');
-  opacity: 0.9;
-}
-
-.flux-case__index {
-  fill: none;
-  stroke: var(--color-orange-500);
-  stroke-width: 4;
-  stroke-linecap: round;
-}
-
-.flux-instrument__control:is(:hover, :focus-visible) .flux-static-energy,
-.flux-instrument[data-pulsing='true'] .flux-static-energy {
   opacity: 1;
 }
 
-.flux-instrument[data-pulsing='true'] .flux-junction__spark {
-  animation: flux-core-pulse 0.9s var(--motion-ease-out);
+.flux-instrument[data-gpu-ready='true'] .flux-instrument__image {
+  opacity: 0;
 }
 
-@keyframes flux-static-charge {
-  to {
-    stroke-dashoffset: -56;
-  }
-}
-
-@keyframes flux-core-pulse {
-  50% {
-    opacity: 1;
-    transform: scale(1.75);
-    transform-origin: 380px 320px;
-  }
+.flux-instrument__image {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  filter: drop-shadow(0 1rem 1.8rem rgb(27 27 27 / 0.08));
 }
 
 @media (width >= 47.5rem) {
@@ -225,17 +83,5 @@
   .flux-instrument {
     inline-size: min(62vw, 47rem);
     margin-inline-end: clamp(-8rem, -8vw, -3rem);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .flux-energy-canvas,
-  .flux-static-energy {
-    transition: none;
-  }
-
-  .flux-static-energy,
-  .flux-instrument[data-pulsing='true'] .flux-junction__spark {
-    animation: none;
   }
 }

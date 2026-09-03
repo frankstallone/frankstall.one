@@ -54,7 +54,8 @@
     "tailwind-merge": "^3.6.0",
     "tailwindcss": "^4.2.1",
     "typescript": "^5.3.3",
-    "vgpu": "^0.3.1"
+    "vgpu": "^0.3.1",
+    "wgpu-matrix": "^3.4.2"
   },
   "devDependencies": {
     "@testing-library/dom": "^10.4.0",

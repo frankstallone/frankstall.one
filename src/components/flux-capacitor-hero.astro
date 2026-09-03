@@ -1,0 +1,51 @@
+---
+import { Picture } from 'astro:assets'
+import fluxCapacitor from '../assets/flux-capacitor.png'
+---
+
+<flux-capacitor class="flux-instrument">
+  <button
+    type="button"
+    class="flux-instrument__control"
+    aria-label="Charge the flux capacitor"
+  >
+    <span class="flux-instrument__scene">
+      <Picture
+        src={fluxCapacitor}
+        alt="Weathered gray flux capacitor with amber-lit glass relays and red embossed warning labels"
+        formats={['avif']}
+        fallbackFormat="webp"
+        width={1520}
+        height={1240}
+        widths={[380, 760, 1140, 1520]}
+        sizes="(min-width: 76rem) 47rem, (min-width: 47.5rem) 62vw, 100vw"
+        layout="full-width"
+        loading="eager"
+        fetchpriority="high"
+        class="flux-instrument__image"
+      />
+      <canvas class="flux-energy-canvas" aria-hidden="true"></canvas>
+    </span>
+  </button>
+</flux-capacitor>
+
+<script>
+  import { mountFluxCapacitor } from '../lib/flux-capacitor-interaction'
+
+  class FluxCapacitor extends HTMLElement {
+    private cleanup?: () => void
+
+    connectedCallback() {
+      this.cleanup ??= mountFluxCapacitor(this)
+    }
+
+    disconnectedCallback() {
+      this.cleanup?.()
+      this.cleanup = undefined
+    }
+  }
+
+  if (!customElements.get('flux-capacitor')) {
+    customElements.define('flux-capacitor', FluxCapacitor)
+  }
+</script>
