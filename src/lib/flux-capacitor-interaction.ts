@@ -3,6 +3,12 @@ import { createFluxRenderer } from './flux-capacitor-renderer'
 export function mountFluxCapacitor(root: HTMLElement): () => void {
   const control = root.querySelector<HTMLButtonElement>('button')!
   const canvas = root.querySelector<HTMLCanvasElement>('canvas')!
+  // Put the optical effect outside the hero's clipping and stacking contexts.
+  const flareCanvas = document.createElement('canvas')
+  flareCanvas.className = 'flux-lens-flare-canvas'
+  flareCanvas.setAttribute('aria-hidden', 'true')
+  flareCanvas.hidden = true
+  document.body.append(flareCanvas)
   const pointerArea = root.closest<HTMLElement>('#hero') ?? root
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)')
   let hovered = false
@@ -10,11 +16,14 @@ export function mountFluxCapacitor(root: HTMLElement): () => void {
 
   const renderer = createFluxRenderer({
     canvas,
+    flareCanvas,
     onReady: () => {
       root.dataset.gpuReady = 'true'
+      flareCanvas.dataset.ready = 'true'
     },
     onFallback: () => {
       root.dataset.gpuReady = 'false'
+      flareCanvas.dataset.ready = 'false'
     },
   })
 
@@ -83,6 +92,7 @@ export function mountFluxCapacitor(root: HTMLElement): () => void {
     motion.removeEventListener('change', resetPointer)
     window.removeEventListener('blur', windowBlur)
     renderer.dispose()
+    flareCanvas.remove()
     root.dataset.gpuReady = 'false'
   }
 }

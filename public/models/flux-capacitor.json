@@ -1,11 +1,11 @@
 {
   "binary": "flux-capacitor.bin",
-  "vertexCount": 58192,
-  "indexCount": 311886,
+  "vertexCount": 44458,
+  "indexCount": 230058,
   "vertexByteOffset": 0,
-  "vertexByteLength": 1396608,
-  "indexByteOffset": 1396608,
-  "indexByteLength": 1247544,
+  "vertexByteLength": 1066992,
+  "indexByteOffset": 1066992,
+  "indexByteLength": 920232,
   "vertexStride": 24,
   "materials": [
     {
@@ -270,66 +270,66 @@
     {
       "material": 1,
       "firstIndex": 900,
-      "indexCount": 15360
+      "indexCount": 8640
     },
     {
       "material": 2,
-      "firstIndex": 16260,
-      "indexCount": 85590
+      "firstIndex": 9540,
+      "indexCount": 18810
     },
     {
       "material": 3,
-      "firstIndex": 101850,
-      "indexCount": 52008
+      "firstIndex": 28350,
+      "indexCount": 45480
     },
     {
       "material": 4,
-      "firstIndex": 153858,
+      "firstIndex": 73830,
       "indexCount": 16800
     },
     {
       "material": 5,
-      "firstIndex": 170658,
+      "firstIndex": 90630,
       "indexCount": 18
     },
     {
       "material": 6,
-      "firstIndex": 170676,
+      "firstIndex": 90648,
       "indexCount": 10080
     },
     {
       "material": 7,
-      "firstIndex": 180756,
+      "firstIndex": 100728,
       "indexCount": 31440
     },
     {
       "material": 8,
-      "firstIndex": 212196,
+      "firstIndex": 132168,
       "indexCount": 2700
     },
     {
       "material": 9,
-      "firstIndex": 214896,
+      "firstIndex": 134868,
       "indexCount": 27900
     },
     {
       "material": 10,
-      "firstIndex": 242796,
+      "firstIndex": 162768,
       "indexCount": 37944
     },
     {
       "material": 11,
-      "firstIndex": 280740,
-      "indexCount": 14940
+      "firstIndex": 200712,
+      "indexCount": 13140
     },
     {
       "material": 12,
-      "firstIndex": 295680,
+      "firstIndex": 213852,
       "indexCount": 15786
     },
     {
       "material": 13,
-      "firstIndex": 311466,
+      "firstIndex": 229638,
       "indexCount": 420
     }
   ],
@@ -340,7 +340,7 @@
       -2.3550000190734863
     ],
     "max": [
-      2.3965656757354736,
+      1.9994999170303345,
       0.5099999904632568,
       2.3550000190734863
     ]

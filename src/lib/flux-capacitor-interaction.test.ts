@@ -82,6 +82,21 @@ describe('flux capacitor interaction', () => {
     expect(renderer.pulse).toHaveBeenCalledOnce()
   })
 
+  it('mounts the flare outside the clipped hero and removes it on disconnect', () => {
+    const options = vi.mocked(createFluxRenderer).mock.calls[0][0]
+    const flare = document.querySelector('.flux-lens-flare-canvas')!
+    expect(flare.parentElement).toBe(document.body)
+    expect(flare).toHaveAttribute('aria-hidden', 'true')
+    expect(options.flareCanvas).toBe(flare)
+    options.onReady?.()
+    expect(flare).toHaveAttribute('data-ready', 'true')
+    options.onFallback?.()
+    expect(flare).toHaveAttribute('data-ready', 'false')
+    cleanup()
+    expect(flare.isConnected).toBe(false)
+    cleanup = () => {}
+  })
+
   it('removes tilt immediately when reduced motion changes, while keeping charge feedback', () => {
     pointer('pointermove')
     Object.defineProperty(motion, 'matches', { value: true })

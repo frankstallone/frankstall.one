@@ -54,9 +54,6 @@ file name before running it. No downloaded model or texture is needed.
 
 This reads the saved scene and writes only the two files under `public/models`.
 It evaluates render-visible modifiers and converts text and curves to triangles.
-The current export contains 180 objects and 14 material draws in a roughly
-2.6 MB binary. Vertex and triangle counts are recorded in the JSON export.
-
 The binary is little-endian: interleaved float32 world positions and face-corner
 normals (`position.xyz`, `normal.xyz`, 24 bytes per vertex), followed by uint32
 triangle indices. JSON provides byte offsets and lengths. Each draw references a
@@ -73,15 +70,15 @@ and terminals. These values approximate transmission in the browser.
 
 Every material has a numeric `surface`, exported from its Blender custom property:
 
-| Value | Surface |
-| --- | --- |
-| 0 | Clean parts, raised lettering, emissive cores |
-| 1 | Painted enclosure and backplate |
-| 2 | Aged brass |
-| 3 | Rubber and cable insulation |
-| 4 | Red label tape |
-| 5 | Glass |
-| 6 | Steel |
+| Value | Surface                                       |
+| ----- | --------------------------------------------- |
+| 0     | Clean parts, raised lettering, emissive cores |
+| 1     | Painted enclosure and backplate               |
+| 2     | Aged brass                                    |
+| 3     | Rubber and cable insulation                   |
+| 4     | Red label tape                                |
+| 5     | Glass                                         |
+| 6     | Steel                                         |
 
 The live shader uses this classification for material-specific patina. Blender
 uses layered procedural noise for uneven paint, tarnish, and fine surface texture.
@@ -92,3 +89,11 @@ the mesh and each renderer supplies its own lighting.
 The live light uses an inward 2.1-second amber chase with overlapping pools and
 soft decay. It runs while visible, with a modest hover boost and bounded click
 surge. Reduced motion holds a steady warm level and still gives charge feedback.
+
+The enclosure retains its small case latches. The added looped side conduit was
+removed to match the standalone prop's silhouette more closely.
+
+A second canvas spans the viewport for the lens flare. It shares the mesh's GPU
+and frame loop. The flare originates at a projected light source and responds to
+camera angle, extending beyond the hero without intercepting clicks. It hides
+when the model leaves the viewport, the tab is hidden, or reduced motion is set.

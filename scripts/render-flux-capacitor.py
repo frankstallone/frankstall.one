@@ -322,16 +322,8 @@ for i in range(31):
     chip=box('Small fiberglass edge scuff',(x,-.803,z),(rng.uniform(.013,.048),.006,rng.uniform(.007,.026)),fiberglass,.002)
     chip.rotation_euler.y=rng.uniform(-.7,.7)
 
-# Dull side hose and simple pressed retainers.
-cable('Side conduit core',[(1.87,-.05,1.42),(2.14,-.04,1.26),(2.18,-.04,.80),(2.18,-.04,-1.05),(1.90,-.02,-1.40)],.105,rubber)
-for i in range(35):
-    z=-1.08+i*.068
-    cylinder('Conduit corrugation',(2.18,-.04,z-.018),(2.18,-.04,z+.018),.126,black,32)
-for z in [1.40,-1.40]:
-    cylinder('Conduit bulkhead',(1.82,0,z),(2.01,0,z),.18,steel,vertices=6)
-    cylinder('Conduit ferrule',(1.98,0,z),(2.10,0,z),.129,steel,32)
+# The standalone enclosure has small latches, without a looped side handle.
 for z in [-1.15,1.10]:
-    box('Conduit retaining bracket',(2.15,.035,z),(.28,.16,.11),paint,.02)
     box('Enclosure toggle latch plate',(1.925,-.39,z),(.045,.30,.24),steel,.02)
     cylinder('Enclosure latch pivot',(1.963,-.50,z-.055),(1.963,-.27,z-.055),.028,steel,24)
     box('Enclosure latch lever',(1.981,-.39,z+.065),(.037,.12,.17),steel,.012)

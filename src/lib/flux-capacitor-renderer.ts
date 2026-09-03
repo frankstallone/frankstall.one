@@ -13,6 +13,8 @@ import meshShader from '../shaders/flux-mesh.wgsl'
 import shadowShader from '../shaders/flux-shadow.wgsl'
 import bloomShader from '../shaders/flux-bloom.wgsl'
 import presentShader from '../shaders/flux-present.wgsl'
+import flareShader from '../shaders/flux-lens-flare.wgsl'
+import { flareStrength, projectFlareSource } from './flux-lens-flare'
 
 type Point = readonly [number, number]
 type Vector = [number, number, number]
@@ -47,6 +49,7 @@ type MeshAsset = {
 
 type FluxRendererOptions = {
   canvas: HTMLCanvasElement
+  flareCanvas: HTMLCanvasElement
   onReady?: () => void
   onFallback?: () => void
 }
@@ -65,6 +68,7 @@ const MODEL_URL = '/models/flux-capacitor.json'
 
 export function createFluxRenderer({
   canvas,
+  flareCanvas,
   onReady,
   onFallback,
 }: FluxRendererOptions): FluxRenderer {
@@ -75,6 +79,8 @@ export function createFluxRenderer({
   let module: typeof import('vgpu') | undefined
   let asset: MeshAsset | undefined
   let output: Surface | undefined
+  let flareOutput: Surface | undefined
+  let flare: Effect | undefined
   let sceneTarget: Target | undefined
   let bloomTarget: Target | undefined
   let bloom: Effect | undefined
@@ -96,12 +102,19 @@ export function createFluxRenderer({
   let removeGpuErrorListener: (() => void) | undefined
   let mediaQuery: MediaQueryList | undefined
   let lightViewProjection = mat4.identity()
+  let canvasBounds = canvas.getBoundingClientRect()
+  let viewport: Point = [
+    Math.max(1, window.innerWidth),
+    Math.max(1, window.innerHeight),
+  ]
+  flareCanvas.hidden = true
   const abortController = new AbortController()
 
   const canDraw = () =>
     !disposed && visible && document.visibilityState === 'visible'
 
   const stopLoop = () => {
+    flareCanvas.hidden = true
     loop?.stop()
     loop = undefined
     lastFrameAt = undefined
@@ -119,10 +132,14 @@ export function createFluxRenderer({
     removeGpuErrorListener?.()
     mediaQuery?.removeEventListener('change', handleReducedMotionChange)
     document.removeEventListener('visibilitychange', updateLoop)
+    window.removeEventListener('resize', resize)
+    window.removeEventListener('scroll', updateLayout, true)
     output?.dispose()
+    flareOutput?.dispose()
     gpu?.dispose()
     draws.length = 0
     output = undefined
+    flareOutput = undefined
     gpu = undefined
   }
 
@@ -190,6 +207,32 @@ export function createFluxRenderer({
         : Math.exp(-(shaderTime - pulseStartedAt) * 5),
     }
     for (const draw of draws) draw.set({ scene })
+    // The upper-right concealed amber face lies behind the relay glass.
+    // Coordinates match scripts/render-flux-capacitor.py's branch light block.
+    const source = projectFlareSource(
+      [0.62, -0.46, 0.54],
+      viewProjection,
+      canvasBounds,
+      viewport,
+    )
+    const tangent = projectFlareSource(
+      [1.62, -0.46, 0.54],
+      viewProjection,
+      canvasBounds,
+      viewport,
+    )
+    const dx = (tangent[0] - source[0]) * viewport[0]
+    const dy = (tangent[1] - source[1]) * viewport[1]
+    const length = Math.hypot(dx, dy) || 1
+    flare?.set({
+      flare: {
+        source,
+        direction: [dx / length, dy / length],
+        viewport,
+        strength: flareStrength(orbit, charge),
+        reach: Math.max(viewport[0], viewport[1]) * 0.72,
+      },
+    })
   }
 
   const encode = (frame: Frame) => {
@@ -199,6 +242,10 @@ export function createFluxRenderer({
     })
     frame.pass(bloomTarget, bloom)
     frame.pass(output, present)
+    if (flareOutput && flare && !reducedMotion && canDraw()) {
+      frame.pass(flareOutput, flare)
+      flareCanvas.hidden = false
+    }
   }
 
   const drawStill = () => {
@@ -230,7 +277,10 @@ export function createFluxRenderer({
     loop = module.frameLoop(
       gpu,
       (frame) => {
-        if (!canDraw()) return
+        if (!canDraw()) {
+          stopLoop()
+          return
+        }
         try {
           const now = performance.now()
           const delta = Math.min((now - (lastFrameAt ?? now)) / 1000, 0.1)
@@ -257,6 +307,14 @@ export function createFluxRenderer({
   const resize = () => {
     if (!output || !sceneTarget || !bloomTarget || disposed) return
     try {
+      updateLayout()
+      const [flareWidth, flareHeight] = viewport
+      if (
+        flareOutput &&
+        (flareOutput.size[0] !== flareWidth ||
+          flareOutput.size[1] !== flareHeight)
+      )
+        flareOutput.resize([flareWidth, flareHeight])
       const [width, height] = size()
       if (output.size[0] !== width || output.size[1] !== height) {
         output.resize([width, height])
@@ -275,6 +333,11 @@ export function createFluxRenderer({
     } catch (error) {
       fallback(error)
     }
+  }
+
+  function updateLayout() {
+    canvasBounds = canvas.getBoundingClientRect()
+    viewport = [Math.max(1, window.innerWidth), Math.max(1, window.innerHeight)]
   }
 
   function handleReducedMotionChange(event: MediaQueryListEvent) {
@@ -324,6 +387,14 @@ export function createFluxRenderer({
       alphaMode: 'premultiplied',
       clearColor: [0, 0, 0, 0],
       label: 'flux-capacitor-surface',
+    })
+    updateLayout()
+    flareOutput = module.surface(gpu, flareCanvas, {
+      autoResize: false,
+      size: viewport,
+      alphaMode: 'premultiplied',
+      clearColor: [0, 0, 0, 0],
+      label: 'flux-lens-flare-surface',
     })
     sceneTarget = module.target(gpu, {
       size: dimensions,
@@ -428,12 +499,14 @@ export function createFluxRenderer({
       },
       label: 'flux-present',
     })
+    flare = module.effect(gpu, flareShader, { label: 'flux-lens-flare' })
     setFrameValues()
     await Promise.all([
       ...draws.map((draw) => draw.compile(sceneTarget)),
       ...shadowDraws.map((draw) => draw.compile(shadowTarget)),
       bloom.compile(bloomTarget),
       present.compile({ colors: [output.format] }),
+      flare.compile({ colors: [flareOutput.format] }),
     ])
     if (disposed) return
     // The model and studio light stay fixed; camera orbit does not invalidate shadows.
@@ -446,6 +519,11 @@ export function createFluxRenderer({
     reducedMotion = mediaQuery.matches
     mediaQuery.addEventListener('change', handleReducedMotionChange)
     document.addEventListener('visibilitychange', updateLoop)
+    window.addEventListener('resize', resize)
+    window.addEventListener('scroll', updateLayout, {
+      passive: true,
+      capture: true,
+    })
     resizeObserver = new ResizeObserver(resize)
     resizeObserver.observe(canvas)
     observer = new IntersectionObserver(([entry]) => {
