@@ -5,6 +5,7 @@ import netlify from '@astrojs/netlify'
 import mdx from '@astrojs/mdx'
 import astroExpressiveCode from 'astro-expressive-code'
 import tailwindcss from '@tailwindcss/vite'
+import { wgslVitePlugin } from '@vgpu/wgsl/loader-vite'
 import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers'
 import remarkGfm from 'remark-gfm'
 
@@ -17,6 +18,9 @@ import react from '@astrojs/react'
 const tailwindVitePlugins = tailwindcss() as unknown as NonNullable<
   NonNullable<Parameters<typeof defineConfig>[0]['vite']>['plugins']
 >
+const wgslPlugin = wgslVitePlugin() as unknown as NonNullable<
+  NonNullable<Parameters<typeof defineConfig>[0]['vite']>['plugins']
+>[number]
 
 // https://astro.build/config
 export default defineConfig({
@@ -25,7 +29,7 @@ export default defineConfig({
   }),
   site: 'https://frankstall.one',
   vite: {
-    plugins: tailwindVitePlugins,
+    plugins: [...tailwindVitePlugins, wgslPlugin],
   },
   integrations: [
     astroExpressiveCode({

@@ -1,3 +1,111 @@
 #hero {
   background-color: var(--color-gray-100);
+  overflow: clip;
+}
+
+.hero-stage {
+  display: grid;
+  align-items: center;
+  gap: var(--spacing-m-l);
+  padding-block-start: var(--spacing-m);
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-copy h1 {
+  max-inline-size: 12ch;
+}
+
+.flux-instrument {
+  display: block;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  aspect-ratio: 38 / 31;
+}
+
+.flux-instrument__control {
+  display: block;
+  inline-size: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 1.5rem;
+  background: transparent;
+  cursor: pointer;
+  touch-action: pan-y pinch-zoom;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.flux-instrument__control:focus-visible {
+  outline: 2px solid var(--color-indigo-700);
+  outline-offset: var(--spacing-3xs);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flux-instrument__control {
+    touch-action: manipulation;
+  }
+}
+
+.flux-instrument__scene {
+  position: relative;
+  display: block;
+}
+
+.flux-energy-canvas {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  pointer-events: none;
+  opacity: 0;
+  filter: drop-shadow(0 1rem 1.8rem rgb(27 27 27 / 0.08));
+}
+
+.flux-instrument[data-gpu-ready='true'] .flux-energy-canvas {
+  opacity: 1;
+}
+
+.flux-instrument[data-gpu-ready='true'] .flux-instrument__image {
+  opacity: 0;
+}
+
+.flux-instrument__image {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  filter: drop-shadow(0 1rem 1.8rem rgb(27 27 27 / 0.08));
+}
+
+.flux-lens-flare-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  inline-size: 100%;
+  block-size: 100%;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.flux-lens-flare-canvas[data-ready='true'] {
+  opacity: 1;
+}
+
+.flux-lens-flare-canvas[hidden] {
+  display: none;
+}
+
+@media (width >= 47.5rem) {
+  .hero-stage {
+    grid-template-columns: minmax(15rem, 0.85fr) minmax(25rem, 1.25fr);
+    min-block-size: clamp(31rem, 67vh, 43rem);
+    padding-block: var(--spacing-l-xl);
+  }
+
+  .flux-instrument {
+    inline-size: min(62vw, 47rem);
+    margin-inline-end: clamp(-8rem, -8vw, -3rem);
+  }
 }
