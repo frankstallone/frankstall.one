@@ -97,3 +97,8 @@ A second canvas spans the viewport for the lens flare. It shares the mesh's GPU
 and frame loop. The flare originates at a projected light source and responds to
 camera angle, extending beyond the hero without intercepting clicks. It hides
 when the model leaves the viewport, the tab is hidden, or reduced motion is set.
+
+On touch screens, drag horizontally to rotate the camera and reveal the flare.
+Vertical swipes and pinch zoom stay native. Releasing a drag eases the camera
+back to rest; tapping still charges the lamps. Reduced motion keeps the camera
+still and retains tap feedback.

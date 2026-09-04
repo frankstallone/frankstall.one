@@ -34,13 +34,19 @@
   border-radius: 1.5rem;
   background: transparent;
   cursor: pointer;
-  touch-action: manipulation;
+  touch-action: pan-y pinch-zoom;
   -webkit-tap-highlight-color: transparent;
 }
 
 .flux-instrument__control:focus-visible {
   outline: 2px solid var(--color-indigo-700);
   outline-offset: var(--spacing-3xs);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flux-instrument__control {
+    touch-action: manipulation;
+  }
 }
 
 .flux-instrument__scene {

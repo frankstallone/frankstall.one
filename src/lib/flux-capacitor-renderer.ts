@@ -58,12 +58,14 @@ export type FluxRenderer = {
   ready: Promise<void>
   setActive(active: boolean): void
   setPointer(pointer: Point | null): void
+  rotateBy(horizontalFraction: number): void
   pulse(): void
   dispose(): void
 }
 
 const FRAME_RATE = 30
 const MAX_DPR = 1.5
+const ORBIT_RANGE: Point = [0.628, 0.349]
 const MODEL_URL = '/models/flux-capacitor.json'
 
 export function createFluxRenderer({
@@ -153,7 +155,10 @@ export function createFluxRenderer({
   const desiredOrbit = (): Point =>
     reducedMotion
       ? [0, 0]
-      : [(pointer[0] - 0.5) * 0.628, (pointer[1] - 0.5) * 0.349]
+      : [
+          (pointer[0] - 0.5) * ORBIT_RANGE[0],
+          (pointer[1] - 0.5) * ORBIT_RANGE[1],
+        ]
 
   const setFrameValues = (delta = 0) => {
     if (!asset || !output) return
@@ -555,6 +560,19 @@ export function createFluxRenderer({
             Math.max(0, Math.min(1, nextPointer[1])),
           ]
         : [0.5, 0.5]
+      updateLoop()
+    },
+    rotateBy(horizontalFraction) {
+      if (disposed || reducedMotion) return
+      // Track the finger directly from the current camera, including mid-return.
+      pointer = [
+        Math.max(
+          0,
+          Math.min(1, 0.5 + orbit[0] / ORBIT_RANGE[0] + horizontalFraction),
+        ),
+        0.5 + orbit[1] / ORBIT_RANGE[1],
+      ]
+      orbit = desiredOrbit()
       updateLoop()
     },
     pulse() {
