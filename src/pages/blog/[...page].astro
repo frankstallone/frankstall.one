@@ -32,7 +32,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
           page.data.map((post) => (
             <div class="flow prose post-card">
               <h3 class="mt-zero">
-                <a href={`/${post.collection}/${post.id}/`}>
+                <a
+                  data-astro-prefetch="hover"
+                  href={`/${post.collection}/${post.id}/`}
+                >
                   {post.data.title}
                 </a>
               </h3>
@@ -51,7 +54,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
               </p>
               <p>{post.data.description}</p>
               <p class="pb-l">
-                <a href={`/${post.collection}/${post.id}/`}>
+                <a
+                  data-astro-prefetch="hover"
+                  href={`/${post.collection}/${post.id}/`}
+                >
                   Read more &hellip;
                 </a>
               </p>
@@ -64,7 +70,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
       >
         {
           page.url.prev ? (
-            <a href={page.url.prev}>← Previous</a>
+            <a data-astro-prefetch="hover" href={page.url.prev}>
+              ← Previous
+            </a>
           ) : (
             <span class="text-gray-700">← Previous</span>
           )
@@ -74,7 +82,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
         </span>
         {
           page.url.next ? (
-            <a href={page.url.next}>Next →</a>
+            <a data-astro-prefetch="hover" href={page.url.next}>
+              Next →
+            </a>
           ) : (
             <span class="text-gray-700">Next →</span>
           )

@@ -25,7 +25,9 @@ grunt.registerTask('delete', ['clean:dist'])
 ```
 
 <p>Alright so let me explain what we have here. I am telling Grunt there is a <code>clean:object</code> and that <code>dist:</code> is my name for the operations I would like Grunt Clean to accomplish. Finally we have an option of <code>'no-write'</code> set to true because I did not want this to execute in case I had the wrong syntax. The <code>registerTask</code> line is just registering that <code>'clean:dist'</code> as a task that can be run in terminal using the the <code>grunt delete</code> command. At this point running the <code>grunt delete</code> command in terminal gave me this result:</p>
-<img src="/media/newsletter/console.png" alt="Console feedback from grunt delete task" />
+
+![Console feedback from grunt delete task](../../assets/blog/console.png)
+
 <p>This was near as makes no difference, useless to me. Now not knowing <a href="https://github.com/isaacs/minimatch/" target="_blank" aria-label="Opens in a new tab">minimatch</a>, the matching library Grunt uses under the hood to match files, I ended up just removing the option no-write just to see what happens. Basically the first part of <code>src</code> that says <code>applications/views/*</code> removed all files in the <code>views/</code> folder &amp; all of the sub-folders. The second part of that line <code>!applications/views/dev/*</code> was ignored completely (at least as it was intended). So let's try something else.</p>
 
 ```javascript

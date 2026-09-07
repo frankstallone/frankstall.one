@@ -37,8 +37,9 @@ const { variant = 'default', sectionIndex = '02' } = Astro.props as Props
       >
         <Picture
           src={frankstallone}
-          widths={[300, 800, 2000, frankstallone.width]}
-          sizes={`(max-width: 300px) 300px, (max-width: 800px) 800px, (max-width: 1600px) 2000px, ${frankstallone.width}px`}
+          widths={[320, 480, 640, 800, 1200, 1600]}
+          sizes="auto, (min-width: 76rem) 26rem, (min-width: 47.5rem) calc((100vw - 14rem - 8rem) / 2), calc(100vw - 2rem)"
+          loading="lazy"
           class="object-contain h-auto"
           alt="The Internet's favorite Frank Stallone"
           formats={['avif', 'webp']}
