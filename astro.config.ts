@@ -186,6 +186,12 @@ export default defineConfig({
     },
   ],
   site: 'https://frankstall.one',
+  session: false,
+  prefetch: true,
+  image: {
+    layout: 'constrained',
+    responsiveStyles: true,
+  },
   vite: {
     plugins: [...tailwindVitePlugins, wgslPlugin],
   },

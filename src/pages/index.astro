@@ -45,7 +45,7 @@ function truncateDescription(description: string) {
             Writing on design, systems, and craft.
           </p>
           <p class="text-step-00 text-gray-1100">
-            <a href="/blog/">All posts</a>
+            <a data-astro-prefetch="hover" href="/blog/">All posts</a>
           </p>
         </div>
         <ol role="list" class="home-posts-grid">
@@ -53,7 +53,10 @@ function truncateDescription(description: string) {
             latestPosts.map((post) => (
               <li class="flow prose home-post-item">
                 <h3 class="mt-zero">
-                  <a href={`/${post.collection}/${post.id}/`}>
+                  <a
+                    data-astro-prefetch="hover"
+                    href={`/${post.collection}/${post.id}/`}
+                  >
                     {post.data.title}
                   </a>
                 </h3>
@@ -72,7 +75,10 @@ function truncateDescription(description: string) {
                 </p>
                 <p>{truncateDescription(post.data.description)}</p>
                 <p class="pb-2xs">
-                  <a href={`/${post.collection}/${post.id}/`}>
+                  <a
+                    data-astro-prefetch="hover"
+                    href={`/${post.collection}/${post.id}/`}
+                  >
                     Read more &hellip;
                   </a>
                 </p>
@@ -122,7 +128,9 @@ function truncateDescription(description: string) {
               <small>
                 <span>1 of 5</span>
                 <span aria-hidden="true">&middot;</span>
-                <a href="/portfolio/">See full portfolio</a>
+                <a data-astro-prefetch="hover" href="/portfolio/"
+                  >See full portfolio</a
+                >
               </small>
             </p>
           </div>

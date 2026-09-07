@@ -32,7 +32,7 @@ Define clear roles upfront to ensure a smooth process:
 
 Use a shared sign-up sheet linked in the meeting invite, and automate reminders to help people sign up a day or two ahead. Include essential details: date, name, link to the work, and key questions or feedback areas the presenter is focusing on. Having questions prepared in advance keeps discussions focused and minimizes tangents. [I’ve created a FigJam you can use as a starting point](https://www.figma.com/board/xQGK2mNI6iPP1BoBMhfvjD/Design-reviews-template/duplicate).
 
-<img src="/media/newsletter/design-review-figma-figjam-template-screenshot.png">
+![Design review figma figjam template screenshot](../../assets/blog/design-review-figma-figjam-template-screenshot.png)
 
 If possible, create a dedicated chat channel tied to each review group, and let team members pick a unique group name to build camaraderie. Consider starting each session with an icebreaker to loosen up the group—tools like ChatGPT can generate creative questions to kick things off.
 

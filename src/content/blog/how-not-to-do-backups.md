@@ -6,7 +6,11 @@ description: 'What I learned from the biggest tech blunder in a decade.'
 subtitle: 'Advertisers are nosey, keep them out of your business.'
 ---
 
-<img class="breakout" src="/media/newsletter/how-not-to-do-backup/logo-lines.png" alt="Lines in Affinity Designer from a logo mark by Frank Stallone III">
+<div class="breakout">
+
+![Lines in Affinity Designer from a logo mark by Frank Stallone III](../../assets/blog/how-not-to-do-backup/logo-lines.png)
+
+</div>
 
 Recently I have been on working on a logo design for myself using my last name. I iterate on a sketch in my sketch book then bring it into the computer once I feel it's right. After years of working with Adobe products I have switched to [Affinity Designer](https://affinity.serif.com/en-us/). I enjoy it's layout and features. It seems to declutter my mind.
 
@@ -14,8 +18,9 @@ I also started working on this blog. I keep everything related to this blog and 
 
 After a few iterations of the logo I was happy enough to test it out on some instagram stories. Ironically, the only reason I have anything left of that original design, is because of Instagram stories. Here's a story I did where I featured the logo at the bottom:
 
-![Instagram Story Part 1](/media/newsletter/how-not-to-do-backup/insta-01.png)
-![Instagram Story Part 2](/media/newsletter/how-not-to-do-backup/insta-02.png)
+![Instagram Story Part 1](../../assets/blog/how-not-to-do-backup/insta-01.png)
+
+![Instagram Story Part 2](../../assets/blog/how-not-to-do-backup/insta-02.png)
 
 I was not incredibly happy with it, but I was happy about the progress. As I mentioned earlier I typically put all of my related material in the same Dropbox folder. A typical folder structure will look like this:
 
@@ -37,4 +42,4 @@ Long story short(er) after contacting Dropbox we came to the conclusion that the
 
 The current iteration, I am more pleased with, although again it's not there yet. As for my folders? They are more specific now so I know before running `rm -rf` in Terminal on the wrong folder. Dropbox is running more consistently but it's not really a great backup solution. If you are on OSX [you should have Time Machine](https://support.apple.com/en-us/HT201250) setup with an external backup hard drive you connect to daily. This is made easier if you have a portable or desktop USB hub. I also suggest off-shore backup solutions like [Backblaze](https://www.backblaze.com/). That way in the unfortunate event of a robbery or fire, your data is safely backed up in another location.
 
-![Instagram Story w/ latest logo design](/media/newsletter/how-not-to-do-backup/insta-03.png)
+![Instagram Story w/ latest logo design](../../assets/blog/how-not-to-do-backup/insta-03.png)

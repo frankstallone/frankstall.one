@@ -6,7 +6,7 @@ description: 'Advertisers are nosey, keep them out of your business.'
 subtitle: 'Advertisers are nosey, keep them out of your business.'
 ---
 
-<img src="/media/newsletter/ad-blocking-with-pi-hole/wojtek-witkowski-h7rOzTmGxWE-unsplash.jpg" alt="Photograph of Time Square in NYC by Wojtek Witkowski via Unsplash">
+![Photograph of Time Square in NYC by Wojtek Witkowski via Unsplash](../../assets/blog/ad-blocking-with-pi-hole/wojtek-witkowski-h7rOzTmGxWE-unsplash.jpg)
 
 Article after article I read about how insidious online advertisers are. We are being tracked everywhere we go on the Internet, and off to a certain extent. I don't mind paying for services. I have been a YouTube Premium member for years. It brings me value. I pay for it. I have said I would pay for Facebook not to track every little thing I do. It's creepy, nobody likes it.
 
@@ -16,7 +16,7 @@ Within 25 minutes of [Linus's how-to article](https://linustechtips.com/main/top
 
 I'll spare you rewriting an already good how-to article but I will say that it's been running on the entire network now for a week, flawlessly. The dashboard is great, I can see what has been blocked, quickly whitelist if needed, and tweak to my heart's desire. The Raspberry Pi now lives atop my switch. I couldn't be happier.
 
-![Pi-hole Dashboard](/media/newsletter/ad-blocking-with-pi-hole/pi-hole-dashboard.png)
+![Pi-hole Dashboard](../../assets/blog/ad-blocking-with-pi-hole/pi-hole-dashboard.png)
 
 ## Round Two
 

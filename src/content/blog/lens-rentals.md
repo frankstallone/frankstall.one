@@ -6,7 +6,7 @@ description: 'Before spending thousands of dollars, try out that camera and lens
 subtitle: 'Before spending thousands of dollars, try out that camera and lens first.'
 ---
 
-<img src="/media/newsletter/lensrentals/mattews-di-nelson-1134148-unsplash.jpg" alt="Photograph of Photographer by Matthews Di Nelson via Unsplash">
+![Photograph of Photographer by Matthews Di Nelson via Unsplash](../../assets/blog/lensrentals/mattews-di-nelson-1134148-unsplash.jpg)
 
 A friend of mine reached out recently asking about a potential camera body and lens for his partner for her birthday. He had a pretty good idea of what he wanted, but there was at least a thousand dollar difference between his options.
 
@@ -14,7 +14,7 @@ I talked to him a bit about what she would be using the camera for. He said it w
 
 We then started talking about differences we weren't sure the difference mattered. The [a6400](https://www.sony.com/electronics/interchangeable-lens-cameras/ilce-6400) is brand new and [a6500](https://www.sony.com/electronics/interchangeable-lens-cameras/ilce-6500-body-kit), is more premium than the a6400, but is almost 3 years older. Looking further into the specifications we can see the a6400 has much higher contrast detection areas, but the a6500 has in body image stabilization. Since this was a new world both my friend and his partner were getting into instantly I knew what needed to happen.
 
-![Sony a6500 Body](/media/newsletter/lensrentals/sony-a6500-body.jpg)
+![Sony a6500 Body](../../assets/blog/lensrentals/sony-a6500-body.jpg)
 
 I listen to a lot of podcasts. In many of the tech podcasts there was a common theme for some of the camera savvy individuals that did not want to shell out the multiple thousands of dollars required for certain lenses or bodies. They talked at length about a service that they repeatedly had success renting those expensive lenses from for a period of time.
 

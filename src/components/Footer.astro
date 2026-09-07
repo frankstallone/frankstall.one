@@ -12,14 +12,18 @@ const date = new Date().getFullYear()
       <div>
         <h2 class="text-gray-1400">Navigation</h2>
         <ul role="list" class="navigation">
-          <li><a href="/">Home</a></li>
-          <li><a href="/blog/">Blog</a></li>
-          <li><a href="/uses/">Uses</a></li>
-          <li><a href="/portfolio/">Portfolio</a></li>
-          <li><a href="/archives/">Archives</a></li>
+          <li><a data-astro-prefetch="hover" href="/">Home</a></li>
+          <li><a data-astro-prefetch="hover" href="/blog/">Blog</a></li>
+          <li><a data-astro-prefetch="hover" href="/uses/">Uses</a></li>
+          <li>
+            <a data-astro-prefetch="hover" href="/portfolio/">Portfolio</a>
+          </li>
+          <li><a data-astro-prefetch="hover" href="/archives/">Archives</a></li>
           <li><a href="#contact">Reach out</a></li>
           <li>
-            <a href="/accessibility-statement/">Accessibility statement</a>
+            <a data-astro-prefetch="hover" href="/accessibility-statement/"
+              >Accessibility statement</a
+            >
           </li>
         </ul>
       </div>

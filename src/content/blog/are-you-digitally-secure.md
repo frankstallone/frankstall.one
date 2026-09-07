@@ -5,7 +5,8 @@ publishDate: 12-16-2016
 description: 'A client recently asked me my thoughts about digitally security. What do I do, should they consider doing suggestions that were made by others.'
 ---
 
-<img src="/media/newsletter/photo-1461685265823-f8d5d0b08b9b.jpeg" />
+![Two people looking up at a wall covered in surveillance cameras](../../assets/blog/photo-1461685265823-f8d5d0b08b9b.jpeg)
+
 <p>A client recently asked me my thoughts about digitally security. What do I do, should they consider doing suggestions that were made by others. I wrote back a lengthy email and realized it there was a post worth sharing with the world.</p>
 <p>There are tons of tools and services out there. It can be overwhelming. I will admit it can also be time consuming. I took a lot of time to ensure I did not have to manually type in 60 character passwords anywhere -- because honestly who wants to do that? Some of these I use and recommend. Others I think are a bit too much. Keep in mind I think we are a small fish in a big sea. Most of us are not in the spotlight. We are not a television or radio personality. We do not hold a high office in politics. These are people that would require another individual to help secure their digital life.</p>
 <p>We also all make mistakes with security. I take it seriously, but others may not think I take it seriously enough. Yet others may thing I take it too seriously. Let's take a look at the different facets of digital security. I am sure there are things I am missing. Others may have another point of view. I encourage you to comment below and tell me your thoughts.</p>
