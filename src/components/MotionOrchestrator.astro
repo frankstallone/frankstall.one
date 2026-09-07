@@ -2,8 +2,19 @@
 
 ---
 
+<style is:global>
+  @media (prefers-reduced-motion: no-preference) {
+    html[data-hero-intro-pending] #hero .flow.prose > *,
+    html[data-hero-intro-pending] #hero #logo-link,
+    html[data-hero-intro-pending] #hero .nav-item {
+      opacity: 0;
+    }
+  }
+</style>
+
 <script>
   import { animate, inView, stagger } from 'motion'
+  import { animate as animateHero } from 'motion/mini'
   import type { Easing } from 'motion'
 
   import { motionDuration, motionEasing } from '@lib/motion'
@@ -44,7 +55,7 @@
       linear: 'linear',
     }
 
-    let heroAnimationControls: ReturnType<typeof animate> | null = null
+    let heroAnimationControls: ReturnType<typeof animateHero> | null = null
 
     const getHeroConfig = () => {
       const windowConfig = (
@@ -147,24 +158,24 @@
 
       const { blur, duration, delay, yOffset, easing } = getHeroConfig()
 
-      heroIntroTargets.forEach((target) => {
-        const el = target as HTMLElement
-        el.style.opacity = '0'
-        el.style.transform = `translateY(${yOffset}px)`
-        el.style.filter = `blur(${blur}px)`
-      })
-
       heroAnimationControls?.stop()
-      heroAnimationControls = reveal(heroIntroTargets, {
-        delay,
-        blur,
-        duration,
-        y: yOffset,
-        ease: heroEaseByPreset[easing],
-      })
+      heroAnimationControls = animateHero(
+        heroIntroTargets,
+        {
+          opacity: [0, 1],
+          transform: [`translateY(${yOffset}px)`, 'translateY(0px)'],
+          filter: [`blur(${blur}px)`, 'blur(0px)'],
+        },
+        { delay, duration, ease: heroEaseByPreset[easing] },
+      )
     }
 
-    if (heroIntroTargets.length) {
+    const heroIntroPending = document.documentElement.hasAttribute(
+      'data-hero-intro-pending',
+    )
+
+    // Once the loading fallback reveals the hero, do not hide it again.
+    if (heroIntroPending && heroIntroTargets.length) {
       runHeroIntro()
     }
 
@@ -173,10 +184,10 @@
     const heroNavTargets = Array.from(
       document.querySelectorAll('#hero #logo-link, #hero .nav-item'),
     )
-    if (heroNavTargets.length) {
-      animate(
+    if (heroIntroPending && heroNavTargets.length) {
+      animateHero(
         heroNavTargets,
-        { opacity: [0, 1], y: [-6, 0] },
+        { opacity: [0, 1], transform: ['translateY(-6px)', 'translateY(0px)'] },
         {
           duration: motionDuration.reveal,
           ease: motionEasing.out,
@@ -184,6 +195,8 @@
         },
       )
     }
+
+    delete document.documentElement.dataset.heroIntroPending
 
     document.querySelectorAll('.home-section-head').forEach((sectionHead) => {
       revealInView(sectionHead, Array.from(sectionHead.children), {

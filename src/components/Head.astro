@@ -30,6 +30,16 @@ const robots = meta.robots
 
 <head>
   <meta charset="UTF-8" />
+  <script is:inline>
+    // Set the entrance state before the browser can paint the hero.
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.dataset.heroIntroPending = ''
+      // Keep the content readable if the animation bundle fails to load.
+      window.setTimeout(() => {
+        delete document.documentElement.dataset.heroIntroPending
+      }, 3000)
+    }
+  </script>
   <Font
     cssVariable="--font-display"
     preload={[
