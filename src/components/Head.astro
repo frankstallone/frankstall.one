@@ -6,14 +6,24 @@ export interface Props extends Header {}
 
 const { meta } = Astro.props
 
-const title = meta.title ? meta.title : "The Internet's favorite Frank Stallone"
-const description = meta.description
-  ? meta.description
-  : "The Internet's favorite Frank Stallone"
-const canonicalURL = meta.canonicalURL ? meta.canonicalURL : Astro.site
-const ogImage = meta.image
-  ? meta.image
-  : '/media/the-internets-favorite-frank-stallone-ogimage.png'
+const tagline = 'I make tools. Software is just the lever.'
+const title = meta.title || `Frank Stallone | ${tagline}`
+const description = meta.description || tagline
+const canonicalURL = new URL(
+  meta.canonicalURL || Astro.url.pathname,
+  Astro.site,
+)
+const ogImage = new URL(
+  meta.image || '/media/frank-stallone-tools-og.png',
+  Astro.site,
+)
+ogImage.protocol = 'https:'
+const imageAlt =
+  meta.imageAlt ||
+  (!meta.image
+    ? 'Frank Stallone. I make tools. Software is just the lever.'
+    : undefined)
+const type = meta.type || 'website'
 const robots = meta.robots
 ---
 
@@ -28,8 +38,7 @@ const robots = meta.robots
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="manifest" href="/site.webmanifest" />
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#161616" />
-  <meta name="msapplication-TileColor" content="#161616" />
-  <meta name="theme-color" content="#161616" />
+  <meta name="theme-color" content="#fcfcfc" />
   <!-- Sitemap -->
   <link rel="sitemap" href="/sitemap-index.xml" />
   <!-- Canonical -->
@@ -38,145 +47,34 @@ const robots = meta.robots
   <meta name="generator" content={Astro.generator} />
   <title>{title}</title>
   <!-- Open Graph -->
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content={type} />
   <meta property="og:url" content={canonicalURL} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
-  <meta property="og:image" content={ogImage} />
-  <meta property="og:image:alt" content={`Frank Stallone - ${description}`} />
+  <meta property="og:image" content={ogImage.href} />
+  {imageAlt && <meta property="og:image:alt" content={imageAlt} />}
+  <meta property="og:site_name" content="Frank Stallone" />
+  {
+    type === 'article' && (
+      <>
+        <meta name="author" content="Frank Stallone" />
+        <meta property="article:author" content={Astro.site?.href} />
+        {meta.publishedTime && (
+          <meta
+            property="article:published_time"
+            content={meta.publishedTime}
+          />
+        )}
+      </>
+    )
+  }
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage.href} />
+  {imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
 
-  <!-- Local Fonts -->
-  <link
-    rel="preload"
-    as="font"
-    href="/fonts/future/the-future-thin.woff2"
-    type="font/woff2"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="preload"
-    as="font"
-    href="/fonts/future/the-future-thin-italic.woff2"
-    type="font/woff2"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="preload"
-    as="font"
-    href="/fonts/future/the-future-extralight.woff2"
-    type="font/woff2"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="preload"
-    as="font"
-    href="/fonts/future/the-future-extralight-italic.woff2"
-    type="font/woff2"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="preload"
-    as="font"
-    href="/fonts/future/the-future-light.woff2"
-    type="font/woff2"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="preload"
-    as="font"
-    href="/fonts/future/the-future-light-italic.woff2"
-    type="font/woff2"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="preload"
-    as="font"
-    href="/fonts/future/the-future-regular.woff2"
-    type="font/woff2"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="preload"
-    as="font"
-    href="/fonts/future/the-future-italic.woff2"
-    type="font/woff2"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="preload"
-    as="font"
-    href="/fonts/future/the-future-medium.woff2"
-    type="font/woff2"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="preload"
-    as="font"
-    href="/fonts/future/the-future-medium.woff2"
-    type="font/woff2"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="preload"
-    as="font"
-    href="/fonts/future/the-future-bold.woff2"
-    type="font/woff2"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="preload"
-    as="font"
-    href="/fonts/future/the-future-bold-italic.woff2"
-    type="font/woff2"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="preload"
-    as="font"
-    href="/fonts/future/the-future-black.woff2"
-    type="font/woff2"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="preload"
-    as="font"
-    href="/fonts/future/the-future-black-italic.woff2"
-    type="font/woff2"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="preload"
-    as="font"
-    href="/fonts/future/the-future-mono-regular.woff2"
-    type="font/woff2"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="preload"
-    as="font"
-    href="/fonts/future/the-future-mono-italic.woff2"
-    type="font/woff2"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="preload"
-    as="font"
-    href="/fonts/future/the-future-mono-medium.woff2"
-    type="font/woff2"
-    crossorigin="anonymous"
-  />
-  <link
-    rel="preload"
-    as="font"
-    href="/fonts/future/the-future-mono-medium-italic.woff2"
-    type="font/woff2"
-    crossorigin="anonymous"
-  />
-  <!-- Schema.org -->
   <!-- Google tag (gtag.js) -->
   <script
     async

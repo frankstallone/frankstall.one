@@ -1,13 +1,16 @@
 export type Header = {
   meta: {
-    title?: string;
-    description?: string;
-    canonicalURL?: string;
-    image?: string;
-    robots?: string;
-  };
-};
+    title?: string
+    description?: string
+    canonicalURL?: string
+    image?: string
+    imageAlt?: string
+    type?: 'website' | 'article'
+    publishedTime?: string
+    robots?: string
+  }
+}
 
 export type SubPages = {
-  subtitle?: string;
-};
+  subtitle?: string
+}

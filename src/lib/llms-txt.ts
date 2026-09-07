@@ -129,7 +129,7 @@ export function buildLlmsTxt(
   return [
     '# Frank Stallone',
     '',
-    '> Designer, developer, and mentor sharing 25 years of experience working on the web.',
+    '> I make tools. Software is just the lever.',
     '',
     'Frank bridges design and development across SaaS products, design systems, marketing, accessibility, and web craft. Portfolio case studies describe selected client and product work; blog posts reflect Frank’s own perspective and experience.',
     '',

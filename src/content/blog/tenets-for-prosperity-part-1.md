@@ -3,7 +3,8 @@ isDraft: false
 title: 'Tenets for prosperity - Part 1'
 publishDate: 07-29-2023
 description: 'Today I am going to talk about the tenets, or guiding principals, I have collected throughout the years and have brought me success in business and life. I have been fortunate enough to work on successful products and services for a range of markets from law to fintech...'
-image: /media/newsletter/tenets-for-prosperity-part-1.png
+image: /media/blog/tenets-for-prosperity-part-1.png
+imageAlt: "Frank Stallone. Tenets for prosperity - Part 1"
 ---
 
 <p>Today I am going to talk about the tenets, or guiding principals, I have collected throughout the years and have brought me success in business and life. I have been fortunate enough to work on successful products and services for a range of markets from law to fintech. Throughout that time I have grown successful partially due to great leadership, and partially due to my insatiable curiosity, learning from other successful people.</p>

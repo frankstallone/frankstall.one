@@ -45,6 +45,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
     title: entry.data.title,
     description: entry.data.description,
     image: entry.data.image,
+    imageAlt: entry.data.imageAlt,
+    type: 'article',
+    publishedTime: entry.data.publishDate.toISOString().slice(0, 10),
     canonicalURL: canonicalURL.href,
   }}
 >
@@ -58,10 +61,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
     {
       headingsArray && headingsArray.length > 0 && (
         <noscript>
-          <nav class="post__toc-fallback case-panel flow" aria-label="Table of contents">
+          <nav
+            class="post__toc-fallback case-panel flow"
+            aria-label="Table of contents"
+          >
             <h2 class="post__toc-fallback-title">Table of contents</h2>
             <ul class="post__toc-fallback-list list-none pl-zero space-y-2xs">
-              {headingsArray.map((heading) => <TableOfContents heading={heading} />)}
+              {headingsArray.map((heading) => (
+                <TableOfContents heading={heading} />
+              ))}
             </ul>
           </nav>
         </noscript>

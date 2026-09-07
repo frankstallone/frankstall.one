@@ -3,7 +3,8 @@ isDraft: false
 title: 'How much of a design system can you do in Figma?'
 publishDate: 07-01-2023
 description: 'Today I am going to answer the question, “How much of a design system can you do in Figma?” The answer may be surprising. '
-image: /media/newsletter/how-much-of-a-design-system-can-you-do-in-figma.png
+image: /media/blog/how-much-of-a-design-system-can-you-do-in-figma.png
+imageAlt: "Frank Stallone. How much of a design system can you do in Figma?"
 ---
 
 <p>Today I am going to answer the question, “How much of a design system can you do in Figma?” The answer may be surprising. This single tool has recently been <a href="https://www.figma.com/whats-new/">updated to include features</a> that expand it’s capabilities beyond design. An effort I believe Figma was doing a spotty job at, but things have changed.</p>

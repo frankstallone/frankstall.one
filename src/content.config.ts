@@ -18,6 +18,7 @@ const blog = defineCollection({
       .or(z.date())
       .transform((val) => new Date(val)),
     image: z.string().optional(),
+    imageAlt: z.string().optional(),
   }),
 })
 

@@ -3,7 +3,8 @@ isDraft: false
 title: 'Product Managers are eating UX roles'
 publishDate: 06-24-2023
 description: 'Today I am going to talk about a shift I’ve been seeing in the design and product industries, and what it means for the UX design role.'
-image: /media/newsletter/product-managers-are-eating-ux-roles.png
+image: /media/blog/product-managers-are-eating-ux-roles.png
+imageAlt: "Frank Stallone. Product Managers are eating UX roles"
 ---
 
 <p>Today I am going to talk about a shift I’ve been seeing in the design and product industries, and what it means for the UX design role. There is a tweet by Ravi Mehta that breaks down a matrix of a Product Manager. What is interesting is the Product Architect side:</p>

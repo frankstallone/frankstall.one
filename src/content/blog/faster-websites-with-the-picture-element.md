@@ -3,7 +3,8 @@ isDraft: false
 title: 'Faster websites with the Picture element'
 publishDate: 04-07-2024
 description: 'How to create faster websites with the Picture element. Who cares though? Honestly, why even bother talking about performance? Sure there are studies that have shown that lack of performance has cost larger organizations tons of money, and images are the most popular resource type on the web, but does that matter to the user? '
-image: /media/newsletter/faster-websites-with-the-picture-element.png
+image: /media/blog/faster-websites-with-the-picture-element.png
+imageAlt: "Frank Stallone. Faster websites with the Picture element"
 ---
 
 Today I am going to talk about web performance for images. There are two main pet projects I’ve had throughout my web career. The first is web accessibility, and the second is web performance.

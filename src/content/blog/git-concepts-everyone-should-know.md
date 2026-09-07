@@ -3,7 +3,8 @@ isDraft: false
 title: 'Git concepts everyone should know'
 publishDate: 06-17-2023
 description: 'Today I am going to teach you Git fundamentals everyone should know. Whether you are a designer, developer or product expert having a general understanding of how version controlling code works is easy. '
-image: /media/newsletter/git-concepts-everyone-should-know.png
+image: /media/blog/git-concepts-everyone-should-know.png
+imageAlt: "Frank Stallone. Git concepts everyone should know"
 ---
 
 <p>Today I am going to teach you Git fundamentals everyone should know. Whether you are a designer, developer or product expert having a general understanding of how version controlling code works is easy.</p>

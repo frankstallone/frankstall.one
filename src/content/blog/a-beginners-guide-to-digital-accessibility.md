@@ -3,7 +3,8 @@ isDraft: false
 title: 'A beginners guide to digital accessibility'
 publishDate: 05-20-2023
 description: 'In business, accessibility on the web and for digital devices, is a topic rife with ignorance. It’s also a fundamental civil rights law in many countries. Today we’re going to take a peak at the four principals the WCAG consider guidelines and success criteria.'
-image: /media/newsletter/a-beginners-guide-to-digital-accessibility.png
+image: /media/blog/a-beginners-guide-to-digital-accessibility.png
+imageAlt: "Frank Stallone. A beginners guide to digital accessibility"
 ---
 
 <p>
