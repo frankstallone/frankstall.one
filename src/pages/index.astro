@@ -30,16 +30,14 @@ function truncateDescription(description: string) {
 }
 ---
 
-<Layout
-  meta={{
-    title: 'Frank Stallone | Sharing 25 years of working on the web',
-    description:
-      'For the last two decades, I have helped businesses of all sizes craft compelling user experiences that drove 100M+ in revenue.',
-  }}
->
+<Layout meta={{}}>
   <section class="region flow" id="main">
     <div class="flow wrapper">
-      <div class="grid" data-layout="f4-home" style="--gutter: var(--spacing-l);">
+      <div
+        class="grid"
+        data-layout="f4-home"
+        style="--gutter: var(--spacing-l);"
+      >
         <div class="flow home-section-head">
           <p class="home-section-kicker">01</p>
           <h2 class="text-step-1 text-gray-1400">Recent posts</h2>
@@ -88,7 +86,11 @@ function truncateDescription(description: string) {
   <AboutMe variant="f4-home" sectionIndex="02" />
   <div class="region bg-gray-100">
     <div class="wrapper">
-      <div class="grid" data-layout="f4-home" style="--gutter: var(--spacing-l);">
+      <div
+        class="grid"
+        data-layout="f4-home"
+        style="--gutter: var(--spacing-l);"
+      >
         <div class="flow home-section-head">
           <p class="home-section-kicker">03</p>
           <h2 class="text-step-1 text-gray-1400">Portfolio</h2>
