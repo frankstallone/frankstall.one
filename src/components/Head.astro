@@ -1,5 +1,6 @@
 ---
 import '../css/global.css'
+import { Font } from 'astro:assets'
 import type { Header } from '@types'
 
 export interface Props extends Header {}
@@ -28,8 +29,23 @@ const robots = meta.robots
 ---
 
 <head>
-  <!-- Meta -->
   <meta charset="UTF-8" />
+  <Font
+    cssVariable="--font-display"
+    preload={[
+      { weight: 500, style: 'normal' },
+      { weight: 700, style: 'normal' },
+    ]}
+  />
+  <Font
+    cssVariable="--font-base"
+    preload={[
+      { weight: 400, style: 'normal' },
+      { weight: 500, style: 'normal' },
+    ]}
+  />
+  <Font cssVariable="--font-mono" />
+  <!-- Meta -->
   <meta name="description" content={description} />
   {robots && <meta name="robots" content={robots} />}
   <meta name="viewport" content="width=device-width" />
