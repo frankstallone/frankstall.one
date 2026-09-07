@@ -5,6 +5,7 @@ publishDate: 11-07-2024
 description: "Discover how structured design reviews can transform your team's creative process. This guide explores the benefits of peer-driven critiques, from fostering collaboration to improving design quality, creating a culture of growth and innovation within your organization."
 subtitle: 'Building a culture of collaboration and growth through impactful design reviews.'
 image: /media/newsletter/a-beginners-guide-to-design-reviews-cover.png
+imageAlt: "Portrait of Frank Stallone beside the text “The beginners guide to design reviews” on a dark background."
 ---
 
 In the world of digital interface design, there’s a big difference between feedback sessions designed for approval and those meant for genuine critique. Many teams have a ritual of design reviews as "sign-off" meetings with stakeholders—a process focused on securing approval before moving forward. But there’s a another type of design review, one that creates more refined, user-centered designs. This guide is for leaders and more senior individual contributors looking at design reviews to collaborate with similar disciplines, up level design related peers, and create a culture of iteration and openness. Let’s explore how structured critiques can elevate your team’s work, improve collaboration, and produce better products.

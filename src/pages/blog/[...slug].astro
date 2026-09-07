@@ -45,6 +45,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
     title: entry.data.title,
     description: entry.data.description,
     image: entry.data.image,
+    imageAlt: entry.data.imageAlt,
     type: 'article',
     publishedTime: entry.data.publishDate.toISOString().slice(0, 10),
     canonicalURL: canonicalURL.href,

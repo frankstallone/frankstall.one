@@ -4,6 +4,7 @@ title: 'UX vs. UI and industry expectations'
 publishDate: 05-13-2023
 description: 'If you’re working on a web app or product, you’ve probably heard of the title UX designer, or user experience designer, and UI designer, or user interface designer.'
 image: /media/newsletter/ux-vs-ui-and-industry-expectations.png
+imageAlt: "Portrait of Frank Stallone beside the text “UX vs. UI and industry expectations” on a dark background."
 ---
 
 <p>

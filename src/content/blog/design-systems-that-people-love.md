@@ -4,6 +4,7 @@ title: 'Design systems that people love'
 publishDate: 05-27-2023
 description: 'Design systems can increase productivity for an entire organization. It affords your product teams to focus on business objectives.'
 image: /media/newsletter/design-systems-that-people-love.png
+imageAlt: "Portrait of Frank Stallone beside the text “Design systems that people love” on a dark background."
 ---
 
 <p>Today I am going to talk about design systems.</p>

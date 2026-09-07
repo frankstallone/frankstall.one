@@ -4,6 +4,7 @@ title: 'What makes a timeless logo?'
 publishDate: 06-10-2023
 description: 'There are two main types of logos, a logo mark, and logo type. Today I am going to show you how to spot good logos!'
 image: /media/newsletter/what-makes-a-timeless-logo.png
+imageAlt: "Portrait of Frank Stallone beside the text “What makes a timeless logo?” on a dark background."
 ---
 
 <p>Today I am going to talk about what makes a timeless logo. Let’s break down the two main types of logos. The first is a logo mark. A logo mark is a symbol that represents the brand. When used consistently, over time, it becomes recognizable and is associated with the brand. The second is a word mark also called a logo type. This is typically the company’s name or an acronym of the company’s name spelled out using a well thought out typeface and modified to fit the brand.</p>
