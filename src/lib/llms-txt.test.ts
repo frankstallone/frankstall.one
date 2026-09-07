@@ -38,7 +38,7 @@ describe('buildLlmsTxt', () => {
       '/archives/',
     ]
 
-    expect(result.startsWith('# Frank Stallone\n\n> Designer, developer')).toBe(
+    expect(result.startsWith('# Frank Stallone\n\n> I make tools. Software is just the lever.')).toBe(
       true,
     )
     expect(result).toContain('## Start here')
