@@ -3,8 +3,8 @@ isDraft: false
 title: 'Spacial computing for the web'
 publishDate: 07-22-2023
 description: 'The world of Virtual Reality or VR goggles has existed for some time. Most of the recent devices have focused on gaming. Apple’s new Vision Pro mixed reality headset aims more squarely at getting things done, with a twist.'
-image: /media/newsletter/spacial-computing-for-the-web.png
-imageAlt: "Portrait of Frank Stallone beside the text “Spacial computing for the web” on a dark background."
+image: /media/blog/spacial-computing-for-the-web.png
+imageAlt: "Frank Stallone. Spacial computing for the web"
 ---
 
 <p>Today I am going to talk about spacial computing and specifically what it means for the web. The world of Virtual Reality or VR goggles has existed for some time. Most of the recent devices have focused on gaming. Apple’s new Vision Pro mixed reality headset aims more squarely at getting things done, with a twist of entertainment. One of those use cases is web browsing with Safari.</p>

@@ -3,8 +3,8 @@ isDraft: false
 title: 'Transforming Communication: The power of presuming positive intent'
 publishDate: 07-15-2023
 description: 'Today I am going to talk about one principal has stood out to me as being a cornerstone for leaders I have looked up to, has gotten me to diffuse tense situations and forge stronger relationships. '
-image: /media/newsletter/transforming-communication-the-power-of-presuming-positive-intent.png
-imageAlt: "Portrait of Frank Stallone beside the text “Transforming Communication: The power of presuming positive intent” on a dark background."
+image: /media/blog/transforming-communication-the-power-of-presuming-positive-intent.png
+imageAlt: "Frank Stallone. Transforming Communication: The power of presuming positive intent"
 ---
 
 <p>Today I am going to talk about one principal has stood out to me as being a cornerstone for leaders I have looked up to, has gotten me to diffuse tense situations and forge stronger relationships. This simple yet profound shift in mindset can bring about transformative changes both in your professional and personal lives.</p>

@@ -3,6 +3,8 @@ isDraft: false
 title: 'Designers who code, what is it good for?'
 publishDate: 07-01-2023
 description: 'Today I am going to talk about designers who code. This starts with a little bit about who I am. I went to school for Graphic Design but had been designing and developing websites since I was 16. My first full website was a Dragonball Z fan site.'
+image: /media/blog/designers-who-code-what-is-it-good-for.png
+imageAlt: "Frank Stallone. Designers who code, what is it good for?"
 ---
 
 <p>Today I am going to talk about designers who code. This starts with a little bit about who I am. I went to school for Graphic Design but had been designing and developing websites since I was 16. My first full website was a Dragonball Z fan site. I wrote it in HTML with CSS and a little JavaScript, <a href="https://stallone.dev/1/">and because of that you can still see that site today</a>. Really though, should designers learn to code?</p>

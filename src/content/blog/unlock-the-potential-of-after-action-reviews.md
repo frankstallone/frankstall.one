@@ -3,8 +3,8 @@ isDraft: false
 title: 'Unlock the potential of After-Action Reviews'
 publishDate: 06-03-2023
 description: 'Learning and applying AARs in your product team could foster genuine trust, insightfully learn from mistakes, and figure out how to repeat unanticipated success.'
-image: /media/newsletter/unlock-the-potential-of-after-action-reviews.png
-imageAlt: "A group of colleagues discussing work around a table in an office."
+image: /media/blog/unlock-the-potential-of-after-action-reviews.png
+imageAlt: "Frank Stallone. Unlock the potential of After-Action Reviews"
 ---
 
 <p>Today I am going to teach you about <a href="https://en.wikipedia.org/wiki/After-action_review">After-Action Reviews</a> (AARs), a technique that originated from the U.S. Army.</p>

@@ -3,8 +3,8 @@ isDraft: false
 title: 'Tenets for prosperity - Part 2'
 publishDate: 08-05-2023
 description: 'Today I am going to continue to share my tenets for prosperity. These are guiding principals I’ve collected and brought me success throughout the years. '
-image: /media/newsletter/tenets-for-prosperity-part-2.png
-imageAlt: "Portrait of Frank Stallone beside the text “Tenets for prosperity - Part 2” on a dark background."
+image: /media/blog/tenets-for-prosperity-part-2.png
+imageAlt: "Frank Stallone. Tenets for prosperity - Part 2"
 ---
 
 <p>Today I am going to continue to share my tenets for prosperity. These are guiding principals I’ve collected and brought me success throughout the years. If you haven’t read the first part, <a href="https://www.frankstall.one/blog/tenets-for-prosperity-part-1">I started with the first four</a>. Now, we’ll go through the second set of four.</p>

@@ -3,8 +3,8 @@ isDraft: false
 title: 'The 3-step strategy that turned Brett Williams into the king of the design agency of one'
 publishDate: 05-06-2023
 description: "What is it about Brett William's Designjoy agency that has brought him millions in reocurring revenue? Does the agency model of yesterday still apply today?"
-image: /media/newsletter/the-3-step-strategy-that-turned-brett-williams-into-the-king-of-the-design-agency-of-one.png
-imageAlt: "Portrait of Frank Stallone beside the text “The 3 fundamentals that turned Brett Williams into the king of the design agency of one” on a dark background."
+image: /media/blog/the-3-step-strategy-that-turned-brett-williams-into-the-king-of-the-design-agency-of-one.png
+imageAlt: "Frank Stallone. The 3-step strategy that turned Brett Williams into the king of the design agency of one"
 ---
 
 <p>
