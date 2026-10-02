@@ -1,0 +1,28 @@
+---
+isDraft: true
+title: 'Organizing decades of photos with an AI agent'
+publishDate: 10-02-2026
+description: 'How I worked with Codex to organize a 3 TB photo archive, preserve Lightroom projects, and leave the uncertain decisions for human review.'
+---
+
+My photo archive had folders called `Camera Uploads`, `2019-and-before`, and `To Be Sorted`. Alongside those were carefully named trips, family events, and Lightroom projects. You could see years of different attempts at organization in the folder names.
+
+In July, I worked with Codex to make sense of it. The archive lived on my Synology NAS and covered events from 1988 through 2025: family photos, iPhone uploads, files from different mirrorless cameras, exports, and the machinery Lightroom leaves behind. It added up to just over 3 TB.
+
+We started by figuring out what was actually there and what I wanted to preserve. Keep each event together. Keep the Lightroom catalogs independent. Preserve camera filenames and the small companion files that hold editing information. Anything uncertain could wait for me to sort later.
+
+We would do all of that on a complete copy. I've [deleted the wrong folder before](/blog/how-not-to-do-backups/). The original archive stayed untouched throughout this migration.
+
+The inventory turned up a useful surprise: more than 40,000 files, about a third of the total, were Lightroom previews. Some previews even used the same DNG extension as original camera files. Sorting everything by extension would have mixed generated previews into the originals.
+
+That changed how we classified the archive. Where a file lived mattered alongside its metadata. Codex built a proposed map from every old path to its new location, checked for collisions, and wrote scripts that could resume after an interruption. We worked through the rules together before applying them.
+
+The NAS needed attention too. During the copy, Synology started generating thumbnails while Docker containers were also running. Progress dragged. We checked the running processes and memory pressure, then stopped those services to give the migration room to work.
+
+The result was 119,995 files migrated into a structure with 310 event folders, separate areas for originals and exports, preserved Lightroom workspaces, and review folders for material we couldn't confidently place. Individual filenames stayed the same.
+
+We checked file contents with SHA-256 hashes, then verified that the same files reached their mapped destinations. After copying and checking the data, applying the new folder layout took less than two minutes. The execution from starting the copy through final verification took about 27 hours.
+
+Working with an agent meant I could decide what a useful archive should look like while it did the inventory, scripting, monitoring, and reconciliation. When something went wrong or an assumption needed changing, we had records to inspect and a process to revise.
+
+At the end, I had a verified archive and a defined set of decisions left to make. Lightroom still needed to be opened and relinked. Ambiguous folders still needed my attention. Keeping the original until I could do that was part of the plan.
