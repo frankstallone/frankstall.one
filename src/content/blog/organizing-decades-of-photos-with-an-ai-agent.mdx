@@ -1,5 +1,5 @@
 ---
-isDraft: true
+isDraft: false
 title: 'Organizing decades of photos with an AI agent'
 publishDate: 10-02-2026
 description: 'How I worked with Codex to organize a 3 TB photo archive, preserve Lightroom projects, and leave the uncertain decisions for human review.'
@@ -20,6 +20,25 @@ That changed how we classified the archive. Where a file lived mattered alongsid
 The NAS needed attention too. During the copy, Synology started generating thumbnails while Docker containers were also running. Progress dragged. We checked the running processes and memory pressure, then stopped those services to give the migration room to work.
 
 The result was 119,995 files migrated into a structure with 310 event folders, separate areas for originals and exports, preserved Lightroom workspaces, and review folders for material we couldn't confidently place. Individual filenames stayed the same.
+
+Here's a simplified slice of the new layout:
+
+```text
+FSIII/
+|-- Events/
+|   |-- 2022/
+|   |   `-- 2022-total-tennis/
+|   |       |-- Originals/RAW/
+|   |       |-- Exports/
+|   |       `-- Lightroom/
+|   `-- Unknown-Date/
+|-- Lightroom-Workspaces/Legacy/
+|-- _Needs-Review/
+|   |-- Legacy-Buckets/
+|   |-- Non-Photo/
+|   `-- Loose-Files/
+`-- _Incoming/
+```
 
 We checked file contents with SHA-256 hashes, then verified that the same files reached their mapped destinations. After copying and checking the data, applying the new folder layout took less than two minutes. The execution from starting the copy through final verification took about 27 hours.
 
