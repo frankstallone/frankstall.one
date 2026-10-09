@@ -1,10 +1,11 @@
 ---
 import Header from './Header.astro'
-const { title, subtitle } = Astro.props
+const { title, subtitle, reading = false } = Astro.props
 
 type Props = {
   title: string
   subtitle?: string
+  reading?: boolean
 }
 
 const description = subtitle
@@ -14,12 +15,12 @@ const description = subtitle
 
 <div id="hero" aria-label="Hero section" class="bg-gray-100 text-gray-1400">
   <Header />
-  <div class="wrapper region">
-    <div class="flow prose">
+  <div class:list={['wrapper page-intro', { 'page-intro-reading': reading }]}>
+    <div class="flow prose page-intro-copy">
       <h1 class="text-balance hero-headline-alt">
         {title}
       </h1>
-      <p class="text-step-0">{description}</p>
+      <p>{description}</p>
     </div>
   </div>
 </div>

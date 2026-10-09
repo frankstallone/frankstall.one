@@ -1,0 +1,58 @@
+.writing-index {
+  padding-block: var(--spacing-xl) var(--spacing-2xl-3xl);
+}
+
+.writing-list {
+  display: grid;
+  gap: var(--spacing-l-xl);
+  margin: 0;
+}
+
+.writing-entry {
+  display: grid;
+  gap: var(--spacing-2xs);
+  max-inline-size: none;
+}
+
+.writing-entry time {
+  color: var(--color-gray-1100);
+  font-size: var(--text-step-00);
+  line-height: var(--leading-reading);
+}
+
+.writing-entry h2 {
+  @apply text-step-1;
+  line-height: var(--leading-snug);
+  letter-spacing: -0.02em;
+  text-wrap: pretty;
+}
+
+.writing-entry h2 a {
+  text-decoration-color: transparent;
+}
+
+.writing-entry h2 a:hover,
+.writing-entry h2 a:focus-visible {
+  text-decoration-color: currentColor;
+}
+
+.writing-entry p {
+  max-inline-size: 60ch;
+  margin-block-start: var(--spacing-2xs);
+  color: var(--color-gray-1200);
+}
+
+.writing-index > nav {
+  margin-block-start: var(--spacing-xl);
+}
+
+@media (width >= 47.5rem) {
+  .writing-entry {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+    column-gap: var(--spacing-xl);
+  }
+
+  .writing-entry time {
+    padding-block-start: var(--spacing-3xs);
+  }
+}

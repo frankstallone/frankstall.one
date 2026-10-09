@@ -1,14 +1,12 @@
 ---
-
+const pathname = Astro.url.pathname
 ---
 
-<header
-  class="cluster box text-center bg-transparent text-gray-1400 flex-col md:flex-row md:justify-between"
->
+<header class="site-header wrapper text-gray-1400">
   <a
     data-astro-prefetch="hover"
     href="/"
-    class="flex justify-center items-center"
+    class="site-wordmark"
     id="logo-link"
     aria-label="Frank Stallone home"
   >
@@ -19,7 +17,7 @@
       fill="currentColor"
       role="img"
       aria-hidden="true"
-      class="w-3xl text-gray-1400"
+      class="site-wordmark-image"
     >
       <title>Frank Stallone logo</title>
       <g>
@@ -66,16 +64,22 @@
     </svg>
   </a>
   <nav aria-label="Main navigation">
-    <ul
-      role="list"
-      class="cluster justify-center font-medium"
-      style="--gutter: var(--spacing-s);"
-    >
+    <ul role="list" class="site-navigation">
       <li class="header-link nav-item">
-        <a data-astro-prefetch="hover" href="/portfolio/">Portfolio</a>
+        <a
+          data-astro-prefetch="hover"
+          href="/portfolio/"
+          aria-current={pathname.startsWith('/portfolio/') ? 'page' : undefined}
+          >Portfolio</a
+        >
       </li>
       <li class="header-link nav-item">
-        <a data-astro-prefetch="hover" href="/blog/">Blog</a>
+        <a
+          data-astro-prefetch="hover"
+          href="/blog/"
+          aria-current={pathname.startsWith('/blog/') ? 'page' : undefined}
+          >Blog</a
+        >
       </li>
       <li class="header-link nav-item">
         <a href="#contact">Reach out</a>

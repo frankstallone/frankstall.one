@@ -35,26 +35,18 @@ export default defineConfig({
       options: {
         variants: [
           {
-            weight: 400,
+            weight: '100 900',
             style: 'normal',
             src: [
-              './node_modules/@fontsource/geist/files/geist-latin-400-normal.woff2',
+              './node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2',
             ],
             display: 'swap',
           },
           {
-            weight: 500,
-            style: 'normal',
+            weight: '100 900',
+            style: 'italic',
             src: [
-              './node_modules/@fontsource/geist/files/geist-latin-500-normal.woff2',
-            ],
-            display: 'swap',
-          },
-          {
-            weight: 700,
-            style: 'normal',
-            src: [
-              './node_modules/@fontsource/geist/files/geist-latin-700-normal.woff2',
+              './node_modules/@fontsource-variable/inter/files/inter-latin-wght-italic.woff2',
             ],
             display: 'swap',
           },
@@ -165,19 +157,9 @@ export default defineConfig({
       options: {
         variants: [
           {
-            weight: 400,
+            weight: '100 800',
             style: 'normal',
-            src: [
-              './node_modules/@fontsource/geist-mono/files/geist-mono-latin-400-normal.woff2',
-            ],
-            display: 'swap',
-          },
-          {
-            weight: 500,
-            style: 'normal',
-            src: [
-              './node_modules/@fontsource/geist-mono/files/geist-mono-latin-500-normal.woff2',
-            ],
+            src: ['./src/assets/fonts/paper-mono/paper-mono-variable.woff2'],
             display: 'swap',
           },
         ],

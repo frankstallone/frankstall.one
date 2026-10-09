@@ -6,7 +6,7 @@
 }
 
 .case-panel :is(h2, h3) {
-  @apply text-step-1 text-gray-1400;
+  @apply text-step-0 text-gray-1400;
 }
 
 .case-panel :is(p, li) {

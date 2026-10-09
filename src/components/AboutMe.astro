@@ -1,50 +1,14 @@
----
-import { Picture } from 'astro:assets'
-import frankstallone from '@assets/2023-Frank-Stallone-Web-Marketing-Expert.png'
-
-type Props = {
-  variant?: 'default' | 'f4-home'
-  sectionIndex?: string
-}
-
-const { variant = 'default', sectionIndex = '02' } = Astro.props as Props
----
-
-<div class="region bg-gray-100 text-gray-1400">
-  <div class="wrapper">
-    <div class="grid" data-layout="f4-home" style="--gutter: var(--spacing-l);">
-      <div class="flow home-section-head">
-        {
-          variant === 'f4-home' && (
-            <p class="home-section-kicker">{sectionIndex}</p>
-          )
-        }
-        <h2 class="text-step-1">About</h2>
-        <p class="text-step-00 text-gray-1100">Designer, developer, mentor.</p>
-      </div>
-      <div class="flow home-about-copy">
-        <h3 class="mt-zero">
-          I'm a husband, father, designer, developer, and hopeless optimist.
-        </h3>
-        <p class="text-step-00 text-gray-1200">
-          I work where design and development meet, across marketing and SaaS
-          products. I also enjoy mentoring people and have worked in innovation
-          labs at both small and large organizations.
-        </p>
-      </div>
-      <div
-        class="home-about-media text-center relative overflow-hidden flex items-end"
-      >
-        <Picture
-          src={frankstallone}
-          widths={[320, 480, 640, 800, 1200, 1600]}
-          sizes="auto, (min-width: 76rem) 26rem, (min-width: 47.5rem) calc((100vw - 14rem - 8rem) / 2), calc(100vw - 2rem)"
-          loading="lazy"
-          class="object-contain h-auto"
-          alt="The Internet's favorite Frank Stallone"
-          formats={['avif', 'webp']}
-        />
-      </div>
-    </div>
+<section class="home-chapter wrapper" aria-labelledby="about-title">
+  <div class="home-section-head">
+    <h2 id="about-title">About</h2>
+    <p>Designer, developer, mentor.</p>
   </div>
-</div>
+  <div class="home-about-copy">
+    <h3>I'm a husband, father, designer, developer, and hopeless optimist.</h3>
+    <p>
+      I work where design and development meet, across marketing and SaaS
+      products. I also enjoy mentoring people and have worked in innovation labs
+      at both small and large organizations.
+    </p>
+  </div>
+</section>

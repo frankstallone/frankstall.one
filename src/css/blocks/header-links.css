@@ -1,53 +1,64 @@
-/* Main navigation buttons */
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-2xs) var(--spacing-l);
+  padding-block: var(--spacing-s);
+  font-size: var(--text-step-00);
+}
+
+.site-wordmark {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 44px;
+}
+
+.site-wordmark-image {
+  inline-size: 9rem;
+  block-size: auto;
+}
+
+.site-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-s);
+  margin: 0;
+  font-weight: var(--font-weight-medium);
+}
+
 .header-link a {
-  @apply text-gray-1400 no-underline inline-block relative;
-  transition:
-    color var(--motion-duration-ui) var(--motion-ease-out),
-    transform var(--motion-duration-ui) var(--motion-ease-out);
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 44px;
+  color: inherit;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.3em;
 }
 
-.header-link a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -0.08em;
-  height: max(0.08em, 1px);
-  background: currentcolor;
-  transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform var(--motion-duration-ui) var(--motion-ease-out);
-}
-
+.header-link a[aria-current],
+.header-link a:hover,
 .header-link a:focus-visible {
-  @apply text-gray-1200;
+  text-decoration-color: currentColor;
 }
 
-.header-link a:focus-visible::after {
-  transform: scaleX(1);
+.page-intro {
+  padding-block: var(--spacing-xl-2xl) 0;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .header-link a:hover,
-  .header-link a:active {
-    @apply text-gray-1200;
-    transform: translateY(-1px);
-  }
-
-  .header-link a:hover::after,
-  .header-link a:active::after {
-    transform: scaleX(1);
-  }
+.page-intro h1 {
+  @apply text-step-3;
+  max-inline-size: 26ch;
+  letter-spacing: -0.025em;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .header-link a,
-  .header-link a::after {
-    transition: none;
-  }
+.page-intro p {
+  @apply text-step-00;
+  max-inline-size: 55ch;
+  color: var(--color-gray-1100);
+}
 
-  .header-link a:hover,
-  .header-link a:active {
-    transform: none;
-  }
+.page-intro-reading .page-intro-copy {
+  max-inline-size: 65ch;
+  margin-inline: auto;
 }

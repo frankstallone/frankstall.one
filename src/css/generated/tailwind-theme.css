@@ -173,13 +173,15 @@
   --leading-flat-00: 0.75;
   --leading-flat: 1;
   --leading-fine: 1.15;
+  --leading-snug: 1.25;
   --leading-standard: 1.5;
+  --leading-reading: 1.6;
   --leading-loose: 1.7;
 
   /* Font Families */
-  --font-base: Geist, sans-serif;
+  --font-base: Inter, sans-serif;
   --font-display: Future, sans-serif;
-  --font-mono: Geist Mono, monospace;
+  --font-mono: Paper Mono, monospace;
 
   /* Font Weights */
   --font-weight-light: 300;

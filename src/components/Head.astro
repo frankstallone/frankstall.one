@@ -3,9 +3,11 @@ import '../css/global.css'
 import { Font } from 'astro:assets'
 import type { Header } from '@types'
 
-export interface Props extends Header {}
+export interface Props extends Header {
+  animateHero?: boolean
+}
 
-const { meta } = Astro.props
+const { meta, animateHero = false } = Astro.props
 
 const tagline = 'I make tools. Software is just the lever.'
 const title = meta.title || `Frank Stallone | ${tagline}`
@@ -30,9 +32,12 @@ const robots = meta.robots
 
 <head>
   <meta charset="UTF-8" />
-  <script is:inline>
+  <script is:inline define:vars={{ animateHero }}>
     // Set the entrance state before the browser can paint the hero.
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (
+      animateHero &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
       document.documentElement.dataset.heroIntroPending = ''
       // Keep the content readable if the animation bundle fails to load.
       window.setTimeout(() => {
@@ -42,17 +47,11 @@ const robots = meta.robots
   </script>
   <Font
     cssVariable="--font-display"
-    preload={[
-      { weight: 500, style: 'normal' },
-      { weight: 700, style: 'normal' },
-    ]}
+    preload={[{ weight: 500, style: 'normal' }]}
   />
   <Font
     cssVariable="--font-base"
-    preload={[
-      { weight: 400, style: 'normal' },
-      { weight: 500, style: 'normal' },
-    ]}
+    preload={[{ weight: 400, style: 'normal' }]}
   />
   <Font cssVariable="--font-mono" />
   <!-- Meta -->

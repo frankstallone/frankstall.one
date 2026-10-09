@@ -2,109 +2,93 @@
 const pathname = Astro.url.pathname
 ---
 
-<div class="region bg-gray-100">
-  <div class="wrapper">
-    <div class="grid" data-layout="f4-home" style="--gutter: var(--spacing-l);">
-      <div class="flow home-section-head">
-        {pathname === '/' && <p class="home-section-kicker">04</p>}
-        <h2 class="text-step-1 text-gray-1400">Contact</h2>
-        <p class="text-step-00 text-gray-1100">
-          Availability, partnerships, and questions.
-        </p>
-      </div>
-      <div class="flow prose contact-book-call" id="book-call">
+<section class="contact-section" id="contact" aria-labelledby="contact-title">
+  <div class="home-chapter wrapper">
+    <div class="home-section-head">
+      <h2 id="contact-title">Contact</h2>
+      <p>Availability, partnerships, and questions.</p>
+    </div>
+    <div class="contact-content">
+      <div class="contact-intro" id="book-call">
         <h3>Want to work together?</h3>
         <p>
-          I am working with a limited availability for consulting. Learn more
-          about how <a
-            href="https://designzen.co"
-            target="_blank"
-            aria-label="Opens a new tab"
-          >
-            I can sharpen your SaaS brand and product</a
-          >.
-        </p>
-        <span class="mt-zero self-end md:self-center">
+          I have limited availability for consulting. Learn how{' '}
           <a
             href="https://designzen.co"
-            style="line-height: 0; margin-left: var(--spacing-3xs);"
             target="_blank"
-            aria-label="Opens a new tab"
-          >
-            <img
-              src="/media/designzen-wordmark.svg"
-              alt="designzen logo"
-              width="100px"
-            />
-          </a>
-        </span>
-      </div>
-      <div class="flow prose contact-reach-out" id="contact">
-        <h3 class="text-step-1">Reach out</h3>
-        <p>Have a question or comment? Feel free to drop me a line below!</p>
-        <form
-          name="main"
-          netlify-honeypot="bot-field"
-          class="switcher"
-          style="--gutter: var(--spacing-2xs-xs);"
-          method="POST"
-          data-netlify="true"
-          action="/"
+            rel="noopener noreferrer"
+            >I can sharpen your SaaS brand and product</a
+          >, or send me a note below.
+        </p>
+        <a
+          class="contact-brand"
+          href="https://designzen.co"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          <input
-            type="hidden"
-            name="subject"
-            value={`🤖 Form submission: frankstall.one${pathname}`}
+          <img
+            src="/media/designzen-wordmark.svg"
+            alt="Designzen"
+            width="100"
+            height="25"
           />
-          <p class="hidden">
-            <label for="bot-field">Do you like delicious treats?</label>
-            <input
-              name="bot-field"
-              id="bot-field"
-              class="border-gray-600 border-1 border-solid"
-            />
-          </p>
-          <span class="stack">
-            <label for="name">Name</label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              required
-              class="border-gray-700 border border-solid"
-            />
-          </span>
-          <span class="stack">
-            <label for="email">Email</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              required
-              class="border-gray-700 border border-solid"
-            />
-          </span>
-          <span class="stack">
-            <label for="tel">Phone number</label>
-            <input
-              id="tel"
-              name="tel"
-              type="tel"
-              class="border-gray-700 border border-solid"
-            />
-          </span>
-          <span class="stack">
-            <label for="message">Message</label>
-            <textarea
-              name="message"
-              id="message"
-              rows="6"
-              required
-              class="border-gray-700 border border-solid"></textarea>
-          </span>
-          <button type="submit" class="button">Submit</button>
-        </form>
+        </a>
       </div>
+      <form
+        name="main"
+        netlify-honeypot="bot-field"
+        class="contact-form"
+        method="POST"
+        data-netlify="true"
+        action="/"
+        aria-label="Reach out"
+      >
+        <input type="hidden" name="form-name" value="main" />
+        <input
+          type="hidden"
+          name="subject"
+          value={`Form submission: frankstall.one${pathname}`}
+        />
+        <p hidden>
+          <label for="bot-field">Leave this field empty</label>
+          <input
+            name="bot-field"
+            id="bot-field"
+            tabindex="-1"
+            autocomplete="off"
+          />
+        </p>
+        <div class="contact-field">
+          <label for="name">Name</label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            autocomplete="name"
+            required
+          />
+        </div>
+        <div class="contact-field">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            required
+          />
+        </div>
+        <div class="contact-field contact-field-wide">
+          <label for="tel">Phone number <span>(optional)</span></label>
+          <input id="tel" name="tel" type="tel" autocomplete="tel" />
+        </div>
+        <div class="contact-field contact-field-wide">
+          <label for="message">Message</label>
+          <textarea name="message" id="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="button contact-submit">Send message</button
+        >
+      </form>
     </div>
   </div>
-</div>
+</section>

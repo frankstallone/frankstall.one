@@ -6,6 +6,7 @@
 */
 body {
   @apply font-base font-regular text-gray-1400 m-zero text-step-00 bg-gray-100;
+  line-height: var(--leading-reading);
 }
 
 /* Base interactive elements */
@@ -32,14 +33,18 @@ p,
 li,
 blockquote:not([class]) {
   @apply text-pretty;
-  max-inline-size: 50ch;
+  max-inline-size: 65ch;
 }
 
 blockquote {
-  @apply border-solid border-l-4 border-y-0 border-r-0 border-gray-700 pl-s text-step-0;
+  @apply border-solid border-l-4 border-y-0 border-r-0 border-gray-700 pl-s text-step-00;
 }
 
 /* Base typesetting */
+time {
+  @apply font-mono;
+}
+
 h1,
 h2,
 h3,
@@ -50,26 +55,28 @@ h6 {
 }
 
 h1 {
-  @apply text-step-3 font-bold;
-  letter-spacing: -0.015em;
+  @apply text-step-2;
+  letter-spacing: -0.025em;
 }
 
 h2 {
-  @apply text-step-2;
+  @apply text-step-1;
   letter-spacing: -0.01em;
 }
 
 h3 {
-  @apply text-step-1;
+  @apply text-step-0;
 }
 
 h4 {
-  @apply text-step-0;
+  @apply text-step-00;
 }
 
 /* Hero headlines only: opt into The Future stylistic sets */
 .hero-headline-alt {
-  font-feature-settings: 'ss01' 1, 'ss02' 1;
+  font-feature-settings:
+    'ss01' 1,
+    'ss02' 1;
 }
 
 /* Scroll padding allowance below focused elements 

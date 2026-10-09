@@ -1,6 +1,6 @@
 ---
-import InnerLayout from '../layouts/InnerLayout.astro';
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+import InnerLayout from '../layouts/InnerLayout.astro'
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 ---
 
 <InnerLayout
@@ -81,8 +81,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     </ul>
     <h2>Date</h2>
     <p>
-      This statement was created on 12 March 2024 using the W3C Accessibility
-      Statement Generator Tool.
+      This statement was created on <time datetime="2024-03-12"
+        >12 March 2024</time
+      > using the W3C Accessibility Statement Generator Tool.
     </p>
   </section>
 </InnerLayout>

@@ -1,6 +1,13 @@
 ---
 import { Picture } from 'astro:assets'
 import fluxCapacitor from '../assets/flux-capacitor.png'
+
+interface Props {
+  sizes?: string
+}
+
+const { sizes = '(min-width: 76rem) 47rem, (min-width: 47.5rem) 62vw, 100vw' } =
+  Astro.props
 ---
 
 <flux-capacitor class="flux-instrument">
@@ -18,7 +25,7 @@ import fluxCapacitor from '../assets/flux-capacitor.png'
         width={1520}
         height={1240}
         widths={[380, 760, 1140, 1520]}
-        sizes="(min-width: 76rem) 47rem, (min-width: 47.5rem) 62vw, 100vw"
+        sizes={sizes}
         layout="full-width"
         loading="eager"
         fetchpriority="high"
