@@ -205,28 +205,11 @@
     })
 
     document
-      .querySelectorAll(
-        '.home-about-copy, .home-about-media, .contact-book-call, .contact-reach-out, #contact.flow.prose:not(.contact-reach-out)',
-      )
+      .querySelectorAll('.home-about-copy, #contact.flow.prose')
       .forEach((element) => {
         const children = Array.from(element.children)
         revealInView(element, children.length ? children : [element])
       })
-
-    document
-      .querySelectorAll('.home-posts-grid, .home-portfolio-grid')
-      .forEach((grid) => {
-        revealInView(grid, Array.from(grid.children), { delay: stagger(0.06) })
-      })
-
-    document.querySelectorAll('.grid').forEach((grid) => {
-      const cards = Array.from(grid.querySelectorAll(':scope > .post-card'))
-      if (cards.length === 0) {
-        return
-      }
-
-      revealInView(grid, cards, { delay: stagger(0.05) })
-    })
 
     document.querySelectorAll('[data-motion-mosaic]').forEach((mosaic) => {
       const swatches = Array.from(

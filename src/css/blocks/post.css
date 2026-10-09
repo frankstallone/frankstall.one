@@ -8,9 +8,10 @@ Reference: https://piccalil.li/blog/building-a-breakout-element-with-container-u
 .post {
   /* Single container threshold that controls the layout flip */
   --post-inline-threshold: 52rem;
-  --post-content-max-width: 75ch;
+  --post-content-max-width: 65ch;
   --post-popout-width: clamp(0rem, 5cqi, 4rem);
-  --post-rail-gutter: var(--gutter);
+  /* The outer wrapper owns the page inset, including on narrow screens. */
+  --post-rail-gutter: 0px;
 
   /* Enable container queries & units */
   container-type: inline-size;
@@ -38,7 +39,15 @@ Reference: https://piccalil.li/blog/building-a-breakout-element-with-container-u
   grid-column: content;
 }
 
-/* Let the post rail control text measure instead of the global 50ch cap */
+.post .post__content > :is(h2, h3, h4):not(:first-child) {
+  margin-block-start: var(--spacing-xl);
+}
+
+.post .post__content > :is(h2, h3, h4) + * {
+  margin-block-start: var(--spacing-s);
+}
+
+/* Let the post rail control text measure instead of the global 65ch cap. */
 .post .post__content :is(p, li, blockquote:not([class])) {
   max-inline-size: none;
 }
@@ -147,8 +156,8 @@ Reference: https://piccalil.li/blog/building-a-breakout-element-with-container-u
 }
 
 .post .post__content [data-footnotes] > #footnote-label {
+  @apply text-step-0;
   margin-block-end: var(--spacing-xs);
-  font-size: var(--text-step-1);
 }
 
 .post .post__content [data-footnotes] ol {

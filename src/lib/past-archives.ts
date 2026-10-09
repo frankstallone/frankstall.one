@@ -4,21 +4,22 @@ import path from 'node:path'
 export interface PastArchive {
   slug: string
   numericId: number | null
+  indexFileName: string
 }
 
 const pastRootDirectory = path.join(process.cwd(), 'public', 'past')
 const indexFileNames = ['index.html', 'index.htm']
 
-const hasIndexFile = async (directoryPath: string) => {
+const findIndexFile = async (directoryPath: string) => {
   for (const fileName of indexFileNames) {
     const filePath = path.join(directoryPath, fileName)
     const fileStats = await stat(filePath).catch(() => null)
     if (fileStats?.isFile()) {
-      return true
+      return fileName
     }
   }
 
-  return false
+  return null
 }
 
 const toNumericId = (slug: string) => {
@@ -58,17 +59,20 @@ export const getPastArchives = async () => {
   const archives = await Promise.all(
     directories.map(async (directory) => {
       const archivePath = path.join(pastRootDirectory, directory.name)
-      const includesIndex = await hasIndexFile(archivePath)
-      if (!includesIndex) {
+      const indexFileName = await findIndexFile(archivePath)
+      if (!indexFileName) {
         return null
       }
 
       return {
         slug: directory.name,
         numericId: toNumericId(directory.name),
+        indexFileName,
       } satisfies PastArchive
-    })
+    }),
   )
 
-  return archives.filter((archive): archive is PastArchive => Boolean(archive)).sort(archiveSort)
+  return archives
+    .filter((archive): archive is PastArchive => Boolean(archive))
+    .sort(archiveSort)
 }

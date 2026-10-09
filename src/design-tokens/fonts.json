@@ -4,18 +4,18 @@
   "items": [
     {
       "name": "Base",
-      "description": "System fonts for body copy and globally set text.",
-      "value": ["Geist", "sans-serif"]
+      "description": "Primary font for body copy and interface labels.",
+      "value": ["Inter", "sans-serif"]
     },
     {
       "name": "Display",
-      "description": "System fonts for body copy and globally set text.",
+      "description": "Display font for headings.",
       "value": ["Future", "sans-serif"]
     },
     {
       "name": "Mono",
-      "description": "System fonts for body copy and globally set text.",
-      "value": ["Geist Mono", "monospace"]
+      "description": "Monospace font for code and dates.",
+      "value": ["Paper Mono", "monospace"]
     }
   ]
 }

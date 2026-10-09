@@ -1,141 +1,126 @@
 ---
 import { getCollection } from 'astro:content'
 import Layout from '../layouts/Layout.astro'
-import type { Props as HeadProps } from '@components/Head.astro'
-
-import ADSPhoneBanner from '@components/ADSPhoneBanner.astro'
 import AboutMe from '@components/AboutMe.astro'
 
-type Props = HeadProps
+const latestPosts = (await getCollection('blog'))
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  .slice(0, 2)
 
-const allPosts = (await getCollection('blog')).sort(
-  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
-)
-const latestPosts = allPosts.slice(0, 2)
-
-/**
- * Truncates the description to 24 words
- * @param description - The description to truncate
- * @returns The truncated description
- */
-
-function truncateDescription(description: string) {
-  const words = description.split(' ')
-  if (words.length <= 24) {
-    return description
-  } else {
-    const truncatedWords = words.slice(0, 24)
-    return truncatedWords.join(' ') + '...'
-  }
-}
+const dateFormat = new Intl.DateTimeFormat('en-US', {
+  month: 'long',
+  day: 'numeric',
+  year: 'numeric',
+  timeZone: 'UTC',
+})
 ---
 
 <Layout meta={{}}>
-  <section class="region flow" id="main">
-    <div class="flow wrapper">
-      <div
-        class="grid"
-        data-layout="f4-home"
-        style="--gutter: var(--spacing-l);"
-      >
-        <div class="flow home-section-head">
-          <p class="home-section-kicker">01</p>
-          <h2 class="text-step-1 text-gray-1400">Recent posts</h2>
-          <p class="text-step-00 text-gray-1100">
-            Writing on design, systems, and craft.
-          </p>
-          <p class="text-step-00 text-gray-1100">
-            <a data-astro-prefetch="hover" href="/blog/">All posts</a>
-          </p>
-        </div>
-        <ol role="list" class="home-posts-grid">
-          {
-            latestPosts.map((post) => (
-              <li class="flow prose home-post-item">
-                <h3 class="mt-zero">
-                  <a
-                    data-astro-prefetch="hover"
-                    href={`/${post.collection}/${post.id}/`}
-                  >
-                    {post.data.title}
-                  </a>
-                </h3>
-                <p class="home-meta mt-2xs">
-                  <small class="text-step-00 tabular-nums">
-                    {new Date(post.data.publishDate).toLocaleDateString(
-                      undefined,
-                      {
-                        weekday: 'long',
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric',
-                      },
-                    )}
-                  </small>
-                </p>
-                <p>{truncateDescription(post.data.description)}</p>
-                <p class="pb-2xs">
-                  <a
-                    data-astro-prefetch="hover"
-                    href={`/${post.collection}/${post.id}/`}
-                  >
-                    Read more &hellip;
-                  </a>
-                </p>
-              </li>
-            ))
-          }
-        </ol>
-      </div>
+  <section
+    class="home-chapter wrapper"
+    id="main"
+    aria-labelledby="writing-title"
+  >
+    <div class="home-section-head">
+      <h2 id="writing-title">Recent writing</h2>
+      <p>Notes on design, systems, and craft.</p>
+      <a data-astro-prefetch="hover" href="/blog/">All posts</a>
     </div>
+    <ol role="list" class="home-posts">
+      {
+        latestPosts.map((post) => (
+          <li class="home-post">
+            <time datetime={post.data.publishDate.toISOString().slice(0, 10)}>
+              {dateFormat.format(post.data.publishDate)}
+            </time>
+            <h3>
+              <a
+                data-astro-prefetch="hover"
+                href={`/${post.collection}/${post.id}/`}
+              >
+                {post.data.title}
+              </a>
+            </h3>
+            <p>{post.data.description}</p>
+          </li>
+        ))
+      }
+    </ol>
   </section>
-  <AboutMe variant="f4-home" sectionIndex="02" />
-  <div class="region bg-gray-100">
-    <div class="wrapper">
-      <div
-        class="grid"
-        data-layout="f4-home"
-        style="--gutter: var(--spacing-l);"
-      >
-        <div class="flow home-section-head">
-          <p class="home-section-kicker">03</p>
-          <h2 class="text-step-1 text-gray-1400">Portfolio</h2>
-          <p class="text-step-00 text-gray-1100">
-            Selected work from product and systems design.
-          </p>
-        </div>
-        <div class="home-portfolio-grid">
-          <ADSPhoneBanner variant="home" />
-          <div class="flow" style="--flow-space: var(--spacing-s);">
-            <video
-              autoplay
-              loop
-              muted
-              playsinline
-              class="min-w-zero max-w-full"
-              poster="/media/klaviyo/klaviyo-phone-input-cover-web.png"
-            >
-              <source
-                src="/media/klaviyo/klaviyo-phone-input-cover-web.webm"
-                type="video/webm"
-              />
-              <source
-                src="/media/klaviyo/klaviyo-phone-input-cover-web.mp4"
-                type="video/mp4"
-              />
-            </video>
-            <p class="home-meta text-step-00">
-              <small>
-                <span>1 of 5</span>
-                <span aria-hidden="true">&middot;</span>
-                <a data-astro-prefetch="hover" href="/portfolio/"
-                  >See full portfolio</a
-                >
-              </small>
-            </p>
-          </div>
-        </div>
-      </div>
+
+  <section class="home-chapter wrapper" aria-labelledby="work-title">
+    <div class="home-section-head">
+      <h2 id="work-title">Selected work</h2>
+      <p>From the system to the smallest detail.</p>
+      <a data-astro-prefetch="hover" href="/portfolio/">Full portfolio</a>
     </div>
-  </div>
+    <article class="home-work">
+      <video
+        id="phone-input-demo"
+        class="home-work-video"
+        loop
+        muted
+        playsinline
+        controls
+        preload="none"
+        width="3496"
+        height="2160"
+        poster="/media/klaviyo/klaviyo-phone-input-cover-web.png"
+        aria-label="Klaviyo phone number input demonstration"
+      >
+        <source
+          src="/media/klaviyo/klaviyo-phone-input-cover-web.webm"
+          type="video/webm"
+        />
+        <p>
+          <a href="/portfolio/klaviyo-asecnt-design-system-phone-input/">
+            Read the phone number input case study.
+          </a>
+        </p>
+      </video>
+      <div class="home-work-copy">
+        <p class="home-meta">Klaviyo · Ascent Design System</p>
+        <h3>
+          <a
+            data-astro-prefetch="hover"
+            href="/portfolio/klaviyo-asecnt-design-system-phone-input/"
+            >Phone number input</a
+          >
+        </h3>
+        <p>
+          I designed a phone number input from the ground up, bringing product,
+          engineering, content, accessibility, and marketing teams around one
+          component.
+        </p>
+      </div>
+    </article>
+  </section>
+
+  <AboutMe />
 </Layout>
+
+<script>
+  const video = document.querySelector<HTMLVideoElement>('#phone-input-demo')
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+
+  if (video) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          observer.disconnect()
+          if (!reducedMotion.matches) {
+            video.play().catch(() => {
+              // Native controls remain available if autoplay is blocked.
+            })
+          }
+        }
+      },
+      { threshold: 0.25 },
+    )
+    observer.observe(video)
+
+    reducedMotion.addEventListener('change', (event) => {
+      if (event.matches) video.pause()
+    })
+  }
+</script>

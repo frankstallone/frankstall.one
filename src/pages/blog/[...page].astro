@@ -16,6 +16,12 @@ interface Props {
 
 const { page } = Astro.props
 const canonicalURL = new URL(Astro.url.pathname, Astro.site)
+const dateFormat = new Intl.DateTimeFormat('en-US', {
+  month: 'long',
+  day: 'numeric',
+  year: 'numeric',
+  timeZone: 'UTC',
+})
 ---
 
 <InnerLayout
@@ -25,71 +31,54 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site)
     canonicalURL: canonicalURL.href,
   }}
 >
-  <section class="region" id="main">
-    <div class="wrapper flow" style="--flow-space: var(--spacing-l);">
-      <div class="grid gap-l md:grid-cols-2">
-        {
-          page.data.map((post) => (
-            <div class="flow prose post-card">
-              <h3 class="mt-zero">
+  <section class="writing-index wrapper" id="main">
+    <ol role="list" class="writing-list">
+      {
+        page.data.map((post) => (
+          <li class="writing-entry">
+            <time datetime={post.data.publishDate.toISOString().slice(0, 10)}>
+              {dateFormat.format(post.data.publishDate)}
+            </time>
+            <div>
+              <h2>
                 <a
                   data-astro-prefetch="hover"
                   href={`/${post.collection}/${post.id}/`}
                 >
                   {post.data.title}
                 </a>
-              </h3>
-              <p class="mt-2xs ">
-                <small class="text-step-00 text-gray-1100 tabular-nums">
-                  {new Date(post.data.publishDate).toLocaleDateString(
-                    undefined,
-                    {
-                      weekday: 'long',
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    },
-                  )}
-                </small>
-              </p>
+              </h2>
               <p>{post.data.description}</p>
-              <p class="pb-l">
-                <a
-                  data-astro-prefetch="hover"
-                  href={`/${post.collection}/${post.id}/`}
-                >
-                  Read more &hellip;
-                </a>
-              </p>
             </div>
-          ))
-        }
-      </div>
-      <nav
-        class="flex justify-between items-center text-step-00 text-gray-1100 tabular-nums"
-      >
-        {
-          page.url.prev ? (
-            <a data-astro-prefetch="hover" href={page.url.prev}>
-              ← Previous
-            </a>
-          ) : (
-            <span class="text-gray-700">← Previous</span>
-          )
-        }
-        <span>
-          Page {page.currentPage} of {page.lastPage}
-        </span>
-        {
-          page.url.next ? (
-            <a data-astro-prefetch="hover" href={page.url.next}>
-              Next →
-            </a>
-          ) : (
-            <span class="text-gray-700">Next →</span>
-          )
-        }
-      </nav>
-    </div>
+          </li>
+        ))
+      }
+    </ol>
+    <nav
+      aria-label="Blog pages"
+      class="flex justify-between items-center text-step-00 text-gray-1100 tabular-nums"
+    >
+      {
+        page.url.prev ? (
+          <a data-astro-prefetch="hover" href={page.url.prev}>
+            ← Previous
+          </a>
+        ) : (
+          <span class="text-gray-1100">← Previous</span>
+        )
+      }
+      <span>
+        Page {page.currentPage} of {page.lastPage}
+      </span>
+      {
+        page.url.next ? (
+          <a data-astro-prefetch="hover" href={page.url.next}>
+            Next →
+          </a>
+        ) : (
+          <span class="text-gray-1100">Next →</span>
+        )
+      }
+    </nav>
   </section>
 </InnerLayout>

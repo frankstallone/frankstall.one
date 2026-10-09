@@ -1,0 +1,100 @@
+.contact-section {
+  padding-block: var(--spacing-2xl);
+  background: var(--color-gray-300);
+}
+
+.contact-section .home-chapter {
+  padding-block-end: 0;
+}
+
+.contact-intro h3 {
+  @apply text-step-1;
+  line-height: var(--leading-snug);
+  letter-spacing: -0.02em;
+}
+
+.contact-intro p {
+  margin-block-start: var(--spacing-s);
+  max-inline-size: 60ch;
+  color: var(--color-gray-1200);
+}
+
+.contact-brand {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: 44px;
+  margin-block-start: var(--spacing-2xs);
+}
+
+.contact-brand img {
+  block-size: auto;
+}
+
+.contact-form {
+  display: grid;
+  gap: var(--spacing-s);
+  margin-block-start: var(--spacing-l);
+}
+
+.contact-form [hidden] {
+  display: none;
+}
+
+.contact-field {
+  display: grid;
+  gap: var(--spacing-2xs);
+  min-inline-size: 0;
+}
+
+.contact-field label {
+  font-size: var(--text-step-00);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--leading-standard);
+}
+
+.contact-field label span {
+  font-weight: var(--font-weight-regular);
+  color: var(--color-gray-1100);
+}
+
+.contact-field :is(input, textarea) {
+  inline-size: 100%;
+  min-inline-size: 0;
+  min-block-size: 48px;
+  border-color: var(--color-gray-900);
+  background: var(--color-white);
+}
+
+.contact-field textarea {
+  resize: vertical;
+}
+
+.contact-submit {
+  justify-self: start;
+  min-block-size: 48px;
+  border-color: var(--color-gray-1400);
+  background: var(--color-gray-1400);
+  color: var(--color-white);
+  font-size: var(--text-step-00);
+}
+
+.contact-submit:focus-visible {
+  background: var(--color-gray-1200);
+  outline-color: var(--color-gray-1400);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .contact-submit:hover {
+    background: var(--color-gray-1200);
+  }
+}
+
+@media (width >= 35rem) {
+  .contact-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-field-wide {
+    grid-column: 1 / -1;
+  }
+}

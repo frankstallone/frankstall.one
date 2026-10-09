@@ -15,8 +15,16 @@
       "value": 1.15
     },
     {
+      "name": "Snug",
+      "value": 1.25
+    },
+    {
       "name": "Standard",
       "value": 1.5
+    },
+    {
+      "name": "Reading",
+      "value": 1.6
     },
     {
       "name": "Loose",

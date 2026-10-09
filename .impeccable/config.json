@@ -1,0 +1,15 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": ["src/css/global/global-styles.css"],
+        "createdAt": "2026-10-08T22:25:14.106Z",
+        "reason": "Agent: The flagged border belongs to the semantic blockquote selector. Its neutral gray rule separates quoted passages from article prose, including quotations in taste-is-trained-judgment.mdx and craft-is-time-on-stone.mdx; this is quotation styling, not a decorative card accent."
+      }
+    ]
+  }
+}

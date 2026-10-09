@@ -103,72 +103,103 @@ const archiveDetails = {
     canonicalURL: canonicalURL.href,
   }}
 >
-  <section class="region" id="main">
-    <div class="wrapper flow" style="--flow-space: var(--spacing-l);">
-      {
-        archivesAscending.length ? (
-          <div class="grid gap-l md:grid-cols-3">
-            {archivesAscending.map((archive, index) => {
-              const detail =
-                archiveDetails[archive.slug as keyof typeof archiveDetails]
+  <section class="archive-index wrapper" id="main">
+    {
+      archivesAscending.length ? (
+        <ol role="list" class="archive-list">
+          {archivesAscending.map((archive, index) => {
+            const detail =
+              archiveDetails[archive.slug as keyof typeof archiveDetails]
 
-              return (
-                <article class="flow prose post-card">
-                  <div class="archive-head flow flow-space-2xs">
-                    <p class="archive-index mt-zero">
-                      {toArchiveIndexLabel(archive.slug)}
-                    </p>
-                    <h3 class="mt-zero">
-                      <a href={`/past/${archive.slug}/`}>
-                        {detail?.name ?? `Site ${archive.slug}`}
-                      </a>
-                    </h3>
-                    <p class="mt-zero archive-date">
-                      <small class="text-step-00 text-gray-1100 tabular-nums">
-                        {detail
-                          ? `${detail.dateLabel} • ${detail.styleLabel}`
-                          : index === 0
-                            ? 'Oldest archive'
-                            : 'Archive snapshot'}
-                      </small>
-                    </p>
-                  </div>
-                  <p class="text-step-00 text-gray-1200">
+            return (
+              <li class="archive-entry">
+                <div class="archive-meta">
+                  <p class="font-mono">
+                    <span class="visually-hidden">Archive </span>
+                    {toArchiveIndexLabel(archive.slug)}
+                    {detail && <> · {detail.dateLabel}</>}
+                  </p>
+                  <p>
+                    {detail?.styleLabel ??
+                      (index === 0 ? 'Oldest archive' : 'Archive snapshot')}
+                  </p>
+                </div>
+                <div class="archive-copy">
+                  <h2 class="text-step-1">
+                    <a href={`/past/${archive.slug}/${archive.indexFileName}`}>
+                      {detail?.name ?? `Site ${archive.slug}`}
+                    </a>
+                  </h2>
+                  <p>
                     {detail?.description ??
                       'Open this snapshot exactly as it shipped from the static archive.'}
                   </p>
-                </article>
-              )
-            })}
-          </div>
-        ) : (
-          <p>
-            No archives were found in <code>public/past</code>.
-          </p>
-        )
-      }
-    </div>
+                </div>
+              </li>
+            )
+          })}
+        </ol>
+      ) : (
+        <p>No archived sites are available.</p>
+      )
+    }
   </section>
 </InnerLayout>
 
 <style>
-  .archive-head {
-    --flow-space: var(--spacing-2xs);
+  .archive-index {
+    padding-block: var(--spacing-xl) var(--spacing-2xl-3xl);
   }
 
-  .archive-date {
+  .archive-list {
+    display: grid;
+    gap: var(--spacing-l-xl);
     margin: 0;
   }
 
-  .archive-index {
-    display: inline-flex;
-    align-items: center;
-    justify-content: flex-start;
-    font-family: var(--font-display);
-    font-size: var(--text-step-3);
-    font-weight: var(--font-weight-bold);
-    line-height: 1;
-    letter-spacing: -0.01em;
-    color: var(--color-indigo-700, #4338ca);
+  .archive-entry {
+    display: grid;
+    gap: var(--spacing-2xs);
+    max-inline-size: none;
+  }
+
+  .archive-meta {
+    display: grid;
+    align-content: start;
+    gap: var(--spacing-3xs);
+    color: var(--color-gray-1100);
+    font-size: var(--text-step-00);
+  }
+
+  .archive-copy h2 {
+    line-height: var(--leading-snug);
+    letter-spacing: -0.02em;
+    text-wrap: pretty;
+  }
+
+  .archive-copy h2 a {
+    text-decoration-color: transparent;
+  }
+
+  .archive-copy h2 a:hover,
+  .archive-copy h2 a:focus-visible {
+    text-decoration-color: currentColor;
+  }
+
+  .archive-copy > p {
+    max-inline-size: 60ch;
+    margin-block-start: var(--spacing-2xs);
+    color: var(--color-gray-1200);
+  }
+
+  @media (width >= 47.5rem) {
+    .archive-entry {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+      column-gap: var(--spacing-xl);
+    }
+
+    .archive-meta {
+      padding-block-start: var(--spacing-3xs);
+    }
   }
 </style>

@@ -1,18 +1,23 @@
 ---
-import FluxCapacitorHero from './flux-capacitor-hero.astro'
 import Header from './Header.astro'
+import FluxCapacitorHero from './flux-capacitor-hero.astro'
 ---
 
-<div id="hero" aria-label="Hero section" class="bg-gray-100 text-gray-1400">
+<div id="hero" class="home-hero">
   <Header />
-  <div class="wrapper region hero-stage">
-    <div class="hero-copy">
-      <div class="flow prose">
-        <h1 class="text-step-5 text-balance hero-headline-alt">
-          I make tools. Software is just the lever.
-        </h1>
-      </div>
+  <div class="wrapper home-intro">
+    <div class="home-intro-copy">
+      <h1 class="hero-headline-alt">
+        I make tools.
+        <span>Software is just the lever.</span>
+      </h1>
+      <p>
+        I'm Frank, a designer and developer working where design, systems, and
+        craft meet.
+      </p>
     </div>
-    <FluxCapacitorHero />
+    <FluxCapacitorHero
+      sizes="(min-width: 60rem) 22rem, (min-width: 47.5rem) 34vw, 16rem"
+    />
   </div>
 </div>

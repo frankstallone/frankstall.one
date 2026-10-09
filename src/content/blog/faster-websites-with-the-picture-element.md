@@ -90,6 +90,6 @@ Is this topic interesting? Would you like to learn more about anything in partic
 
 ### Update
 
-<p class="text-step-000 mt-2xs">May 14, 2024</p>
+<p class="text-step-000 mt-2xs"><time datetime="2024-05-14">May 14, 2024</time></p>
 
 [Mario Hernandez](https://mariohernandez.io/) reached out to me to discuss the `<picture>` element in grander detail. He has a fantastic article, [Art direction using the picture HTML element](https://mariohernandez.io/blog/art-direction-using-the-picture-html-element/) that I highly recommend. Personally I believe the `<picture>` element can be used for more than art direction, but what do you think? Thanks for reaching out Mario!
