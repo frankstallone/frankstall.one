@@ -1,8 +1,17 @@
 ---
+interface Props {
+  inverse?: boolean
+}
+const { inverse = false } = Astro.props
 const pathname = Astro.url.pathname
 ---
 
-<header class="site-header wrapper text-gray-1400">
+<header
+  class:list={[
+    'site-header wrapper',
+    inverse ? 'text-gold-100' : 'text-gray-1400',
+  ]}
+>
   <a
     data-astro-prefetch="hover"
     href="/"

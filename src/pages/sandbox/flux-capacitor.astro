@@ -1,0 +1,25 @@
+---
+import Head from '@components/Head.astro'
+import ExperimentalHero from '@components/experimental-hero.astro'
+import MotionOrchestrator from '@components/MotionOrchestrator.astro'
+---
+
+<!doctype html>
+<html lang="en">
+  <Head
+    meta={{ title: 'Flux capacitor experiment', robots: 'noindex' }}
+    animateHero
+  />
+  <body>
+    <main>
+      <ExperimentalHero />
+      <section id="contact" class="wrapper region flow">
+        <h2>A small experiment in light and interaction.</h2>
+        <p>Press and hold the flux capacitor to charge it.</p>
+        <p><a href="/flux-preview/">View the shader study</a></p>
+        <p><a href="/">Back to the homepage</a></p>
+      </section>
+    </main>
+    <MotionOrchestrator />
+  </body>
+</html>
