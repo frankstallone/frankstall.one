@@ -1,0 +1,25 @@
+---
+import Head from '../components/Head.astro'
+import ExperimentalHero from '../components/experimental-hero.astro'
+import MotionOrchestrator from '../components/MotionOrchestrator.astro'
+import FluxBackgroundDial from '../components/FluxBackgroundDial'
+---
+
+<!doctype html>
+<html lang="en">
+  <Head
+    meta={{ title: 'Flux capacitor hero study', robots: 'noindex' }}
+    animateHero
+  />
+  <body>
+    <main>
+      <ExperimentalHero shader />
+      <section id="contact" class="wrapper region flow">
+        <p>A flux capacitor hero study.</p>
+        <a href="/">Back to the homepage</a>
+      </section>
+    </main>
+    <MotionOrchestrator />
+    <FluxBackgroundDial client:only="react" />
+  </body>
+</html>

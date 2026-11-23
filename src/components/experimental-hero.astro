@@ -1,0 +1,30 @@
+---
+import FluxCapacitorHero from './flux-capacitor-hero.astro'
+import Header from './Header.astro'
+import FluxBackground from './flux-background.astro'
+
+interface Props {
+  shader?: boolean
+}
+
+const { shader = false } = Astro.props
+---
+
+<div
+  id="hero"
+  aria-label="Hero section"
+  class:list={['bg-gray-100 text-gray-1400', { 'hero-shader': shader }]}
+>
+  {shader && <FluxBackground />}
+  <Header inverse={shader} />
+  <div class="wrapper region hero-stage">
+    <div class="hero-copy">
+      <div class="flow prose">
+        <h1 class="text-step-5 text-balance hero-headline-alt">
+          I make tools. Software is just the lever.
+        </h1>
+      </div>
+    </div>
+    {!shader && <FluxCapacitorHero />}
+  </div>
+</div>

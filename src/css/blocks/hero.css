@@ -3,6 +3,85 @@
   overflow: clip;
 }
 
+#hero.hero-shader {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  min-block-size: 100svh;
+  background: var(--color-gold-1000);
+  color: var(--color-gold-100);
+}
+
+.hero-shader > header {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-shader > header,
+.hero-shader #logo-link svg,
+.hero-shader .header-link a {
+  color: var(--color-gold-100);
+}
+
+.hero-shader .header-link a:hover,
+.hero-shader .header-link a:focus-visible {
+  color: var(--color-gold-300);
+}
+
+.hero-shader .hero-stage {
+  flex: 1;
+  grid-template-columns: 1fr;
+  inline-size: 100%;
+  min-block-size: 40rem;
+  padding-block: var(--spacing-2xl);
+}
+
+.hero-shader .hero-copy h1 {
+  color: var(--color-gold-100);
+  max-inline-size: 12ch;
+  text-shadow: 0 2px 30px var(--color-gold-1000);
+}
+
+flux-background,
+.flux-background__canvas,
+.flux-background__fallback {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  pointer-events: none;
+}
+
+flux-background {
+  z-index: -1;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 75% 50%, var(--color-gold-900), transparent 60%),
+    var(--color-gold-1000);
+}
+
+.flux-background__canvas {
+  opacity: 0;
+}
+
+.flux-background__canvas[data-ready='true'] {
+  opacity: 1;
+}
+
+@media (width < 47.5rem) {
+  .hero-shader .hero-stage {
+    align-items: start;
+    min-block-size: 42rem;
+    padding-block-start: var(--spacing-xl);
+  }
+
+  .hero-shader .hero-copy h1 {
+    max-inline-size: 15ch;
+    font-size: var(--text-step-4);
+  }
+}
+
 .hero-stage {
   display: grid;
   align-items: center;

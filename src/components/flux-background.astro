@@ -1,0 +1,53 @@
+<flux-background aria-hidden="true">
+  <svg
+    class="flux-background__fallback"
+    viewBox="0 0 1440 900"
+    preserveAspectRatio="xMidYMid slice"
+  >
+    <defs>
+      <filter id="flux-soft-glow"
+        ><feGaussianBlur stdDeviation="24"></feGaussianBlur></filter
+      >
+      <linearGradient id="flux-trace" x2="0" y2="1">
+        <stop stop-color="#dec69a"></stop>
+        <stop offset="1" stop-color="#6499af"></stop>
+      </linearGradient>
+    </defs>
+    <path
+      d="M 560,-100 Q 740,220 1040,470 Q 1250,230 1530,-100 M 1040,470 Q 1010,720 1060,1000"
+      fill="none"
+      stroke="url(#flux-trace)"
+      stroke-width="40"
+      opacity=".45"
+      filter="url(#flux-soft-glow)"></path>
+    <path
+      d="M 560,-100 Q 740,220 1040,470 Q 1250,230 1530,-100 M 1040,470 Q 1010,720 1060,1000"
+      fill="none"
+      stroke="url(#flux-trace)"
+      stroke-width="2"
+      opacity=".6"></path>
+  </svg>
+  <canvas class="flux-background__canvas"></canvas>
+</flux-background>
+
+<script>
+  import { mountFluxBackground } from '../lib/flux-background'
+
+  class FluxBackground extends HTMLElement {
+    private cleanup?: () => void
+
+    connectedCallback() {
+      const canvas = this.querySelector('canvas')
+      if (canvas) this.cleanup ??= mountFluxBackground(canvas)
+    }
+
+    disconnectedCallback() {
+      this.cleanup?.()
+      this.cleanup = undefined
+    }
+  }
+
+  if (!customElements.get('flux-background')) {
+    customElements.define('flux-background', FluxBackground)
+  }
+</script>
