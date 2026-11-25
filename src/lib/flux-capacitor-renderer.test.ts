@@ -75,7 +75,7 @@ describe('flux capacitor animation lifecycle', () => {
     motion = Object.assign(new EventTarget(), {
       matches: false,
     }) as MediaQueryList
-    vi.spyOn(window, 'matchMedia').mockReturnValue(motion)
+    vi.stubGlobal('matchMedia', vi.fn().mockReturnValue(motion))
     vi.spyOn(document, 'visibilityState', 'get').mockReturnValue('visible')
     vi.stubGlobal(
       'IntersectionObserver',
