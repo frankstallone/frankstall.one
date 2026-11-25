@@ -1,7 +1,8 @@
-/// <reference types="vitest" />
-import { defineConfig } from 'vite'
+import { wgslVitePlugin } from '@vgpu/wgsl/loader-vite'
+import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
+  plugins: [wgslVitePlugin()],
   test: {
     globals: true,
     environment: 'jsdom',

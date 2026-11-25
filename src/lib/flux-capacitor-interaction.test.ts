@@ -56,7 +56,7 @@ describe('flux capacitor interaction', () => {
     motion = Object.assign(new EventTarget(), {
       matches: false,
     }) as MediaQueryList
-    vi.spyOn(window, 'matchMedia').mockReturnValue(motion)
+    vi.stubGlobal('matchMedia', vi.fn().mockReturnValue(motion))
     vi.mocked(createFluxRenderer).mockReturnValue(renderer)
     vi.spyOn(control, 'getBoundingClientRect').mockReturnValue({
       left: 0,
@@ -70,6 +70,7 @@ describe('flux capacitor interaction', () => {
   afterEach(() => {
     cleanup()
     vi.restoreAllMocks()
+    vi.unstubAllGlobals()
   })
 
   it('passes the pointer to the 3D renderer and resets it when the pointer leaves the hero', () => {
